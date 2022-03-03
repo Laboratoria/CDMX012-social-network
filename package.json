@@ -15,7 +15,8 @@
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
-    "start": "serve -s src/"
+    "start": "serve -s src/",
+    "build": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
