@@ -15,7 +15,8 @@
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
-    "start": "serve -s src/"
+    "start": "serve -s src/",
+    "build": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -34,5 +35,10 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "dependencies": {
+    "firebase": "^9.6.7",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }
