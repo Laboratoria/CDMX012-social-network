@@ -4,38 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Social Network</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Istok+Web" />
 </head>
 <body>
   <header>
-    <!----------Logo header de SN--> >
+    <!------------------------------------------Logo header de SN---------------------------------------------------> 
     <section name="logo">
       <div class="logo-header">
-        <img class="logo-book" alt="logoBookReads"/>
-        <h1 class="nameSN">BookReads</h1>
-        <h2 class="sloganSN">Read with me</h2>
+        <img class="logo-book" src='./assets/logo sin fondo 1.png'  alt="logoBookReads"/>
+        <img class="titleBookReads" src='./assets/nombre_sin_fondo-removebg-preview 1.png'  alt="titleBookReads"/>
+        <h1 class="sloganSN">Read with me</h1>
       </div>
     </section>
   </header>
-  <!---------------Creacion de cuenta Landing page----------->
+  <!-----------------------------------------Creacion de cuenta Landing page-------------------------------->
     <section name="createAccount">
       <div class="createAccount-container">
-        <h3 class="account-title">Create an Account</h3>
+        <h2 class="account-title">Create an Account</h2>
         <form class="account-form" id="signUpForm">
-          <label for="e-mail" class="e-mail">E-mail</label>
-          <input name="e-mail" type="email" placeholder="e-mail@example.com" required />
-          <!---faltaria agregar al username en main.js-->
+          <label for="email" class="e-mail">E-mail</label>
+          <img class="mail" src='./assets/icons8-email-64 1.png' alt="mail" />
+          <input name="email" class="e-mail" id="txtEmail" type="email" placeholder="e-mail@example.com" required />
+          <!---faltaria agregar el username al main.js-->
           <label for="username" class="username">Username</label>
-          <input name="username" type="text" placeholder="Write here your username" required />
+          <img class="user" src='./assets/icons8-usuario-48 1.png' alt="user" />
+          <input name="username" class="username" type="text" placeholder="Write down your username here" required />
           <label for="password" class="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password</label>
-          <input name="password" type="password" placeholder="Insert your password here" required
-          />
-          <input type="submit" class="btn-signUp" id="btn-signUp" value="Sign Up" /> 
+          <img class="padlock" src='./assets/icons8-contraseña-24 1.png' alt="padlock" />
+          <input name="password" class="password" id="txtPassword" type="password" placeholder="Insert your password here" required />
+          <input type="button" class="btn-signUp" id="btn-signUp" value="Sign Up" />
+          <span class="otherProviders">
+            <label for="" class="otherProviders">or sign up with</label>
+          </span>
+          <span class="logosProviders">
+            <img class="logoGoogle" src="./assets/icons8-logo-de-google-48 2.png" alt="logoGoogle">
+            <img class="logoFacebook" src="./assets/image 15.png" alt="logoFacebook">
+            <img class="logoTwitter" src="./assets/image 14.png" alt="logoTwitter">
+          </span>
         </form>
       </div>
     </section>
 
   
-  <script src="bundle.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
