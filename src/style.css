@@ -24,9 +24,10 @@ body {
 
 .createAccount-container {
     background-color: white;
-    border-radius: 10% 10% 0 0;
+    border-radius: 10%;
     display:flex;
     flex-wrap:wrap;
+    justify-content: center;
     padding-left:5%;
     bottom:0;
 }
