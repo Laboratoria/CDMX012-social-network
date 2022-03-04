@@ -87,3 +87,11 @@ body {
     display:flex;
     justify-content: space-evenly;
 }
+
+/* Mensaje de error */
+.error {
+    display: block;
+    color: red;
+    padding: 2%;
+    text-align: center;
+}
