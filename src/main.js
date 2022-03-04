@@ -1,10 +1,8 @@
-// Este es el punto de entrada de tu aplicacion
-
- import { myFunction } from './lib/index.js';
+// import { myFunction } from './lib/index.js';
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,23 +18,31 @@ const firebaseConfig = {
   measurementId: "G-3327QVYEY6"
 };
 
-// Initialize Firebase
-initializeApp(firebaseConfig);
-const auth = getAuth();
+// Init firebase app
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 // sign up for users
-let signUpForm = document.querySelector("#signUpForm");
-signUpForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const email = signUpForm.email.value;
-    const password = signUpForm.password.value;
-    //faltaria ver el username
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((cred) => {
-        console.log('user created:', cred.user);
-        signUpForm.reset();
-    })
-    .catch((err) => {
-        console.log(err.message);
-    });
-});
+const txtEmail = document.getElementById('txtEmail');
+const txtPassword = document.getElementById('txtPassword');
+
+const createAccount = async () => {
+    const email = txtEmail.value;
+    const password = txtPassword.value;
+  
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(userCredential.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  const btnSignUp = document.getElementById('btn-signUp');
+  btnSignUp.addEventListener('click', createAccount);
+  
+
+
+
+
+
