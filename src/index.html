@@ -8,28 +8,34 @@
 </head>
 <body>
   <header>
+    <!----------Logo header de SN--> >
     <section name="logo">
-      <img class="logo-book" alt="logoBookReads"/>
-      <h1 class="nameSN">BookReads</h1>
-      <h2 class="sloganSN">Read with me</h2>
-    </section>
-    <section name="createAccount">
-      <div class="createAccount-container">
-        <h3 class="account-title">Create an Account</h3>
-        <form class="account-form">
-          <label for="e-mail" class="e-mail">E-mail</label>
-          <input name="e-mail" type="email" placeholder="e-mail@example.com" required />
-          <label for="username" class="username">Username</label>
-          <input name="username" type="text" placeholder="Write here your username" required />
-          <label for="password" class="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password</label>
-          <input name="password" type="password" placeholder="Insert your password here" pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}" required
-          />
-          <input type="submit" class="btn-signUp" value="Sign Up" /> 
-        </form>
-
+      <div class="logo-header">
+        <img class="logo-book" alt="logoBookReads"/>
+        <h1 class="nameSN">BookReads</h1>
+        <h2 class="sloganSN">Read with me</h2>
       </div>
     </section>
   </header>
+  <!---------------Creacion de cuenta Landing page----------->
+    <section name="createAccount">
+      <div class="createAccount-container">
+        <h3 class="account-title">Create an Account</h3>
+        <form class="account-form" id="signUpForm">
+          <label for="e-mail" class="e-mail">E-mail</label>
+          <input name="e-mail" type="email" placeholder="e-mail@example.com" required />
+          <!---faltaria agregar al username en main.js-->
+          <label for="username" class="username">Username</label>
+          <input name="username" type="text" placeholder="Write here your username" required />
+          <label for="password" class="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password</label>
+          <input name="password" type="password" placeholder="Insert your password here" required
+          />
+          <input type="submit" class="btn-signUp" id="btn-signUp" value="Sign Up" /> 
+        </form>
+      </div>
+    </section>
+
+  
   <script src="bundle.js"></script>
 </body>
 </html>
