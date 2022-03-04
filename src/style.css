@@ -132,8 +132,16 @@ body {
 }
 
 .logosProviders {
-  display: flex;
-  justify-content: space-evenly;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+/* Mensaje de error */
+.error {
+    display: block;
+    color: red;
+    padding: 2%;
+    text-align: center;
 }
 
 /**enterAccount-container**/
@@ -147,3 +155,4 @@ body {
   width: 100%;
   visibility: hidden;
 }
+

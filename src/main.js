@@ -3,6 +3,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import { errorArea, showSignUpError } from './ui.js';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -43,26 +45,24 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // sign up for users
+const signUpForm = document.querySelector('#signUpForm');
 const txtEmail = document.getElementById('txtEmail');
 const txtPassword = document.getElementById('txtPassword');
 
 const createAccount = async () => {
-    const email = txtEmail.value;
-    const password = txtPassword.value;
-  
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(userCredential.user);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  
-  const btnSignUp = document.getElementById('btn-signUp');
-  btnSignUp.addEventListener('click', createAccount);
-  
+  const email = txtEmail.value;
+  const password = txtPassword.value;
 
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    console.log(userCredential.user);
+    errorArea.innerHTML = '';
+    signUpForm.reset();
+  } catch (error) {
+    console.log(error);
+    showSignUpError(error);
+  }
+};
 
-
-
-
+const btnSignUp = document.getElementById('btn-signUp');
+btnSignUp.addEventListener('click', createAccount);
