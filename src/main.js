@@ -18,6 +18,26 @@ const firebaseConfig = {
   measurementId: "G-3327QVYEY6"
 };
 
+// First sign up and sign in btns
+
+const btnSignUpLP = document.querySelector('#btn-signUp-LP');
+const btnSignInLP = document.querySelector('#btn-signIn-LP');
+const signUpContainer = document.querySelector('.createAccount-container');
+const signInContainer = document.querySelector('.enterAccount-container');
+const signUpInContainer= document.querySelector('.sign-up-in-container');
+
+btnSignUpLP.addEventListener('click', () => {
+  signUpContainer.style.visibility = 'visible';
+  signUpInContainer.style.visibility = 'hidden';
+});
+
+btnSignInLP.addEventListener('click', () => {
+  signInContainer.style.visibility = 'visible';
+  signUpInContainer.style.visibility = 'hidden';
+});
+
+
+
 // Init firebase app
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
