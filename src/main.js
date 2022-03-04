@@ -4,7 +4,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,3 +23,23 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+
+// sign up for users
+let signUpForm = document.querySelector("#signUpForm");
+signUpForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const email = signUpForm.email.value;
+    const password = signUpForm.password.value;
+    //faltaria ver el username
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((cred) => {
+        console.log('user created:', cred.user);
+        signUpForm.reset();
+    });
+    .catch((err) => {
+        console.log(err.message);
+    });
+});
+
+
+
