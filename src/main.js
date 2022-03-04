@@ -2,7 +2,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -61,6 +61,22 @@ const createAccount = async () => {
   const btnSignUp = document.getElementById('btn-signUp');
   btnSignUp.addEventListener('click', createAccount);
   
+// sign up with Facebook
+
+const facebookBtn = document.querySelector('#facebookSignUp');
+console.log(facebookBtn)
+facebookBtn.addEventListener('click', e => {
+  e.preventDefault();
+  const facebookProvider = new FacebookAuthProvider();
+  signInWithPopup(auth, facebookProvider)
+    .then((result) => {
+        console.log(result)
+        console.log('facebook sign in')
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
 
 
 
