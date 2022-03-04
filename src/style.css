@@ -1,0 +1,89 @@
+/*********************************mobile de landing page*******************************/
+body {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    background-image: url('./assets/photo-1543002588-bfa74002ed7e\ 1.png');
+    background-repeat: no-repeat;
+    font-family: 'Istok Web', sans-serif;
+}
+
+.logo-header {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction:column;
+    width:80%;
+    height:30%;
+    margin-top:20%;
+}
+
+.sloganSN {
+    color:#B21E48;
+}
+
+.createAccount-container {
+    background-color: white;
+    border-radius: 10% 10% 0 0;
+    display:flex;
+    flex-wrap:wrap;
+    padding-left:5%;
+    bottom:0;
+}
+
+.createAccount-container h2 {
+    padding-top:5%;
+    text-align: left;
+    font-style: bold;
+    font-size: 2em;
+    width:100%;
+}
+
+.account-form label {
+    line-height: 4em;
+    width:100%;
+}
+
+.account-form img {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.account-form input  {
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+    width: 100%;
+}
+
+.account-form input:focus {
+    background-color: #ddd;
+}
+
+ .btn-signUp  {
+    margin-top: 10%;
+    border-radius: 30px;
+    border:none;
+    width:10em;
+    height:3em;
+    color:white;
+    font-weight: bold;
+    background-color: #951C45;
+    cursor:pointer;
+}
+
+.btn-signUp:active {
+    transform: translateY(4px);
+    color:black;
+    border:none;
+}
+
+.otherProviders label {
+    display: block;
+    text-align: center;
+}
+
+.logosProviders {
+    display:flex;
+    justify-content: space-evenly;
+}
