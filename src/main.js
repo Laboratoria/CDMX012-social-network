@@ -26,19 +26,19 @@ const btnSignUpLP = document.querySelector('#btn-signUp-LP');
 const btnSignInLP = document.querySelector('#btn-signIn-LP');
 const signUpContainer = document.querySelector('.createAccount-container');
 const signInContainer = document.querySelector('.enterAccount-container');
-const signUpInContainer= document.querySelector('.sign-up-in-container');
+const signUpInContainer = document.querySelector('.sign-up-in-container');
 
 btnSignUpLP.addEventListener('click', () => {
   signUpContainer.style.visibility = 'visible';
+  signUpContainer.style.display = 'flex';
   signUpInContainer.style.visibility = 'hidden';
 });
 
 btnSignInLP.addEventListener('click', () => {
   signInContainer.style.visibility = 'visible';
+  signInContainer.style.display = 'flex';
   signUpInContainer.style.visibility = 'hidden';
 });
-
-
 
 // Init firebase app
 const app = initializeApp(firebaseConfig);
