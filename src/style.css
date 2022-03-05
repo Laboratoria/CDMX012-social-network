@@ -21,6 +21,7 @@ body {
   background-image: url("./assets/photo-1543002588-bfa74002ed7e\ 1.png");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
 }
 
 .logo-header {
@@ -98,8 +99,9 @@ body {
   margin-top: 10%;
   border-radius: 30px;
   border: none;
-  width: 250px;
-  height: 50px;
+  width: 70%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
   font-size: 20px;
   color: white;
   font-weight: bold;
@@ -111,8 +113,9 @@ body {
   margin-top: 10%;
   border-radius: 30px;
   border: none;
-  width: 250px;
-  height: 50px;
+  width: 70%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
   font-size: 20px;
   color: var(--btnSignIn-color);
   font-weight: bold;
@@ -132,8 +135,16 @@ body {
 }
 
 .logosProviders {
-  display: flex;
-  justify-content: space-evenly;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+/* Mensaje de error */
+.error {
+    display: block;
+    color: red;
+    padding: 2%;
+    text-align: center;
 }
 
 /**enterAccount-container**/
@@ -146,4 +157,43 @@ body {
   height: 62%;
   width: 100%;
   visibility: hidden;
+}
+
+@media screen and (min-width: 768px){
+    body {
+        background-image: none;
+        display: flex;
+    }
+
+    .landing-page-container {
+        background-color: white;
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .sign-up-in-container {
+        position: relative;
+    }
+
+    .landing-page-img {
+        background-image: url("./assets/front-page-img.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #951c45;
+        width: 55%;
+    }
+
+    .btn-signIn {
+        border: solid 1px var(--btnSignIn-color);
+    } 
+
+    .createAccount-container{
+        display: none;
+    } 
+
+    .enterAccount-container{
+        display: none;
+    }
 }
