@@ -34,5 +34,20 @@
   },
   "engines": {
     "node": ">=14"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "firebase": "^9.6.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonifeg/CDMX012-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/sonifeg/CDMX012-social-network/issues"
+  },
+  "homepage": "https://github.com/sonifeg/CDMX012-social-network#readme"
 }
