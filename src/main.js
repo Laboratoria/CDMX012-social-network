@@ -17,7 +17,7 @@ const firebaseConfig = {
   storageBucket: "bookreads-9192a.appspot.com",
   messagingSenderId: "512279860959",
   appId: "1:512279860959:web:75245200f515c09571fb6a",
-  measurementId: "G-3327QVYEY6"
+  measurementId: "G-3327QVYEY6",
 };
 
 // First sign up and sign in btns
@@ -26,19 +26,19 @@ const btnSignUpLP = document.querySelector('#btn-signUp-LP');
 const btnSignInLP = document.querySelector('#btn-signIn-LP');
 const signUpContainer = document.querySelector('.createAccount-container');
 const signInContainer = document.querySelector('.enterAccount-container');
-const signUpInContainer= document.querySelector('.sign-up-in-container');
+const signUpInContainer = document.querySelector('.sign-up-in-container');
 
 btnSignUpLP.addEventListener('click', () => {
   signUpContainer.style.visibility = 'visible';
+  signUpContainer.style.display = 'flex';
   signUpInContainer.style.visibility = 'hidden';
 });
 
 btnSignInLP.addEventListener('click', () => {
   signInContainer.style.visibility = 'visible';
+  signInContainer.style.display = 'flex';
   signUpInContainer.style.visibility = 'hidden';
 });
-
-
 
 // Init firebase app
 const app = initializeApp(firebaseConfig);
@@ -50,19 +50,50 @@ const txtEmail = document.getElementById('txtEmail');
 const txtPassword = document.getElementById('txtPassword');
 
 const createAccount = async () => {
-  const email = txtEmail.value;
-  const password = txtPassword.value;
+    const email = txtEmail.value;
+    const password = txtPassword.value;
+  
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(userCredential.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  const btnSignUp = document.getElementById('btn-signUp');
+  btnSignUp.addEventListener('click', createAccount);
 
-  try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    console.log(userCredential.user);
-    errorArea.innerHTML = '';
-    signUpForm.reset();
-  } catch (error) {
-    console.log(error);
-    showSignUpError(error);
-  }
+  //vincular cuenta con otros proveedores
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+const twitterProvider = new TwitterAuthProvider();
+
+async function signInWithPopup(auth, googleProvider) {
+    try {
+        const credential = await GoogleAuthProvider.credentialFromResult(auth);
+        console.log(userCredential.user);
+      } catch (error) {
+        console.log(error);
+      }
+}
+
 };
+  .then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
 
 const btnSignUp = document.getElementById('btn-signUp');
 btnSignUp.addEventListener('click', createAccount);
@@ -102,7 +133,7 @@ btnFacebook.addEventListener("click", () => {
   signInWithPopup(auth, facebookProvider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const credential = FacebookAuthProvider.credentialFromResult(result);
     // The signed-in user info.
     const user = result.user;
     console.log(user);
