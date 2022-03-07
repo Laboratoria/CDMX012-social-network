@@ -69,12 +69,13 @@ const createAccount = async () => {
 const btnSignUp = document.getElementById('btn-signUp');
 btnSignUp.addEventListener('click', createAccount);
 
+
 //sign in with google
 
 const googleProvider = new GoogleAuthProvider();
 
 const btnGoogle = document.getElementById('btn-google');
-btnGoogle.addEventListener('click', () => { 
+btnGoogle.addEventListener("click", () => { 
   signInWithPopup(auth, googleProvider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
@@ -95,19 +96,7 @@ btnGoogle.addEventListener('click', () => {
   });
 })
 
-const btnSignUp = document.getElementById('btn-signUp');
-btnSignUp.addEventListener('click', createAccount);
 
-//sign in with google
-
-const googleProvider = new GoogleAuthProvider();
-
-const btnGoogle = document.getElementById('btn-google');
-btnGoogle.addEventListener("click", () => { 
-  signInWithPopup(auth, googleProvider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
 //sign in with facebook
 
 const facebookProvider = new FacebookAuthProvider();
@@ -133,5 +122,3 @@ btnFacebook.addEventListener('click', () => {
     // ...
   });
 })
-
-  
