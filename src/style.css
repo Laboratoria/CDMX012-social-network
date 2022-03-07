@@ -57,7 +57,7 @@ body {
 }
 
 .createAccount-container {
-  position: absolute; /*Aquí*/
+  position: absolute;
   background-color: white;
   border-radius: 10% 10% 0 0;
   display: flex;
