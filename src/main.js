@@ -2,8 +2,9 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, getRedirectResult, signOut } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
-import { GoogleAuthProvider, FacebookAuthProvider} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import { errorArea, showSignUpError } from './ui.js';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -16,7 +17,7 @@ const firebaseConfig = {
   storageBucket: "bookreads-9192a.appspot.com",
   messagingSenderId: "512279860959",
   appId: "1:512279860959:web:75245200f515c09571fb6a",
-  measurementId: "G-3327QVYEY6",
+  measurementId: "G-3327QVYEY6"
 };
 
 // First sign up and sign in btns
@@ -46,42 +47,42 @@ const auth = getAuth(app);
 // sign up for users
 const signUpForm = document.querySelector('#signUpForm');
 const txtEmail = document.getElementById('txtEmail');
+const txtUsername = document.getElementById('txtUsername');
 const txtPassword = document.getElementById('txtPassword');
 
 const createAccount = async () => {
-    const email = txtEmail.value;
-    const password = txtPassword.value;
-  
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(userCredential.user);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  
-  const btnSignUp = document.getElementById('btn-signUp');
-  btnSignUp.addEventListener('click', createAccount);
+  const email = txtEmail.value;
+  const username = txtUsername.value;
+  const password = txtPassword.value;
 
-  //vincular cuenta con otros proveedores
-const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
-const twitterProvider = new TwitterAuthProvider();
-
-async function signInWithPopup(auth, googleProvider) {
-    try {
-        const credential = await GoogleAuthProvider.credentialFromResult(auth);
-        console.log(userCredential.user);
-      } catch (error) {
-        console.log(error);
-      }
-}
-
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, username, password);
+    console.log(userCredential.user);
+    errorArea.innerHTML = '';
+    signUpForm.reset();
+  } catch (error) {
+    console.log(error);
+    showSignUpError(error);
+  }
 };
+
+const btnSignUp = document.getElementById('btn-signUp');
+btnSignUp.addEventListener('click', createAccount);
+
+
+//sign in with google
+
+const googleProvider = new GoogleAuthProvider();
+
+const btnGoogle = document.getElementById('btn-google');
+btnGoogle.addEventListener("click", () => { 
+  signInWithPopup(auth, googleProvider)
   .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
     // The signed-in user info.
     const user = result.user;
+    console.log(user);
     // ...
   }).catch((error) => {
     // Handle Errors here.
@@ -93,15 +94,23 @@ async function signInWithPopup(auth, googleProvider) {
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
+})
 
-getRedirectResult(auth)
+
+//sign in with facebook
+
+const facebookProvider = new FacebookAuthProvider();
+
+const btnFacebook = document.getElementById('btn-facebook');
+btnFacebook.addEventListener('click', () => {
+  signInWithPopup(auth, facebookProvider)
   .then((result) => {
-    // This gives you a Google Access Token. You can use it to access Google APIs.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = FacebookAuthProvider.credentialFromResult(result);
     // The signed-in user info.
     const user = result.user;
+    console.log(user);
+    // ...
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -109,13 +118,7 @@ getRedirectResult(auth)
     // The email of the user's account used.
     const email = error.email;
     // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
+    const credential = FacebookAuthProvider.credentialFromError(error);
     // ...
   });
-
-  signOut(auth).then(() => {
-    // Sign-out successful.
-  }).catch((error) => {
-    // An error happened.
-  });
-  
+})
