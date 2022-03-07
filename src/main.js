@@ -3,7 +3,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, getRedirectResult, signOut } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
-import { GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import { GoogleAuthProvider, FacebookAuthProvider} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,11 +19,32 @@ const firebaseConfig = {
   measurementId: "G-3327QVYEY6",
 };
 
+// First sign up and sign in btns
+
+const btnSignUpLP = document.querySelector('#btn-signUp-LP');
+const btnSignInLP = document.querySelector('#btn-signIn-LP');
+const signUpContainer = document.querySelector('.createAccount-container');
+const signInContainer = document.querySelector('.enterAccount-container');
+const signUpInContainer = document.querySelector('.sign-up-in-container');
+
+btnSignUpLP.addEventListener('click', () => {
+  signUpContainer.style.visibility = 'visible';
+  signUpContainer.style.display = 'flex';
+  signUpInContainer.style.visibility = 'hidden';
+});
+
+btnSignInLP.addEventListener('click', () => {
+  signInContainer.style.visibility = 'visible';
+  signInContainer.style.display = 'flex';
+  signUpInContainer.style.visibility = 'hidden';
+});
+
 // Init firebase app
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // sign up for users
+const signUpForm = document.querySelector('#signUpForm');
 const txtEmail = document.getElementById('txtEmail');
 const txtPassword = document.getElementById('txtPassword');
 

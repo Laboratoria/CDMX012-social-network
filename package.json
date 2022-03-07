@@ -35,5 +35,10 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "dependencies": {
+    "firebase": "^9.6.7",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }

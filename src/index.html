@@ -7,20 +7,26 @@
   <title>Social Network</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Istok+Web" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-  <header>
-    <!------------------------------------------Logo header de SN---------------------------------------------------> 
-    <section name="logo">
-      <div class="logo-header">
-        <img class="logo-book" src='./assets/logo sin fondo 1.png'  alt="logoBookReads"/>
-        <img class="titleBookReads" src='./assets/nombre_sin_fondo-removebg-preview 1.png'  alt="titleBookReads"/>
-        <h1 class="sloganSN">Read with me</h1>
-      </div>
-    </section>
-  </header>
-  <!-----------------------------------------Creacion de cuenta Landing page-------------------------------->
+  <div class="landing-page-container">
+    <header>
+      <!------------------------------------------Logo header de SN---------------------------------------------------> 
+      <section name="logo">
+        <div class="logo-header">
+          <img class="logo-book" src='./assets/logo sin fondo 1.png'  alt="logoBookReads"/>
+          <img class="titleBookReads" src='./assets/nombre_sin_fondo-removebg-preview 1.png'  alt="titleBookReads"/>
+          <h1 class="sloganSN">Read with me</h1>
+        </div>
+      </section>
+    </header>
+    <!-----------------------------------------Creacion de cuenta Landing page-------------------------------->
     <section name="createAccount">
+      <div class="sign-up-in-container">
+        <input type="button" class="btn-signUp" id="btn-signUp-LP" value="Sign Up" />
+        <input type="button" class="btn-signIn" id="btn-signIn-LP" value="Sign In" />
+      </div>
       <div class="createAccount-container">
         <h2 class="account-title">Create an Account</h2>
         <form class="account-form" id="signUpForm">
@@ -34,6 +40,7 @@
           <label for="password" class="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password</label>
           <img class="padlock" src='./assets/icons8-contraseña-24 1.png' alt="padlock" />
           <input name="password" class="password" id="txtPassword" type="password" placeholder="Insert your password here" required />
+          <p class="error show-error-msg"></p>
           <input type="button" class="btn-signUp" id="btn-signUp" value="Sign Up" />
           <span class="otherProviders">
             <label for="" class="otherProviders">or sign up with</label>
@@ -45,8 +52,14 @@
           </span>
         </form>
       </div>
-    </section>
 
+      <div class="enterAccount-container">
+
+      </div>
+    </section>
+  </div>
+
+  <div class="landing-page-img"></div>
   
   <script type="module" src="main.js"></script>
 </body>
