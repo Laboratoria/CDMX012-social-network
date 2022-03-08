@@ -34,5 +34,20 @@
   },
   "engines": {
     "node": ">=14"
-  }
+  },
+  "dependencies": {
+    "firebase": "^9.6.8"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziomarajimenez/CDMX012-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ziomarajimenez/CDMX012-social-network/issues"
+  },
+  "homepage": "https://github.com/ziomarajimenez/CDMX012-social-network#readme"
 }
