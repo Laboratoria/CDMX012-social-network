@@ -2,7 +2,8 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import {getFirestore, collection, addDoc} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
 import { errorArea, showSignUpError } from './ui.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -79,7 +80,7 @@ btnGoogle.addEventListener("click", () => {
   signInWithPopup(auth, googleProvider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
+    //const credential = GoogleAuthProvider.credentialFromResult(result);
     // The signed-in user info.
     const user = result.user;
     console.log(user);
@@ -122,3 +123,23 @@ btnFacebook.addEventListener('click', () => {
     // ...
   });
 })
+
+//Get userName
+const db = getFirestore();
+const colRef = collection(db, 'users');
+const saveInfoUser = document.querySelector('.btn-username');
+const moreInfoUser = document.querySelector('#moreInfo-user')
+saveInfoUser.addEventListener('click', (e) => {
+  e.preventDefault();
+  onAuthStateChanged(auth, (user) => {
+    const uid = user.uid;
+    addDoc(colRef, {
+      UID: uid,
+      username: moreInfoUser.username.value,
+      description: moreInfoUser.description.value,
+    })
+    .then(() => {
+      moreInfoUser.reset()
+    })
+  })
+});

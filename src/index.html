@@ -33,10 +33,6 @@
           <label for="email" class="e-mail">E-mail</label>
           <img class="mail" src='./assets/icons8-email-64 1.png' alt="mail" />
           <input name="email" class="e-mail" id="txtEmail" type="email" placeholder="e-mail@example.com" required />
-          <!---faltaria agregar el username al main.js--->
-          <label for="username" class="username">Username</label>
-          <img class="user" src='./assets/icons8-usuario-48 1.png' alt="user" />
-          <input name="username" class="username" id="txtUsername" type="text" placeholder="Write down your username here" required />
           <label for="password" class="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password</label>
           <img class="padlock" src='./assets/icons8-contraseña-24 1.png' alt="padlock" />
           <input name="password" class="password" id="txtPassword" type="password" placeholder="Insert your password here" required />
@@ -50,6 +46,15 @@
             <img class="logoFacebook" id="btn-facebook" src="./assets/image 15.png" alt="logoFacebook">
     
           </span>
+        </form>
+
+        <form id="moreInfo-user">
+          <label for="username" class="username">Username</label>
+          <img class="user" src='./assets/icons8-usuario-48 1.png' alt="user" />
+          <input name="username" class="username" id="txtUsername" type="text" placeholder="Write down your username here" required />
+          <label for="description">Description</label>
+          <textarea id="description" name="description"></textarea>
+          <input type="button" class="btn-username" id="btn-username" value="Save" />
         </form>
       </div> 
 
