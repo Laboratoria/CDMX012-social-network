@@ -4,9 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,300;1,400;1,500;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
   <title>Document</title>
 </head>
 <body>
+  <main>
+    <section id="logIn">
+      <img src="./img/logo.png" class="meetArcade" alt="logoMeetArcade" >
+      <button class="log" id="joinUs" ><a href="#joinUsScreen" ></a>Join Us</button>
+      <button class="log" id="shootIn" ><a href="#shootInScreen" ></a>Shoot In</button>
+    </section>
+
+    <section class="screenJoin" id="joinUsScreen" >
+      <p class="titles"><img src="./img/arrow.png" alt="arrowBackTo" class="arrowBack">Join Us</p>
+      <label class="sign">Sign in with:</label>
+      <div class="container">
+        <img src="./img/google.png" alt="buttonGoogle" class="btns">
+        <img src="./img/facebook.png" alt="buttonFace" class="btns">
+        <img src="./img/twitch.png" alt="buttonTwitch" class="btns">
+      </div>
+      <label class="text">Username:</label>
+      <input type="text" class="inputs">
+      <label class="text">Email:</label>
+      <input type="text" class="inputs">
+      <label class="text">Password:</label>
+      <input type="password" class="inputs" minlength="8">
+      <button class="btnsSign">Join Us</button>
+      <p class="sign">Have an Account? <a href="#"  class="goShootIn">Shoot In</p></a>
+    </section>
+
+    <section class="screenJoin" id="shootInScreen" >
+      <p class="titles"><img src="./img/arrow.png" alt="arrowBackTo" class="arrowBack">Shoot In</p>
+      <label class="sign">Sign in with:</label>
+      <div class="container">
+        <img src="./img/google.png" alt="buttonGoogle" class="btns">
+        <img src="./img/facebook.png" alt="buttonFace" class="btns">
+        <img src="./img/twitch.png" alt="buttonTwitch" class="btns">
+      </div>
+      <label class="text">Email or Username:</label>
+      <input type="text" class="inputs">
+      <label class="text">Password:</label>
+      <input type="password" class="inputs" minlength="8">
+      <button class="btnsSign">Shoot In</button>
+      <p class="sign">Don't have an Account? <a href="#"  class="goShootIn">Join Us</p></a>
+    </section>
+   
+  </main>
+
+
+
   <script type="module" src="main.js"></script>
   <script type="module">
     // Import the functions you need from the SDKs you need

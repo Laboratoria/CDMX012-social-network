@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red;  */
+    width: 360px;
+    height: fit-content;
+}
+@font-face {
+    font-family: arcade;
+    src: url(ka1.ttf);
+  }
+  @font-face {
+    font-family: neon;
+    src: url(NEON____.TTF);
+  }
+
+body{
+    background: linear-gradient(to bottom, #010409, #5B1E87);
+    background-repeat: no-repeat;
+    width: 100%;  
+    height: 100%;
+    font-family: 'Roboto', sans-serif; 
+}
+main{
+    width: 100%;
+    height: 100%;
+}
+
+/* Primera seccion login */
+
+#logIn{
+    display: flex;
+    flex-flow:wrap row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.meetArcade{
+    position: relative;
+    width: 95%;
+    padding-left: 20px;
+    height: 260px;
+    justify-self: center;
+}
+
+.log{
+    position: relative;
+    width: 150px;
+    height: 40px; 
+    font-weight: bolder;
+    color: #E587ED; 
+    background-color: #c4c4c400;
+    border: 3px solid #E587ED;
+    box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
+    border-radius: 15px;
+    margin-bottom: 100px;
+}
+
+/* Segunda seccion join us */
+.screenJoin{
+    display: flex;
+    flex-flow: wrap column;
+}
+.titles{
+    font-family: arcade;
+    line-height: 28px;
+    font-size: 24px;
+    color: #28CEF2;
+    text-shadow: 0px 0px 5px #E587ED;
+}
+
+.titles img{
+    margin: 0 15px;
+}
+
+.arrowBack{
+   width: 30px;
+   height: 30px;
+}
+
+.sign{
+    color: #F2A928;
+    height: auto;
+    margin-left: 50px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-family:'Roboto', sans-serif; 
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btns{
+    width: 89px;
+    height: 59px;
+}
+
+.text{
+    font-size: 18px;
+    color: #FFFFFF;
+    font-family:'Roboto', sans-serif; 
+    margin-left: 50px;
+}
+
+.inputs{
+    color: #E587ED;
+    width: 240px;
+    height: 50px;
+    background: rgba(196, 196, 196, 0.25);
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.btnsSign{
+    width: 119px;
+    height: 46px;
+    color: #E587ED;
+    font-weight: bold;
+    font-size: 18px;
+    border: 3px solid #E587ED;
+    box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
+    border-radius: 10px;
+    background-color: #c4c4c400;
+    margin-left: 100px;
+}
+
+.sign a{
+    color: #F2A928;
+    height: auto;
+    margin-left: 5px;
+    font-size: 18px;
+    font-family:'Roboto', sans-serif; 
+}
