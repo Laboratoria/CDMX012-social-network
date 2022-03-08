@@ -9,22 +9,48 @@
 </head>
 <body>
   <main>
-    <section id="logIn" class="hiddenLogIn">
+    <section id="logIn">
       <img src="./img/logo.png" class="meetArcade" alt="logoMeetArcade" >
-      <button class="log" id="joinUs">Join Us</button>
-      <button class="log" id="shootIn">Shoot In</button>
+      <button class="log" id="joinUs" ><a href="#joinUsScreen" ></a>Join Us</button>
+      <button class="log" id="shootIn" ><a href="#shootInScreen" ></a>Shoot In</button>
     </section>
 
-    <section id="joinUs" class="hiddenJoinUs">
-
+    <section class="screenJoin" id="joinUsScreen" >
+      <p class="titles"><img src="./img/arrow.png" alt="arrowBackTo" class="arrowBack">Join Us</p>
+      <label class="sign">Sign in with:</label>
+      <div class="container">
+        <img src="./img/google.png" alt="buttonGoogle" class="btns">
+        <img src="./img/facebook.png" alt="buttonFace" class="btns">
+        <img src="./img/twitch.png" alt="buttonTwitch" class="btns">
+      </div>
+      <label class="text">Username:</label>
+      <input type="text" class="inputs">
+      <label class="text">Email:</label>
+      <input type="text" class="inputs">
+      <label class="text">Password:</label>
+      <input type="password" class="inputs" minlength="8">
+      <button class="btnsSign">Join Us</button>
+      <p class="sign">Have an Account? <a href="#"  class="goShootIn">Shoot In</p></a>
     </section>
 
-    <section id="shootIn" class="hiddenShootIn">
-      
+    <section class="screenJoin" id="shootInScreen" >
+      <p class="titles"><img src="./img/arrow.png" alt="arrowBackTo" class="arrowBack">Shoot In</p>
+      <label class="sign">Sign in with:</label>
+      <div class="container">
+        <img src="./img/google.png" alt="buttonGoogle" class="btns">
+        <img src="./img/facebook.png" alt="buttonFace" class="btns">
+        <img src="./img/twitch.png" alt="buttonTwitch" class="btns">
+      </div>
+      <label class="text">Email or Username:</label>
+      <input type="text" class="inputs">
+      <label class="text">Password:</label>
+      <input type="password" class="inputs" minlength="8">
+      <button class="btnsSign">Shoot In</button>
+      <p class="sign">Don't have an Account? <a href="#"  class="goShootIn">Join Us</p></a>
     </section>
    
   </main>
-  
+
 
   <script type="module" src="main.js"></script>
   <script type="module">
