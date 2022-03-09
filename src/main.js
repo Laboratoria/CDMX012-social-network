@@ -2,7 +2,8 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, onAuthStateChanged, getAdditionalUserInfo } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import {getFirestore, doc, setDoc} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
 import { errorArea, showSignUpError } from './ui.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -57,7 +58,7 @@ const createAccount = async () => {
 
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, username, password);
-    console.log(userCredential.user);
+    askMoreInfo(userCredential);
     errorArea.innerHTML = '';
     signUpForm.reset();
   } catch (error) {
@@ -79,10 +80,14 @@ btnGoogle.addEventListener("click", () => {
   signInWithPopup(auth, googleProvider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
+    //const credential = GoogleAuthProvider.credentialFromResult(result);
     // The signed-in user info.
-    const user = result.user;
-    console.log(user);
+    if (getAdditionalUserInfo(result).isNewUser){
+      askMoreInfo(result);
+    } else {
+      console.log('Already register')
+    }
+
     // ...
   }).catch((error) => {
     // Handle Errors here.
@@ -106,11 +111,14 @@ btnFacebook.addEventListener('click', () => {
   signInWithPopup(auth, facebookProvider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = FacebookAuthProvider.credentialFromResult(result);
+    //const credential = FacebookAuthProvider.credentialFromResult(result);
     // The signed-in user info.
-    const user = result.user;
-    console.log(user);
-    // ...
+    //const user = result.user;
+    if (getAdditionalUserInfo(result).isNewUser){
+      askMoreInfo(result);
+    } else {
+      console.log('Already register')
+    }
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -122,3 +130,33 @@ btnFacebook.addEventListener('click', () => {
     // ...
   });
 })
+
+//Get userName
+const db = getFirestore();
+const saveInfoUser = document.querySelector('.btn-username');
+const moreInfoUser = document.querySelector('#moreInfo-user');
+const addInfoContainer = document.querySelector('.add-info-container');
+
+function askMoreInfo (result){
+  signUpContainer.style.visibility = 'hidden';
+  addInfoContainer.style.visibility = 'visible';
+
+  if (result.providerId == "google.com" || "facebook.com" ){
+    moreInfoUser.name.value = result.user.displayName
+  }
+
+  saveInfoUser.addEventListener('click', (e) => {
+    e.preventDefault();
+    onAuthStateChanged(auth, (result) => {
+      const uid = result.uid;
+      setDoc(doc(db, 'users', uid), {
+        name: moreInfoUser.name.value,
+        username: moreInfoUser.username.value,
+        bio: moreInfoUser.description.value,
+      })
+      .then(() => {
+        moreInfoUser.reset()
+      })
+    })
+  });
+}
