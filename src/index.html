@@ -15,7 +15,7 @@
       <button class="log" id="shootIn" ><a href="#shootInScreen" ></a>Shoot In</button>
     </section>
 
-    <section class="screenJoin hidden" id="joinUsScreen" style="display: none;">
+    <section class="screenJoin" id="joinUsScreen" style="display: none;">
       <p class="titles"><img src="./assets/arrow.png" alt="arrowBackTo" class="arrowBack" id="aJ">Join Us</p>
       <label class="sign">Sign in with:</label>
       <div class="container">
@@ -23,17 +23,19 @@
         <img src="./assets/facebook.png" alt="buttonFace" class="btns">
         <img src="./assets/twitch.png" alt="buttonTwitch" class="btns">
       </div>
-      <label class="text">Username:</label> 
-      <input type="text" class="inputs" id="username">
-      <label class="text">Email:</label>
-      <input type="email" id= "email" class="inputs">
-      <label class="text">Password:</label>
-      <input type="password" class="inputs" id="password" minlength="8">
-      <input type= "submit" id= "submitInfoJoin" class="btnsSign" placeholder="Join Us"/>
-      <p class="sign">Have an Account? <a href="#"  class="goShootIn">Shoot In</p></a>
+      <form>
+        <label class="text">Username:</label> 
+        <input type="text" class="inputs" id="username">
+        <label class="text">Email:</label>
+        <input type="email" id= "email" class="inputs">
+        <label class="text">Password:</label>
+        <input type="password" class="inputs" id="password">
+        <button id= "submitInfoJoin" class="btnsSign">Join Us</button>
+        <p class="sign">Have an Account? <a href="#"  class="goShootIn">Shoot In</p></a>
+      </form>
     </section> 
 
-    <section class="screenJoin hidden" id="shootInScreen" style="display: none;">
+    <section class="screenJoin" id="shootInScreen" style="display: none;">
       <p class="titles"><img src="./assets/arrow.png" alt="arrowBackTo" class="arrowBack" id="aS">Shoot In</p>
       <label class="sign">Sign in with:</label>
       <div class="container">
@@ -41,66 +43,20 @@
         <img src="./assets/facebook.png" alt="buttonFace" class="btns">
         <img src="./assets/twitch.png" alt="buttonTwitch" class="btns">
       </div>
-      <label class="text">Email or Username:</label>
-      <input type="email" class="inputs" id="emailUser">
-      <label class="text">Password:</label>
-      <input type="password" class="inputs" id="passwordUser" minlength="8">
-      <button type= "submit" id= "submitInfoShoot" class="btnsSign">Shoot In</button>
-      <p class="sign">Don't have an Account? <a href="#"  class="goShootIn">Join Us</p></a>
+      <form>
+        <label class="text">Email:</label>
+        <input type="email" class="inputs" id="emailUser">
+        <label class="text">Password:</label>
+        <input type="password" class="inputs" id="passwordUser">
+        <button id= "submitInfoShoot" class="btnsSign">Shoot In</button>
+        <p class="sign">Don't have an Account? <a href="#"  class="goShootIn">Join Us</p></a>
+      </form>
     </section>
    
   </main>
 
 
   <script type="module" src="main.js"></script>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    import {getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-    import {getDataBase } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js"
-
-
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyD_uPjnOcNCFnIvon8gHMvQKhm0h3DesHc",
-      authDomain: "meetarcade-d78e8.firebaseapp.com",
-      projectId: "meetarcade-d78e8",
-      storageBucket: "meetarcade-d78e8.appspot.com",
-      messagingSenderId: "912563964006",
-      appId: "1:912563964006:web:5466d454f38b635f25c5a7"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const dataBase= getDataBase (app);
-    const auth= getAuth();
-    // const submit = document.getElementById("submitInfoJoin");
-
-    submitInfoJoin.addEventListener('click', (e) => {
-
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const username = document.getElementById('username').value
-      
-      createUserWithEmailAndPassword(auth, email, password)
-       .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      alert ("user created!");
-      // ...
-      })
-       .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-
-      alert (errorMessage);
-    // ..
-      });
-    });
-
-  </script>
+  <script type="module" src="./lib/firebase.js"></script>
 </body>
 </html>
