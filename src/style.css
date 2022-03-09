@@ -1,199 +1,280 @@
 :root {
-    --logo-color: #b21e48;
-    --btnSignIn-color: #951c45;
-  }
-  
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Istok Web", sans-serif;
-  }
-  
-  html {
-    width: 100%;
-    height: 100%;
-  }
-  
-  /*********************************mobile de landing page*******************************/
-  
+  --logo-color: #b21e48;
+  --btnSignIn-color: #951c45;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Istok Web", sans-serif;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+/*********************************mobile de landing page*******************************/
+
+body {
+  background-image: url("./assets/photo-1543002588-bfa74002ed7e\ 1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.logo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-book {
+  width: 76px;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.titleBookReads {
+  width: 254px;
+  margin-bottom: 1rem;
+}
+
+.sloganSN {
+  color: var(--logo-color);
+  font-size: 22px;
+}
+
+.sign-up-in-container {
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  visibility: visible;
+}
+
+.createAccount-container {
+  background-color: white;
+  border-radius: 10% 10% 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 5%;
+  bottom: 0;
+  visibility: hidden;
+}
+
+.createAccount-container h2 {
+  padding-top: 5%;
+  text-align: left;
+  font-style: bold;
+  font-size: 2em;
+  width: 100%;
+}
+
+.account-form label {
+  line-height: 4em;
+  width: 100%;
+}
+
+.account-form img {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.account-form input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: black;
+  width: 100%;
+}
+
+.account-form input:focus {
+  background-color: #ddd;
+}
+
+.btn-signUp {
+  margin-top: 10%;
+  border-radius: 30px;
+  border: none;
+  width: 70%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  background-color: var(--btnSignIn-color);
+  cursor: pointer;
+}
+
+.btn-signIn {
+  margin-top: 10%;
+  border-radius: 30px;
+  border: none;
+  width: 70%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 20px;
+  color: var(--btnSignIn-color);
+  font-weight: bold;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn-signUp:active {
+  transform: translateY(4px);
+  color: black;
+  border: none;
+}
+
+.otherProviders label {
+  display: block;
+  text-align: center;
+}
+
+.logosProviders {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Mensaje de error */
+.error {
+  display: block;
+  color: red;
+  padding: 2%;
+  text-align: center;
+}
+
+/**Add info container**/
+
+.add-info-container {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  border-radius: 10% 10% 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 8%;
+  padding-right: 8%;
+  width: 100%;
+}
+
+.add-info-container h2 {
+  padding-top: 5%;
+  text-align: left;
+  font-style: bold;
+  font-size: 2em;
+  width: 100%;
+}
+
+#moreInfo-user label {
+  line-height: 4em;
+  width: 100%;
+}
+
+#moreInfo-user .user,
+#moreInfo-user .nameicon {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1.5em;
+}
+
+#moreInfo-user input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: black;
+  width: 100%;
+}
+
+#moreInfo-user textarea {
+  width: 100%;
+  height: 4em;
+  border: 1px solid black;
+}
+
+.profile-photo {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.profile-photo img {
+  grid-row-start: 1;
+  width: 8em;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.profile-photo input[type="file"] {
+  width: 50%;
+  align-self: center;
+}
+
+.add-info-container input[type="button"] {
+  border-radius: 30px;
+  border: none;
+  width: 70%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  background-color: var(--btnSignIn-color);
+  cursor: pointer;
+  margin-bottom: 1.5em;
+}
+
+/**enterAccount-container**/
+
+.enterAccount-container {
+  position: absolute;
+  background-color: white;
+  border-radius: 10% 10% 0 0;
+  bottom: 0;
+  height: 62%;
+  width: 100%;
+  visibility: hidden;
+}
+
+@media screen and (min-width: 768px) {
   body {
-    background-image: url("./assets/photo-1543002588-bfa74002ed7e\ 1.png");
+    background-image: none;
+    display: flex;
+  }
+
+  .landing-page-container {
+    background-color: white;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .sign-up-in-container {
+    position: relative;
+  }
+
+  .landing-page-img {
+    background-image: url("./assets/front-page-img.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
+    background-color: #951c45;
+    width: 55%;
   }
-  
-  .logo-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .logo-book {
-    width: 76px;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .titleBookReads {
-    width: 254px;
-    margin-bottom: 1rem;
-  }
-  
-  .sloganSN {
-    color: var(--logo-color);
-    font-size: 22px;
-  }
-  
-  .sign-up-in-container {
-    position: absolute;
-    width: 100%;
-    bottom: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    visibility: visible;
-  }
-  
-  .createAccount-container {
-    background-color: white;
-    border-radius: 10% 10% 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 5%;
-    bottom: 0;
-    visibility: hidden;
-  }
-  
-  .createAccount-container h2 {
-    padding-top: 5%;
-    text-align: left;
-    font-style: bold;
-    font-size: 2em;
-    width: 100%;
-  }
-  
-  .account-form label {
-    line-height: 4em;
-    width: 100%;
-  }
-  
-  .account-form img {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .account-form input {
-    outline: 0;
-    border-width: 0 0 1px;
-    border-color: black;
-    width: 100%;
-  }
-  
-  .account-form input:focus {
-    background-color: #ddd;
-  }
-  
-  .btn-signUp {
-    margin-top: 10%;
-    border-radius: 30px;
-    border: none;
-    width: 70%;
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-    font-size: 20px;
-    color: white;
-    font-weight: bold;
-    background-color: var(--btnSignIn-color);
-    cursor: pointer;
-  }
-  
+
   .btn-signIn {
-    margin-top: 10%;
-    border-radius: 30px;
-    border: none;
-    width: 70%;
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-    font-size: 20px;
-    color: var(--btnSignIn-color);
-    font-weight: bold;
-    background-color: white;
-    cursor: pointer;
+    border: solid 1px var(--btnSignIn-color);
   }
-  
-  .btn-signUp:active {
-    transform: translateY(4px);
-    color: black;
-    border: none;
+
+  .createAccount-container {
+    display: none;
   }
-  
-  .otherProviders label {
-    display: block;
-    text-align: center;
-  }
-  
-  .logosProviders {
-      display:flex;
-      justify-content: space-evenly;
-  }
-  
-  /* Mensaje de error */
-  .error {
-      display: block;
-      color: red;
-      padding: 2%;
-      text-align: center;
-  }
-  
-  /**enterAccount-container**/
-  
+
   .enterAccount-container {
-    position: absolute;
-    background-color: white;
-    border-radius: 10% 10% 0 0;
-    bottom: 0;
-    height: 62%;
-    width: 100%;
-    visibility: hidden;
+    display: none;
   }
-  
-  @media screen and (min-width: 768px){
-      body {
-          background-image: none;
-          display: flex;
-      }
-  
-      .landing-page-container {
-          background-color: white;
-          width: 45%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-      }
-  
-      .sign-up-in-container {
-          position: relative;
-      }
-  
-      .landing-page-img {
-          background-image: url("./assets/front-page-img.jpg");
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-color: #951c45;
-          width: 55%;
-      }
-  
-      .btn-signIn {
-          border: solid 1px var(--btnSignIn-color);
-      } 
-  
-      .createAccount-container{
-          display: none;
-      } 
-  
-      .enterAccount-container{
-          display: none;
-      }
-  }
+}
