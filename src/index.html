@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Social Network</title>
   <link rel="stylesheet" href="style.css">
@@ -10,78 +9,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-  <div class="landing-page-container">
-    <header>
-      <!------------------------------------------Logo header de SN---------------------------------------------------> 
-      <section name="logo">
-        <div class="logo-header">
-          <img class="logo-book" src='./assets/logo sin fondo 1.png'  alt="logoBookReads"/>
-          <img class="titleBookReads" src='./assets/nombre_sin_fondo-removebg-preview 1.png'  alt="titleBookReads"/>
-          <h1 class="sloganSN">Read with me</h1>
-        </div>
-      </section>
-    </header>
-    <!-----------------------------------------Creacion de cuenta Landing page-------------------------------->
-     <section name="createAccount">
-       <div class="sign-up-in-container"> 
-        <input type="button" class="btn-signUp" id="btn-signUp-LP" value="Sign Up" />
-        <input type="button" class="btn-signIn" id="btn-signIn-LP" value="Sign In" />
-      </div>
-     <div class="createAccount-container">
-        <h2 class="account-title">Create an Account</h2>
-        <form class="account-form" id="signUpForm">
-          <label for="email" class="e-mail">E-mail</label>
-          <img class="mail" src='./assets/icons8-email-64 1.png' alt="mail" />
-          <input name="email" class="e-mail" id="txtEmail" type="email" placeholder="e-mail@example.com" required />
-          <label for="password" class="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password</label>
-          <img class="padlock" src='./assets/icons8-contraseña-24 1.png' alt="padlock" />
-          <input name="password" class="password" id="txtPassword" type="password" placeholder="Insert your password here" required />
-          <p class="error show-error-msg"></p>
-          <input type="button" class="btn-signUp" id="btn-signUp" value="Sign Up" />
-          <span class="otherProviders">
-            <label for="" class="otherProviders">or sign up with</label>
-          </span>
-          <span class="logosProviders">
-            <img class="logoGoogle" id="btn-google" src="./assets/icons8-logo-de-google-48 2.png" alt="logoGoogle">
-            <img class="logoFacebook" id="btn-facebook" src="./assets/image 15.png" alt="logoFacebook">
-    
-          </span>
-        </form>
+  <div id="root"></div>  
 
-      </div> 
-      
-      <div class="add-info-container">
-        <h2 class="info-title">Add info</h2>
-        <form id="moreInfo-user">
-          <label for="name" class="name">Profile name</label>
-          <img class="nameicon" src='./assets/icons8-usuario-48 1.png' alt="name" />
-          <input name="name" class="name" id="txtname" type="text" placeholder="Write down your name here" required />
-         
-          <label for="username" class="username">Username</label>
-          <img class="user" src='./assets/arroba.png' alt="user" />
-          <input name="username" class="username" id="txtUsername" type="text" placeholder="Write down your username here" required />
-          
-          <label for="description">Bio</label>
-          <textarea id="description" name="description"></textarea>
-          
-          <div class="profile-photo">
-            <img class="photo" src="./assets/user.png" alt="profile photo">
-            <input type="file" />
-          </div>
-
-          <input type="button" class="btn-username" id="btn-username" value="Save" />
-        </form>
-      </div>
-      
-      <div class="enterAccount-container">
-
-      </div>
-
-    </section>
-  </div>
-
-  <div class="landing-page-img"></div>
-  
-  <script type="module" src="main.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
