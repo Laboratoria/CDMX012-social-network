@@ -24,11 +24,11 @@ export const onNavigate = (pathname) => {
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
-  rootDiv.innerHTML = '';
+  rootDiv.removeChild(rootDiv.firstChild);
   rootDiv.appendChild(component());
 };
 
 window.onload = () => {
-  rootDiv.innerHTML = '';
+  rootDiv.removeChild(rootDiv.firstChild);
   rootDiv.appendChild(component());
 };
