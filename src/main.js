@@ -6,7 +6,7 @@
 
 // hide or show a section
 const btnJoinUs = document.getElementById('joinUs');
-const btnShootIn = document.getElementById('shootIn');
+const btnShoot = document.getElementById('shootIn');
 const secLogIn = document.getElementById('logIn');
 const joinScreen = document.getElementById('joinUsScreen');
 const shootScreen = document.getElementById('shootInScreen');
@@ -20,7 +20,7 @@ btnJoinUs.addEventListener('click', () => {
   }
 });
 
-btnShootIn.addEventListener('click', () => {
+btnShoot.addEventListener('click', () => {
   shootScreen.style.display = 'block';
   if (shootScreen) {
     secLogIn.style.display = 'none';
