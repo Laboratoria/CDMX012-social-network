@@ -1,8 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, onAuthStateChanged, getAdditionalUserInfo } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
-import {getFirestore, doc, setDoc} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
-import { errorArea, showSignUpError } from './ui.js';
+import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,56 +18,27 @@ const firebaseConfig = {
   measurementId: 'G-3327QVYEY6',
 };
 
-// First sign up and sign in btns
-
-const btnSignUpLP = document.querySelector('#btn-signUp-LP');
-const btnSignInLP = document.querySelector('#btn-signIn-LP');
-const signUpContainer = document.querySelector('.createAccount-container');
-const signInContainer = document.querySelector('.enterAccount-container');
-const signUpInContainer = document.querySelector('.sign-up-in-container');
-
-btnSignUpLP.addEventListener('click', () => {
-  signUpContainer.style.visibility = 'visible';
-  signUpContainer.style.display = 'flex';
-  signUpInContainer.style.visibility = 'hidden';
-});
-
-btnSignInLP.addEventListener('click', () => {
-  signInContainer.style.visibility = 'visible';
-  signInContainer.style.display = 'flex';
-  signUpInContainer.style.visibility = 'hidden';
-});
-
 // Init firebase app
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // sign up for users
-const signUpForm = document.querySelector('#signUpForm');
-const txtEmail = document.getElementById('txtEmail');
-const txtUsername = document.getElementById('txtUsername');
-const txtPassword = document.getElementById('txtPassword');
-
-const createAccount = async () => {
-  const email = txtEmail.value;
-  const username = txtUsername.value;
-  const password = txtPassword.value;
-
+/* export const createAccount = async (email, password) => {
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, username, password);
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     askMoreInfo(userCredential);
-    errorArea.innerHTML = '';
-    signUpForm.reset();
+    console.log(userCredential);
+    document.getElementById('errorArea').innerHTML = '';
+    document.getElementById('signUpForm').reset();
   } catch (error) {
     console.log(error);
     showSignUpError(error);
   }
-};
+}; */
 
-const btnSignUp = document.getElementById('btn-signUp');
-btnSignUp.addEventListener('click', createAccount);
+export const createAccount = (email, pass) => createUserWithEmailAndPassword(auth, email, pass);
 
-// sign in with google
+/* // sign in with google
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -128,7 +98,6 @@ btnFacebook.addEventListener('click', () => {
 })
 
 //  sign in with google in welcome back page
-
 
 const btnGoogle2 = document.getElementById('btn-google2');
 btnGoogle2.addEventListener('click', () => { 
@@ -206,19 +175,19 @@ btnGithub2.addEventListener('click', () => {
     // ...
     });
 });
-
-//Get userName
+ */
+/* //Get userName
 const db = getFirestore();
 const saveInfoUser = document.querySelector('.btn-username');
 const moreInfoUser = document.querySelector('#moreInfo-user');
 const addInfoContainer = document.querySelector('.add-info-container');
 
-function askMoreInfo (result){
-  signUpContainer.style.visibility = 'hidden';
+export function askMoreInfo(result) {
+  /* signUpContainer.style.visibility = 'hidden';
   addInfoContainer.style.visibility = 'visible';
 
-  if (result.providerId == "google.com" || "facebook.com" ){
-    moreInfoUser.name.value = result.user.displayName
+  if (result.providerId == "google.com" || "facebook.com" ) {
+    moreInfoUser.name.value = result.user.displayName;
   }
 
   saveInfoUser.addEventListener('click', (e) => {
@@ -230,9 +199,9 @@ function askMoreInfo (result){
         username: moreInfoUser.username.value,
         bio: moreInfoUser.description.value,
       })
-      .then(() => {
-        moreInfoUser.reset()
-      })
-    })
+        .then(() => {
+          moreInfoUser.reset();
+        });
+    });
   });
-}
+} */

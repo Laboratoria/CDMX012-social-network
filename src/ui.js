@@ -1,8 +1,6 @@
-// import { AuthErrorCodes } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js'
-
-export const errorArea = document.querySelector('.error');
-
 export const showSignUpError = (error) => {
+  const errorArea = document.querySelector('#errorArea');
+
   if (error.code === 'auth/email-already-in-use') {
     errorArea.innerHTML = 'This e-mail address has already been registered.';
   } else if (error.code === 'auth/invalid-email') {

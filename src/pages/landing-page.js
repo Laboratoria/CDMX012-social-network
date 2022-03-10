@@ -2,6 +2,9 @@
 import { onNavigate } from '../app.js';
 
 export const landingPage = () => {
+  const lpContent = document.createElement('div');
+  lpContent.setAttribute('class', 'lp-content');
+
   const lpContainer = document.createElement('div');
   lpContainer.setAttribute('class', 'landing-page-container');
 
@@ -57,5 +60,10 @@ export const landingPage = () => {
 
   lpContainer.append(header, buttonsContainer);
 
-  return lpContainer;
+  const lpImage = document.createElement('div');
+  lpImage.setAttribute('class', 'landing-page-img');
+
+  lpContent.append(lpContainer, lpImage);
+
+  return lpContent;
 };
