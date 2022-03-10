@@ -1,4 +1,6 @@
-import { createAccount } from '../firebase.js';
+import {
+  createAccount, signUpGoogle, signUpFacebook, signUpGithub,
+} from '../firebase.js';
 import { showSignUpError } from '../ui.js';
 
 export const signUpPage = () => {
@@ -75,16 +77,42 @@ export const signUpPage = () => {
   });
 
   const providersSection = document.createElement('div');
-  providersSection.innerHTML = `
-    <span class="otherProviders">
-        <label for="" class="otherProviders">or sign up with</label>
-      </span>
-      <span class="logosProviders">
-        <img class="logoGoogle" id="btn-google" src="./assets/icons8-logo-de-google-48 2.png" alt="logoGoogle">
-        <img class="logoFacebook" id="btn-facebook" src="./assets/image 15.png" alt="logoFacebook"></img>
-      </span>
-  `;
+  providersSection.setAttribute('class', 'otherProviders');
+  providersSection.innerHTML = '<label class="otherProviders">or sign up with</label>';
+
+  const googleLogo = document.createElement('img');
+  googleLogo.setAttribute('class', 'logoGoogle');
+  googleLogo.setAttribute('id', 'btn-google');
+  googleLogo.setAttribute('src', './assets/icons8-logo-de-google-48 2.png');
+  googleLogo.setAttribute('alt', 'logo Google');
+
+  const facebookLogo = document.createElement('img');
+  facebookLogo.setAttribute('class', 'logoFacebook');
+  facebookLogo.setAttribute('id', 'btn-facebook');
+  facebookLogo.setAttribute('src', './assets/image 15.png');
+  facebookLogo.setAttribute('alt', 'logo Facebook');
+
+  const githubLogo = document.createElement('img');
+  githubLogo.setAttribute('class', 'logoGithub');
+  githubLogo.setAttribute('id', 'btn-github');
+  githubLogo.setAttribute('src', './assets/icons8-github-60.png');
+  githubLogo.setAttribute('alt', 'logo Github');
+
+  providersSection.append(googleLogo, facebookLogo, githubLogo);
 
   createAccContainer.append(providersSection);
+
+  googleLogo.addEventListener('click', () => {
+    signUpGoogle();
+  });
+
+  facebookLogo.addEventListener('click', () => {
+    signUpFacebook();
+  });
+
+  githubLogo.addEventListener('click', () => {
+    signUpGithub();
+  });
+
   return createAccContainer;
 };
