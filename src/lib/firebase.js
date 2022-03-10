@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable object-shorthand */
+/* eslint-disable object-curly-newline */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-alert */
 /* eslint-disable prefer-template */
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
@@ -23,6 +28,7 @@ const dataBase = getDatabase(app);
 const auth = getAuth();
 // const submit = document.getElementById("submitInfoJoin");
 
+// eslint-disable-next-line no-unused-vars
 document.getElementById('submitInfoJoin').addEventListener('click', (e) => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
@@ -36,7 +42,7 @@ document.getElementById('submitInfoJoin').addEventListener('click', (e) => {
       set(ref(dataBase, 'users/' + user.uid), {
         username: username,
         email: email,
-      })
+      });
 
       alert('user created!');
       // ...
@@ -53,7 +59,7 @@ document.getElementById('submitInfoJoin').addEventListener('click', (e) => {
 document.getElementById('submitInfoShoot').addEventListener('click', (e) => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
-  
+
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -62,7 +68,7 @@ document.getElementById('submitInfoShoot').addEventListener('click', (e) => {
       const dt = new Date();
       update(ref(dataBase, 'users/' + user.uid), {
         last_login: dt,
-      })
+      });
 
       alert('You are In!');
       // ...
@@ -70,8 +76,7 @@ document.getElementById('submitInfoShoot').addEventListener('click', (e) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-  
+
       alert(errorMessage);
     });
 });
-  
