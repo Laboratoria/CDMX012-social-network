@@ -4,34 +4,37 @@
   font-family: "Roboto", sans-serif;
   font-size: medium;
 }
+
 body {
   display: flex;
   background-color: #e8effd;
   justify-content: center;
   font-family: "League Gothic", sans-serif;
+  overflow: hidden;
 }
 
 header {
   display: flex;
   flex-direction: row-reverse;
-
-  margin-top: 5px;
 }
 
 #divLogo {
   font-weight: 700;
   font-size: 40px;
   color: rgba(85, 86, 89, 0.8);
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 #globalContainer {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-evenly; */
   justify-content: center;
   align-items: center;
-  width: 360px;
-  height: 740px;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
 }
 
 #buttonGoogle {
@@ -39,21 +42,42 @@ header {
   border-radius: 30px;
   width: 250px;
   height: 45px;
-  margin: 5px;
+  margin: 45px 0px 10px;
   border: 1px solid rgba(0, 0, 0, 0.38);
-  color: #9e9e9e;
+  color: #000000a6;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
 }
 
-#buttonFacebook {
-  background-color: #bd72be;
+#imgGoogle {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+#buttonTwitter {
+  background-color: #ffffff;
   border-radius: 30px;
   width: 250px;
   height: 45px;
   margin: 5px;
   border: 1px solid rgba(0, 0, 0, 0.38);
-  color: white;
+  color: #000000a6;
   font-weight: bold;
+  margin: 8px 0px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+#imgTwitter {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
 }
 
 .input {
@@ -63,10 +87,10 @@ header {
   height: 38px;
   margin: 5px;
   border: 1px solid rgba(0, 0, 0, 0.38);
-  color: #9e9e9e;
   font-weight: bold;
   transition: 0.5s;
   outline: none;
+  margin: 8px 0px 8px;
 }
 
 input:focus {
@@ -76,12 +100,36 @@ input[type="password"]:focus {
   border: 3px solid #eca05f;
 }
 
+#inputEmail::placeholder {
+  background: url("./img/email.png");
+  background-size: 17px;
+  background-repeat: no-repeat;
+  background-position: 43px 3px;
+  color: #00000080;
+}
+
+#inputPassword::placeholder {
+  background: url("./img/lock.png");
+  background-size: 47px;
+  background-repeat: no-repeat;
+  background-position: 28px 3px;
+  color: #00000080;
+}
+
+#inputUsername::placeholder {
+  background: url("./img/user.png");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: 38px;
+  color: #00000080;
+}
+
 #buttonSignup {
   background-color: #bd72be;
   border-radius: 30px;
   width: 100px;
   height: 45px;
-  margin: 5px;
+  margin: 25px 0px 15px;
   border: 1px solid rgba(0, 0, 0, 0.38);
   color: white;
   font-weight: bold;
@@ -90,4 +138,28 @@ input[type="password"]:focus {
 #divAccount {
   font-weight: bolder;
   color: rgba(0, 0, 0, 0.65);
+}
+
+#errorMessage {
+  margin: 1px solid black;
+  margin: 8px 0px 10px;
+  color: #fa1607c7;
+  font-weight: 900;
+}
+
+#separation {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 10px 20px 10px;
+}
+
+.line {
+  background-color: #9e9e9e;
+  width: 100px;
+  height: 1px;
+  align-self: center;
+}
+
+p {
+  margin: 0px 5px 0px 5px;
 }
