@@ -40,11 +40,11 @@ const googleProvider = new GoogleAuthProvider();
 export const signUpGoogle = () => {
   signInWithPopup(auth, googleProvider)
     .then((result) => {
-    /* if (getAdditionalUserInfo(result).isNewUser){
+    if (getAdditionalUserInfo(result).isNewUser){
       askMoreInfo(result);
-    } else { */
-      //console.log('Already registered');
-    /* } */
+    } else { 
+      console.log('Already registered');
+    }
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
