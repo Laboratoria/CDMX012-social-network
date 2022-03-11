@@ -11,3 +11,25 @@ export const showSignUpError = (error) => {
     errorArea.innerHTML = `Error: ${error.message}`;
   }
 };
+
+export const showIncorrectPass = () => {
+  const pass1 = document.getElementById('txtPassword').value;
+  const pass2 = document.getElementById('passwordConfirm').value;
+  const errorArea = document.querySelector('#errorArea');
+
+  if (pass1 !== pass2) {
+    errorArea.innerHTML = 'Passwords do not match';
+  } else if (pass1 === pass2) {
+    errorArea.innerHTML = '';
+  }
+};
+
+export const showPassword = (pass) => {
+  const pass1 = pass;
+
+  if (pass1.type === 'password') {
+    pass1.type = 'text';
+  } else {
+    pass1.type = 'password';
+  }
+};
