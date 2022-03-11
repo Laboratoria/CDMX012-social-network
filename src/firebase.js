@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
+import { app } from './firebase-config';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, onAuthStateChanged, getAdditionalUserInfo } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
 import {getFirestore, doc, setDoc} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
 import { errorArea, showSignUpError } from './ui.js';
@@ -7,17 +7,6 @@ import { errorArea, showSignUpError } from './ui.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: 'AIzaSyAcC9x7vCU7X9Dc0b8mM2L4RNcL97800qs',
-  authDomain: 'bookreads-9192a.firebaseapp.com',
-  projectId: 'bookreads-9192a',
-  storageBucket: 'bookreads-9192a.appspot.com',
-  messagingSenderId: '512279860959',
-  appId: '1:512279860959:web:75245200f515c09571fb6a',
-  measurementId: 'G-3327QVYEY6',
-};
 
 // First sign up and sign in btns
 
