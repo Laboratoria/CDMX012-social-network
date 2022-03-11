@@ -66,10 +66,10 @@ export const addInfoPage = () => {
 //   errorSection.setAttribute('id', 'errorArea');
 
   const btnAccept = document.createElement('input');
-  btnSignUp.setAttribute('type', 'button');
-  btnSignUp.setAttribute('class', 'btn-signUp');
-  btnSignUp.setAttribute('id', 'btn-signUp');
-  btnSignUp.setAttribute('value', 'Accept');
+  btnAccept.setAttribute('type', 'button');
+  btnAccept.setAttribute('class', 'btn-signUp');
+  btnAccept.setAttribute('id', 'btn-signUp');
+  btnAccept.setAttribute('value', 'Accept');
 
   addInfoContainer.append(addInfoTitle, addInfoForm, btnAccept);
 

@@ -1,8 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { app } from './firebase-config.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider, onAuthStateChanged, getAdditionalUserInfo } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
-//import {getFirestore, doc, setDoc} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
-//import { errorArea, showSignUpError } from './ui.js';
+import { onNavigate } from '../app.js';
 
 // Init firebase app
 const auth = getAuth(app);
@@ -182,32 +181,14 @@ export const signUpGithub = () => {
 //     });
 // });
 
-// //Get userName
-// const db = getFirestore();
-// const saveInfoUser = document.querySelector('.btn-username');
-// const moreInfoUser = document.querySelector('#moreInfo-user');
-// const addInfoContainer = document.querySelector('.add-info-container');
+//Get userName
 
-// function askMoreInfo (result){
-//   signUpContainer.style.visibility = 'hidden';
-//   addInfoContainer.style.visibility = 'visible';
+function askMoreInfo (result){
+  
+  onNavigate('/add-info');
 
-//   if (result.providerId == "google.com" || "facebook.com" ){
-//     moreInfoUser.name.value = result.user.displayName
-//   }
+  if (result.providerId == "google.com" || "facebook.com" ){
+    moreInfoUser.name.value = result.user.displayName
+  }
 
-//   saveInfoUser.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     onAuthStateChanged(auth, (result) => {
-//       const uid = result.uid;
-//       setDoc(doc(db, 'users', uid), {
-//         name: moreInfoUser.name.value,
-//         username: moreInfoUser.username.value,
-//         bio: moreInfoUser.description.value,
-//       })
-//       .then(() => {
-//         moreInfoUser.reset()
-//       })
-//     })
-//   });
-// }
+}
