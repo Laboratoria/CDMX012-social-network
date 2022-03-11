@@ -84,7 +84,7 @@ body {
 }
 
 .account-form {
-  margin: 10% 12% 5% 12%;
+  margin: 5% 12% 5% 12%;
 }
 
 .label-icon {
@@ -111,6 +111,7 @@ body {
   width: 100%;
   padding-top: 0.5rem;
   margin-bottom: 2%;
+  background: transparent;
 }
 
 .account-form input:focus {
@@ -119,10 +120,13 @@ body {
 
 .eye-icon {
   cursor: pointer;
+  margin-bottom: -4.2rem;
+  margin-right: 0.2rem;
+  z-index: 3;
 }
 
 .btn-signUp {
-  margin: 3% auto;
+  margin: 2% auto;
   border-radius: 30px;
   border: none;
   width: 65%;
@@ -151,12 +155,14 @@ body {
 }
 
 .btn-signUp:active {
-  transform: scale(1.01);
   border: solid 1px #d42a5b;
 }
 
+.btn-signUp:disabled {
+  background-color: #f7aab9;
+}
+
 .btn-signIn:active {
-  transform: scale(1.01);
   border: solid 1px #d42a5b;
 }
 
@@ -175,6 +181,7 @@ body {
 
 .otherProviders img {
   margin: 3%;
+  cursor: pointer;
 }
 
 .logosProviders {
@@ -362,7 +369,7 @@ body {
     margin: 5% 12% 5% 12%;
   }
   .account-form label {
-    line-height: 4em;
+    line-height: 3em;
     width: 100%;
   }
 
@@ -384,6 +391,7 @@ body {
 
   .eye-icon {
     left: 35%;
+    margin-bottom: -4.9rem;
   }
 
   .btn-signUp {

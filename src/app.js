@@ -32,9 +32,4 @@ window.onpopstate = () => {
   rootDiv.appendChild(component());
 };
 
-window.onload = () => {
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
-  }
-  rootDiv.appendChild(component());
-};
+rootDiv.appendChild(component());
