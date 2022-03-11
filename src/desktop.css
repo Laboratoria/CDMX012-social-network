@@ -1,0 +1,91 @@
+@media screen and (min-width: 844px){
+    body {
+        display: flex;
+        justify-content: center;
+    }
+    .containerStart{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        border:3px solid #6462D9;
+        width: 300px;
+        padding: 10px;
+        border-radius:20px;
+        row-gap: 5px;
+        margin-top: 30%
+       
+    }
+    .welcomeText{
+        text-align: center;
+        }
+    .logo{
+        max-width: 25%;
+    }
+    
+    .containerButtons{
+        Display:flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+        top: 15rem;
+
+    }
+    
+    .button {
+     /* display:flex; */
+     background-color: #6462D9;
+     color:#ffff;
+     border: 3px solid #3734CE;
+     font-size: 1rem;
+     width: auto;
+     min-width: 6rem;
+     padding:10px 25px 10px 25px;
+     text-align: center;
+     border-radius: 35px;
+     text-decoration: none;
+    }
+    .githubGoogleButtons{
+        display: flex;
+        row-gap: 5px;
+        flex-direction: column;
+        min-width: 6rem;
+    }
+    .register{
+        border-radius: 35px;
+        width: 200px;
+        height:35px;
+        text-align: center;
+        border: 3px solid #3734CE;
+        font-size: .8rem;
+    }
+    .registerText{
+        text-align: center; 
+    }
+    .registerButton{
+        background-color: #AE69BF;
+        color:#ffff;
+        font-size: .8rem;
+         width: 135px;
+        padding: 10px 15px 10px 15px;
+        text-align: center;
+        border-radius: 35px;
+        text-decoration: none;
+    }
+    .containerRegister{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border-radius:20px;
+        row-gap: 5px;
+    }
+    .containerInputR{
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        align-items: center;
+    }
+    .arrowBack{
+        display:none;
+    }
+}
