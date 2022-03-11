@@ -83,7 +83,8 @@ body {
   width: 100%;
 }
 
-.account-form {
+.account-form,
+.addInfo-form {
   margin: 10% 12% 5% 12%;
 }
 
@@ -192,82 +193,8 @@ body {
 
 /**Add info container**/
 
-.add-info-container {
-  position: absolute;
-  bottom: 0;
-  background-color: white;
-  border-radius: 10% 10% 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 8%;
-  padding-right: 8%;
-  width: 100%;
-}
-
-.add-info-container h2 {
-  padding-top: 5%;
-  text-align: left;
-  font-style: bold;
-  font-size: 2em;
-  width: 100%;
-}
-
-#moreInfo-user label {
-  line-height: 4em;
-  width: 100%;
-}
-
-#moreInfo-user .user,
-#moreInfo-user .nameicon {
-  display: flex;
-  flex-wrap: wrap;
+.addInfo-form img {
   width: 1.5em;
-}
-
-#moreInfo-user input {
-  outline: 0;
-  border-width: 0 0 1px;
-  border-color: black;
-  width: 100%;
-}
-
-#moreInfo-user textarea {
-  width: 100%;
-  height: 4em;
-  border: 1px solid black;
-}
-
-.profile-photo {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.profile-photo img {
-  grid-row-start: 1;
-  width: 8em;
-  border: 1px solid black;
-  border-radius: 50%;
-}
-
-.profile-photo input[type="file"] {
-  width: 50%;
-  align-self: center;
-}
-
-.add-info-container input[type="button"] {
-  border-radius: 30px;
-  border: none;
-  width: 70%;
-  padding-top: 0.6rem;
-  padding-bottom: 0.6rem;
-  font-size: 20px;
-  color: white;
-  font-weight: bold;
-  background-color: var(--btnSignIn-color);
-  cursor: pointer;
-  margin-bottom: 1.5em;
 }
 
 /**enterAccount-container**/

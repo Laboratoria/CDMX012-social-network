@@ -16,7 +16,7 @@ export const addInfoPage = () => {
   addInfoTitle.innerHTML = 'Add Info';
 
   const addInfoForm = document.createElement('form');
-  addInfoForm.setAttribute('class', 'account-form');
+  addInfoForm.setAttribute('class', 'addInfo-form');
   addInfoForm.setAttribute('id', 'signUpForm');
 
   const profileNameField = document.createElement('div');

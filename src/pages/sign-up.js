@@ -1,7 +1,7 @@
 import {
   createAccount, signUpGoogle, signUpFacebook, signUpGithub,
 } from '../firebase.js';
-import { showSignUpError, showIncorrectPass, showPassword } from '../ui.js';
+import { showIncorrectPass, showPassword } from '../ui.js';
 
 export const signUpPage = () => {
   const signUpContent = document.createElement('div');
@@ -96,20 +96,8 @@ export const signUpPage = () => {
     const email = document.getElementById('txtEmail').value;
     const password = document.getElementById('txtPassword').value;
 
-    const errorA = document.getElementById('errorArea');
-    const form = document.getElementById('signUpForm');
-
     createAccount(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        errorA.innerHTML = '';
-        form.reset();
-      })
-      .catch((error) => {
-        console.log(error);
-        showSignUpError(error);
-      });
+
   });
 
   const providersSection = document.createElement('div');

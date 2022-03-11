@@ -2,35 +2,32 @@
 import { app } from './firebase-config.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider, onAuthStateChanged, getAdditionalUserInfo } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
 import { onNavigate } from '../app.js';
+import { showSignUpError } from '../ui.js';
 
 // Init firebase app
 const auth = getAuth(app);
 
+
+
 // Sign up with email and password
-export const createAccount = (email, pass) => createUserWithEmailAndPassword(auth, email, pass);
+export const createAccount = (email, pass) => {
 
+  const errorA = document.getElementById('errorArea');
+  const form = document.getElementById('signUpForm');
 
-// // sign up for users
-// const signUpForm = document.querySelector('#signUpForm');
-// const txtEmail = document.getElementById('txtEmail');
-// const txtUsername = document.getElementById('txtUsername');
-// const txtPassword = document.getElementById('txtPassword');
-
-// const createAccount = async () => {
-//   const email = txtEmail.value;
-//   const username = txtUsername.value;
-//   const password = txtPassword.value;
-
-//   try {
-//     const userCredential = await createUserWithEmailAndPassword(auth, email, username, password);
-//     askMoreInfo(userCredential);
-//     errorArea.innerHTML = '';
-//     signUpForm.reset();
-//   } catch (error) {
-//     console.log(error);
-//     showSignUpError(error);
-//   }
-// };
+  createUserWithEmailAndPassword(auth, email, pass)
+  .then((userCredential) => {
+    askMoreInfo(userCredential);
+    const user = userCredential.user;
+    console.log(user);
+    errorA.innerHTML = '';
+    form.reset();
+  })
+  .catch((error) => {
+    console.log(error);
+    showSignUpError(error);
+  });
+};
 
 // sign in with google
 
@@ -61,10 +58,11 @@ const facebookProvider = new FacebookAuthProvider();
 export const signUpFacebook = () => {
   signInWithPopup(auth, facebookProvider)
     .then((result) => {
-    /* if (getAdditionalUserInfo(result).isNewUser){
-      askMoreInfo(result);
-    } else { */
-      console.log('Already registered');
+      if (getAdditionalUserInfo(result).isNewUser){
+        askMoreInfo(result);
+      } else { 
+        console.log('Already registered');
+      }
     },
     ).catch((error) => {
     // Handle Errors here.
@@ -86,11 +84,11 @@ export const signUpGithub = () => {
       const credential = GithubAuthProvider.credentialFromResult(result);
       const user = result.user;
       console.log(user);
-      /* if (getAdditionalUserInfo(result).isNewUser) {
+      if (getAdditionalUserInfo(result).isNewUser){
         askMoreInfo(result);
-      } else {
+      } else { 
         console.log('Already registered');
-      } */
+      }
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -186,6 +184,8 @@ export const signUpGithub = () => {
 function askMoreInfo (result){
   
   onNavigate('/add-info');
+
+  const moreInfoUser = document.querySelector('#signUpForm')
 
   if (result.providerId == "google.com" || "facebook.com" ){
     moreInfoUser.name.value = result.user.displayName
