@@ -5,8 +5,13 @@
 /* eslint-disable no-alert */
 /* eslint-disable prefer-template */
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+
+// Import the functions you need from the SDKs you need
+
 // TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+// Your web app's Firebase configuration
 import { getDatabase, set, ref, update } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
@@ -16,6 +21,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 const firebaseConfig = {
   apiKey: 'AIzaSyD_uPjnOcNCFnIvon8gHMvQKhm0h3DesHc',
   authDomain: 'meetarcade-d78e8.firebaseapp.com',
+  databaseURL: 'https://meetarcade-d78e8-default-rtdb.firebaseio.com',
   projectId: 'meetarcade-d78e8',
   storageBucket: 'meetarcade-d78e8.appspot.com',
   messagingSenderId: '912563964006',
