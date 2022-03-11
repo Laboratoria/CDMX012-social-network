@@ -56,6 +56,68 @@ body {
   visibility: visible;
 }
 
+.enterAccount-container {
+  position: absolute;
+  background-color: white;
+  border-radius: 10% 10% 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-left: 5%;
+  width:100%;
+  top:315px;
+}
+
+.enterAccount-container h2 {
+  padding-top: 5%;
+  text-align: left;
+  font-style: bold;
+  font-size: 2em;
+  width: 100%;
+}
+
+
+.enterAccount-form label {
+  line-height: 4em;
+  width: 100%;
+}
+
+.enterAccount-form img {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.enterAccount-form input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: black;
+  width: 100%;
+}
+
+.enterAccount-form input:focus {
+  background-color: #ddd;
+}
+
+.btn-signInWelcome {
+  margin-top: 10%;
+  border-radius: 30px;
+  border: none;
+  width: 70%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  background-color: var(--btnSignIn-color);
+  cursor: pointer;
+}
+
+.btn-signInWelcome:active {
+  transform: translateY(4px);
+  color: black;
+  border: none;
+}
+
 .createAccount-container {
   background-color: white;
   border-radius: 10% 10% 0 0;
@@ -63,7 +125,7 @@ body {
   flex-wrap: wrap;
   padding-left: 5%;
   bottom: 0;
-  visibility: hidden;
+ /* visibility: hidden;*/
 }
 
 .createAccount-container h2 {
@@ -117,10 +179,16 @@ body {
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
   font-size: 20px;
-  color: var(--btnSignIn-color);
+  color:var(--btnSignIn-color);
   font-weight: bold;
   background-color: white;
   cursor: pointer;
+}
+
+.btn-signIn:active {
+  transform: translateY(4px);
+  color: black;
+  border: none;
 }
 
 .btn-signUp:active {
@@ -139,6 +207,10 @@ body {
   justify-content: space-evenly;
 }
 
+.logoGoogle, .logoGithub, .logoFacebook {
+  cursor:pointer;
+}
+
 /* Mensaje de error */
 .error {
   display: block;
@@ -150,7 +222,7 @@ body {
 /**Add info container**/
 
 .add-info-container {
-  visibility: hidden;
+  /*visibility: hidden;*/
   position: absolute;
   bottom: 0;
   background-color: white;
@@ -228,22 +300,17 @@ body {
   margin-bottom: 1.5em;
 }
 
-/**enterAccount-container**/
-
-.enterAccount-container {
-  position: absolute;
-  background-color: white;
-  border-radius: 10% 10% 0 0;
-  bottom: 0;
-  height: 62%;
-  width: 100%;
-  visibility: hidden;
-}
-
 @media screen and (min-width: 768px) {
-  body {
+  /*body {
     background-image: none;
     display: flex;
+  }*/
+  body {
+    background-image: url("./assets/front-page-img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #951c45;
+    width: 55%;
   }
 
   .landing-page-container {
@@ -353,18 +420,17 @@ body {
     border: solid 1px var(--btnSignIn-color);
   }
 
-  .createAccount-container {
-    display: none;
-  }
-
   .enterAccount-container {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border-radius: 10% 10% 0 0;
-    bottom: 0;
-    height: 62%;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    width:40%;
+    height:100%;
+    top:0;
+  }
+  
+  .enterAccount-container h2 {
+    margin-top: 35%;
+    text-align: center;
   }
 }
 
@@ -401,9 +467,4 @@ body {
       .createAccount-container{
           display: none;
       } 
-  
-      .enterAccount-container{
-          display: none;
-      }
-  }
 } */

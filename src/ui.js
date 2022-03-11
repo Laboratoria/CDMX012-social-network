@@ -13,3 +13,7 @@ export const showSignUpError = (error) => {
     errorArea.innerHTML = `Error: ${error.message}`;
   }
 };
+
+
+
+
