@@ -20,7 +20,7 @@ const onNavigate = (pathname) => {
   );
   rootDiv.innerHTML = routes[pathname];
 };
-onNavigate();
+window.onNavigate = onNavigate;
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
 };
