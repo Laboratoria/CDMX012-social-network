@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-cycle
 //import { onNavigate } from '../app.js';
 
+import {usernameValidation, isValidField, saveInfo} from '../firestore.js'
+
 export const addInfoPage = () => {
   const addInfoContent = document.createElement('div');
   addInfoContent.setAttribute('class', 'lp-content');
@@ -45,7 +47,7 @@ export const addInfoPage = () => {
   txtUsername.setAttribute('type', 'text');
   txtUsername.setAttribute('placeholder', 'Write down your username ');
   txtUsername.required = 'true';
-  txtUsername.id = 'txtEmail';
+  txtUsername.id = 'txtusername';
 
   const bioField = document.createElement('div');
   bioField.setAttribute('class', 'label-icon');
@@ -72,6 +74,26 @@ export const addInfoPage = () => {
   btnAccept.setAttribute('value', 'Accept');
 
   addInfoContainer.append(addInfoTitle, addInfoForm, btnAccept);
+
+  // Username validation
+
+  let isUsernameValid = false;
+
+  txtUsername.addEventListener('change', (e) => {
+    let usernameValue = e.target.value.trim();
+    isUsernameValid = usernameValidation(usernameValue)
+    
+  })
+
+  // Form validation
+
+  btnAccept.addEventListener('click', (e) => {
+    e.preventDefault();
+    let isFormValid = isValidField(txtProfileName.value, 'Profile name') && isValidField(txtUsername.value, 'Username') && isUsernameValid;
+    if (isFormValid){
+        saveInfo(addInfoForm)
+    }
+  })
 
 //   txtPassword.addEventListener('keyup', () => showIncorrectPass());
 //   passwordConf.addEventListener('keyup', () => showIncorrectPass());
