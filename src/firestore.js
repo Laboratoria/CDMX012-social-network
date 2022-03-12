@@ -1,6 +1,9 @@
+import { app } from './firebase-config.js';
 import {getFirestore, doc, setDoc, getDoc} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
 import { getAuth, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
 
+// Init firebase app
+const auth = getAuth(app);
 
 const db = getFirestore();
 
@@ -10,7 +13,7 @@ export function saveInfo (userForm){
         setDoc(doc(db, 'users', uid), {
           name: userForm.name.value,
           username: userForm.username.value,
-          bio: userForm.description.value,
+          bio: userForm.bio.value,
         })
         .then(() => {
           userForm.reset()
