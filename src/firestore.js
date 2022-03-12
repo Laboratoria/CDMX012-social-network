@@ -10,7 +10,10 @@ const db = getFirestore();
 export function saveInfo (userForm){
       onAuthStateChanged(auth, (result) => {
         const uid = result.uid;
-        setDoc(doc(db, 'users', uid), {
+        setDoc(doc(db, 'usernames', userForm.username.value), {
+          uid: result.uid,
+        })
+        setDoc(doc(db, 'profiles', uid), {
           name: userForm.name.value,
           username: userForm.username.value,
           bio: userForm.bio.value,
