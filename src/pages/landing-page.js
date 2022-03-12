@@ -2,6 +2,9 @@
 import { onNavigate } from '../app.js';
 
 export const landingPage = () => {
+  const lpContent = document.createElement('div');
+  lpContent.setAttribute('class', 'lp-content');
+
   const lpContainer = document.createElement('div');
   lpContainer.setAttribute('class', 'landing-page-container');
 
@@ -55,7 +58,11 @@ export const landingPage = () => {
 
   buttonsContainer.append(signUpBtn, signInBtn);
 
-  lpContainer.append(header, buttonsContainer);
+  const lpImage = document.createElement('div');
+  lpImage.setAttribute('class', 'landing-page-img');
 
-  return lpContainer;
+  lpContainer.append(header, buttonsContainer);
+  lpContent.append(lpContainer, lpImage);
+
+  return lpContent;
 };

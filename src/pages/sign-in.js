@@ -2,6 +2,9 @@ import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthPr
 import { auth, signInAccount } from '../firebase.js';
 
 export const signInPage = () => {
+  const lpContent = document.createElement('div');
+  lpContent.setAttribute('class', 'lp-content');
+
   const lpContainer = document.createElement('div');
   lpContainer.setAttribute('class', 'landing-page-container');
 
@@ -162,7 +165,6 @@ export const signInPage = () => {
   });
 
   enterAccContainer.append(enterAccTitle, signInForm, btnSignInWelcome, providersContent);
-  lpContainer.append(header);
 
   btnSignInWelcome.addEventListener('click', () => {
     const email = document.getElementById('txtEmail').value;
@@ -179,9 +181,15 @@ export const signInPage = () => {
       })
       .catch((error) => {
         console.log(error);
-        errorMessage.innerHTML = 'Datos incorrectos';
+        errorMessage.innerHTML = 'Wrong e-mail or/and password';
       });
   });
 
-  return (lpContainer, enterAccContainer);
+  const lpImage = document.createElement('div');
+  lpImage.setAttribute('class', 'landing-page-img');
+
+  lpContainer.append(header);
+  lpContent.append(lpContainer, lpImage);
+
+  return (lpContent, enterAccContainer);
 };
