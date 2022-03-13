@@ -11,69 +11,65 @@ export const addInfoPage = () => {
   lpImage.setAttribute('class', 'landing-page-img');
 
   const addInfoContainer = document.createElement('div');
-  addInfoContainer.setAttribute('class', 'createAccount-container');
+  addInfoContainer.setAttribute('class', 'addInfo-container');
 
   const addInfoTitle = document.createElement('h2');
-  addInfoTitle.setAttribute('class', 'account-title');
   addInfoTitle.innerHTML = 'Add Info';
 
   const addInfoForm = document.createElement('form');
-  addInfoForm.setAttribute('class', 'addInfo-form');
+  addInfoForm.setAttribute('class', 'addInfo-form'); //
   addInfoForm.setAttribute('id', 'signUpForm');
 
   const profileNameField = document.createElement('div');
-  profileNameField.setAttribute('class', 'label-icon');
+  profileNameField.setAttribute('class', 'label-icon'); //
   profileNameField.innerHTML = `
     <img class="mail" src='./assets/icons8-usuario-48 1.png' alt="name"/>
     <label for="name" class="e-mail">Profile name</label>`;
 
   const txtProfileName = document.createElement('input');
   txtProfileName.setAttribute('name', 'name');
-  txtProfileName.setAttribute('class', 'e-mail');
   txtProfileName.setAttribute('type', 'text');
   txtProfileName.setAttribute('placeholder', 'Write down your name');
   txtProfileName.required = 'true';
-  txtProfileName.id = 'txtEmail';
+  txtProfileName.id = 'txtProfilename';
 
   const usernameField = document.createElement('div');
-  usernameField.setAttribute('class', 'label-icon');
+  usernameField.setAttribute('class', 'label-icon'); //
   usernameField.innerHTML = `
     <img class="mail" src='./assets/arroba.png' alt="user"/>
     <label for="username" class="e-mail">Username</label>`;
 
   const txtUsername = document.createElement('input');
   txtUsername.setAttribute('name', 'username');
-  txtUsername.setAttribute('class', 'e-mail');
   txtUsername.setAttribute('type', 'text');
   txtUsername.setAttribute('placeholder', 'Write down your username ');
   txtUsername.required = 'true';
   txtUsername.id = 'txtusername';
 
+  const errorUsername = document.createElement('p');
+  errorUsername.setAttribute('id', 'errorAreaUsername');
+
   const bioField = document.createElement('div');
-  bioField.setAttribute('class', 'label-icon');
+  bioField.setAttribute('class', 'label-icon'); //
   bioField.innerHTML = `
     <img class="mail" src='./assets/bio.png' alt="bio"/>
     <label for="bio" class="e-mail">Bio</label>`;
 
   const txtareaBio = document.createElement('textarea');
   txtareaBio.setAttribute('name', 'bio');
-  txtareaBio.setAttribute('class', 'e-mail');
   txtareaBio.setAttribute('placeholder', 'Write down your bio');
-  txtareaBio.id = 'txtEmail';
 
-  addInfoForm.append(profileNameField, txtProfileName, usernameField, txtUsername, bioField, txtareaBio);
+  addInfoForm.append(profileNameField, txtProfileName, usernameField, txtUsername, errorUsername, bioField, txtareaBio);
 
-//   const errorSection = document.createElement('p');
-//   errorSection.setAttribute('class', 'error show-error-msg');
-//   errorSection.setAttribute('id', 'errorArea');
+  const errorForm = document.createElement('p');
+  errorForm.setAttribute('id', 'errorAreaForm');
 
   const btnAccept = document.createElement('input');
   btnAccept.setAttribute('type', 'button');
-  btnAccept.setAttribute('class', 'btn-signUp');
-  btnAccept.setAttribute('id', 'btn-signUp');
+  btnAccept.setAttribute('class', 'btn-accept');
   btnAccept.setAttribute('value', 'Accept');
 
-  addInfoContainer.append(addInfoTitle, addInfoForm, btnAccept);
+  addInfoContainer.append(addInfoTitle, addInfoForm, btnAccept, errorForm);
 
   // Username validation
 
@@ -89,37 +85,11 @@ export const addInfoPage = () => {
 
   btnAccept.addEventListener('click', (e) => {
     e.preventDefault();
-    let isFormValid = isValidField(txtProfileName.value, 'Profile name') && isValidField(txtUsername.value, 'Username') && isUsernameValid;
+    let isFormValid = isValidField(txtProfileName.value, txtUsername.value) && isUsernameValid;
     if (isFormValid){
         saveInfo(addInfoForm)
     }
   })
-
-//   txtPassword.addEventListener('keyup', () => showIncorrectPass());
-//   passwordConf.addEventListener('keyup', () => showIncorrectPass());
-
-
-//   // Funcionalidad de sign up with email
-//   btnSignUp.addEventListener('click', () => {
-//     const email = document.getElementById('txtEmail').value;
-//     const password = document.getElementById('txtPassword').value;
-
-//     const errorA = document.getElementById('errorArea');
-//     const form = document.getElementById('signUpForm');
-
-//     createAccount(email, password)
-//       .then((userCredential) => {
-//         const user = userCredential.user;
-//         console.log(user);
-//         errorA.innerHTML = '';
-//         form.reset();
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//         showSignUpError(error);
-//       });
-//   });
-
 
   addInfoContent.append(addInfoContainer, lpImage);
 

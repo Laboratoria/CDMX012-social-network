@@ -1,6 +1,7 @@
 import { app } from './firebase-config.js';
 import {getFirestore, doc, setDoc, getDoc} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
 import { getAuth, onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import {usernameError, usernameTaken, emptyFields, validUsername} from './ui.js'
 
 // Init firebase app
 const auth = getAuth(app);
@@ -26,10 +27,10 @@ export function saveInfo (userForm){
   
 // Funciones para validar
 
-export function isValidField ( value, field ){
+export function isValidField ( nameValue, usernameValue ){
   
-    if (value === ''){
-      console.log(`${field} cannot be empty`)
+    if (nameValue === '' || usernameValue === ''){
+      emptyFields()
       return false
     }
     return true
@@ -42,13 +43,13 @@ export async function usernameValidation (username) {
         const docRef = doc(db, "usernames", username);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-            console.log('This username is already taken')
+            usernameTaken()
         }else{
-            console.log('New username')
+            validUsername()
             return true  
         }
       }else{
-        console.log('Usernames can only contain letters, numbers, . and _')
+        usernameError()
       }
     return false
 }

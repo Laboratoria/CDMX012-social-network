@@ -61,7 +61,8 @@ body {
 }
 
 /* Sign-up page */
-.createAccount-container {
+.createAccount-container,
+.addInfo-container {
   background-color: white;
   border-radius: 10% 10% 0 0;
   display: flex;
@@ -74,7 +75,8 @@ body {
   width: 100%;
 }
 
-.createAccount-container h2 {
+.createAccount-container h2,
+.addInfo-container h2 {
   padding-top: 5%;
   padding-left: 5%;
   text-align: left;
@@ -96,16 +98,19 @@ body {
   margin-top: 2%;
 }
 
-.account-form label {
+.account-form label,
+.addInfo-form label {
   line-height: 2.5rem;
   width: 100%;
 }
 
-.account-form img {
+.account-form img,
+.addInfo-form img {
   margin-right: 0.4rem;
 }
 
-.account-form input {
+.account-form input,
+.addInfo-form input {
   outline: 0;
   border-width: 0 0 1px;
   border-color: black;
@@ -122,7 +127,8 @@ body {
   cursor: pointer;
 }
 
-.btn-signUp {
+.btn-signUp,
+.btn-accept {
   margin: 3% auto;
   border-radius: 30px;
   border: none;
@@ -151,7 +157,8 @@ body {
   cursor: pointer;
 }
 
-.btn-signUp:active {
+.btn-signUp:active,
+.btn-accept:active {
   transform: scale(1.01);
   border: solid 1px #d42a5b;
 }
@@ -197,6 +204,38 @@ body {
   width: 1.5em;
 }
 
+#txtProfilename {
+  margin-bottom: 2em;
+}
+
+.addInfo-form textarea {
+  outline: 0;
+  border-color: black;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.btn-accept {
+  margin-bottom: 0.5rem;
+}
+
+#errorAreaUsername {
+  height: 2em;
+  display: block;
+  color: red;
+  padding-bottom: 2%;
+}
+
+#errorAreaForm {
+  height: 3.5em;
+  display: block;
+  color: red;
+  padding-bottom: 2%;
+  margin-left: 12%;
+  margin-right: 12%;
+  margin-bottom: 1rem;
+}
+
 /**enterAccount-container**/
 
 .enterAccount-container {
@@ -239,6 +278,7 @@ body {
     background-image: url("./assets/front-page-img.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-y: 50%;
     background-color: #951c45;
     width: 55%;
   }
@@ -266,7 +306,8 @@ body {
     font-size: 22px;
   }
 
-  .createAccount-container {
+  .createAccount-container,
+  .addInfo-container {
     background-color: white;
     width: 45%;
     border-radius: 0;
@@ -278,27 +319,32 @@ body {
     justify-content: center;
   }
 
-  .createAccount-container h2 {
+  .createAccount-container h2,
+  .addInfo-container h2 {
     padding-top: 7%;
     text-align: left;
     font-size: 2em;
     width: 100%;
   }
 
-  .account-form {
+  .account-form,
+  .addInfo-form {
     margin: 5% 12% 5% 12%;
   }
-  .account-form label {
+  .account-form label,
+  .addInfo-form label {
     line-height: 4em;
     width: 100%;
   }
 
-  .account-form img {
+  .account-form img,
+  .addInfo-form img {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .account-form input {
+  .account-form input,
+  .addInfo-form input {
     outline: 0;
     border-width: 0 0 1px;
     border-color: black;
@@ -313,7 +359,8 @@ body {
     left: 35%;
   }
 
-  .btn-signUp {
+  .btn-signUp,
+  .btn-accept {
     margin-top: 2%;
     border-radius: 30px;
     border: none;
