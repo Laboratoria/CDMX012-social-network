@@ -47,11 +47,19 @@ inputEmail.setAttribute('placeholder', 'Email');
 inputEmail.setAttribute('id', 'inputEmail');
 inputEmail.setAttribute('class', 'input');
 
+const span = document.createElement('span');
+span.setAttribute('class', 'eye');
 const inputPassword = document.createElement('input');
 inputPassword.setAttribute('type', 'password');
 inputPassword.setAttribute('placeholder', 'Password');
 inputPassword.setAttribute('id', 'inputPassword');
 inputPassword.setAttribute('class', 'input');
+span.appendChild(inputPassword);
+const imgEye = document.createElement('i');
+imgEye.setAttribute('id', 'imgEye');
+imgEye.setAttribute('class', 'fa-solid fa-eye');
+span.appendChild(imgEye);
+
 const inputUsername = document.createElement('input');
 inputUsername.setAttribute('type', 'text');
 inputUsername.setAttribute('placeholder', 'Username');
@@ -62,7 +70,7 @@ buttonSignup.setAttribute('id', 'buttonSignup');
 buttonSignup.innerText = 'Continue';
 const errorMessage = document.createElement('div');
 errorMessage.setAttribute('id', 'errorMessage');
-const divAccount= document.createElement('div');
+const divAccount = document.createElement('div');
 divAccount.innerText = 'Already have an account?';
 divAccount.setAttribute('id', 'divAccount');
 
@@ -75,9 +83,23 @@ globalContainer.appendChild(buttonGoogle);
 globalContainer.appendChild(buttonTwitter);
 globalContainer.appendChild(separation);
 globalContainer.appendChild(inputEmail);
-globalContainer.appendChild(inputPassword);
+globalContainer.appendChild(span);
 globalContainer.appendChild(inputUsername);
 globalContainer.appendChild(errorMessage);
 
 globalContainer.appendChild(buttonSignup);
 globalContainer.appendChild(divAccount);
+
+const eyePassword = document.getElementById('imgEye');
+const Password = document.getElementById('inputPassword');
+eyePassword.addEventListener('click', () =>{ 
+    if(Password.type === 'password'){
+    Password.type = 'text';
+   }else{
+    Password.type = 'password';
+   }
+});
+
+const spanEye = document.querySelector('.eye');
+spanEye.addEventListener("focus", () => spanEye.classList.add('focused'), true);
+spanEye.addEventListener("blur", () => spanEye.classList.remove('focused'), true);
