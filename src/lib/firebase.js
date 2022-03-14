@@ -86,3 +86,4 @@ document.getElementById('submitInfoShoot').addEventListener('click', (e) => {
       alert(errorMessage);
     });
 });
+
