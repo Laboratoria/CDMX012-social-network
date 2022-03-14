@@ -1,6 +1,8 @@
 :root {
   --logo-color: #b21e48;
   --btnSignIn-color: #951c45;
+  padding: 0;
+  margin: 0;
 }
 
 * {
@@ -15,6 +17,9 @@ html {
   height: 100%;
 }
 
+.material-icons-outlined{
+  font-family: 'Material Icons';
+}
 /*********************************mobile de landing page*******************************/
 
 body {
@@ -55,34 +60,48 @@ body {
   align-items: center;
 }
 
+/* Sign-up page */
 .createAccount-container {
   background-color: white;
   border-radius: 10% 10% 0 0;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
   bottom: 0;
-  align-items: center;
+  position: fixed;
+  width: 100%;
 }
 
 .createAccount-container h2 {
   padding-top: 5%;
+  padding-left: 5%;
   text-align: left;
-  font-style: bold;
+  font-weight: bold;
   font-size: 1.5em;
   width: 100%;
 }
 
+.account-form {
+  margin: 5% 12% 5% 12%;
+}
+
+.label-icon {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 2%;
+}
+
 .account-form label {
-  line-height: 4em;
+  line-height: 2.5rem;
   width: 100%;
 }
 
 .account-form img {
-  display: flex;
-  flex-wrap: wrap;
+  margin-right: 0.4rem;
 }
 
 .account-form input {
@@ -90,14 +109,24 @@ body {
   border-width: 0 0 1px;
   border-color: black;
   width: 100%;
+  padding-top: 0.5rem;
+  margin-bottom: 2%;
+  background: transparent;
 }
 
 .account-form input:focus {
   background-color: #ddd;
 }
 
+.eye-icon {
+  cursor: pointer;
+  margin-bottom: -4.2rem;
+  margin-right: 0.2rem;
+  z-index: 3;
+}
+
 .btn-signUp {
-  margin-top: 10%;
+  margin: 2% auto;
   border-radius: 30px;
   border: none;
   width: 65%;
@@ -108,6 +137,7 @@ body {
   font-weight: bold;
   background-color: var(--btnSignIn-color);
   cursor: pointer;
+  align-self: center;
 }
 
 .btn-signIn {
@@ -125,18 +155,33 @@ body {
 }
 
 .btn-signUp:active {
-  transform: scale(1.01);
   border: solid 1px #d42a5b;
+}
+
+.btn-signUp:disabled {
+  background-color: #f7aab9;
 }
 
 .btn-signIn:active {
-  transform: scale(1.01);
   border: solid 1px #d42a5b;
 }
 
-.otherProviders label {
+.otherProviders {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.otherProviders label{
   display: block;
   text-align: center;
+  width: 100%;
+}
+
+.otherProviders img {
+  margin: 3%;
+  cursor: pointer;
 }
 
 .logosProviders {
@@ -303,23 +348,28 @@ body {
 
   .createAccount-container {
     background-color: white;
-    border-radius: 10% 10% 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 5%;
-    bottom: 0;
+    width: 45%;
+    border-radius: 0;
+    height: 100%;
+    flex-wrap: nowrap;
+    position: initial;
+    padding-left: 2%;
+    padding-right: 2%;
+    justify-content: center;
   }
 
   .createAccount-container h2 {
-    padding-top: 5%;
+    padding-top: 7%;
     text-align: left;
-    font-style: bold;
     font-size: 2em;
     width: 100%;
   }
 
+  .account-form {
+    margin: 5% 12% 5% 12%;
+  }
   .account-form label {
-    line-height: 4em;
+    line-height: 3em;
     width: 100%;
   }
 
@@ -339,8 +389,13 @@ body {
     background-color: #ddd;
   }
 
+  .eye-icon {
+    left: 35%;
+    margin-bottom: -4.9rem;
+  }
+
   .btn-signUp {
-    margin-top: 10%;
+    margin-top: 2%;
     border-radius: 30px;
     border: none;
     width: 70%;
@@ -351,6 +406,7 @@ body {
     font-weight: bold;
     background-color: var(--btnSignIn-color);
     cursor: pointer;
+    align-self: center;
   }
 
   .btn-signIn {
