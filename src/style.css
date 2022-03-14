@@ -1,60 +1,219 @@
-@media all and (max-width: 844px) {
-html{
-    width: 100%;
-    height:100%;
-}
-body{
-    margin: 0%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.logincontainer{
-    display: grid;
-    margin-bottom: 25%;
-}
-input{
-    width: 90%;
-    height: auto;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 5px;
-}
-figure{
-    width: 100%;
-    height: fit-content;
-}
-.logoyummy{
-    width: fit-content;
-    margin: 0%;
-    margin-top: 10%;
-}
-.buttonLogIn{
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-    border-radius: 5px;
-}
-#login{
-    background-color: black;
-    color: white;
-}
-#google{
-    background-color: white;
-    padding: 2%;
-}
-label{
-   margin-left: 5%;
-}
-p{
-    text-align: center;
-}
-}
-
-
-
-
-
-
+@media (min-width:801px){
+   
+    body{
+           background-color: #EBC920;
+           margin: 0;
+           font-family:  'Roboto', sans-serif;
+           font-weight: bold;
+           
+       }
+    #cocina{
+        margin: 0%;
+        width: 45%;
+        height: 100%;
+        position: fixed;
+    }
+    #login{
+        width: 27%;
+        height: 78%;
+        background-color: rgba(255, 255, 255, 0.521);
+        border-radius: 18px;
+        box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.527);
+        position: absolute;
+        top: 11%;
+        left: 58%;
+        padding: 1%;
+    }
+    #logoinicio{
+        width: 55%;
+        position: relative;
+        top: 2%;
+        left: 23%;
+     
+    }
+    input{
+        width: 65%;
+        height: 5%;
+        border: 1.5px solid #EBC920;
+        border-radius: 5px;
+        padding: 2%;
+    }
+    textarea:focus, input:focus {
+       outline: none; 
+       border: 2.5px solid #EBC920;
+     }
+    #email{
+        position: relative;
+        top: 8%;
+        left: 14%;
+    }
+    #contraseña{
+        position: relative;
+        top: 11%;
+        left: 14%;
+        
+    }
+    .botones{
+        width: 45%;
+        height: 7%;
+        border-radius: 3px;
+        box-shadow: 1px 1px 1px 1px rgba(56, 55, 55, 0.527);
+        border: none;
+        font-family:  'Roboto', sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+    }
+     #loginbo{
+        background-color: black;
+        color: white;
+        position: relative;
+        top: 15%;
+        left: 27%;
+    }
+    #loginbo:hover{
+       background-color: rgba(34, 33, 33, 0.973);
+       
+   }
+    #google{
+       background-color: white;
+       color: black;
+       position: relative;
+       top: 27%;
+       right: 19%;
+       
+     
+   }
+    #iconogoo{
+       width: 12%;
+   }
+    .letras1{
+        font-size: 11px;
+        position: relative;
+        top: 26%;
+        left: 31%;
+    }
+    .letras2{
+       font-size: 14px;
+       position: relative;
+       top: 29%;
+       left: 22%;
+   }
+   #registro{
+       font-size: 13px;
+       position: relative;
+       top: 27%;
+       left: 37%;
+       text-decoration-line: underline;
+       background: none;
+       border: none;
+       font-weight: bold;
+       cursor: pointer;
+   }
+   #registrar{
+           background-color: black;
+           color: white;
+           position: relative;
+           top: 15%;
+           left: 27%;
+       }
+       #loginbo:hover{
+          background-color: rgba(34, 33, 33, 0.973);
+          
+      }
+   }
+    @media (max-width:500px){
+        .desktop{
+            display: none;
+        }
+        body{
+           background-color: #EBC920;
+           margin: 0;
+           font-family:  'Roboto', sans-serif;
+           font-weight: bold;
+       }
+       #logoinicio{
+           width: 65%;
+           position: absolute;
+           top: 10%;
+           left: 19%;
+        
+       }
+       input{
+           width: 65%;
+           height: 3%;
+           border: 1.5px solid #b89a03;
+           border-radius: 5px;
+           padding: 2%;
+       }
+       textarea:focus, input:focus {
+          outline: none; 
+          border: 2.5px solid #b89a03;
+        }
+       #email{
+           position: absolute;
+           top: 38%;
+           left: 14%;
+       }
+       #contraseña{
+           position: absolute;
+           top: 47%;
+           left: 14%;
+           
+       }
+       .botones{
+           width: 45%;
+           height: 6%;
+           border-radius: 3px;
+           box-shadow: 1px 1px 1px 1px rgba(56, 55, 55, 0.527);
+           border: none;
+           font-family:  'Roboto', sans-serif;
+           font-weight: bold;
+       }
+       #loginbo{
+           background-color: black;
+           color: white;
+           position: absolute;
+           top: 57%;
+           left: 27%;
+       }
+       #loginbo:hover{
+          background-color: rgba(34, 33, 33, 0.973);
+          
+      }
+       #google{
+          background-color: white;
+          color: black;
+          position: absolute;
+          top: 66%;
+          left: 27%;
+          
+        
+      }
+       #iconogoo{
+          width: 12%;
+      }
+      .letras1{
+       font-size: 11px;
+       position: absolute;
+       top: 72%;
+       left: 31%;
+   }
+   .letras2{
+      font-size: 14px;
+      position: absolute;
+      top: 78%;
+      left: 21%;
+   }
+   #registro{
+      font-size: 13px;
+      position: absolute;
+      top: 83%;
+      left: 36%;
+      text-decoration-line: underline;
+      background: none;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+   }
+   
+    }

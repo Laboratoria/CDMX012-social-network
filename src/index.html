@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="esp">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +7,31 @@
   <title>Yummy</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <figure class="logoyummy">
-    <img src="./images/logo.png" alt="YummyLogo" class="desktop" id="logodes">
-    </figure>
-  <!--<img src="./images/login.png" alt="Yummy" class="desktop" id="login">
-  <img src="./images/logo.png" alt="Yummy" class="mobile">-->
-<section class="logincontainer">
-    <input type="email" id="email" class="input" placeholder="Email"></input><br>
-    <label>E-mail</label><br>
-    <input type="password" id="password" class="input" placeholder="Contraseña"></input><br>
-    <label>Contraseña</label><br>
-    <script type="module" src="main.js"></script>
-    <button class="buttonLogIn" id="login">Iniciar Sesión</button> <br>
+<body id="body">
+     <ul class="navbar-list">
+     <!-- <li class="navbar-item"><a href="#" onclick="onNavigate('/registro'); return false;">registro</a></li> -->
+      <!-- <li class="navbar-item"><a href="#" onclick="onNavigate('/'); return false;">login</a></li> -->
+      <!-- ESTA LINEA DE ARRIBA VA A CERRAR SESIÓN (EN UN FUTURO) -->
+     <!--  <li class="navbar-item"><a href="#" onclick="onNavigate('/muro'); return false;">muro</a></li> -->
+     <!-- ESTA SE USARÁ AL INICIAR SESIÓN (EN UN FUTURO)-->
+    </ul>
+   
+    <section id="root">
+    </section>
+
+<!-- <section class="logincontainer">
+    <input type="email" id="email" placeholder="Email"></input>
+      <label>E-mail</label>
+    <input type="password" id="password" placeholder="Contraseña"></input>
+      <label>Contraseña</label>
+    <button class="buttonLogIn" id="login">Iniciar Sesión</button>
     <button class="buttonLogIn" id="google"><img src="./images/google.png">Iniciar con Google </button>
-    <p>¿No tienes cuenta con nosotros?<br>
-      ¡Regístrate aquí! </p>
-    <p>¿Olvidaste tu contraseña?</p>
-  </section>
+    <p><b>¿Olvidaste tu contraseña?</b></p>
+    <p><b>¿No tienes cuenta con nosotros?<br>
+    ¡Regístrate aquí!</b></p>
+  </section> -->
+<!-- <script type="module" src="./lib/router.js"></script> -->
+
+<script type="module" src="main.js"></script>
 </body>
 </html>
