@@ -67,6 +67,8 @@ export const validUsername = () => {
   errorArea.style.color = 'green'; 
 }
 
+// form error message
+
 export const emptyFields = () => {
   const errorArea = document.querySelector('#errorAreaForm');
   errorArea.innerHTML = 'Profile name and/or username cannot be empty';

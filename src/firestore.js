@@ -25,7 +25,7 @@ export function saveInfo (userForm){
       })
   }
   
-// Funciones para validar
+// Validation functions
 
 export function isValidField ( nameValue, usernameValue ){
   

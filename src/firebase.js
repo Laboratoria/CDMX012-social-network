@@ -7,8 +7,6 @@ import { showSignUpError } from '../ui.js';
 // Init firebase app
 const auth = getAuth(app);
 
-
-
 // Sign up with email and password
 export const createAccount = (email, pass) => {
 
@@ -29,9 +27,7 @@ export const createAccount = (email, pass) => {
   });
 };
 
-// sign in with google
-
-// Sign un with Google
+// Sign up with Google
 const googleProvider = new GoogleAuthProvider();
 
 export const signUpGoogle = () => {
@@ -51,7 +47,7 @@ export const signUpGoogle = () => {
     });
 };
 
-// Sign un with Facebook
+// Sign up with Facebook
 const facebookProvider = new FacebookAuthProvider();
 
 export const signUpFacebook = () => {
@@ -97,6 +93,20 @@ export const signUpGithub = () => {
       const credential = GithubAuthProvider.credentialFromError(error);
     });
 };
+
+// Navigate to add-info page 
+
+function askMoreInfo (result){
+  
+  onNavigate('/add-info');
+
+  const moreInfoUser = document.querySelector('#signUpForm')
+
+  if (result.providerId == "google.com" || "facebook.com" ) {
+    moreInfoUser.name.value = result.user.displayName;
+  }
+
+}
 
 //  sign in with google in welcome back page
 
@@ -178,16 +188,4 @@ export const signUpGithub = () => {
 //     });
 // });
 
-//Get userName
 
-function askMoreInfo (result){
-  
-  onNavigate('/add-info');
-
-  const moreInfoUser = document.querySelector('#signUpForm')
-
-  if (result.providerId == "google.com" || "facebook.com" ) {
-    moreInfoUser.name.value = result.user.displayName;
-  }
-
-}
