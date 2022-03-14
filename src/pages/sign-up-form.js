@@ -1,5 +1,5 @@
 import { createAccount } from '../firebase.js';
-import { showSignUpError, showIncorrectPass, showPassword } from '../ui.js';
+import { showIncorrectPass, showPassword } from '../ui.js';
 
 export const createAccForm = () => {
   const createAccContainer = document.createElement('div');
@@ -93,16 +93,7 @@ export const createAccForm = () => {
     const password = document.getElementById('txtPassword').value;
 
     createAccount(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        errorSection.innerHTML = '';
-        signUpForm.reset();
-      })
-      .catch((error) => {
-        console.log(error);
-        showSignUpError(error);
-      });
+     
   });
 
   return createAccContainer;
