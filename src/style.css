@@ -50,6 +50,7 @@ header {
   align-items: center;
   justify-content: center;
   flex-direction: row-reverse;
+  cursor: pointer;
 }
 
 #imgGoogle {
@@ -72,6 +73,7 @@ header {
   align-items: center;
   justify-content: center;
   flex-direction: row-reverse;
+  cursor: pointer;
 }
 
 #imgTwitter {
@@ -96,9 +98,6 @@ header {
 input:focus {
   border: 3px solid #eca05f;
 }
-input[type="password"]:focus {
-  border: 3px solid #eca05f;
-}
 
 #inputEmail::placeholder {
   background: url("./img/email.png");
@@ -108,13 +107,53 @@ input[type="password"]:focus {
   color: #00000080;
 }
 
+.eye{
+  position: relative;
+  text-align: center;
+  border-radius: 5px;
+  width: 250px;
+  height: 38px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  font-weight: bold;
+  transition: 0.5s;
+  /* outline: none; */
+  margin: 8px 0px 8px;
+  background-color: #ffffff;
+}
+
+.focused{
+  border: 3px solid #eca05f;
+}
+
+#imgEye{
+  position: absolute;
+  right: 10px;
+  top: 55%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color:	#808080;
+}
+
 #inputPassword::placeholder {
   background: url("./img/lock.png");
   background-size: 47px;
   background-repeat: no-repeat;
-  background-position: 28px 3px;
+  background-position: 3px 3px;
   color: #00000080;
 }
+#inputPassword{
+  border: 0;
+  width: 80%;
+  height: 100%;
+  /* outline: none; */
+  text-align: center;
+  font-weight: bold;
+  transition: 0.5s;
+  outline: none;
+  margin: 0;
+}
+
 
 #inputUsername::placeholder {
   background: url("./img/user.png");
@@ -133,6 +172,7 @@ input[type="password"]:focus {
   border: 1px solid rgba(0, 0, 0, 0.38);
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #divAccount {
