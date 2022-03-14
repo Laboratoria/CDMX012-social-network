@@ -1,7 +1,9 @@
-import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
-import { auth, signInAccount } from '../firebase.js';
+import { signInAccount, signUpGoogle, signUpFacebook, signUpGithub } from '../firebase.js';
 
 export const signInPage = () => {
+  const signInWelcomePage = document.createElement('div');
+  signInWelcomePage.setAttribute('class', 'signInWelcomePage');
+
   const lpContent = document.createElement('div');
   lpContent.setAttribute('class', 'lp-content');
 
@@ -29,7 +31,13 @@ export const signInPage = () => {
   // guardar componentes de header
   header.append(logo, bookreads, slogan);
 
-  // seccion enter account
+  const lpImage = document.createElement('div');
+  lpImage.setAttribute('class', 'landing-page-img');
+
+  lpContainer.append(header);
+  lpContent.append(lpContainer, lpImage);
+
+  // seccion enter account container
   const enterAccContainer = document.createElement('div');
   enterAccContainer.setAttribute('class', 'enterAccount-container');
 
@@ -53,21 +61,19 @@ export const signInPage = () => {
 
   const passwordFormat = document.createElement('div');
   passwordFormat.innerHTML = `<label for="password" class="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password</label><img class="padlock" src='./assets/icons8-contraseña-24 1.png' alt="padlock" />`;
-
+  // creacion de contraseña
   const txtPassword = document.createElement('input');
   txtPassword.setAttribute('class', 'password');
   txtPassword.setAttribute('type', 'password');
   txtPassword.setAttribute('placeholder', 'Insert your password here');
   txtPassword.required = 'true';
   txtPassword.id = 'txtPassword';
-
+  // creacion de mensaje de error 
   const errorMessage = document.createElement('p');
   errorMessage.setAttribute('class', 'error-message');
-
   // guardar componentes de signInForm
   signInForm.append(emailFormat, txtEmail, passwordFormat, txtPassword, errorMessage);
-
-  // btn de signIn Welcome
+  // creacion de btn de signIn Welcome
   const btnSignInWelcome = document.createElement('input');
   btnSignInWelcome.setAttribute('type', 'button');
   btnSignInWelcome.setAttribute('class', 'btn-signInWelcome');
@@ -78,7 +84,7 @@ export const signInPage = () => {
   const providersContent = document.createElement('span');
   providersContent.setAttribute('class', 'otherProviders');
   providersContent.innerHTML = `<label for="" class="otherProviders">or sign in with</label>`;
-
+  // creacion de btn google, fb y github
   const googleLogo = document.createElement('img');
   googleLogo.setAttribute('class', 'logoGoogle');
   googleLogo.setAttribute('id', 'btn-google2');
@@ -96,82 +102,28 @@ export const signInPage = () => {
   githubLogo.setAttribute('id', 'btn-github2');
   githubLogo.setAttribute('src', './assets/icons8-github-60.png');
   githubLogo.setAttribute('alt', 'logo Github');
-
   // guardar logos de providers
   providersContent.append(googleLogo, facebookLogo, githubLogo);
 
   // redireccionamiento a google, facebook y github
-  googleLogo.addEventListener('click', () => { 
-    signInWithPopup(auth, new GoogleAuthProvider())
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-      // ...
-      }).catch((error) => {
-      // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-      });
+  googleLogo.addEventListener('click', () => {
+    signUpGoogle();
   });
 
   facebookLogo.addEventListener('click', () => {
-    signInWithPopup(auth, new FacebookAuthProvider())
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = FacebookAuthProvider.credentialFromResult(result);
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-      // ...
-      }).catch((error) => {
-      // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = FacebookAuthProvider.credentialFromError(error);
-      // ...
-      });
+    signUpFacebook();
   });
 
   githubLogo.addEventListener('click', () => {
-    signInWithPopup(auth, new GithubAuthProvider())
-      .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GithubAuthProvider.credentialFromResult(result);
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-      // ...
-      }).catch((error) => {
-      // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GithubAuthProvider.credentialFromError(error);
-        // ...
-      });
+    signUpGithub();
   });
-
+  // guardar los elementos del form
   enterAccContainer.append(enterAccTitle, signInForm, btnSignInWelcome, providersContent);
-
+  // boton sign in welcome para reactivar la cuenta
   btnSignInWelcome.addEventListener('click', () => {
     const email = document.getElementById('txtEmail').value;
     const password = document.getElementById('txtPassword').value;
-
     const form = document.getElementById('signUpForm');
-
     signInAccount(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -185,11 +137,6 @@ export const signInPage = () => {
       });
   });
 
-  const lpImage = document.createElement('div');
-  lpImage.setAttribute('class', 'landing-page-img');
-
-  lpContainer.append(header);
-  lpContent.append(lpContainer, lpImage);
-
-  return (lpContent, enterAccContainer);
+  signInWelcomePage.append(lpContent, enterAccContainer);
+  return (signInWelcomePage);
 };
