@@ -2,11 +2,13 @@
 import { landingPage } from './pages/landing-page.js';
 import { signUpPage } from './pages/sign-up.js';
 import { signInPage } from './pages/sign-in.js';
+import { addInfoPage } from './pages/add-info.js';
 
 const routes = {
   '/': landingPage,
   '/sign-up': signUpPage,
   '/sign-in': signInPage,
+  '/add-info': addInfoPage,
 };
 
 const rootDiv = document.getElementById('root');
@@ -32,4 +34,9 @@ window.onpopstate = () => {
   rootDiv.appendChild(component());
 };
 
-rootDiv.appendChild(component());
+window.onload = () => {
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(component());
+};
