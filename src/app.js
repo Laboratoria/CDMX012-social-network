@@ -17,18 +17,19 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  rootDiv.removeChild(rootDiv.firstChild); // prueba
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
   rootDiv.appendChild(routes[pathname]());
 };
 
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
-  rootDiv.removeChild(rootDiv.firstChild);
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
   rootDiv.appendChild(component());
 };
 
-window.onload = () => {
-  rootDiv.removeChild(rootDiv.firstChild);
-  rootDiv.appendChild(component());
-};
+rootDiv.appendChild(component());

@@ -11,3 +11,31 @@ export const showSignUpError = (error) => {
     errorArea.innerHTML = `Error: ${error.message}`;
   }
 };
+
+export const showIncorrectPass = () => {
+  const pass1 = document.getElementById('txtPassword').value;
+  const pass2 = document.getElementById('passwordConfirm').value;
+  const errorArea = document.querySelector('#errorArea');
+  const signUpButton = document.querySelector('.btn-signUp');
+
+  if (pass1 !== pass2) {
+    errorArea.innerHTML = 'Passwords do not match';
+    signUpButton.disabled = true;
+  } else if (pass1 === pass2) {
+    errorArea.innerHTML = '';
+    signUpButton.disabled = false;
+  }
+};
+
+export const showPassword = (pass, eyeIcon) => {
+  const pass1 = pass;
+  const eyeIcon1 = eyeIcon;
+
+  if (pass1.type === 'password') {
+    pass1.type = 'text';
+    eyeIcon1.innerText = 'visibility_off';
+  } else {
+    pass1.type = 'password';
+    eyeIcon1.innerText = 'visibility';
+  }
+};
