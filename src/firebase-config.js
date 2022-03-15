@@ -1,4 +1,6 @@
-export const app = {
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js'
+
+const firebaseConfig = {
     apiKey: "AIzaSyAcC9x7vCU7X9Dc0b8mM2L4RNcL97800qs",
     authDomain: "bookreads-9192a.firebaseapp.com",
     projectId: "bookreads-9192a",
@@ -7,3 +9,5 @@ export const app = {
     appId: "1:512279860959:web:75245200f515c09571fb6a",
     measurementId: "G-3327QVYEY6"
   };
+
+export const app = initializeApp(firebaseConfig); 

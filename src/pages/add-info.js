@@ -10,6 +10,31 @@ export const addInfoPage = () => {
   const lpImage = document.createElement('div');
   lpImage.setAttribute('class', 'landing-page-img');
 
+  const lpContainer = document.createElement('div');
+  lpContainer.setAttribute('class', 'landing-page-container');
+
+  // header section
+  const header = document.createElement('header');
+  header.setAttribute('id', 'header');
+
+  const logo = document.createElement('img');
+  logo.setAttribute('class', 'logo-book');
+  logo.setAttribute('src', './assets/logo sin fondo 1.png');
+  logo.setAttribute('alt', 'logo book reads');
+
+  const bookreads = document.createElement('img');
+  bookreads.setAttribute('class', 'titleBookReads');
+  bookreads.setAttribute('src', './assets/nombre_sin_fondo-removebg-preview 1.png');
+  bookreads.setAttribute('alt', 'titleBookReads');
+
+  const slogan = document.createElement('h1');
+  slogan.innerHTML = 'Read with me';
+  slogan.setAttribute('class', 'sloganSN');
+
+  // guardar componentes de header
+  header.append(logo, bookreads, slogan);
+  lpImage.append(header);
+
   const addInfoContainer = document.createElement('div');
   addInfoContainer.setAttribute('class', 'addInfo-container');
 

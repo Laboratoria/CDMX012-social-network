@@ -22,6 +22,44 @@ html {
 }
 /*********************************mobile de landing page*******************************/
 
+body {
+  background-image: url("./assets/photo-1543002588-bfa74002ed7e\ 1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.logo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-book {
+  width: 76px;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.titleBookReads {
+  width: 254px;
+  margin-bottom: 1rem;
+}
+
+.sloganSN {
+  color: var(--logo-color);
+  font-size: 22px;
+}
+
+.sign-up-in-container {
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Sign-up page */
 .createAccount-container,
 .addInfo-container {
@@ -160,7 +198,6 @@ html {
   justify-content: space-evenly;
 }
 
-
 /* Sign-in page */
 
 .btn-signIn:active {
@@ -177,8 +214,8 @@ html {
   flex-wrap: wrap;
   justify-content: flex-start;
   padding-left: 5%;
-  width:100%;
-  top:315px;
+  width: 100%;
+  top: 315px;
 }
 
 .enterAccount-container h2 {
@@ -192,7 +229,7 @@ html {
 .enterAccount-form label {
   line-height: 4em;
   width: 100%;
-  font-size:20px;
+  font-size: 20px;
 }
 
 .enterAccount-form img {
@@ -206,7 +243,7 @@ html {
 
 .btn-signInWelcome {
   margin-top: 10%;
-  margin-left:5%;
+  margin-left: 5%;
   border-radius: 30px;
   border: none;
   height: 7%;
@@ -230,7 +267,7 @@ html {
 .btn-signIn:active {
   border: solid 1px #d42a5b;
 }
- 
+
 /* Mensaje de error */
 
 .error {
@@ -241,15 +278,21 @@ html {
 }
 
 .error-message {
-  color:red;
+  color: red;
   font-size: 20px;
-  margin-top:10%;
-  width:100%;
+  margin-top: 10%;
+  width: 100%;
 }
 
 /**Add info container**/
 
-addInfo-form img {
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addInfo-form img {
   width: 1.5em;
 }
 
@@ -286,7 +329,6 @@ addInfo-form img {
 }
 
 @media screen and (min-width: 768px) {
-
   body {
     background-image: none;
   }
@@ -317,30 +359,30 @@ addInfo-form img {
     background-image: url("./assets/front-page-img.jpg");
     background-repeat: no-repeat;
     background-color: #951c45;
-    background-size:cover;
-    width:60%;
-    height:100vh;
+    background-size: cover;
+    width: 60%;
+    height: 100vh;
     background-position-y: 50%;
   }
-  
+
   .logo-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10%;
   }
-  
+
   .logo-book {
     width: 76px;
     margin-top: 3rem;
     margin-bottom: 1rem;
   }
-  
+
   .titleBookReads {
     width: 254px;
     margin-bottom: 1rem;
   }
-  
+
   .sloganSN {
     color: var(--logo-color);
     font-size: 22px;
@@ -371,7 +413,7 @@ addInfo-form img {
   .addInfo-form {
     margin: 5% 12% 5% 12%;
   }
-  
+
   .account-form label,
   .addInfo-form label {
     line-height: 4em;
@@ -423,12 +465,12 @@ addInfo-form img {
 
   .enterAccount-container {
     border-radius: 0;
-    width:40%;
-    height:100%;
-    top:0;
-    bottom:0;
+    width: 40%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
   }
-  
+
   .enterAccount-container h2 {
     margin-top: 20%;
   }
