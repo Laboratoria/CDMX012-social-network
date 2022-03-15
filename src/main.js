@@ -12,6 +12,7 @@ const routes = {
 
 const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
+
 const onNavigate = (pathname) => {
   window.history.pushState(
     {},
@@ -24,3 +25,11 @@ window.onNavigate = onNavigate;
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
 };
+const registerButton = document.getElementById('registerButton');
+registerButton.addEventListener('click', () => {
+  let userMail = document.getElementById('mail').value;
+  const userName = document.getElementById('user').value;
+  const userPassword = document.getElementById('password').value;
+  const userArea = document.getElementById('area').value;
+  console.log(userMail, userName, userPassword, userArea);
+});

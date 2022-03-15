@@ -19,7 +19,7 @@
         text-align: center;
         }
     .logo{
-        max-width: 25%;
+        max-width: 100%;
     }
     
     .containerButtons{
@@ -78,6 +78,8 @@
         padding: 10px;
         border-radius:20px;
         row-gap: 5px;
+        border:3px solid #6462D9;
+        width: 300px;
     }
     .containerInputR{
         display: flex;
