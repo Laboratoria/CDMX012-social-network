@@ -180,9 +180,13 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin-right: 12%;
 }
 
 .otherProviders label {
+  margin-top: 7%;
+  margin-bottom: 7%;
+  margin-left: 5%;
   display: block;
   text-align: center;
   width: 100%;
@@ -211,11 +215,11 @@ body {
   background-color: white;
   border-radius: 10% 10% 0 0;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   padding-left: 5%;
   width: 100%;
-  top: 315px;
+  bottom: 0px;
 }
 
 .enterAccount-container h2 {
@@ -224,6 +228,13 @@ body {
   font-style: bold;
   font-size: 2em;
   width: 100%;
+}
+
+.enterAccount-form {
+  margin: 10% 12% 5% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .enterAccount-form label {
@@ -243,11 +254,10 @@ body {
 
 .btn-signInWelcome {
   margin-top: 10%;
-  margin-left: 5%;
+  margin-left: 8%;
   border-radius: 30px;
   border: none;
-  height: 7%;
-  width: 70%;
+  width: 65%;
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
   font-size: 20px;
@@ -255,7 +265,7 @@ body {
   font-weight: bold;
   background-color: var(--btnSignIn-color);
   cursor: pointer;
-  align-self: center;
+  align-self: baseline;
 }
 
 .btn-signInWelcome:active {
