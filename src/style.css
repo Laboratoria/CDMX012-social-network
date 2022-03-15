@@ -27,7 +27,7 @@ header {
   margin-top: 20px;
 }
 
-#globalContainer {
+#globalSignupDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,7 +107,7 @@ input:focus {
   color: #00000080;
 }
 
-.eye{
+.eye {
   position: relative;
   text-align: center;
   border-radius: 5px;
@@ -122,17 +122,17 @@ input:focus {
   background-color: #ffffff;
 }
 
-.focused{
+.focused {
   border: 3px solid #eca05f;
 }
 
-#imgEye{
+#imgEye {
   position: absolute;
   right: 10px;
   top: 55%;
   transform: translateY(-50%);
   cursor: pointer;
-  color:	#808080;
+  color: #808080;
 }
 
 #inputPassword::placeholder {
@@ -142,7 +142,7 @@ input:focus {
   background-position: 3px 3px;
   color: #00000080;
 }
-#inputPassword{
+#inputPassword {
   border: 0;
   width: 80%;
   height: 100%;
@@ -153,7 +153,6 @@ input:focus {
   outline: none;
   margin: 0;
 }
-
 
 #inputUsername::placeholder {
   background: url("./img/user.png");
