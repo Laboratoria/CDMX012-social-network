@@ -1,27 +1,44 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider, signInWithEmailAndPassword, onAuthStateChanged, getAdditionalUserInfo } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
-import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
+// Import the functions you need from the SDKs you need
 import { app } from './firebase-config.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider, onAuthStateChanged, getAdditionalUserInfo } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+import { onNavigate } from '../app.js';
+import { showSignUpError } from '../ui.js';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-const appFirebase = initializeApp(app);
-export const auth = getAuth(appFirebase);
+// Init firebase app
+const auth = getAuth(app);
 
 // Sign up with email and password
-export const createAccount = (email, pass) => createUserWithEmailAndPassword(auth, email, pass);
+export const createAccount = (email, pass) => {
 
-// Sign un with Google
+  const errorA = document.getElementById('errorArea');
+  const form = document.getElementById('signUpForm');
+
+  createUserWithEmailAndPassword(auth, email, pass)
+  .then((userCredential) => {
+    askMoreInfo(userCredential);
+    const user = userCredential.user;
+    console.log(user);
+    errorA.innerHTML = '';
+    form.reset();
+  })
+  .catch((error) => {
+    console.log(error);
+    showSignUpError(error);
+  });
+};
+
+// Sign up with Google
+
 const googleProvider = new GoogleAuthProvider();
 
 export const signUpGoogle = () => {
   signInWithPopup(auth, googleProvider)
     .then((result) => {
-    /* if (getAdditionalUserInfo(result).isNewUser){
+    if (getAdditionalUserInfo(result).isNewUser){
       askMoreInfo(result);
-    } else { */
+    } else { 
       console.log('Already registered');
-    /* } */
+    }
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -31,16 +48,18 @@ export const signUpGoogle = () => {
     });
 };
 
-// Sign un with Facebook
+// Sign up with Facebook
+
 const facebookProvider = new FacebookAuthProvider();
 
 export const signUpFacebook = () => {
   signInWithPopup(auth, facebookProvider)
     .then((result) => {
-    /* if (getAdditionalUserInfo(result).isNewUser){
-      askMoreInfo(result);
-    } else { */
-      console.log('Already registered');
+      if (getAdditionalUserInfo(result).isNewUser){
+        askMoreInfo(result);
+      } else { 
+        console.log('Already registered');
+      }
     },
     ).catch((error) => {
     // Handle Errors here.
@@ -62,11 +81,11 @@ export const signUpGithub = () => {
       const credential = GithubAuthProvider.credentialFromResult(result);
       const user = result.user;
       console.log(user);
-      /* if (getAdditionalUserInfo(result).isNewUser) {
+      if (getAdditionalUserInfo(result).isNewUser) {
         askMoreInfo(result);
-      } else {
+      } else { 
         console.log('Already registered');
-      } */
+      }
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -77,35 +96,22 @@ export const signUpGithub = () => {
     });
 };
 
-// sign in with email and password in welcome back page 
-export const signInAccount = (email, pass) => signInWithEmailAndPassword(auth, email, pass);
+// Navigate to add-info page 
 
-/* //Get userName
-const db = getFirestore();
-const saveInfoUser = document.querySelector('.btn-username');
-const moreInfoUser = document.querySelector('#moreInfo-user');
-const addInfoContainer = document.querySelector('.add-info-container');
-export function askMoreInfo(result) {
-  /* signUpContainer.style.visibility = 'hidden';
-  addInfoContainer.style.visibility = 'visible';
+function askMoreInfo (result){
+  
+  onNavigate('/add-info');
+
+  const moreInfoUser = document.querySelector('#signUpForm')
+
   if (result.providerId == "google.com" || "facebook.com" ) {
     moreInfoUser.name.value = result.user.displayName;
   }
-  saveInfoUser.addEventListener('click', (e) => {
-    e.preventDefault();
-    onAuthStateChanged(auth, (result) => {
-      const uid = result.uid;
-      setDoc(doc(db, 'users', uid), {
-        name: moreInfoUser.name.value,
-        username: moreInfoUser.username.value,
-        bio: moreInfoUser.description.value,
-      })
-        .then(() => {
-          moreInfoUser.reset();
-        });
-    });
-  });
-} */
+}
+
+// sign in with email and password in welcome back page 
+export const signInAccount = (email, pass) => signInWithEmailAndPassword(auth, email, pass);
+
 
 
 

@@ -57,11 +57,12 @@ export const landingPage = () => {
   });
 
   buttonsContainer.append(signUpBtn, signInBtn);
+  
+  lpContainer.append(header, buttonsContainer);
 
   const lpImage = document.createElement('div');
   lpImage.setAttribute('class', 'landing-page-img');
 
-  lpContainer.append(header, buttonsContainer);
   lpContent.append(lpContainer, lpImage);
 
   return lpContent;
