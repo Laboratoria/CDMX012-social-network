@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Solovino</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" href="./Resourses/Solovino.png" />
   </head>
   <body>
-    <h1>Hola mundo</h1>
+    <input
+      type="email"
+      id="email"
+      placeholder="Escribe tu correo electrónico..."
+    />
+    <input
+      type="password"
+      id="password"
+      placeholder="Escribe aqui tu contraseña"
+    />
+    <button id="sing-in" onclick="sendInformation()">Registrarse</button>
+
     <script type="module" src="bundle.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
