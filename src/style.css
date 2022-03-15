@@ -22,44 +22,6 @@ html {
 }
 /*********************************mobile de landing page*******************************/
 
-body {
-  background-image: url("./assets/photo-1543002588-bfa74002ed7e\ 1.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
-}
-
-.logo-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logo-book {
-  width: 76px;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-}
-
-.titleBookReads {
-  width: 254px;
-  margin-bottom: 1rem;
-}
-
-.sloganSN {
-  color: var(--logo-color);
-  font-size: 22px;
-}
-
-.sign-up-in-container {
-  position: absolute;
-  width: 100%;
-  bottom: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* Sign-up page */
 .createAccount-container,
 .addInfo-container {
@@ -110,6 +72,7 @@ body {
 }
 
 .account-form input,
+.enterAccount-form input,
 .addInfo-form input {
   outline: 0;
   border-width: 0 0 1px;
@@ -197,7 +160,79 @@ body {
   justify-content: space-evenly;
 }
 
+
+/* Sign-in page */
+
+.btn-signIn:active {
+  transform: translateY(4px);
+  color: black;
+  border: solid 1px #d42a5b;
+}
+
+.enterAccount-container {
+  position: absolute;
+  background-color: white;
+  border-radius: 10% 10% 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-left: 5%;
+  width:100%;
+  top:315px;
+}
+
+.enterAccount-container h2 {
+  padding-top: 5%;
+  text-align: left;
+  font-style: bold;
+  font-size: 2em;
+  width: 100%;
+}
+
+.enterAccount-form label {
+  line-height: 4em;
+  width: 100%;
+  font-size:20px;
+}
+
+.enterAccount-form img {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.enterAccount-form input:focus {
+  background-color: #ddd;
+}
+
+.btn-signInWelcome {
+  margin-top: 10%;
+  margin-left:5%;
+  border-radius: 30px;
+  border: none;
+  height: 7%;
+  width: 70%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  background-color: var(--btnSignIn-color);
+  cursor: pointer;
+  align-self: center;
+}
+
+.btn-signInWelcome:active {
+  transform: translateY(4px);
+  color: black;
+  border: none;
+}
+
+.btn-signIn:active {
+  border: solid 1px #d42a5b;
+}
+ 
 /* Mensaje de error */
+
 .error {
   display: block;
   color: red;
@@ -205,9 +240,16 @@ body {
   text-align: center;
 }
 
+.error-message {
+  color:red;
+  font-size: 20px;
+  margin-top:10%;
+  width:100%;
+}
+
 /**Add info container**/
 
-.addInfo-form img {
+addInfo-form img {
   width: 1.5em;
 }
 
@@ -243,18 +285,8 @@ body {
   margin-bottom: 1rem;
 }
 
-/**enterAccount-container**/
-
-.enterAccount-container {
-  position: absolute;
-  background-color: white;
-  border-radius: 10% 10% 0 0;
-  bottom: 0;
-  height: 62%;
-  width: 100%;
-}
-
 @media screen and (min-width: 768px) {
+
   body {
     background-image: none;
   }
@@ -271,7 +303,7 @@ body {
 
   .landing-page-container {
     background-color: white;
-    width: 45%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -284,30 +316,31 @@ body {
   .landing-page-img {
     background-image: url("./assets/front-page-img.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: 50%;
     background-color: #951c45;
-    width: 55%;
+    background-size:cover;
+    width:60%;
+    height:100vh;
+    background-position-y: 50%;
   }
-
+  
   .logo-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10%;
   }
-
+  
   .logo-book {
     width: 76px;
     margin-top: 3rem;
     margin-bottom: 1rem;
   }
-
+  
   .titleBookReads {
     width: 254px;
     margin-bottom: 1rem;
   }
-
+  
   .sloganSN {
     color: var(--logo-color);
     font-size: 22px;
@@ -338,6 +371,7 @@ body {
   .addInfo-form {
     margin: 5% 12% 5% 12%;
   }
+  
   .account-form label,
   .addInfo-form label {
     line-height: 4em;
@@ -388,52 +422,14 @@ body {
   }
 
   .enterAccount-container {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border-radius: 10% 10% 0 0;
-    bottom: 0;
-    height: 62%;
-    width: 100%;
+    border-radius: 0;
+    width:40%;
+    height:100%;
+    top:0;
+    bottom:0;
+  }
+  
+  .enterAccount-container h2 {
+    margin-top: 20%;
   }
 }
-
-/* @media screen and (min-width: 768px){
-      body {
-          background-image: none;
-          display: flex;
-      }
-  
-      .landing-page-container {
-          background-color: white;
-          width: 45%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-      }
-  
-      .sign-up-in-container {
-          position: relative;
-      }
-  
-      .landing-page-img {
-          background-image: url("./assets/front-page-img.jpg");
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-color: #951c45;
-          width: 55%;
-      }
-  
-      .btn-signIn {
-          border: solid 1px var(--btnSignIn-color);
-      } 
-  
-      .createAccount-container{
-          display: none;
-      } 
-  
-      .enterAccount-container{
-          display: none;
-      }
-  }
-} */

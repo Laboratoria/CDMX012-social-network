@@ -28,6 +28,7 @@ export const createAccount = (email, pass) => {
 };
 
 // Sign up with Google
+
 const googleProvider = new GoogleAuthProvider();
 
 export const signUpGoogle = () => {
@@ -48,6 +49,7 @@ export const signUpGoogle = () => {
 };
 
 // Sign up with Facebook
+
 const facebookProvider = new FacebookAuthProvider();
 
 export const signUpFacebook = () => {
@@ -79,7 +81,7 @@ export const signUpGithub = () => {
       const credential = GithubAuthProvider.credentialFromResult(result);
       const user = result.user;
       console.log(user);
-      if (getAdditionalUserInfo(result).isNewUser){
+      if (getAdditionalUserInfo(result).isNewUser) {
         askMoreInfo(result);
       } else { 
         console.log('Already registered');
@@ -105,87 +107,11 @@ function askMoreInfo (result){
   if (result.providerId == "google.com" || "facebook.com" ) {
     moreInfoUser.name.value = result.user.displayName;
   }
-
 }
 
-//  sign in with google in welcome back page
+// sign in with email and password in welcome back page 
+export const signInAccount = (email, pass) => signInWithEmailAndPassword(auth, email, pass);
 
 
-// const btnGoogle2 = document.getElementById('btn-google2');
-// btnGoogle2.addEventListener('click', () => { 
-//   signInWithPopup(auth, googleProvider)
-//     .then((result) => {
-//       // This gives you a Google Access Token. You can use it to access the Google API.
-//       const credential = GoogleAuthProvider.credentialFromResult(result);
-//       // The signed-in user info.
-//       const user = result.user;
-//       console.log(user);
-//     // ...
-//     }).catch((error) => {
-//     // Handle Errors here.
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       // The email of the user's account used.
-//       const email = error.email;
-//       // The AuthCredential type that was used.
-//       const credential = GoogleAuthProvider.credentialFromError(error);
-//     // ...
-//     });
-// });
-
-// //  sign in with github
-
-// const githubProvider = new GithubAuthProvider();
-
-// const btnGithub = document.getElementById('btn-github');
-// btnGithub.addEventListener('click', () => {
-//   signInWithPopup(auth, githubProvider)
-//     .then((result) => {
-//       // This gives you a Google Access Token. You can use it to access the Google API.
-//       const credential = GithubAuthProvider.credentialFromResult(result);
-//       // The signed-in user info.
-//       const user = result.user;
-//       console.log(user);
-//       if (getAdditionalUserInfo(result).isNewUser){
-//         askMoreInfo(result);
-//       } else {
-//         console.log('Already register')
-//       }
-//     // ...
-//     }).catch((error) => {
-//     // Handle Errors here.
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       // The email of the user's account used.
-//       const email = error.email;
-//       // The AuthCredential type that was used.
-//       const credential = GithubAuthProvider.credentialFromError(error);
-//     // ...
-//     });
-// });
-
-// //  sign in with github in welcome back page
-
-// const btnGithub2 = document.getElementById('btn-github2');
-// btnGithub2.addEventListener('click', () => {
-//   signInWithPopup(auth, githubProvider)
-//     .then((result) => {
-//       // This gives you a Google Access Token. You can use it to access the Google API.
-//       const credential = GithubAuthProvider.credentialFromResult(result);
-//       // The signed-in user info.
-//       const user = result.user;
-//       console.log(user);
-//     // ...
-//     }).catch((error) => {
-//     // Handle Errors here.
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       // The email of the user's account used.
-//       const email = error.email;
-//       // The AuthCredential type that was used.
-//       const credential = GithubAuthProvider.credentialFromError(error);
-//     // ...
-//     });
-// });
 
 

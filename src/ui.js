@@ -40,7 +40,7 @@ export const showPassword = (pass, eyeIcon) => {
   }
 };
 
-// username error messages
+// username error messages add-info
 
 export const usernameError = () => {
   const errorArea1 = document.querySelector('#errorAreaUsername');
@@ -67,7 +67,7 @@ export const validUsername = () => {
   errorArea.style.color = 'green'; 
 }
 
-// form error message
+// form error message add-Info
 
 export const emptyFields = () => {
   const errorArea = document.querySelector('#errorAreaForm');

@@ -57,7 +57,7 @@ export const landingPage = () => {
   });
 
   buttonsContainer.append(signUpBtn, signInBtn);
-
+  
   lpContainer.append(header, buttonsContainer);
 
   const lpImage = document.createElement('div');
