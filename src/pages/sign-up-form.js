@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { createAccount } from '../firebase.js';
 import { showIncorrectPass, showPassword } from '../ui.js';
 
@@ -92,8 +93,7 @@ export const createAccForm = () => {
     const email = document.getElementById('txtEmail').value;
     const password = document.getElementById('txtPassword').value;
 
-    createAccount(email, password)
-     
+    createAccount(email, password);
   });
 
   return createAccContainer;

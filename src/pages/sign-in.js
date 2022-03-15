@@ -1,4 +1,7 @@
-import { signInAccount, signUpGoogle, signUpFacebook, signUpGithub } from '../firebase.js';
+// eslint-disable-next-line import/no-cycle
+import {
+  signInAccount, signUpGoogle, signUpFacebook, signUpGithub,
+} from '../firebase.js';
 
 export const signInPage = () => {
   const signInWelcomePage = document.createElement('div');
@@ -50,7 +53,8 @@ export const signInPage = () => {
   signInForm.setAttribute('id', 'signInForm');
 
   const emailFormat = document.createElement('div');
-  emailFormat.innerHTML = `<label for="email" class="e-mail">E-mail</label><img class="mail" src='./assets/icons8-email-64 1.png' alt="mail"/>`;
+  emailFormat.setAttribute('class', 'label-icon');
+  emailFormat.innerHTML = '<img class="mail" src="./assets/icons8-email-64 1.png" alt="mail"/><label for="email" class="e-mail">E-mail</label>';
 
   const txtEmail = document.createElement('input');
   txtEmail.setAttribute('class', 'e-mail');
@@ -60,7 +64,8 @@ export const signInPage = () => {
   txtEmail.id = 'txtEmail';
 
   const passwordFormat = document.createElement('div');
-  passwordFormat.innerHTML = `<label for="password" class="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password</label><img class="padlock" src='./assets/icons8-contraseña-24 1.png' alt="padlock" />`;
+  passwordFormat.setAttribute('class', 'label-icon');
+  passwordFormat.innerHTML = '<img class="padlock" src="./assets/icons8-contraseña-24 1.png" alt="padlock"/><label for="password" class="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">Password</label>';
   // creacion de contraseña
   const txtPassword = document.createElement('input');
   txtPassword.setAttribute('class', 'password');
@@ -68,7 +73,7 @@ export const signInPage = () => {
   txtPassword.setAttribute('placeholder', 'Insert your password here');
   txtPassword.required = 'true';
   txtPassword.id = 'txtPassword';
-  // creacion de mensaje de error 
+  // creacion de mensaje de error
   const errorMessage = document.createElement('p');
   errorMessage.setAttribute('class', 'error-message');
   // guardar componentes de signInForm
@@ -83,7 +88,7 @@ export const signInPage = () => {
   // contenido de providers google facebook y github
   const providersContent = document.createElement('span');
   providersContent.setAttribute('class', 'otherProviders');
-  providersContent.innerHTML = `<label for="" class="otherProviders">or sign in with</label>`;
+  providersContent.innerHTML = '<label for="" class="otherProviders">or sign in with</label>';
   // creacion de btn google, fb y github
   const googleLogo = document.createElement('img');
   googleLogo.setAttribute('class', 'logoGoogle');
@@ -117,19 +122,20 @@ export const signInPage = () => {
   githubLogo.addEventListener('click', () => {
     signUpGithub();
   });
+
   // guardar los elementos del form
   enterAccContainer.append(enterAccTitle, signInForm, btnSignInWelcome, providersContent);
+
   // boton sign in welcome para reactivar la cuenta
   btnSignInWelcome.addEventListener('click', () => {
     const email = document.getElementById('txtEmail').value;
     const password = document.getElementById('txtPassword').value;
-    const form = document.getElementById('signUpForm');
+
     signInAccount(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
         errorMessage.innerHTML = '';
-        form.reset();
       })
       .catch((error) => {
         console.log(error);
