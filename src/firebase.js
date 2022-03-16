@@ -42,56 +42,64 @@ export const createUser = (email, password, username) => {
     });
   return isUserCreated;
 };
-
 // Auth with email
 
 // Sign up with google
-// const provider = new GoogleAuthProvider();
-// provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-// provider.addScope('profile');
-// provider.addScope('email');
+const provider = new GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+provider.addScope('profile');
+provider.addScope('email');
 
-// const buttonGoogle = document.getElementById('buttonGoogle');
-// buttonGoogle.addEventListener('click', () => {
-//   signInWithPopup(auth, provider).then((result) => {
-//     // Get Google Access Token, then we use it to access the Google API.
-//     const credential = GoogleAuthProvider.credentialFromResult(result);
-//     const token = credential.accessToken;
-//     const user = result.user;
-//     alert('User created');
-//   }).catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // The email of the user's account used.
-//     const email = error.email;
-//     // The AuthCredential type that was used.
-//     const credential = GoogleAuthProvider.credentialFromError(error);
-//     alert(errorMessage);
-//   });
-// });
+export const createUserWithGoogle = async () => {
+  const auth = getAuth();
+  let userCreateGoogle;
+  try {
+    const result = await signInWithPopup(auth, provider);
+    // Get Google Access Token, then we use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    userCreateGoogle = true;
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    alert(errorMessage);
+    userCreateGoogle = false;
+  }
+  // await signInWithPopup;
+  return userCreateGoogle;
+};
 
-// const provider2 = new TwitterAuthProvider();
+export const createUserWithTwitter = async () => {
+  const provider2 = new TwitterAuthProvider();
+  const auth = getAuth();
+  // Auth with twitter
+  let userCreateTwitter;
+  try {
+    const result = await signInWithPopup(auth, provider2);
 
-// // Auth with twitter
-// const buttonTwitter = document.getElementById('buttonTwitter');
-// buttonTwitter.addEventListener('click', () => {
-//   signInWithPopup(auth, provider2)
-//     .then((result) => {
-//     // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-//     // You can use these server side with your app's credentials to access the Twitter API.
-//       const credential = TwitterAuthProvider.credentialFromResult(result);
-//       const token = credential.accessToken;
-//       const secret = credential.secret;
-//       alert('User created');
-//       // The signed-in user info.
-//       const user = result.user;
-//     }).catch((error) => {
-//     // Handle Errors here.
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       // The email of the user's account used.
-//       const email = error.email;
-//       // The AuthCredential type that was used.
-//       const credential = TwitterAuthProvider.credentialFromError(error);
-//     });
-// });
+    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+    // You can use these server side with your app's credentials to access the Twitter API.
+    const credential = TwitterAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const secret = credential.secret;
+
+    // The signed-in user info.
+    const user = result.user;
+    userCreateTwitter = true;
+  } catch (error) {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = TwitterAuthProvider.credentialFromError(error);
+    userCreateTwitter = false;
+  }
+  return userCreateTwitter;
+};

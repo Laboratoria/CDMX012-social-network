@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { createUser } from '../firebase.js';
+import { createUser, createUserWithTwitter, createUserWithGoogle } from '../firebase.js';
 import { validateInformation } from './helper.js';
 
 export const signup = () => {
@@ -100,6 +100,27 @@ export const signup = () => {
   span.addEventListener('focus', () => span.classList.add('focused'), true);
   span.addEventListener('blur', () => span.classList.remove('focused'), true);
 
+  buttonGoogle.addEventListener('click', () => {
+    createUserWithGoogle().then((result) => {
+      if (result) {
+        onNavigate('/home');
+      } else {
+        errorMessage.innerText = 'Ya existe esta cuenta';
+      }
+    });
+  });
+
+  buttonTwitter.addEventListener('click', () => {
+    createUserWithTwitter().then((result) => {
+      if (result) {
+        alert('User created');
+        onNavigate('/home');
+      } else {
+        errorMessage.innerText = 'Debes elegir una cuenta en Twitter';
+      }
+    });
+  });
+
   buttonSignup.addEventListener('click', () => {
     const email = document.getElementById('inputEmail').value;
     const password = document.getElementById('inputPassword').value;
@@ -108,12 +129,11 @@ export const signup = () => {
     const informationValidated = validateInformation(email, password);
     if (informationValidated.status === true) {
       const userCreated = createUser(email, password, username);
-     if (userCreated) onNavigate('/home');
+      if (userCreated) onNavigate('/home');
       onNavigate('/home');
     } else {
-      document.getElementById('errorMessage').innerText = informationValidated.message;
+      errorMessage.innerText = informationValidated.message;
     }
-
     // if (email === '' || password === '' || username === '') {
     //   document.getElementById('errorMessage').innerText = 'Please fill all the information';
     // } else {
