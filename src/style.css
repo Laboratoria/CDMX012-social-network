@@ -163,7 +163,7 @@
         
        }
        input{
-           width: 65%;
+           width: 66%;
            height: 3%;
            border: 1.5px solid #b89a03;
            border-radius: 5px;
@@ -185,7 +185,7 @@
            
        }
        .botones{
-           width: 45%;
+           width: 48%;
            height: 6%;
            border-radius: 3px;
            box-shadow: 1px 1px 1px 1px rgba(56, 55, 55, 0.527);
@@ -198,7 +198,7 @@
            color: white;
            position: absolute;
            top: 57%;
-           left: 27%;
+           left: 26%;
        }
        #loginbo:hover{
           background-color: rgba(34, 33, 33, 0.973);
@@ -209,7 +209,7 @@
           color: black;
           position: absolute;
           top: 66%;
-          left: 27%;
+          left: 26%;
           
         
       }
@@ -239,5 +239,39 @@
       font-weight: bold;
       cursor: pointer;
    }
-   
-    }
+   #botonRegi{
+    position: absolute;
+    top: 68%;
+    left:26%;
+    background-color: black;
+    color: white;
+}
+#emailRegi{
+    position: absolute;
+    top:38%;
+    left: 14%;
+}
+#contraseñaRegi{
+  position:absolute;
+  top:47%;
+  left:14%; 
+}
+#contraseñaRegidos{
+  position:absolute;
+  top:56%;
+  left:14%; 
+}
+.invisible{
+    font-size: 14px;
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+#letras1{
+    position: absolute;
+    top: 74%;
+    left: 26%;
+}
+
+}

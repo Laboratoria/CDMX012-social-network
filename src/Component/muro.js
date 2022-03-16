@@ -7,7 +7,7 @@ export const muro = () => {
   logoYummi.setAttribute('alt', 'Yummy, bienvenido a tu mundo de cocina');
 
   const parrafo = document.createElement('h1');
-  parrafo.textContent = 'Proximamente...';
+  parrafo.textContent = 'Algo bueno se esta cocinando...';
 
   seccionMuro.append(logoYummi, parrafo);
   return seccionMuro;
