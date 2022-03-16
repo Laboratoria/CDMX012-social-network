@@ -26,8 +26,9 @@ window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
 };
 const registerButton = document.getElementById('registerButton');
-registerButton.addEventListener('click', () => {
-  let userMail = document.getElementById('mail').value;
+registerButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  const userMail = document.getElementById('mail').value;
   const userName = document.getElementById('user').value;
   const userPassword = document.getElementById('password').value;
   const userArea = document.getElementById('area').value;

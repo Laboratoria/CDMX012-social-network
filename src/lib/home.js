@@ -1,6 +1,6 @@
 export const home = `
 <div class="containerStart">
-  <img class="logo" src="img/Logo.png">
+  <img class="logo" src="img/logoSize.png">
   <section class="welcomeText">
     <p> ¡Bienvenida! <p>
     <p>Conecta con tu mundo tech. <p>
