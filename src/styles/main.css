@@ -1,3 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,700;1,900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100&display=swap");
 body {
-  background: blue;
+  background-image: url("/dist/Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg");
+  background-size: 100%;
+  font-family: "Lato", sans-serif;
+}
+.father {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#Solovino_logo {
+  width: 16.875rem;
+  height: 19.5044rem;
+  margin: 2em;
+}
+.button {
+  width: 18.375rem;
+  height: 4rem;
+  border-radius: 1.25rem;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 5% 0.3%;
+}
+
+#facebook {
+  background-color: rgba(59, 89, 153, 1);
+  color: white;
+  margin: 0 5% 0.3%;
+}
+
+#google {
+  background-color: rgba(221, 76, 57, 1);
+  color: white;
+  margin: 0 5% 5%;
+}
+/*boton de iniciar sesion "morado"*/
+.log-in {
+  width: 14.25rem;
+  height: 2.9375rem;
+  font-size: 1.125rem;
+  background-color: #5a0b95;
+  color: #ffffff;
+  border-radius: 1.3125rem;
+  font-size: 1.25rem;
+  margin: 1% 15% 0.3%;
+}
+hr {
+  background-color: black;
+}
+
+/*instruccion*/
+.new-User {
+  width: 80%;
+  height: 1.75rem;
+  font-size: 1.25rem;
+  margin: 0 25% 0.3%;
+}
+
+/*boton de registro "rosa"*/
+.sing-in {
+  width: 14.25rem;
+  height: 2.9375rem;
+  font-size: 1.125rem;
+  background-color: #e78bb7;
+  color: #ffffff;
+  border-radius: 1.3125rem;
+  font-size: 1.25rem;
+  justify-content: center;
+  margin: 0 15% 0.3%;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+#logIn-modal {
+  visibility: hidden;
 }

@@ -2,7 +2,11 @@ import "./styles/main.css";
 
 import { getDocs, collection, getFirestore } from "firebase/firestore/lite";
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAwGQsOSeaKd97-2Livk2oDexObO1flAJM",
@@ -15,8 +19,28 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+let app = initializeApp(firebaseConfig);
+
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    const displayName = user.displayName;
+    const email = user.email;
+    const photoURL = user.photoURL;
+    const emailVerified = user.emailVerified;
+    document.getElementById("login").innerHTML = "LOGUEADO" + user.email;
+    // ...
+  } else {
+    document.getElementById("login").innerHTML = "NO LOGUEADO";
+    // User is signed out
+    // ...
+  }
+});
+
+/*let db = getFirestore(app);
 
 // Get a list of cities from your database
 async function getCities(db) {
@@ -24,7 +48,7 @@ async function getCities(db) {
   const citySnapshot = await getDocs(citiesCol);
   const cityList = citySnapshot.docs.map((doc) => doc.data());
   return cityList;
-}
+}*/
 
 window.sendInformation = function sendInformation() {
   let email = document.getElementById("email").value;
@@ -42,7 +66,7 @@ window.sendInformation = function sendInformation() {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      return alert(errorMessage);
+      alert(errorMessage);
     });
 };
 

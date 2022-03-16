@@ -9,19 +9,54 @@
     <link rel="icon" href="./Resourses/Solovino.png" />
   </head>
   <body>
-    <input
-      type="email"
-      id="email"
-      placeholder="Escribe tu correo electrónico..."
-    />
-    <input
-      type="password"
-      id="password"
-      placeholder="Escribe aqui tu contraseña"
-    />
-    <button id="sing-in" onclick="sendInformation()">Registrarse</button>
+    <section id="father" class="father">
+        <section id="main-page">
+      <img
+      id="Solovino_logo"
+      src="./Resourses/Solovino_Black.png"
+      alt="Solovino"
+    /><br>
+      <button type="button" id="facebook" class="button">Inicie sesión con Facebook</button
+      ><br />
+      <button type="button" id="google" class="button">Inicie sesión con Google</button><br>
+
+      <input
+        type="email"
+        id="email"
+        class="button"
+        placeholder="Correo electrónico"
+      /><br />
+      <input
+        type="password"
+        id="password"
+        class="button"
+        placeholder="Contraseña"
+      /><br />
+      <button class="log-in" onclick="logIn()">Iniciar sesión</button><br> <hr> </hr>
+      <h2 class="new-User">Crear una cuenta</h2>
+      <button id="sing-in" class="sing-in" onclick="sendInformation()">
+        Registrarse
+      </button><br>
+      
+      
+      <h1 id="login"></h1>
+    </section>
+  </section>
+
+  <section id="logIn-modal" >
+    <h2 class="new-UserModal">Crea una cuenta</h2>
+
+    <input type="email" id="email"class="email" placeholder="Correo electrónico"/>
+    <input type="password" id="password" class="password" placeholder="Contraseña"/>
+
+    <h6 class="politics-Modal">Para completar tu registro, aceptas que has leído los términos y condiciones de uso y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad</h6>
+
+    <button id="sing-in" class="sing-in" onclick="sendInformation()"> Regístrate </button>
+  </section>
+
 
     <script type="module" src="bundle.js"></script>
     <script type="module" src="index.js"></script>
+    <footer>Derechos Reservados 2022 ©️</footer>
   </body>
 </html>
