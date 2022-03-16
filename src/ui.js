@@ -7,9 +7,9 @@ export const showSignUpError = (error) => {
     errorArea.innerHTML = 'Invalid e-mail address, please try another one.';
   } else if (error.code === 'auth/weak-password') {
     errorArea.innerHTML = 'Your password must be at least 6 characters long.';
-  } else {
+  } /* else {
     errorArea.innerHTML = `Error: ${error.message}`;
-  }
+  } */
 };
 
 export const showIncorrectPass = () => {

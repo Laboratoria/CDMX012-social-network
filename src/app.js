@@ -3,12 +3,14 @@ import { landingPage } from './pages/landing-page.js';
 import { signUpPage } from './pages/sign-up.js';
 import { signInPage } from './pages/sign-in.js';
 import { addInfoPage } from './pages/add-info.js';
+import { feed } from './pages/feed.js';
 
 const routes = {
   '/': landingPage,
   '/sign-up': signUpPage,
   '/sign-in': signInPage,
   '/add-info': addInfoPage,
+  '/home': feed,
 };
 
 const rootDiv = document.getElementById('root');

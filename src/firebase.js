@@ -49,6 +49,7 @@ export const signUpGoogle = () => {
         askMoreInfo(result);
       } else {
         console.log('Already registered');
+        onNavigate('/home');
       }
     });
   /* .catch((error) => {
@@ -70,6 +71,7 @@ export const signUpFacebook = () => {
         askMoreInfo(result);
       } else {
         console.log('Already registered');
+        onNavigate('/home');
       }
     });
 /* .catch((error) => {
@@ -93,6 +95,7 @@ export const signUpGithub = () => {
         askMoreInfo(result);
       } else {
         console.log('Already registered');
+        onNavigate('/home');
       }
     });
   /* .catch((error) => {
