@@ -3,10 +3,6 @@ export const register = `
       false"><img class="arrowBack" src="img/Arrow.png"></img></a>
 <div class="containerRegister">
     <img class="logo" src="img/logoSize.png">
-  <section class="githubGoogleButtons">
-    <button type="button" class="button">Inicia sesión con Gmail</button>
-    <button type="button" class="button">Inicia sesión con Github</button>
-  </section>
   <section class="registerText">
     <p> Registrate con tu correo <p>
   </section>
