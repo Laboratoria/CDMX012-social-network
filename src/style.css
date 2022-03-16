@@ -15,17 +15,14 @@
     src: url(NEON____.TTF);
   }
 
-body{
+#root{
     background: linear-gradient(to bottom, #010409, #5B1E87);
     background-repeat: no-repeat;
     width: 100%;  
     height: 100%;
     font-family: 'Roboto', sans-serif; 
 }
-main{
-    width: 100%;
-    height: 100%;
-}
+
 
 /* Primera seccion login */
 
@@ -57,15 +54,11 @@ main{
     border-radius: 15px;
     margin-bottom: 100px;
     cursor: pointer;
-}
+} 
 
 /* Segunda seccion join us */
-/* .hidden {
-    opacity: 0;
-    visibility: hidden;
-  } */
 
-.screenJoin{
+ .screenJoin{
     display: flex;
     flex-flow: wrap column;
 }
@@ -156,4 +149,4 @@ form{
     margin-left: 5px;
     font-size: 18px;
     font-family:'Roboto', sans-serif; 
-}
+}  

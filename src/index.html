@@ -8,55 +8,8 @@
   <title>Document</title>
 </head>
 <body>
-  <main>
-    <section id="logIn">
-      <img src="./assets/logo.png" class="meetArcade" alt="logoMeetArcade" >
-      <button class="log" id="joinUs" ><a href="#joinUsScreen" ></a>Join Us</button>
-      <button class="log" id="shootIn" ><a href="#shootInScreen" ></a>Shoot In</button>
-    </section>
-
-    <section class="screenJoin" id="joinUsScreen" style="display: none;">
-      <p class="titles"><img src="./assets/arrow.png" alt="arrowBackTo" class="arrowBack" id="aJ">Join Us</p>
-      <label class="sign">Sign in with:</label>
-      <div class="container">
-        <img src="./assets/google.png" alt="buttonGoogle" class="btns">
-        <img src="./assets/facebook.png" alt="buttonFace" class="btns">
-        <img src="./assets/twitch.png" alt="buttonTwitch" class="btns">
-      </div>
-      <div>
-        <label class="text">Username:</label> 
-        <input type="text" class="inputs" id="username">
-        <label class="text">Email:</label>
-        <input type="email" id= "email" class="inputs">
-        <label class="text">Password:</label>
-        <input type="password" class="inputs" id="password">
-        <button id= "submitInfoJoin" class="btnsSign">Join Us</button>
-        <p class="sign">Have an Account? <a href="#"  class="goShootIn">Shoot In</p></a>
-      </div>
-    </section> 
-
-    <section class="screenJoin" id="shootInScreen" style="display: none;">
-      <p class="titles"><img src="./assets/arrow.png" alt="arrowBackTo" class="arrowBack" id="aS">Shoot In</p>
-      <label class="sign">Sign in with:</label>
-      <div class="container">
-        <img src="./assets/google.png" alt="buttonGoogle" class="btns">
-        <img src="./assets/facebook.png" alt="buttonFace" class="btns">
-        <img src="./assets/twitch.png" alt="buttonTwitch" class="btns">
-      </div>
-      <div>
-        <label class="text">Email:</label>
-        <input type="email" class="inputs" id="emailUser">
-        <label class="text">Password:</label>
-        <input type="password" class="inputs" id="passwordUser">
-        <button id= "submitInfoShoot" class="btnsSign">Shoot In</button>
-        <p class="sign">Don't have an Account? <a href="#"  class="goShootIn">Join Us</p></a>
-      </div>
-    </section>
-   
-  </main>
-
-
+<div id="root"></div>
   <script type="module" src="main.js"></script>
-  <script type="module" src="./lib/firebase.js"></script>
+  <!-- <script type="module" src="./lib/firebase.js"></script> -->
 </body>
 </html>
