@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-cycle */
 import { landingPage } from './pages/landing-page.js';
 import { signUpPage } from './pages/sign-up.js';
 import { signInPage } from './pages/sign-in.js';

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { signUpGoogle, signUpFacebook, signUpGithub } from '../firebase.js';
 import { createAccForm } from './sign-up-form.js';
 

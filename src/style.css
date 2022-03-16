@@ -87,7 +87,7 @@ body {
 
 .account-form,
 .addInfo-form {
-  margin: 10% 12% 5% 12%;
+  margin: 5% 12%;
 }
 
 .label-icon {
@@ -95,7 +95,8 @@ body {
   align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 2%;
+  margin-top: 0.5em;
+  margin-bottom: 3%;
 }
 
 .account-form label,
@@ -117,7 +118,7 @@ body {
   border-color: black;
   width: 100%;
   padding-top: 0.5rem;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
   background: transparent;
 }
 
@@ -180,13 +181,10 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-right: 12%;
 }
 
 .otherProviders label {
-  margin-top: 7%;
-  margin-bottom: 7%;
-  margin-left: 5%;
+  margin: 2% auto;
   display: block;
   text-align: center;
   width: 100%;
@@ -217,7 +215,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
   width: 100%;
   bottom: 0px;
 }
@@ -225,20 +224,18 @@ body {
 .enterAccount-container h2 {
   padding-top: 5%;
   text-align: left;
-  font-style: bold;
-  font-size: 2em;
+  font-size: 1.5em;
   width: 100%;
 }
 
 .enterAccount-form {
-  margin: 10% 12% 5% 0;
+  margin: 10% 0 5% 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .enterAccount-form label {
-  line-height: 4em;
   width: 100%;
   font-size: 20px;
 }
@@ -246,6 +243,7 @@ body {
 .enterAccount-form img {
   display: flex;
   flex-wrap: wrap;
+  margin-right: 0.4rem;
 }
 
 .enterAccount-form input:focus {
@@ -253,8 +251,6 @@ body {
 }
 
 .btn-signInWelcome {
-  margin-top: 10%;
-  margin-left: 8%;
   border-radius: 30px;
   border: none;
   width: 65%;
@@ -265,7 +261,7 @@ body {
   font-weight: bold;
   background-color: var(--btnSignIn-color);
   cursor: pointer;
-  align-self: baseline;
+  align-self: center;
 }
 
 .btn-signInWelcome:active {
@@ -279,7 +275,6 @@ body {
 }
 
 /* Mensaje de error */
-
 .error {
   display: block;
   color: red;
@@ -289,8 +284,9 @@ body {
 
 .error-message {
   color: red;
-  font-size: 20px;
-  margin-top: 10%;
+  text-align: center;
+  margin-top: 6%;
+  margin-bottom: 1%;
   width: 100%;
 }
 
@@ -307,14 +303,16 @@ body {
 }
 
 #txtProfilename {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .addInfo-form textarea {
   outline: 0;
   border-color: black;
+  padding-top: 0.3rem;
+  height: 4rem;
+  resize: none;
   width: 100%;
-  padding-top: 2rem;
 }
 
 .btn-accept {
@@ -322,20 +320,21 @@ body {
 }
 
 #errorAreaUsername {
-  height: 2em;
+  height: 1em;
   display: block;
   color: red;
   padding-bottom: 2%;
 }
 
 #errorAreaForm {
-  height: 3.5em;
+  height: 3em;
   display: block;
   color: red;
   padding-bottom: 2%;
   margin-left: 12%;
   margin-right: 12%;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -426,7 +425,7 @@ body {
 
   .account-form label,
   .addInfo-form label {
-    line-height: 4em;
+    line-height: 3em;
     width: 100%;
   }
 
@@ -477,11 +476,15 @@ body {
     border-radius: 0;
     width: 40%;
     height: 100%;
-    top: 0;
-    bottom: 0;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   .enterAccount-container h2 {
     margin-top: 20%;
+  }
+
+  .landing-page-img #header {
+    display: none;
   }
 }

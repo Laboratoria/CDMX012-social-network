@@ -48,24 +48,24 @@ export const usernameError = () => {
   errorArea1.innerHTML = 'Invalid username';
   errorArea2.innerHTML = 'Usernames can only contain letters, numbers, . and _';
   errorArea1.style.color = 'red';
-  errorArea2.style.color = 'red'; 
-}
+  errorArea2.style.color = 'red';
+};
 
 export const usernameTaken = () => {
   const errorArea = document.querySelector('#errorAreaUsername');
   const errorArea2 = document.querySelector('#errorAreaForm');
   errorArea.innerHTML = 'This username is already taken';
   errorArea2.innerHTML = '';
-  errorArea.style.color = 'red'; 
-}
+  errorArea.style.color = 'red';
+};
 
 export const validUsername = () => {
   const errorArea = document.querySelector('#errorAreaUsername');
   const errorArea2 = document.querySelector('#errorAreaForm');
   errorArea.innerHTML = 'Valid username';
   errorArea2.innerHTML = '';
-  errorArea.style.color = 'green'; 
-}
+  errorArea.style.color = 'green';
+};
 
 // form error message add-Info
 
@@ -73,4 +73,4 @@ export const emptyFields = () => {
   const errorArea = document.querySelector('#errorAreaForm');
   errorArea.innerHTML = 'Profile name and/or username cannot be empty';
   errorArea.style.color = 'red';
-}
+};

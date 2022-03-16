@@ -1,7 +1,4 @@
-// eslint-disable-next-line import/no-cycle
-//import { onNavigate } from '../app.js';
-
-import {usernameValidation, isValidField, saveInfo} from '../firestore.js'
+import { usernameValidation, isValidField, saveInfo } from '../firestore.js';
 
 export const addInfoPage = () => {
   const addInfoContent = document.createElement('div');
@@ -84,6 +81,7 @@ export const addInfoPage = () => {
   txtareaBio.setAttribute('name', 'bio');
   txtareaBio.setAttribute('placeholder', 'Write down your bio');
 
+  // eslint-disable-next-line max-len
   addInfoForm.append(profileNameField, txtProfileName, usernameField, txtUsername, errorUsername, bioField, txtareaBio);
 
   const errorForm = document.createElement('p');
@@ -100,23 +98,21 @@ export const addInfoPage = () => {
 
   let isUsernameValid = false;
 
-  txtUsername.addEventListener('change', (e) => {
-    let usernameValue = e.target.value.trim();
-    isUsernameValid = usernameValidation(usernameValue)
-    
-  })
+  txtUsername.addEventListener('keyup', (e) => {
+    const usernameValue = e.target.value.trim();
+    isUsernameValid = usernameValidation(usernameValue);
+  });
 
   // Form validation
-
   btnAccept.addEventListener('click', (e) => {
     e.preventDefault();
-    let isFormValid = isValidField(txtProfileName.value, txtUsername.value) && isUsernameValid;
-    if (isFormValid){
-        saveInfo(addInfoForm)
+    const isFormValid = isValidField(txtProfileName.value, txtUsername.value) && isUsernameValid;
+    if (isFormValid) {
+      saveInfo(addInfoForm);
     }
-  })
+  });
 
   addInfoContent.append(addInfoContainer, lpImage);
 
-    return addInfoContent;
-}
+  return addInfoContent;
+};
