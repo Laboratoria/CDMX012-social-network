@@ -20,9 +20,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-const auth = getAuth();
+// const auth = getAuth();
 export const createUser = (email, password, username) => {
   const auth = getAuth();
+  let isUserCreated;
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     // Signed in
@@ -32,13 +33,14 @@ export const createUser = (email, password, username) => {
         email,
       });
       alert('user created!');
+      isUserCreated = true;
     })
     .catch(() => {
       // const errorCode = error.code;
       // const errorMessage = error.message;
-      return alert("no se puede");
-
+      isUserCreated = false;
     });
+  return isUserCreated;
 };
 
 // Auth with email
