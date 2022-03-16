@@ -10,6 +10,31 @@
 </head>
 <body>
   <div id="root"></div>
+
+  <!--Config Firebase-->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCUZvjcPg8hEEhJ62EXhpRk_DEOa1BIs6A",
+      authDomain: "socialnetwork9-bca5d.firebaseapp.com",
+      projectId: "socialnetwork9-bca5d",
+      storageBucket: "socialnetwork9-bca5d.appspot.com",
+      messagingSenderId: "391982601667",
+      appId: "1:391982601667:web:62a641fad3e14a4d391976"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    
+  </script>
+
+  <!-- myCode -->
   <script type= "module" src="main.js"></script>
 </body>
 </html>
