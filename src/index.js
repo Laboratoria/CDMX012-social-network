@@ -50,14 +50,14 @@ async function getCities(db) {
   return cityList;
 }*/
 
-window.sendInformation = function sendInformation() {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
+window.sendInformationModal = function sendInformationModal() {
+  let emailModal = document.getElementById("email-modal").value;
+  let passwordModal = document.getElementById("password-modal").value;
   //return alert("email=" + email + " y " + " pass= " + password);
 
   // Registra usuarios nuevo
   const auth = getAuth();
-  createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, emailModal, passwordModal)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
@@ -69,6 +69,22 @@ window.sendInformation = function sendInformation() {
       alert(errorMessage);
     });
 };
+
+// window.sendInformation = sendInformation(){
+
+// }
+
+var btnClose = document.getElementById("btn-close-modal");
+var modalAccount = document.getElementById("logIn-modal");
+
+window.closeModal = function closeModal() {
+  console.log("test");
+};
+
+// btnClose.onclick = function() {
+//   console.log("sfcdsdf");
+//   modalCreateAccount.style.display = "none";
+// }
 
 /*
 try {

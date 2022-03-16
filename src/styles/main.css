@@ -11,8 +11,7 @@ body {
 }
 
 #Solovino_logo {
-  width: 16.875rem;
-  height: 19.5044rem;
+  width: 14.375rem;
   margin: 2em;
 }
 .button {
@@ -36,7 +35,7 @@ body {
   margin: 0 5% 5%;
 }
 /*boton de iniciar sesion "morado"*/
-.log-in {
+.log-In {
   width: 14.25rem;
   height: 2.9375rem;
   font-size: 1.125rem;
@@ -59,7 +58,7 @@ hr {
 }
 
 /*boton de registro "rosa"*/
-.sing-in {
+.sing-In {
   width: 14.25rem;
   height: 2.9375rem;
   font-size: 1.125rem;
@@ -71,11 +70,80 @@ hr {
   margin: 0 15% 0.3%;
 }
 
+/* /////////// Modal Create Account  */
+
+#logIn-modal {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 99999;
+}
+.modal-createAccount {
+  background-color: #d4d4d4;
+  width: 80%;
+  height: 40%;
+  border-radius: 20px;
+  margin: 2rem auto 0%;
+  padding: 1.5rem;
+  display: block;
+}
+
+.modalClose {
+  display: none;
+}
+.button-close {
+  background-color: #4cdee2;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  border-radius: 3.125rem;
+  border: none;
+  position: relative;
+  top: -22px;
+  margin: 0;
+  left: 95%;
+}
+.input-mail {
+  display: flex;
+}
+.new-UserModal {
+  text-align: center;
+  width: auto;
+  margin-top: -2.5rem;
+}
+.button-modal {
+  width: 80%;
+  height: 3rem;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  text-align: center;
+  margin: 3px 13% 5.3%;
+  border: none;
+}
+.politics-Modal {
+  width: 70%;
+  font-family: "Lato";
+  font-weight: 300;
+  text-align: center;
+  margin: auto;
+}
+.sing-in {
+  width: 15rem;
+  height: 3rem;
+  font-size: 1.125rem;
+  background-color: #e78bb7;
+  color: #ffffff;
+  border-radius: 1.3rem;
+  justify-content: center;
+  margin: 4% auto;
+  border-style: none;
+}
+
 footer {
   display: flex;
   justify-content: center;
 }
 
+/* 
 #logIn-modal {
   visibility: hidden;
-}
+} */
