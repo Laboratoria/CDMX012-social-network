@@ -86,7 +86,7 @@
     #iconogoo{
        width: 12%;
    }
-    .letras1{
+    #letras1{
         font-size: 11px;
         position: relative;
         top: 26%;
@@ -98,16 +98,18 @@
        top: 29%;
        left: 22%;
    }
-   #registro{
+   .invisible{
        font-size: 13px;
-       position: relative;
-       top: 27%;
-       left: 37%;
-       text-decoration-line: underline;
        background: none;
        border: none;
        font-weight: bold;
        cursor: pointer;
+   }
+   #registro{
+    position: relative;
+    top: 27%;
+    left: 37%;
+    text-decoration-line: underline;
    }
    #registrar{
            background-color: black;
@@ -119,6 +121,28 @@
        #loginbo:hover{
           background-color: rgba(34, 33, 33, 0.973);
           
+      }
+      #botonRegi{
+          position: relative;
+          top: 25%;
+          left:27%;
+          background-color: black;
+          color: white;
+      }
+      #emailRegi{
+          position: relative;
+          top:8%;
+          left: 14%;
+      }
+      #contraseñaRegi{
+        position:relative;
+        top:11%;
+        left:14%; 
+      }
+      #contraseñaRegidos{
+        position:relative;
+        top:14%;
+        left:14%; 
       }
    }
     @media (max-width:500px){

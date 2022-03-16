@@ -3,9 +3,11 @@
 /* import { myFunction } from './lib/index.js';
 
 myFunction(); */
-import { login } from './login.js';
-import { muro } from './muro.js';
-import { registro } from './registro.js';
+import { login } from './Component/login.js';
+import { muro } from './Component/muro.js';
+import { registro } from './Component/registro.js';
+
+const rootDiv = document.getElementById('root');
 
 const routes = {
   '/': login,
@@ -13,19 +15,26 @@ const routes = {
   '/muro': muro,
 };
 
-const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
-
-function onNavigate(pathname) {
+export const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
     window.location.origin + pathname,
   );
-  rootDiv.innerHTML = routes[pathname];
-}
-window.onNavigate = onNavigate;
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
 
-window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
+  rootDiv.appendChild(routes[pathname]());
 };
+// window.onNavigate = onNavigate;
+window.onpopstate = () => {
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[window.location.pathname]());
+};
+
+const component = routes[window.location.pathname];
+
+rootDiv.appendChild(component());
