@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
-
 import { createUser } from '../firebase.js';
+import { validateInformation } from './helper.js';
 
 export const signup = () => {
   // elements
@@ -12,7 +12,6 @@ export const signup = () => {
   const imgGoogle = document.createElement('img');
   const buttonTwitter = document.createElement('button');
   const imgTwitter = document.createElement('img');
-  const globalContainer = document.getElementById('globalContainer');
   const separation = document.createElement('div');
   const line = document.createElement('div');
   const or = document.createElement('p');
@@ -105,12 +104,22 @@ export const signup = () => {
     const email = document.getElementById('inputEmail').value;
     const password = document.getElementById('inputPassword').value;
     const username = document.getElementById('inputUsername').value;
-    if (email === '' || password === '' || username === '') {
-      document.getElementById('errorMessage').innerText = 'Please fill all the information';
-    } else {
-      createUser(email, password, username);
+
+    const informationValidated = validateInformation(email, password);
+    if (informationValidated.status === true) {
+      const userCreated = createUser(email, password, username);
+     if (userCreated) onNavigate('/home');
       onNavigate('/home');
+    } else {
+      document.getElementById('errorMessage').innerText = informationValidated.message;
     }
+
+    // if (email === '' || password === '' || username === '') {
+    //   document.getElementById('errorMessage').innerText = 'Please fill all the information';
+    // } else {
+    //   const userCreated = createUser(email, password, username);
+    //   if (userCreated) onNavigate('/home');
+    // }
   });
   return globalSignupDiv;
 };
