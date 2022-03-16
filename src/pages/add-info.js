@@ -1,4 +1,6 @@
+/* eslint-disable import/no-cycle */
 import { usernameValidation, isValidField, saveInfo } from '../firestore.js';
+import { onNavigate } from '../app.js';
 
 export const addInfoPage = () => {
   const addInfoContent = document.createElement('div');
@@ -109,6 +111,7 @@ export const addInfoPage = () => {
     const isFormValid = isValidField(txtProfileName.value, txtUsername.value) && isUsernameValid;
     if (isFormValid) {
       saveInfo(addInfoForm);
+      onNavigate('/home');
     }
   });
 

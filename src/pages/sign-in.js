@@ -1,7 +1,9 @@
+/* eslint-disable import/no-cycle */
 // eslint-disable-next-line import/no-cycle
 import {
   signInAccount, signUpGoogle, signUpFacebook, signUpGithub,
 } from '../firebase.js';
+import { onNavigate } from '../app.js';
 
 export const signInPage = () => {
   const signInWelcomePage = document.createElement('div');
@@ -136,6 +138,7 @@ export const signInPage = () => {
         const user = userCredential.user;
         console.log(user);
         errorMessage.innerHTML = '';
+        onNavigate('/home');
       })
       .catch((error) => {
         console.log(error);

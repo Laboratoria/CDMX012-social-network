@@ -128,7 +128,7 @@ body {
 
 .eye-icon {
   cursor: pointer;
-  margin-bottom: -4.2rem;
+  margin-bottom: -4.9rem;
   margin-right: 0.2rem;
   z-index: 3;
 }
@@ -237,7 +237,7 @@ body {
 
 .enterAccount-form label {
   width: 100%;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .enterAccount-form img {
@@ -253,7 +253,7 @@ body {
 .btn-signInWelcome {
   border-radius: 30px;
   border: none;
-  width: 65%;
+  width: 70%;
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
   font-size: 20px;
@@ -335,6 +335,12 @@ body {
   margin-right: 12%;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+/* Feed section */
+.reading-form{
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
