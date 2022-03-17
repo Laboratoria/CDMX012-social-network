@@ -13,7 +13,7 @@ export const register = () => {
   const imgArrowBack = document.createElement('img');
   imgArrowBack.setAttribute('src', './assets/arrow.png');
   imgArrowBack.className = 'arrowBack';
-  imgArrowBack.id = 'aJ';
+  // imgArrowBack.id = 'aJ';
   imgArrowBack.addEventListener('click', () => {
     onNavigate('/');
   });
