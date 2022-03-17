@@ -17,7 +17,7 @@ html {
   height: 100%;
 }
 
-.material-icons-outlined {
+/*.material-icons-outlined {
   font-family: "Material Icons";
 }
 /*********************************mobile de landing page*******************************/
@@ -162,6 +162,9 @@ body {
   background-color: white;
   cursor: pointer;
 }
+.btn-accept {
+  margin-bottom: 0.5rem;
+}
 
 .btn-signUp:active,
 .btn-accept:active {
@@ -173,6 +176,8 @@ body {
 }
 
 .btn-signIn:active {
+  transform: translateY(4px);
+  color: black;
   border: solid 1px #d42a5b;
 }
 
@@ -201,12 +206,6 @@ body {
 }
 
 /* Sign-in page */
-
-.btn-signIn:active {
-  transform: translateY(4px);
-  color: black;
-  border: solid 1px #d42a5b;
-}
 
 .enterAccount-container {
   position: absolute;
@@ -270,10 +269,6 @@ body {
   border: none;
 }
 
-.btn-signIn:active {
-  border: solid 1px #d42a5b;
-}
-
 /* Mensaje de error */
 .error {
   display: block;
@@ -315,9 +310,6 @@ body {
   width: 100%;
 }
 
-.btn-accept {
-  margin-bottom: 0.5rem;
-}
 
 #errorAreaUsername {
   height: 1em;
