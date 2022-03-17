@@ -63,10 +63,10 @@ document.getElementById('submitInfoJoin').addEventListener('click', (e) => {
 });
 
 document.getElementById('submitInfoShoot').addEventListener('click', (e) => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const email2 = document.getElementById('email2').value;
+  const password2 = document.getElementById('password2').value;
 
-  signInWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword(auth, email2, password2)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
@@ -86,4 +86,3 @@ document.getElementById('submitInfoShoot').addEventListener('click', (e) => {
       alert(errorMessage);
     });
 });
-
