@@ -5,6 +5,8 @@ export const register = () => {
   const joinUsSection = document.createElement('section');
   joinUsSection.className = 'screenJoin';
   joinUsSection.id = 'joinUsScreen';
+  const header = document.createElement('header');
+  header.className = 'header';
   const titles = document.createElement('p');
   titles.textContent = 'Join Us';
   titles.className = 'titles';
@@ -13,7 +15,7 @@ export const register = () => {
   imgArrowBack.className = 'arrowBack';
   imgArrowBack.id = 'aJ';
   imgArrowBack.addEventListener('click', () => {
-    onNavigate('/welcome');
+    onNavigate('/');
   });
   // // -------ELIGE CON QUE HACER SIGN IN-----
 
@@ -26,8 +28,9 @@ export const register = () => {
   containerIcons.className = 'container';
   const iconG = document.createElement('img');
   iconG.setAttribute('src', './assets/google.png');
-  const infoForm = document.createElement('div');
 
+  const infoForm = document.createElement('div');
+  infoForm.className = 'formContainer';
   const labelUser = document.createElement('label');
   labelUser.className = 'text';
   labelUser.textContent = 'User name:';
@@ -58,23 +61,9 @@ export const register = () => {
   btnInfoJoinUs.id = 'submitInfoJoin';
   btnInfoJoinUs.textContent = 'Join Us';
 
-  titles.appendChild(imgArrowBack);
+  header.append(imgArrowBack, titles);
   containerIcons.appendChild(iconG);
   infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, btnInfoJoinUs);
-  joinUsSection.append(titles, signInWith, containerIcons, infoForm);
+  joinUsSection.append(header, signInWith, containerIcons, infoForm);
   return joinUsSection;
-
-  //   const RegisterDiv = document.createElement('div');
-  //   const nodoH2 = document.createElement('h2');
-  //   const buttonHome = document.createElement('button');
-
-  //   buttonHome.textContent = 'Return Home';
-  //   buttonHome.addEventListener('click', () => {
-  //     onNavigate('/');
-  //   });
-
-  //   nodoH2.textContent = 'Welcome to register';
-
-//   RegisterDiv.append(nodoH2, buttonHome);
-//   return RegisterDiv;
 };

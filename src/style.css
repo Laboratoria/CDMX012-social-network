@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* outline: 1px solid red;   */
+    outline: 1px solid red;   
     width: 360px;
     height: 640px;
 }
@@ -15,7 +15,7 @@
     src: url(NEON____.TTF);
   }
 
-#root{
+body{
     background: linear-gradient(to bottom, #010409, #5B1E87);
     background-repeat: no-repeat;
     width: 100%;  
@@ -34,18 +34,22 @@
 }
 
 .meetArcade{
-    position: relative;
     width: 95%;
     padding-left: 20px;
     height: 260px;
-    justify-self: center;
+    /* justify-self: center; */
+}
+.divContainer{
     display: flex;
+    justify-content: space-around;
+   align-self: flex-start;
+    width: 100%;
+    height: 52px;
 }
 
 .log{
-    position: relative;
-    width: 150px;
-    height: 40px; 
+    width: 132px;
+    height: 52px; 
     font-weight: bolder;
     color: #E587ED; 
     background-color: #c4c4c400;
@@ -54,7 +58,10 @@
     border-radius: 15px;
     margin-bottom: 100px;
     cursor: pointer;
+    font-size: 18px;
 } 
+
+
 
 /* Segunda seccion join us */
 
@@ -62,70 +69,81 @@
     display: flex;
     flex-flow: wrap column;
 }
+.header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    margin-top: 20px;
+    align-items: center;
+}
 .titles{
     font-family: arcade;
     line-height: 28px;
     font-size: 24px;
     color: #28CEF2;
     text-shadow: 0px 0px 5px #E587ED;
-    height: 80px;
-}
-
-.titles img{
-    margin: 10px  15px 10px 15px;
+    height: 50px;
+    padding-top: 8px;
 }
 
 .arrowBack{
    width: 30px;
    height: 30px;
    cursor: pointer;
+   margin: 10px  15px 10px 15px;
 }
 
 .sign{
     color: #F2A928;
     height: auto;
-    margin-left: 50px;
+    margin-left: 20px;
     font-size: 18px;
     font-family:'Roboto', sans-serif; 
-    margin-top: 30px;
+    margin-top: 10px;
     width: fit-content;
 }
 
 .container{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 10px;
     height: 60px;
     margin-bottom: 50px;
 }
-
-.btns{
-    width: 89px;
-    height: 59px;
-
+.container img{
+    width: 90px;
+    height: 60px;
+    margin-left: 20px;
 }
-
+.formContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
 .text{
     font-size: 18px;
     color: #FFFFFF;
     font-family:'Roboto', sans-serif; 
-    margin-left: 50px;
-}
-
-form{
-    width: 100%;
+    margin-left: 20px;
     height: fit-content;
+    width: fit-content;
 }
-
 .inputs{
     color: #E587ED;
     width: 240px;
     height: 50px;
     background: rgba(196, 196, 196, 0.25);
     border-radius: 10px;
-    margin-left: 50px;
+    margin-left: 20px;
 }
+/* .btns{
+    width: 89px;
+    height: 59px;
+} */
 
 .btnsSign{
     width: 119px;
@@ -143,10 +161,10 @@ form{
     cursor: pointer;
 }
 
-.sign a{
+/* .sign a{
     color: #F2A928;
     height: auto;
     margin-left: 5px;
     font-size: 18px;
     font-family:'Roboto', sans-serif; 
-}  
+}   */
