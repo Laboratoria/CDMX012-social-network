@@ -1,6 +1,8 @@
+/* eslint-disable import/no-cycle */
+/* eslint-disable import/named */
 import { onNavigate } from '../main.js';
-import { createUser } from '../firebase.js';
-import { validateInformation } from './helper.js';
+import { createUser, createUserWithTwitter, createUserWithGoogle } from '../firebase.js';
+import { validateInformation, errorHandler } from './helper.js';
 
 export const signup = () => {
   // elements
@@ -100,26 +102,52 @@ export const signup = () => {
   span.addEventListener('focus', () => span.classList.add('focused'), true);
   span.addEventListener('blur', () => span.classList.remove('focused'), true);
 
+  buttonGoogle.addEventListener('click', () => {
+    createUserWithGoogle().then((result) => {
+      if (result) {
+        onNavigate('/home');
+      } else {
+        errorMessage.innerText = 'Ya existe esta cuenta';
+      }
+    });
+  });
+
+  buttonTwitter.addEventListener('click', () => {
+    createUserWithTwitter().then((result) => {
+      if (result) {
+        alert('User created');
+        onNavigate('/home');
+      } else {
+        errorMessage.innerText = 'Debes elegir una cuenta en Twitter';
+      }
+    });
+  });
+
   buttonSignup.addEventListener('click', () => {
     const email = document.getElementById('inputEmail').value;
     const password = document.getElementById('inputPassword').value;
     const username = document.getElementById('inputUsername').value;
 
     const informationValidated = validateInformation(email, password);
-    if (informationValidated.status === true) {
-      const userCreated = createUser(email, password, username);
-     if (userCreated) onNavigate('/home');
-      onNavigate('/home');
+    if (informationValidated.status) {
+      createUser(email, password, username).then((userCredential) => {
+        if (userCredential.status) {
+          onNavigate('/home');
+        } else {
+          errorMessage.innerText = errorHandler(userCredential.errorCode);
+          console.log(errorHandler(userCredential.errorCode));
+        }
+      });
     } else {
-      document.getElementById('errorMessage').innerText = informationValidated.message;
+      errorMessage.innerText = informationValidated.message;
     }
-
-    // if (email === '' || password === '' || username === '') {
-    //   document.getElementById('errorMessage').innerText = 'Please fill all the information';
-    // } else {
-    //   const userCreated = createUser(email, password, username);
-    //   if (userCreated) onNavigate('/home');
-    // }
   });
+  // if (email === '' || password === '' || username === '') {
+  //   document.getElementById('errorMessage').innerText = 'Please fill all the information';
+  // } else {
+  //   const userCreated = createUser(email, password, username);
+  //   if (userCreated) onNavigate('/home');
+  // }
+
   return globalSignupDiv;
 };
