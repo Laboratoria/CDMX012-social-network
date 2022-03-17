@@ -107,7 +107,7 @@ export const signup = () => {
       if (result) {
         onNavigate('/home');
       } else {
-        errorMessage.innerText = 'Ya existe esta cuenta';
+        errorMessage.innerText = 'You must choose a Google account';
       }
     });
   });
@@ -118,7 +118,7 @@ export const signup = () => {
         alert('User created');
         onNavigate('/home');
       } else {
-        errorMessage.innerText = 'Debes elegir una cuenta en Twitter';
+        errorMessage.innerText = 'You must choose a Twitter account';
       }
     });
   });
@@ -135,19 +135,12 @@ export const signup = () => {
           onNavigate('/home');
         } else {
           errorMessage.innerText = errorHandler(userCredential.errorCode);
-          console.log(errorHandler(userCredential.errorCode));
         }
       });
     } else {
       errorMessage.innerText = informationValidated.message;
     }
   });
-  // if (email === '' || password === '' || username === '') {
-  //   document.getElementById('errorMessage').innerText = 'Please fill all the information';
-  // } else {
-  //   const userCreated = createUser(email, password, username);
-  //   if (userCreated) onNavigate('/home');
-  // }
 
   return globalSignupDiv;
 };
