@@ -20,26 +20,26 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-// const auth = getAuth();
-export const createUser = (email, password, username) => {
+// Auth with email
+export const createUser = async (email, password, username) => {
   const auth = getAuth();
-  let isUserCreated;
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-    // Signed in
-      const user = userCredential.user;
-      set(ref(database, `users/${user.uid}`), {
-        username,
-        email,
-      });
-      alert('user created!');
-      isUserCreated = true;
-    })
-    .catch(() => {
-      // const errorCode = error.code;
-      // const errorMessage = error.message;
-      isUserCreated = false;
+  const isUserCreated = {
+    status: false,
+    errorCode: '',
+  };
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    set(ref(database, `users/${user.uid}`), {
+      username,
+      email,
     });
+    alert('user created!');
+    isUserCreated.status = true;
+  } catch (error) {
+    isUserCreated.status = false;
+    isUserCreated.errorCode = error.code;
+  }
   return isUserCreated;
 };
 // Auth with email

@@ -1,6 +1,8 @@
+/* eslint-disable import/no-cycle */
+/* eslint-disable import/named */
 import { onNavigate } from '../main.js';
 import { createUser, createUserWithTwitter, createUserWithGoogle } from '../firebase.js';
-import { validateInformation } from './helper.js';
+import { validateInformation, errorHandler } from './helper.js';
 
 export const signup = () => {
   // elements
@@ -127,19 +129,25 @@ export const signup = () => {
     const username = document.getElementById('inputUsername').value;
 
     const informationValidated = validateInformation(email, password);
-    if (informationValidated.status === true) {
-      const userCreated = createUser(email, password, username);
-      if (userCreated) onNavigate('/home');
-      onNavigate('/home');
+    if (informationValidated.status) {
+      createUser(email, password, username).then((userCredential) => {
+        if (userCredential.status) {
+          onNavigate('/home');
+        } else {
+          errorMessage.innerText = errorHandler(userCredential.errorCode);
+          console.log(errorHandler(userCredential.errorCode));
+        }
+      });
     } else {
       errorMessage.innerText = informationValidated.message;
     }
-    // if (email === '' || password === '' || username === '') {
-    //   document.getElementById('errorMessage').innerText = 'Please fill all the information';
-    // } else {
-    //   const userCreated = createUser(email, password, username);
-    //   if (userCreated) onNavigate('/home');
-    // }
   });
+  // if (email === '' || password === '' || username === '') {
+  //   document.getElementById('errorMessage').innerText = 'Please fill all the information';
+  // } else {
+  //   const userCreated = createUser(email, password, username);
+  //   if (userCreated) onNavigate('/home');
+  // }
+
   return globalSignupDiv;
 };
