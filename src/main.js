@@ -1,42 +1,34 @@
-// Este es el punto de entrada de tu aplicacion
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-cycle */
+import { welcome } from './components/welcome.js';
+import { register } from './components/register.js';
+import { login } from './components/login.js';
 
-// import { showAndHide } from './lib/index.js';
+const rootDiv = document.getElementById('root');
 
-// myFunction();
+const routes = {
+  '/': welcome,
+  '/register': register,
+  '/login': login,
+};
 
-// hide or show a section
-const btnJoinUs = document.getElementById('joinUs');
-const btnShoot = document.getElementById('shootIn');
-const secLogIn = document.getElementById('logIn');
-const joinScreen = document.getElementById('joinUsScreen');
-const shootScreen = document.getElementById('shootInScreen');
-const backToaJ = document.getElementById('aJ');
-const backToaS = document.getElementById('aS');
-
-btnJoinUs.addEventListener('click', () => {
-  joinScreen.style.display = 'block';
-  if (joinScreen) {
-    secLogIn.style.display = 'none';
+export const onNavigate = (pathname) => {
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
   }
-});
 
-btnShoot.addEventListener('click', () => {
-  shootScreen.style.display = 'block';
-  if (shootScreen) {
-    secLogIn.style.display = 'none';
-  }
-});
+  rootDiv.appendChild(routes[pathname]());
+};
 
-backToaJ.addEventListener('click', () => {
-  secLogIn.style.display = 'block';
-  if (joinScreen) {
-    joinScreen.style.display = 'none';
-  }
-});
+window.onpopstate = () => {
+  rootDiv.appendChild(routes[window.location.pathname]());
+};
 
-backToaS.addEventListener('click', () => {
-  secLogIn.style.display = 'block';
-  if (shootScreen) {
-    shootScreen.style.display = 'none';
-  }
-});
+const component = routes[window.location.pathname];
+
+rootDiv.appendChild(component());
