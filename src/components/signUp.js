@@ -142,9 +142,11 @@ export const signup = () => {
     }
   });
 
-  // divAccount.addEventListener('click', (event) => {
-
-  // }
+  divAccount.addEventListener('click', (event) => {
+    if (event) {
+      onNavigate('/');
+    }
+  });
 
   return globalSignupDiv;
 };
