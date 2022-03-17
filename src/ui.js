@@ -7,9 +7,7 @@ export const showSignUpError = (error) => {
     errorArea.innerHTML = 'Invalid e-mail address, please try another one.';
   } else if (error.code === 'auth/weak-password') {
     errorArea.innerHTML = 'Your password must be at least 6 characters long.';
-  } /* else {
-    errorArea.innerHTML = `Error: ${error.message}`;
-  } */
+  }
 };
 
 export const showIncorrectPass = () => {
@@ -73,4 +71,15 @@ export const emptyFields = () => {
   const errorArea = document.querySelector('#errorAreaForm');
   errorArea.innerHTML = 'Profile name and/or username cannot be empty';
   errorArea.style.color = 'red';
+};
+
+export const createNewPost = (postData) => {
+  const post = document.createElement('div');
+  post.innerHTML = `${postData.date} <br> ${postData.user} <br> ${postData.reading} <br> ${postData.text}`;
+
+  const postArea = document.querySelector('#postsArea');
+
+  postArea.append(post);
+
+  return postArea;
 };

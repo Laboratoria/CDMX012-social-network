@@ -1,3 +1,5 @@
+import { saveNewPostData } from '../firestore.js';
+
 export const feed = () => {
   const readingPage = document.createElement('div');
   readingPage.setAttribute('class', 'readingPage');
@@ -36,13 +38,20 @@ export const feed = () => {
   readingBook.setAttribute('id', 'bookTitle');
   readingBook.setAttribute('type', 'text');
   readingBook.setAttribute('placeholder', 'Insert the title of the book you are reading here');
+  readingBook.setAttribute('name', 'bookTitle');
 
   const readingDescription = document.createElement('textarea');
   readingDescription.setAttribute('class', 'post-content');
-  readingDescription.setAttribute('name', 'post-content');
+  readingDescription.setAttribute('name', 'postContent');
   readingDescription.setAttribute('placeholder', "What's on your mind?");
 
-  readingForm.append(readingTitle, readingBook, readingDescription);
+  const newPostBtn = document.createElement('input');
+  newPostBtn.setAttribute('type', 'button');
+  newPostBtn.setAttribute('value', 'Share');
+  newPostBtn.setAttribute('class', 'new-post-button');
+  newPostBtn.setAttribute('id', 'newPostButton');
+
+  readingForm.append(readingTitle, readingBook, readingDescription, newPostBtn);
 
   // Posts section
   const postsArea = document.createElement('div');
@@ -50,6 +59,10 @@ export const feed = () => {
   postsArea.setAttribute('id', 'postsArea');
 
   readingPage.append(header, readingForm, postsArea);
+
+  newPostBtn.addEventListener('click', () => {
+    saveNewPostData(readingForm);
+  });
 
   return readingPage;
 };

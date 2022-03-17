@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import {
-  getFirestore, doc, setDoc, getDoc,
+  getFirestore, doc, setDoc, getDoc, collection, addDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
 import { app } from './firebase-config.js';
 import {
-  usernameError, usernameTaken, emptyFields, validUsername,
+  usernameError, usernameTaken, emptyFields, validUsername, createNewPost,
 } from './ui.js';
 
 // Init firebase app
@@ -54,3 +54,65 @@ export async function usernameValidation(username) {
   }
   return false;
 }
+
+// current user
+let currentUserUid = '';
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    const displayName = user.displayName;
+    const email = user.email;
+
+    console.log(`${displayName} - ${email} - ${uid}`);
+    currentUserUid = uid;
+  } else {
+    // User is signed out
+    console.log('User signed out');
+  }
+});
+
+// Create new post
+let postId = '';
+
+export async function saveNewPostData(postsForm) {
+  const form = document.querySelector('#readingForm');
+
+  try {
+    const today = new Date();
+    const dateToday = `${today.getDate()}/${(today.getMonth() + 1)}/${today.getFullYear()}`;
+
+    // Gets the username of the current user
+    const userDocRef = doc(db, 'profiles', currentUserUid);
+    const userDocSnap = await getDoc(userDocRef);
+    const username = userDocSnap.data().username;
+    console.log(username);
+
+    // Creates a new doc in the posts coleccion with the new input
+    const docRef = await addDoc(collection(db, 'posts'), {
+      user: username,
+      reading: postsForm.bookTitle.value,
+      text: postsForm.postContent.value,
+      date: dateToday,
+      likes: [],
+    });
+    console.log('Document written with ID: ', docRef.id);
+
+    form.reset();
+
+    // Gets the data from the post just created and shows it in the feed
+    postId = docRef.id;
+    const docSecRef = doc(db, 'posts', postId);
+    const docSnap = await getDoc(docSecRef);
+    const docData = docSnap.data();
+
+    createNewPost(docData);
+  } catch (e) {
+    console.error('Error adding document: ', e);
+  }
+}
+
+// Crear una función para traernos todos los documentos en la colección posts
+// y renderizarnos en postsArea
