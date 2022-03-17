@@ -30,6 +30,9 @@ export const validateInformation = (email, password) => {
   } else if (validateEmail(email) && validatePassword(password) === false) {
     answer.status = false;
     answer.message = 'The Password should contain at least 6 characters';
+  } else if (validateEmail(email) === false && validatePassword(password) === false) {
+    answer.status = false;
+    answer.message = 'Invalid Email and Password';
   }
 
   return answer;
