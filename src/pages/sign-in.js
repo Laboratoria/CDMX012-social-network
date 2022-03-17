@@ -134,14 +134,14 @@ export const signInPage = () => {
     const password = document.getElementById('txtPassword').value;
 
     signInAccount(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+      .then(() => {
+        /* const user = userCredential.user;
+         console.log(user); */
         errorMessage.innerHTML = '';
         onNavigate('/home');
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        /* console.log(error); */
         errorMessage.innerHTML = 'Wrong e-mail or/and password';
       });
   });

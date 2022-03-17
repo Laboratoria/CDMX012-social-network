@@ -3,8 +3,7 @@
 import {
   getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
   FacebookAuthProvider, GithubAuthProvider, getAdditionalUserInfo, signInWithEmailAndPassword,
-// eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+} from './firebase-imports';
 import { app } from './firebase-config.js';
 import { onNavigate } from './app.js';
 import { showSignUpError } from './ui.js';
@@ -48,7 +47,7 @@ export const signUpGoogle = () => {
       if (getAdditionalUserInfo(result).isNewUser) {
         askMoreInfo(result);
       } else {
-        console.log('Already registered');
+        /* console.log('Already registered'); */
         onNavigate('/home');
       }
     });
@@ -70,7 +69,7 @@ export const signUpFacebook = () => {
       if (getAdditionalUserInfo(result).isNewUser) {
         askMoreInfo(result);
       } else {
-        console.log('Already registered');
+        /* console.log('Already registered'); */
         onNavigate('/home');
       }
     });
@@ -94,7 +93,7 @@ export const signUpGithub = () => {
       if (getAdditionalUserInfo(result).isNewUser) {
         askMoreInfo(result);
       } else {
-        console.log('Already registered');
+        /* console.log('Already registered'); */
         onNavigate('/home');
       }
     });

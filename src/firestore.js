@@ -1,8 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import {
-  getFirestore, doc, setDoc, getDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js';
+  getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged,
+} from './firebase-imports';
 import { app } from './firebase-config.js';
 import {
   usernameError, usernameTaken, emptyFields, validUsername,
