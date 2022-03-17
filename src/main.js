@@ -1,5 +1,4 @@
-// Este es el punto de entrada de tu aplicacion
-
+/* eslint-disable import/no-cycle */
 import { login } from './components/logIn.js';
 import { signup } from './components/signUp.js';
 import { home } from './components/home.js';
@@ -32,10 +31,3 @@ window.onpopstate = () => {
 
 const component = routes[window.location.pathname];
 rootDiv.appendChild(component());
-
-//DOM signup
-
-// const divAccount = document.getElementById('divAccount');
-// divAccount.addEventListener('click', () => {
-//   onNavigate('/');
-// });

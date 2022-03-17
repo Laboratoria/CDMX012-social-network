@@ -37,10 +37,9 @@ export const validateInformation = (email, password) => {
 
   return answer;
 };
+
 export const errorHandler = (errorCode) => {
-  console.log(errorCode);
-  console.log(typeof errorCode);
-  if (errorCode == 'auth/email-already-in-use') {
+  if (errorCode === 'auth/email-already-in-use') {
     return 'There is already an account with this email';
   }
 };
