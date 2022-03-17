@@ -5,7 +5,7 @@ export const register = () => {
   contentSection.setAttribute("class", "father_register");
 
   const registerSection = document.createElement("section");
-  //   registerSection.setAttribute("class", "content")
+  registerSection.setAttribute("class", "son_register")
 
   const imgLogo = document.createElement("img");
   imgLogo.setAttribute("src", "./Resourses/Solovino_Black.png");
@@ -33,7 +33,7 @@ export const register = () => {
     "Para completar tu registro, aceptas que has leído los <b>términos y condiciones de uso</b> y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad.";
 
   const logIn = document.createElement("button");
-  logIn.textContent = "Inicir sesión";
+  logIn.textContent = "Crear cuenta e iniciar sesión";
   logIn.addEventListener("click", () => onNavigate("/timeline"));
   logIn.setAttribute("class", "logIn_register");
   logIn.setAttribute("id", "create_account");
@@ -47,5 +47,26 @@ export const register = () => {
     textCondicions,
     logIn
   );
+
+  window.sendInformationModal = function sendInformationModal() {
+    let emailModal = document.getElementById("email-modal").value;
+    let passwordModal = document.getElementById("password-modal").value;
+    //return alert("email=" + email + " y " + " pass= " + password);
+
+    // Registra usuarios nuevo
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, emailModal, passwordModal)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
+  };
+
   return contentSection;
 };

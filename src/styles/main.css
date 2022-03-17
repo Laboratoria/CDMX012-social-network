@@ -5,15 +5,29 @@ body {
   font-family: "Lato", sans-serif;
   margin: 0;
 }
-.father {
+#root {
   margin: 0;
   display: flex;
   justify-content: center;
 }
 
+.father {
+  margin: 0;
+  margin: auto;
+}
+
+.son {
+  width: 50%;
+  margin: auto;
+
+  /* margin: 0;
+  display: flex;
+  justify-content: center; */
+}
+
 .solovino_logo {
   width: 14.375rem;
-  margin: 2em;
+  margin: 5% 20%;
 }
 .button {
   width: 18.375rem;
@@ -21,19 +35,19 @@ body {
   border-radius: 1.25rem;
   font-size: 20px;
   text-align: center;
-  margin: 0 5% 0.3%;
+  margin: 0 10% 3%;
 }
 
 #facebook {
   background-color: rgba(59, 89, 153, 1);
   color: white;
-  margin: 0 5% 0.3%;
+  margin: 0 10% 0.3%;
 }
 
 #google {
   background-color: rgba(221, 76, 57, 1);
   color: white;
-  margin: 0 5% 5%;
+  margin: 0 10 5%;
 }
 /*boton de iniciar sesion "morado"*/
 .log-In {
@@ -44,18 +58,19 @@ body {
   color: #ffffff;
   border-radius: 1.3125rem;
   font-size: 1.25rem;
-  margin: 1% 15% 0.3%;
+  margin: 1% 20% 0.3%;
 }
-hr {
+/* hr {
   background-color: black;
-}
+  margin: 5% 35%;
+} */
 
 /*instruccion*/
 .new-User {
   width: 80%;
   height: 1.75rem;
   font-size: 1.25rem;
-  margin: 0 25% 0.3%;
+  margin: 0 30% 0.3%;
 }
 
 /*boton de registro "rosa"*/
@@ -68,7 +83,7 @@ hr {
   border-radius: 1.3125rem;
   font-size: 1.25rem;
   justify-content: center;
-  margin: 0 15% 0.3%;
+  margin: 0 20% 0.3%;
 }
 
 /* /////////// Modal Create Account  */
@@ -81,7 +96,7 @@ hr {
 
 .solovino_logo_register {
   width: 14.375rem;
-  margin: 0 2em 4em;
+  margin: 2% 33%;
 }
 
 .father_register {
@@ -113,7 +128,6 @@ hr {
 .new_User_register {
   text-align: center;
   width: auto;
-  margin-top: -2.5rem;
 }
 
 .button_register {
@@ -122,7 +136,7 @@ hr {
   border-radius: 1.25rem;
   font-size: 1rem;
   text-align: center;
-  margin: 3px 13% 5.3%;
+  margin: 3px 13% 3%;
   border: none;
 }
 .condicions_register {
@@ -140,7 +154,7 @@ hr {
   color: #ffffff;
   border-radius: 1.3rem;
   justify-content: center;
-  margin: 4% auto;
+  margin: 4% 32%;
   border-style: none;
 }
 

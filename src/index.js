@@ -11,7 +11,7 @@ import { login } from "./Components/Login.js";
 import { register } from "./Components/Register.js";
 import { timeline } from "./Components/Timeline.js";
 
-const rootDiv = document.getElementById("root");
+const rootContent = document.getElementById("root");
 
 const routes = {
   "/": login,
@@ -21,19 +21,19 @@ const routes = {
 
 export const onNavigate = (pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
+  while (rootContent.firstChild) {
+    rootContent.removeChild(rootContent.firstChild);
   }
 
-  rootDiv.appendChild(routes[pathname]());
+  rootContent.appendChild(routes[pathname]());
 };
 
 window.onpopstate = () => {
-  rootDiv.appendChild(routes[window.location.pathname]());
+  rootContent.appendChild(routes[window.location.pathname]());
 };
 
 const component = routes[window.location.pathname];
-rootDiv.appendChild(component());
+rootContent.appendChild(component());
 
 ///////////////////FIREBASE/////////////////////////
 const firebaseConfig = {

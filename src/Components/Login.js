@@ -5,7 +5,7 @@ export const login = () => {
   contentSectionLogin.setAttribute("class", "father");
 
   const loginSesion = document.createElement("section");
-  //   registerSection.setAttribute("class", "content")
+  loginSesion.setAttribute("class", "son")
 
   const imgLogo = document.createElement("img");
   imgLogo.setAttribute("src", "./Resourses/Solovino_Black.png");
