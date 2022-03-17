@@ -3,6 +3,7 @@ body {
   background-image: url("/dist/Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg");
   background-size: 100%;
   font-family: "Lato", sans-serif;
+  margin: 0;
 }
 .father {
   margin: 0;
@@ -10,7 +11,7 @@ body {
   justify-content: center;
 }
 
-#Solovino_logo {
+.solovino_logo {
   width: 14.375rem;
   margin: 2em;
 }
@@ -72,22 +73,28 @@ hr {
 
 /* /////////// Modal Create Account  */
 
-#logIn-modal {
+/* #logIn-modal {
   opacity: 1;
   pointer-events: auto;
   z-index: 99999;
+} */
+
+.solovino_logo_register {
+  width: 14.375rem;
+  margin: 0 2em 4em;
 }
-.modal-createAccount {
+
+.father_register {
   background-color: #d4d4d4;
   width: 80%;
   height: 40%;
   border-radius: 20px;
   margin: 2rem auto 0%;
   padding: 1.5rem;
-  display: block;
+  display: flex;
 }
 
-.modalClose {
+/* .modalClose {
   display: none;
 }
 .button-close {
@@ -101,16 +108,15 @@ hr {
   top: -22px;
   margin: 0;
   left: 95%;
-}
-.input-mail {
-  display: flex;
-}
-.new-UserModal {
+} */
+
+.new_User_register {
   text-align: center;
   width: auto;
   margin-top: -2.5rem;
 }
-.button-modal {
+
+.button_register {
   width: 80%;
   height: 3rem;
   border-radius: 1.25rem;
@@ -119,14 +125,14 @@ hr {
   margin: 3px 13% 5.3%;
   border: none;
 }
-.politics-Modal {
+.condicions_register {
   width: 70%;
   font-family: "Lato";
   font-weight: 300;
   text-align: center;
   margin: auto;
 }
-.sing-in {
+.logIn_register {
   width: 15rem;
   height: 3rem;
   font-size: 1.125rem;

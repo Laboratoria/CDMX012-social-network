@@ -1,5 +1,4 @@
 import "./styles/main.css";
-
 import { getDocs, collection, getFirestore } from "firebase/firestore/lite";
 import { initializeApp } from "firebase/app";
 import {
@@ -8,6 +7,35 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
+import { login } from "./Components/Login.js";
+import { register } from "./Components/Register.js";
+import { timeline } from "./Components/Timeline.js";
+
+const rootDiv = document.getElementById("root");
+
+const routes = {
+  "/": login,
+  "/register": register,
+  "/timeline": timeline,
+};
+
+export const onNavigate = (pathname) => {
+  window.history.pushState({}, pathname, window.location.origin + pathname);
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+
+  rootDiv.appendChild(routes[pathname]());
+};
+
+window.onpopstate = () => {
+  rootDiv.appendChild(routes[window.location.pathname]());
+};
+
+const component = routes[window.location.pathname];
+rootDiv.appendChild(component());
+
+///////////////////FIREBASE/////////////////////////
 const firebaseConfig = {
   apiKey: "AIzaSyAwGQsOSeaKd97-2Livk2oDexObO1flAJM",
   authDomain: "solovino-d247a.firebaseapp.com",
@@ -21,25 +49,26 @@ const firebaseConfig = {
 // Initialize Firebase
 let app = initializeApp(firebaseConfig);
 
-const auth = getAuth();
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    const displayName = user.displayName;
-    const email = user.email;
-    const photoURL = user.photoURL;
-    const emailVerified = user.emailVerified;
-    document.getElementById("login").innerHTML = "LOGUEADO" + user.email;
-    // ...
-  } else {
-    document.getElementById("login").innerHTML = "NO LOGUEADO";
-    // User is signed out
-    // ...
-  }
-});
+// const auth = getAuth();
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     // https://firebase.google.com/docs/reference/js/firebase.User
+//     const uid = user.uid;
+//     const displayName = user.displayName;
+//     const email = user.email;
+//     const photoURL = user.photoURL;
+//     const emailVerified = user.emailVerified;
+//     document.getElementById("login").innerHTML = "LOGUEADO" + user.email;
+//     // ...
+//   } else {
+//     document.getElementById("login").innerHTML = "NO LOGUEADO";
+//     // User is signed out
+//     // ...
+//   }
+// });
 
+//////////////////////////////////////////////////////////
 /*let db = getFirestore(app);
 
 // Get a list of cities from your database
@@ -50,6 +79,7 @@ async function getCities(db) {
   return cityList;
 }*/
 
+/********************************************************
 window.sendInformationModal = function sendInformationModal() {
   let emailModal = document.getElementById("email-modal").value;
   let passwordModal = document.getElementById("password-modal").value;
@@ -69,17 +99,18 @@ window.sendInformationModal = function sendInformationModal() {
       alert(errorMessage);
     });
 };
+*/ //////////////////////////////////////////////
 
 // window.sendInformation = sendInformation(){
 
 // }
 
-var btnClose = document.getElementById("btn-close-modal");
-var modalAccount = document.getElementById("logIn-modal");
+// var btnClose = document.getElementById("btn-close-modal");
+// var modalAccount = document.getElementById("logIn-modal");
 
-window.closeModal = function closeModal() {
-  console.log("test");
-};
+// window.closeModal = function closeModal() {
+//   console.log("test");
+// };
 
 // btnClose.onclick = function() {
 //   console.log("sfcdsdf");
