@@ -3,7 +3,7 @@
 import {
   getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
   FacebookAuthProvider, GithubAuthProvider, getAdditionalUserInfo, signInWithEmailAndPassword,
-} from './firebase-imports';
+} from './firebase-imports.js';
 import { app } from './firebase-config.js';
 import { onNavigate } from './app.js';
 import { showSignUpError } from './ui.js';
