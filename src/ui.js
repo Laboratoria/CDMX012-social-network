@@ -75,10 +75,43 @@ export const emptyFields = () => {
 
 export const createNewPost = (postData) => {
   const post = document.createElement('div');
-  post.innerHTML = `${postData.date} <br> ${postData.user} <br> ${postData.reading} <br> ${postData.text}`;
+  post.innerHTML = ` <hr>
+    ${postData.name} @${postData.user} <span>· ${postData.date}</span> <br> 
+    Reading: ${postData.reading} <br> 
+    ${postData.text} 
+    `;
 
+  const like = document.createElement('img');
+  like.setAttribute('src', './assets/like.png');
+
+  const options = document.createElement('img');
+  options.setAttribute('src', './assets/options.png');
+  options.setAttribute('height', '20');
+
+  post.append(like, options);
+  const newPost = document.querySelector('#newPost');
+  newPost.append(post);
+
+  return newPost;
+};
+
+export const showAllPosts = (postData) => {
+  const post = document.createElement('div');
+  post.innerHTML = ` <hr>
+    ${postData.name} @${postData.user} <span>· ${postData.date}</span> <br> 
+    Reading: ${postData.reading} <br> 
+    ${postData.text} 
+    `;
+
+  const like = document.createElement('img');
+  like.setAttribute('src', './assets/like.png');
+
+  const options = document.createElement('img');
+  options.setAttribute('src', './assets/options.png');
+  options.setAttribute('height', '20');
+
+  post.append(like, options);
   const postArea = document.querySelector('#postsArea');
-
   postArea.append(post);
 
   return postArea;

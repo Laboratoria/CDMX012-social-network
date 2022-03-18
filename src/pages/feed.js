@@ -1,4 +1,5 @@
-import { saveNewPostData } from '../firestore.js';
+/* eslint-disable import/no-cycle */
+import { saveNewPostData, getPosts } from '../firestore.js';
 
 export const feed = () => {
   const readingPage = document.createElement('div');
@@ -53,13 +54,19 @@ export const feed = () => {
 
   readingForm.append(readingTitle, readingBook, readingDescription, newPostBtn);
 
+  // Área para mostrar el post recién creado
+  const newPost = document.createElement('div');
+  newPost.setAttribute('class', 'new-post');
+  newPost.setAttribute('id', 'newPost');
+
   // Posts section
   const postsArea = document.createElement('div');
   postsArea.setAttribute('class', 'posts');
   postsArea.setAttribute('id', 'postsArea');
 
-  readingPage.append(header, readingForm, postsArea);
+  readingPage.append(header, readingForm, newPost, postsArea);
 
+  getPosts(); // Averiguar cómo ordenar los posts, más reciente primero
   newPostBtn.addEventListener('click', () => {
     saveNewPostData(readingForm);
   });
