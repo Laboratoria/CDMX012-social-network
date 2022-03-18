@@ -1,3 +1,9 @@
+import { getDocs, collection, getFirestore } from "firebase/firestore/lite";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { onNavigate } from "../index.js";
 
 export const register = () => {
@@ -48,24 +54,25 @@ export const register = () => {
     logIn
   );
 
-  window.sendInformationModal = function sendInformationModal() {
-    let emailModal = document.getElementById("email-modal").value;
-    let passwordModal = document.getElementById("password-modal").value;
+  function saveDataOnFirebase() {
+    let emailModal = document.getElementById("email_register").value;
+    let passwordModal = document.getElementById("password_register").value;
     //return alert("email=" + email + " y " + " pass= " + password);
 
     // Registra usuarios nuevo
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, emailModal, passwordModal)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-      });
+    // if(){
+    // const auth = getAuth();
+    // createUserWithEmailAndPassword(auth, emailModal, passwordModal)
+    //   .then((userCredential) => {
+    //     // Signed in
+    //     const user = userCredential.user;
+    //     // ...
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     alert(errorMessage);
+    //   })}
   };
 
   return contentSection;

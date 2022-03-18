@@ -1,5 +1,6 @@
 import { onNavigate } from "../index.js";
 
+
 export const login = () => {
   const contentSectionLogin = document.createElement("section");
   contentSectionLogin.setAttribute("class", "father");
@@ -36,7 +37,7 @@ export const login = () => {
   inputPasword.setAttribute("placeholder", "Contraseña");
 
   const logIn = document.createElement("button");
-  logIn.textContent = "Inicir sesión";
+  logIn.textContent = "Iniciar sesión";
   logIn.setAttribute("onclick", "logIn()");
   logIn.setAttribute("class", "log-In");
 

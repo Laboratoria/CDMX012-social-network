@@ -17,7 +17,7 @@ body {
 }
 
 .son {
-  width: 50%;
+  width: 80%;
   margin: auto;
 
   /* margin: 0;
@@ -26,32 +26,32 @@ body {
 }
 
 .solovino_logo {
-  width: 14.375rem;
+  width: 60%;
   margin: 5% 20%;
 }
 .button {
-  width: 18.375rem;
+  width: 90%;
   height: 4rem;
   border-radius: 1.25rem;
   font-size: 20px;
   text-align: center;
-  margin: 0 10% 3%;
+  margin: 0 5% 3%;
 }
 
 #facebook {
   background-color: rgba(59, 89, 153, 1);
   color: white;
-  margin: 0 10% 0.3%;
+  margin: 0 5% 0.3%;
 }
 
 #google {
   background-color: rgba(221, 76, 57, 1);
   color: white;
-  margin: 0 10 5%;
+  margin: 0 5 5%;
 }
 /*boton de iniciar sesion "morado"*/
 .log-In {
-  width: 14.25rem;
+  width: 60%;
   height: 2.9375rem;
   font-size: 1.125rem;
   background-color: #5a0b95;
@@ -70,12 +70,13 @@ body {
   width: 80%;
   height: 1.75rem;
   font-size: 1.25rem;
-  margin: 0 30% 0.3%;
+  margin: 0 10% 0.3% 10%;
+  text-align: center;
 }
 
 /*boton de registro "rosa"*/
 .sing-In {
-  width: 14.25rem;
+  width: 60%;
   height: 2.9375rem;
   font-size: 1.125rem;
   background-color: #e78bb7;
@@ -94,18 +95,12 @@ body {
   z-index: 99999;
 } */
 
-.solovino_logo_register {
-  width: 14.375rem;
-  margin: 2% 33%;
-}
-
 .father_register {
   background-color: #d4d4d4;
   width: 80%;
-  height: 40%;
   border-radius: 20px;
-  margin: 2rem auto 0%;
-  padding: 1.5rem;
+  margin: 10% 5%;
+  padding: 5%;
   display: flex;
 }
 
@@ -124,10 +119,15 @@ body {
   margin: 0;
   left: 95%;
 } */
+.solovino_logo_register {
+  width: 40%;
+  margin: 2% 30%;
+}
 
 .new_User_register {
   text-align: center;
-  width: auto;
+  width: 80%;
+  margin: 2% 10%;
 }
 
 .button_register {
@@ -136,7 +136,7 @@ body {
   border-radius: 1.25rem;
   font-size: 1rem;
   text-align: center;
-  margin: 3px 13% 3%;
+  margin: 2% 10% 3%;
   border: none;
 }
 .condicions_register {
@@ -144,23 +144,42 @@ body {
   font-family: "Lato";
   font-weight: 300;
   text-align: center;
-  margin: auto;
+  margin: 2% 15% 2%;
 }
 .logIn_register {
-  width: 15rem;
+  width: 50%;
   height: 3rem;
   font-size: 1.125rem;
   background-color: #e78bb7;
   color: #ffffff;
   border-radius: 1.3rem;
   justify-content: center;
-  margin: 4% 32%;
+  margin: 4% 25%;
   border-style: none;
 }
 
+/***********************************************/
+.solovino_working_img {
+  width: 50%;
+  margin: 2% 25%;
+}
+
+.solovino_working {
+  width: 25%;
+  margin: 5% 37.5% 0%;
+  font-size: medium;
+  text-align: center;
+}
+#return_index {
+  background: pink;
+  width: 50%;
+  margin: 2% 25% 0%;
+}
 footer {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  margin: 5% auto 2%;
 }
 
 /* 
