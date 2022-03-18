@@ -12,6 +12,9 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  sendEmailVerification,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -29,7 +32,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-
+export const proveedor = new GoogleAuthProvider();
 export function iniciarSesion() {
   const autentificar = getAuth();
   onAuthStateChanged(autentificar, (user) => {
@@ -37,15 +40,27 @@ export function iniciarSesion() {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
+      const email = user.email;
+      const emailVerificado = user.emailVerified;
+      //const textoVerificado = '';
+      if (emailVerificado === false){
+       alert('Email no verificado');
+       onNavigate('/');
+      }
+      else {
+       alert('Email verificado');
       alert('Estas logueado');
       onNavigate('/muro');
-    } else {
+      // eslint-disable-next-line prefer-template
+      document.getElementById('mensajeLogin').textContent = ' Estas Logueado ' + email;
+    } /* else {
       console.log(user.uid);
       alert('No estas logueado :( ');
-    }
-  });
+    } */
+  }
+});
 }
-export function usuarioExistente() {
+export function usuarioExistente() { // OBSERVADOR 
   const emailLogin = document.getElementById('email').value;
   const contraseñaLogin = document.getElementById('contraseña').value;
   const auth = getAuth();
@@ -53,7 +68,6 @@ export function usuarioExistente() {
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
-    // ...
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -62,20 +76,72 @@ export function usuarioExistente() {
       alert(errorMessage);
     });
 }
+export function verificarCorreo() {
+  const auth = getAuth();
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+      // Email verification sent!
+      // ...
+    });
+}
 export function registrar() {
   const email = document.getElementById('emailRegi').value;
   const contraseña = document.getElementById('contraseñaRegi').value;
+  const contraseñaConfirmar = document.getElementById('contraseñaRegidos').value;
   const auth = getAuth();
-  createUserWithEmailAndPassword(auth, email, contraseña)
+  if (contraseña === contraseñaConfirmar){
+  createUserWithEmailAndPassword(auth, email, contraseña )
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      // ...
+      
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage + errorCode);
       // ..
+    })
+    .then (function() {
+    verificarCorreo();
+    alert('Registrado exitosamente,Porfavor verifica tu correo')
+    });onNavigate('/');
+}
+else {
+  alert('Las contraseñas no coinciden');
+}
+}
+export function cerrar() {
+  getAuth().signOut()
+    .then(
+      function() {
+        alert ( 'Cerraste sesión');
+      },
+    )
+    .catch(function (error) {
+      alert('No fue posible completar tu petición intentalo más tarde');
+    });
+}
+export function google() {
+  const auth = getAuth();
+  signInWithPopup(auth, proveedor)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      const fotoUsuario = user.photoURL; // AQUI ESTA LA FOTO DEL USUARIO 
+      onNavigate('/muro');
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
     });
 }

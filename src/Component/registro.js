@@ -1,5 +1,7 @@
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import { registrar } from '../lib/index.js';
+// eslint-disable-next-line import/no-cycle
+import { registrar, verificarCorreo } from '../lib/index.js';
 
 export const registro = () => {
   const seccionGeneral = document.createElement('section');
@@ -38,7 +40,8 @@ export const registro = () => {
   botonRegistro.textContent = 'Registrarme';
   botonRegistro.addEventListener('click', () => {
     registrar();
-    onNavigate('/muro');
+    verificarCorreo();
+  // onNavigate('/muro');
   });
   // botonRegistro.addEventListener('click', () => {
   //   registrar();

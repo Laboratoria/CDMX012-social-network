@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import { iniciarSesion, usuarioExistente } from '../lib/index.js';
+import { iniciarSesion, usuarioExistente, google } from '../lib/index.js';
 
 export const login = () => {
   const seccionGeneral = document.createElement('section');
@@ -46,6 +46,9 @@ export const login = () => {
   botonGoogle.setAttribute('class', 'botones');
   botonGoogle.textContent = 'Iniciar con Google';
   botonGoogle.appendChild(imgGoogle);
+  botonGoogle.addEventListener('click', () => {
+    google();
+  });
 
   const botonContraseña = document.createElement('button');
   botonContraseña.setAttribute('class', 'invisible');
