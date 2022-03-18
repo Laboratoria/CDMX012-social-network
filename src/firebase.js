@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 // Import the functions from the SDKs
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 import { getDatabase, set, ref } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
