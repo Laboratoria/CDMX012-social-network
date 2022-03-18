@@ -2,7 +2,7 @@
 /* eslint-disable import/no-unresolved */
 import {
   getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection, addDoc, getDocs,
-} from './firebase-imports';
+} from './firebase-imports.js';
 import { app } from './firebase-config.js';
 import {
   usernameError, usernameTaken, emptyFields, validUsername, createNewPost, showAllPosts,
