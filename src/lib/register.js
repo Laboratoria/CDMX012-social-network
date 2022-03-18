@@ -33,6 +33,19 @@ function registerFireBase(e) {
       console.log('¡Registro Exitoso!');
       alert('registrado');
       onNavigate('/login');
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      if (errorCode === 'auth/invalid-email') {
+        alert('Por favor ingresa un correo válido');
+      }
+      if (errorCode === 'auth/weak-password') {
+        alert('Tu contraseña debe contener al menos 6 carácteres.');
+      }
+      if (errorCode === 'auth/email-already-in-use') {
+        alert('Ya existe una cuenta con este correo, intenta con uno nuevo o Inicia Sesión');
+      }
     });
 }
 

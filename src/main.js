@@ -3,12 +3,14 @@
 import { home } from './lib/home.js';
 import { login } from './lib/login.js';
 import { register } from './lib/register.js';
+import { feed } from './lib/feed.js'; //
 // import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js"; //viene desde una CDN y no de lib
 
 const routes = {
   '/': home,
   '/register': register,
   '/login': login,
+  '/feed': feed,
 };
 
 const rootDiv = document.getElementById('root');

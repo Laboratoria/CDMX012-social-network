@@ -1,7 +1,7 @@
 import {
   getAuth,
   signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 export const login = `
 <a onclick="onNavigate('/'); return
@@ -29,15 +29,20 @@ function loginFireBase(e) {
   signInWithEmailAndPassword(auth, loginEmail, loginPass)
     .then((userCredential) => {
       // Signed in
-      console.log('¡Login Exitoso!')
+      console.log('¡Login Exitoso!');
       const user = userCredential.user;
       alert('Logged in!');
+      onNavigate('/feed');
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage);
+      if (errorCode === 'auth/wrong-password') {
+        alert('Tu contraseña es incorrecta, intenta de nuevo o da click en "Olivde mi contraseña"');
+      }
+      if (errorCode === 'auth/invalid-email') {
+        alert('Por favor ingresa un correo válido');
+      }
     });
 }
 
