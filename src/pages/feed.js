@@ -1,3 +1,6 @@
+/* eslint-disable import/no-cycle */
+import { saveNewPostData, getPosts } from '../firestore.js';
+
 export const feed = () => {
   const readingPage = document.createElement('div');
   readingPage.setAttribute('class', 'readingPage');
@@ -36,20 +39,37 @@ export const feed = () => {
   readingBook.setAttribute('id', 'bookTitle');
   readingBook.setAttribute('type', 'text');
   readingBook.setAttribute('placeholder', 'Insert the title of the book you are reading here');
+  readingBook.setAttribute('name', 'bookTitle');
 
   const readingDescription = document.createElement('textarea');
   readingDescription.setAttribute('class', 'post-content');
-  readingDescription.setAttribute('name', 'post-content');
+  readingDescription.setAttribute('name', 'postContent');
   readingDescription.setAttribute('placeholder', "What's on your mind?");
 
-  readingForm.append(readingTitle, readingBook, readingDescription);
+  const newPostBtn = document.createElement('input');
+  newPostBtn.setAttribute('type', 'button');
+  newPostBtn.setAttribute('value', 'Share');
+  newPostBtn.setAttribute('class', 'new-post-button');
+  newPostBtn.setAttribute('id', 'newPostButton');
+
+  readingForm.append(readingTitle, readingBook, readingDescription, newPostBtn);
+
+  // Área para mostrar el post recién creado
+  const newPost = document.createElement('div');
+  newPost.setAttribute('class', 'new-post');
+  newPost.setAttribute('id', 'newPost');
 
   // Posts section
   const postsArea = document.createElement('div');
   postsArea.setAttribute('class', 'posts');
   postsArea.setAttribute('id', 'postsArea');
 
-  readingPage.append(header, readingForm, postsArea);
+  readingPage.append(header, readingForm, newPost, postsArea);
+
+  getPosts(); // Averiguar cómo ordenar los posts, más reciente primero
+  newPostBtn.addEventListener('click', () => {
+    saveNewPostData(readingForm);
+  });
 
   return readingPage;
 };
