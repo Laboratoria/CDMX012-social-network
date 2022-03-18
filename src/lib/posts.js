@@ -24,6 +24,7 @@ export function saveInfo(userForm) {
       name: userForm.name.value,
       username: userForm.username.value,
       bio: userForm.bio.value,
+      uid: uid,
     })
       .then(() => {
         userForm.reset();
@@ -90,8 +91,7 @@ export async function saveNewPostData(postsForm) {
 
     // Creates a new doc in the posts coleccion with the new input
     const docRef = await addDoc(collection(db, 'posts'), {
-      name: profileName,
-      user: username,
+      uid: currentUserUid,
       reading: postsForm.bookTitle.value,
       text: postsForm.postContent.value,
       date: dateToday,

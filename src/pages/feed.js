@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { saveNewPostData, getPosts } from '../firestore.js';
+import { saveNewPostData, getPosts } from '../lib/posts.js';
 
 export const feed = () => {
   const readingPage = document.createElement('div');

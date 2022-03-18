@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { createAccount } from '../firebase.js';
+import { createAccount } from '../lib/auth.js';
 import { showIncorrectPass, showPassword } from '../ui.js';
 
 export const createAccForm = () => {

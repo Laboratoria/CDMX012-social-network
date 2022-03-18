@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { usernameValidation, isValidField, saveInfo } from '../firestore.js';
+import { usernameValidation, isValidField, saveInfo } from '../lib/auth.js';
 import { onNavigate } from '../app.js';
 
 export const addInfoPage = () => {
