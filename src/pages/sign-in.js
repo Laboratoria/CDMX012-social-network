@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-cycle
 import {
   signInAccount, signUpGoogle, signUpFacebook, signUpGithub,
-} from '../firebase.js';
+} from '../lib/auth.js';
 import { onNavigate } from '../app.js';
 
 export const signInPage = () => {
