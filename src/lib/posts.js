@@ -2,12 +2,12 @@
 /* eslint-disable import/no-unresolved */
 import {
   getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection, addDoc, getDocs,
-} from './firebase-imports.js';
+} from '../firebase-imports.js';
 import { app } from './firebase-config.js';
 import {
   usernameError, usernameTaken, emptyFields, validUsername, createNewPost, showAllPosts,
-} from './ui.js';
-import { onNavigate } from './app.js';
+} from '../ui.js';
+import { onNavigate } from '../app.js';
 
 // Init firebase app
 const auth = getAuth(app);
