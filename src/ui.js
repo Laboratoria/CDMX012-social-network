@@ -75,6 +75,7 @@ export const emptyFields = () => {
 
 export const createNewPost = (postData) => {
   const post = document.createElement('div');
+  post.setAttribute('class', 'post-container');
   post.innerHTML = ` <hr>
     ${postData.name} @${postData.user} <span>· ${postData.date}</span> <br> 
     Reading: ${postData.reading} <br> 
@@ -97,6 +98,7 @@ export const createNewPost = (postData) => {
 
 export const showAllPosts = (postData, currentUid) => {
   const post = document.createElement('div');
+  post.setAttribute('class', 'post-container');
   post.innerHTML = ` <hr>
     ${postData.name} @${postData.user} <span>· ${postData.date}</span> <br> 
     Reading: ${postData.reading} <br> 
@@ -107,23 +109,26 @@ export const showAllPosts = (postData, currentUid) => {
   like.setAttribute('src', './assets/like.png');
 
   if (currentUid === postData.uid) {
+    const options = document.createElement('img');
+    options.setAttribute('class', 'options-menu');
+    options.setAttribute('src', './assets/options.png');
+    options.setAttribute('height', '20');
+
     const dropdownContainer = document.createElement('div');
     dropdownContainer.setAttribute('class', 'dropdown-container');
     dropdownContainer.setAttribute('tabindex', '-1');
     dropdownContainer.innerHTML = `
-      <div class="three-dots"></div>
         <div class="dropdown">
           <a href="#"><div>Edit</div></a>
           <a href="#"><div>Delete</div></a>
         </div>
-      </div>
       `;
 
-    const options = document.createElement('img');
-    options.setAttribute('src', './assets/options.png');
-    options.setAttribute('height', '20');
+    options.addEventListener('click', () => {
+      dropdownContainer.classList.toggle('show');
+    });
 
-    post.append(like, dropdownContainer);
+    post.append(like, options, dropdownContainer);
     const postArea = document.querySelector('#postsArea');
     postArea.append(post);
 
