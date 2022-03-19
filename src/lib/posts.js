@@ -117,6 +117,6 @@ export async function saveNewPostData(postsForm) {
 export async function getPosts() {
   const querySnapshot = await getDocs(collection(db, 'posts'));
   querySnapshot.forEach((docu) => {
-    showAllPosts(docu.data());
+    showAllPosts(docu.data(), currentUserUid);
   });
 }

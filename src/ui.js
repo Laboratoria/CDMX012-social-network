@@ -95,7 +95,7 @@ export const createNewPost = (postData) => {
   return newPost;
 };
 
-export const showAllPosts = (postData) => {
+export const showAllPosts = (postData, currentUid) => {
   const post = document.createElement('div');
   post.innerHTML = ` <hr>
     ${postData.name} @${postData.user} <span>· ${postData.date}</span> <br> 
@@ -106,11 +106,31 @@ export const showAllPosts = (postData) => {
   const like = document.createElement('img');
   like.setAttribute('src', './assets/like.png');
 
-  const options = document.createElement('img');
-  options.setAttribute('src', './assets/options.png');
-  options.setAttribute('height', '20');
+  if (currentUid === postData.uid) {
+    const dropdownContainer = document.createElement('div');
+    dropdownContainer.setAttribute('class', 'dropdown-container');
+    dropdownContainer.setAttribute('tabindex', '-1');
+    dropdownContainer.innerHTML = `
+      <div class="three-dots"></div>
+        <div class="dropdown">
+          <a href="#"><div>Edit</div></a>
+          <a href="#"><div>Delete</div></a>
+        </div>
+      </div>
+      `;
 
-  post.append(like, options);
+    const options = document.createElement('img');
+    options.setAttribute('src', './assets/options.png');
+    options.setAttribute('height', '20');
+
+    post.append(like, dropdownContainer);
+    const postArea = document.querySelector('#postsArea');
+    postArea.append(post);
+
+    return postArea;
+  }
+
+  post.append(like);
   const postArea = document.querySelector('#postsArea');
   postArea.append(post);
 
