@@ -1,5 +1,5 @@
 // importamos la funcion que vamos a testear
-import { isValidField } from '../src/firestore';
+import { isValidField } from '../src/lib/posts';
 
 jest.mock('../src/firebase-imports.js');
 
