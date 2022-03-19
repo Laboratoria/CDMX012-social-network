@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 /* eslint-disable import/named */
 import { onNavigate } from '../main.js';
 import { createUser, createUserWithTwitter, createUserWithGoogle } from '../firebase.js';
@@ -37,6 +36,7 @@ export const signup = () => {
   const pAccount = document.createElement('p');
   const globalSignupDiv = document.createElement('div');
   const globalContainer = document.getElementById('globalContainer');
+
   // attributes
   pinkContainer.setAttribute('class', 'pinkContainer');
   pinkTextOne.setAttribute('class', 'pinkTextOneAndThree');
@@ -163,7 +163,6 @@ export const signup = () => {
     const email = document.getElementById('inputEmail').value;
     const password = document.getElementById('inputPassword').value;
     const username = document.getElementById('inputUsername').value;
-
     const informationValidated = validateInformation(email, password);
     if (informationValidated.status) {
       createUser(email, password, username).then((userCredential) => {
@@ -183,6 +182,5 @@ export const signup = () => {
       onNavigate('/');
     }
   });
-
   return globalSignupDiv;
 };
