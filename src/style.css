@@ -223,7 +223,135 @@ p {
 .singUpFree{
   display:none;
 }
+
+
+/* Vista Log In */
+
+.globalLogInDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  }
+  .baseLogin{
+  background-color:#ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-top: 100px;
+  border-radius: 10px;
 }
+.inputLogin {
+  text-align: center;
+  border-radius: 5px;
+  width: 200px;
+  height: 38px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  font-weight: bold;
+  transition: 0.5s;
+  outline: none;
+  margin: 45px 0px 8px;
+  align-items: center;
+  justify-content: center;
+}
+#loginUsername{
+  background: url("./img/user.png");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: 38px;
+  color: #00000080;
+  border-radius: 5px;
+}
+#loginPassword{
+  background: url("./img/lock.png");
+  background-size: 47px;
+  background-repeat: no-repeat;
+  background-position: 28px;
+  color: #00000080;
+}
+.eye {
+  position: relative;
+  text-align: center;
+  border-radius: 5px;
+  width: 250px;
+  height: 38px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  font-weight: bold;
+  transition: 0.5s;
+  margin: 8px 0px 8px;
+  background-color: #ffffff;
+}
+.focused {
+  border: 3px solid #eca05f;
+}
+
+#imgEye {
+  position: absolute;
+  right: 10px;
+  top: 55%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #808080;
+}
+.pForgotPassword{
+  font-weight: bold;
+  font-size: 13px;
+}
+.buttonLogin{
+  background-color: #bd72be;
+  border-radius: 30px;
+  width: 100px;
+  height: 45px;
+  margin: 35px 0px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.divLoginWith{
+
+  height: 180px;
+  margin-right: 5px;
+  border: transparent;
+  display:flex;
+  justify-content: center;
+  font-weight: bold;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+  text-align: center;
+  margin-top: 25px;
+}
+
+#loginGoogle{
+  width: 60px;
+  height: 60px;
+  text-align: justify;
+  border: transparent;
+  background-color: transparent;
+  margin-top: 10px;
+  position: absolute;
+  
+}
+#loginTwitter{
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  position: absolute;
+  border: transparent;
+  right: 2px;
+  margin-top:2px;
+ }
+}
+
+
 
 @media only screen and (max-width: 2000px) and (min-width: 762px) {
   * {
