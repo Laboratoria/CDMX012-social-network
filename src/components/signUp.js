@@ -34,6 +34,7 @@ export const signup = () => {
   const buttonSignup = document.createElement('button');
   const errorMessage = document.createElement('div');
   const divAccount = document.createElement('div');
+  const pAccount = document.createElement('p');
   const globalSignupDiv = document.createElement('div');
   const globalContainer = document.getElementById('globalContainer');
   // attributes
@@ -79,6 +80,7 @@ export const signup = () => {
   errorMessage.setAttribute('id', 'errorMessage');
   divAccount.setAttribute('id', 'divAccount');
   globalSignupDiv.setAttribute('id', 'globalSignupDiv');
+  pAccount.setAttribute('class', 'pAccount');
 
   // innerText
   divLogo.innerText = 'Mukí';
@@ -92,6 +94,7 @@ export const signup = () => {
   or.innerText = 'Or';
   buttonSignup.innerText = 'Continue';
   divAccount.innerText = 'Already have an account?';
+  pAccount.innerText = 'Log in';
 
   // append
   header.appendChild(divLogo);
@@ -122,6 +125,7 @@ export const signup = () => {
   pinkTextOne.appendChild(imgTextOne);
   pinkTexTwo.appendChild(imgTextTwo);
   pinkTextThree.appendChild(imgTextThree);
+  divAccount.appendChild(pAccount);
 
   imgEye.addEventListener('click', () => {
     if (inputPassword.type === 'password') {
