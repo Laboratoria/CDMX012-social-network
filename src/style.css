@@ -260,7 +260,7 @@ p {
   align-items: center;
   justify-content: center;
 }
-#loginUsername{
+#loginEmail{
   background: url("./img/user.png");
   background-size: 24px;
   background-repeat: no-repeat;

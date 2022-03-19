@@ -1,8 +1,7 @@
 /* eslint-disable import/no-cycle */
 // // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import { createUserWithTwitter, createUserWithGoogle } from '../firebase.js';
-// import { validateInformation, errorHandler } from './helper.js';
+import { loginUserWithEmail, LoginUserWithGoogle, loginUserWithTwitter } from '../firebase.js';
 
 export const login = () => {
   // elements
@@ -13,7 +12,7 @@ export const login = () => {
   const divLogo = document.createElement('div');
   const pLogo = document.createElement('p');
   const baseLogin = document.createElement('div');
-  const loginUsername = document.createElement('input');
+  const loginEmail = document.createElement('input');
   const loginPassword = document.createElement('input');
   const pForgotPassword = document.createElement('p');
   const errorMessage = document.createElement('div');
@@ -35,11 +34,11 @@ export const login = () => {
   imgLogo.setAttribute('src', './img/logosmall.png');
   globalLogInDiv.setAttribute('class', 'globalLogInDiv');
   baseLogin.setAttribute('class', 'baseLogin');
-  loginUsername.setAttribute('type', 'text');
-  loginUsername.setAttribute('class', 'inputLogin');
-  loginUsername.setAttribute('placeholder', 'Username');
   loginPassword.setAttribute('class', 'inputLogin');
-  loginUsername.setAttribute('id', 'loginUsername');
+  loginEmail.setAttribute('type', 'text');
+  loginEmail.setAttribute('class', 'inputLogin');
+  loginEmail.setAttribute('placeholder', 'Email');
+  loginEmail.setAttribute('id', 'loginEmail');
   loginPassword.setAttribute('type', 'password');
   loginPassword.setAttribute('placeholder', 'Password');
   loginPassword.setAttribute('id', 'loginPassword');
@@ -70,7 +69,6 @@ export const login = () => {
   loginWithP.innerText = 'Or login with';
   divSignUp.innerText = 'You don’t have an account??';
   pSignUp.innerText = 'Sign up';
-
   // append
   globalContainer.appendChild(globalLogInDiv);
   globalLogInDiv.appendChild(header);
@@ -80,11 +78,14 @@ export const login = () => {
   divLogo.appendChild(pLogo);
   span.appendChild(loginPassword);
   span.appendChild(imgEye);
-  baseLogin.appendChild(loginUsername);
+  baseLogin.appendChild(loginEmail);
   baseLogin.appendChild(loginPassword);
   baseLogin.appendChild(pForgotPassword);
   baseLogin.appendChild(buttonLogin);
   baseLogin.appendChild(divLoginWith);
+  baseLogin.appendChild(errorMessage);
+  baseLogin.appendChild(divSignUp);
+  divSignUp.appendChild(pSignUp);
   divLoginWith.appendChild(loginWithP);
   divLoginWith.appendChild(loginWithGoogle);
   loginWithGoogle.appendChild(imgGoogle);
@@ -93,6 +94,38 @@ export const login = () => {
   globalLogInDiv.appendChild(errorMessage);
 
   buttonLogin.addEventListener('click', () => {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    loginUserWithEmail(email, password).then((userCredential) => {
+      if (userCredential) {
+        onNavigate('/home');
+      } else {
+        errorMessage.innerText = 'Invalid email or password';
+      }
+    });
+  });
+
+  loginWithGoogle.addEventListener('click', () => {
+    LoginUserWithGoogle().then((result) => {
+      if (result) {
+        onNavigate('/home');
+      } else {
+        errorMessage.innerText = 'You must choose a Google account';
+      }
+    });
+  });
+
+  loginWithTwitter.addEventListener('click', () => {
+    loginUserWithTwitter().then((result) => {
+      if (result) {
+        onNavigate('/home');
+      } else {
+        errorMessage.innerText = 'You must choose a Twitter account';
+      }
+    });
+  });
+
+  divSignUp.addEventListener('click', () => {
     onNavigate('/signup');
   });
 
