@@ -39,35 +39,33 @@ export function iniciarSesion() {
     if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
       const email = user.email;
       const emailVerificado = user.emailVerified;
-      //const textoVerificado = '';
-      if (emailVerificado === false){
-       alert('Email no verificado');
-       onNavigate('/');
-      }
-      else {
-       alert('Email verificado');
-      alert('Estas logueado');
-      onNavigate('/muro');
-      // eslint-disable-next-line prefer-template
-      document.getElementById('mensajeLogin').textContent = ' Estas Logueado ' + email;
-    } /* else {
+      // const textoVerificado = '';
+      if (emailVerificado === false) {
+        alert('Email no verificado');
+        onNavigate('/');
+      } else {
+        alert('Email verificado');
+        alert('Estas logueado');
+        onNavigate('/muro');
+        // eslint-disable-next-line prefer-template
+        document.getElementById('mensajeLogin').textContent = ' Estas Logueado ' + email;
+      } /* else {
       console.log(user.uid);
       alert('No estas logueado :( ');
     } */
-  }
-});
+    }
+  });
 }
-export function usuarioExistente() { // OBSERVADOR 
+export function usuarioExistente() { // OBSERVADOR
   const emailLogin = document.getElementById('email').value;
   const contraseñaLogin = document.getElementById('contraseña').value;
   const auth = getAuth();
   signInWithEmailAndPassword(auth, emailLogin, contraseñaLogin)
+    // eslint-disable-next-line no-unused-vars
     .then((userCredential) => {
     // Signed in
-      const user = userCredential.user;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -89,36 +87,35 @@ export function registrar() {
   const contraseña = document.getElementById('contraseñaRegi').value;
   const contraseñaConfirmar = document.getElementById('contraseñaRegidos').value;
   const auth = getAuth();
-  if (contraseña === contraseñaConfirmar){
-  createUserWithEmailAndPassword(auth, email, contraseña )
-    .then((userCredential) => {
+  if (contraseña === contraseñaConfirmar) {
+    createUserWithEmailAndPassword(auth, email, contraseña)
+      // eslint-disable-next-line no-unused-vars
+      .then((userCredential) => {
       // Signed in
-      const user = userCredential.user;
-      
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage + errorCode);
-      // ..
-    })
-    .then (function() {
-    verificarCorreo();
-    alert('Registrado exitosamente,Porfavor verifica tu correo')
-    });onNavigate('/');
-}
-else {
-  alert('Las contraseñas no coinciden');
-}
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage + errorCode);
+        // ..
+      })
+      .then(() => {
+        verificarCorreo();
+        alert('Registrado exitosamente,Porfavor verifica tu correo');
+      }); onNavigate('/');
+  } else {
+    alert('Las contraseñas no coinciden');
+  }
 }
 export function cerrar() {
   getAuth().signOut()
     .then(
-      function() {
-        alert ( 'Cerraste sesión');
+      () => {
+        alert('Cerraste sesión');
       },
     )
-    .catch(function (error) {
+    // eslint-disable-next-line no-unused-vars
+    .catch(() => {
       alert('No fue posible completar tu petición intentalo más tarde');
     });
 }
@@ -127,21 +124,19 @@ export function google() {
   signInWithPopup(auth, proveedor)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
+      // eslint-disable-next-line no-unused-vars
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
       // The signed-in user info.
+      // eslint-disable-next-line no-unused-vars
       const user = result.user;
-      const fotoUsuario = user.photoURL; // AQUI ESTA LA FOTO DEL USUARIO 
       onNavigate('/muro');
       // ...
+    // eslint-disable-next-line no-unused-vars
     }).catch((error) => {
       // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
       // The email of the user's account used.
-      const email = error.email;
       // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
+      // eslint-disable-next-line no-unused-vars
       // ...
     });
 }

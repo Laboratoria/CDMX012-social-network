@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
+// import { onNavigate } from '../main.js';
 // eslint-disable-next-line import/no-cycle
 import { registrar, verificarCorreo } from '../lib/index.js';
 
