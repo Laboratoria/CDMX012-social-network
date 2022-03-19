@@ -1,9 +1,12 @@
+/* eslint-disable import/no-unresolved */
 // Import the functions from the SDKs
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
-import { getDatabase, set, ref } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
+import {
+  getDatabase, set, ref, update,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js';
 import {
   getAuth, createUserWithEmailAndPassword, GoogleAuthProvider,
-  signInWithPopup, TwitterAuthProvider,
+  signInWithPopup, TwitterAuthProvider, signInWithEmailAndPassword,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 // Web app's Firebase configuration
@@ -70,7 +73,6 @@ export const createUserWithGoogle = async () => {
     alert(errorMessage);
     userCreateGoogle = false;
   }
-  // await signInWithPopup;
   return userCreateGoogle;
 };
 
@@ -102,4 +104,88 @@ export const createUserWithTwitter = async () => {
     userCreateTwitter = false;
   }
   return userCreateTwitter;
+};
+
+export const loginUserWithEmail = async () => {
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+  const auth = getAuth();
+  let loginWithEmail;
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    // Signed in
+    const user = userCredential.user;
+    const dt = new Date();
+    update(ref(database, `users/${user.uid}`), {
+      last_login: dt,
+    });
+    loginWithEmail = true;
+    // ...
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    loginWithEmail = false;
+  }
+  return loginWithEmail;
+};
+
+export const LoginUserWithGoogle = async () => {
+  const auth = getAuth();
+  let loginWithGoogle;
+  try {
+    const userCredential = await signInWithPopup(auth, provider);
+    // Get Google Access Token, then we use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(userCredential);
+    const token = credential.accessToken;
+    // const user = result.user;
+    const user = userCredential.user;
+    const dt = new Date();
+    update(ref(database, `users/${user.uid}`), {
+      last_login: dt,
+    });
+    loginWithGoogle = true;
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    alert(errorMessage);
+    loginWithGoogle = false;
+  }
+  return loginWithGoogle;
+};
+
+export const loginUserWithTwitter = async () => {
+  const provider2 = new TwitterAuthProvider();
+  const auth = getAuth();
+  // Auth with twitter
+  let loginWithTwitter;
+  try {
+    const userCredential = await signInWithPopup(auth, provider2);
+    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+    // You can use these server side with your app's credentials to access the Twitter API.
+    const credential = TwitterAuthProvider.credentialFromResult(userCredential);
+    const token = credential.accessToken;
+    const secret = credential.secret;
+    // The signed-in user info.
+    // const user = result.user;
+    const user = userCredential.user;
+    const dt = new Date();
+    update(ref(database, `users/${user.uid}`), {
+      last_login: dt,
+    });
+    loginWithTwitter = true;
+  } catch (error) {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = TwitterAuthProvider.credentialFromError(error);
+    loginWithTwitter = false;
+  }
+  return loginWithTwitter;
 };
