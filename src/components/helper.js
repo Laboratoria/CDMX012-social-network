@@ -20,19 +20,29 @@ export const validateInformation = (email, password) => {
   const answer = {
     status: false,
     message: ' ',
+    isEmailCorrect: false,
+    isPasswordCorrect: false,
   };
   if (validateEmail(email) && validatePassword(password)) {
     answer.status = true;
     answer.message = 'It is a valid Email and Pasword';
+    answer.isEmailCorrect = true;
+    answer.isPasswordCorrect = true;
   } else if (validateEmail(email) === false && validatePassword(password)) {
     answer.status = false;
     answer.message = 'Please enter a valid email. Example: name@hotmail.com';
+    answer.isEmailCorrect = false;
+    answer.isPasswordCorrect = true;
   } else if (validateEmail(email) && validatePassword(password) === false) {
     answer.status = false;
     answer.message = 'The Password should contain at least 6 characters';
+    answer.isEmailCorrect = true;
+    answer.isPasswordCorrect = false;
   } else if (validateEmail(email) === false && validatePassword(password) === false) {
     answer.status = false;
     answer.message = 'Invalid Email and Password';
+    answer.isEmailCorrect = false;
+    answer.isPasswordCorrect = false;
   }
 
   return answer;

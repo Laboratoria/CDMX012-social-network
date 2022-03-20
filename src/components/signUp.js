@@ -174,6 +174,12 @@ export const signup = () => {
       });
     } else {
       errorMessage.innerText = informationValidated.message;
+      if (!informationValidated.isEmailCorrect) {
+        inputEmail.style.border = '1px solid red';
+      }
+      if (!informationValidated.isPasswordCorrect) {
+        span.style.border = '1px solid red';
+      }
     }
   });
 
