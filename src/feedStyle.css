@@ -1,0 +1,45 @@
+.post-container {
+  position: relative;
+}
+
+.options-menu {
+  position: absolute;
+  top: 15%;
+  right: 2%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 0.5em;
+}
+
+a div {
+  padding: 2px;
+}
+
+.dropdown-container {
+  visibility: hidden;
+  position: absolute;
+  top: 40%;
+  right: 2%;
+}
+
+.dropdown-container.show {
+  visibility: visible;
+  position: absolute;
+  top: 40%;
+  right: 2%;
+}
+
+.dropdown {
+  border: 1px solid black;
+  background-color: white;
+  height: fit-content;
+  position: absolute;
+  right: 0;
+  outline: none;
+  z-index: 1;
+  padding: 0.3rem;
+  transition: opacity 0.1s, z-index 0.1s, max-height 5s;
+}

@@ -75,6 +75,7 @@ export const emptyFields = () => {
 
 export const createNewPost = (postData) => {
   const post = document.createElement('div');
+  post.setAttribute('class', 'post-container');
   post.innerHTML = ` <hr>
     ${postData.name} @${postData.user} <span>· ${postData.date}</span> <br> 
     Reading: ${postData.reading} <br> 
@@ -95,8 +96,9 @@ export const createNewPost = (postData) => {
   return newPost;
 };
 
-export const showAllPosts = (postData) => {
+export const showAllPosts = (postData, currentUid) => {
   const post = document.createElement('div');
+  post.setAttribute('class', 'post-container');
   post.innerHTML = ` <hr>
     ${postData.name} @${postData.user} <span>· ${postData.date}</span> <br> 
     Reading: ${postData.reading} <br> 
@@ -106,11 +108,34 @@ export const showAllPosts = (postData) => {
   const like = document.createElement('img');
   like.setAttribute('src', './assets/like.png');
 
-  const options = document.createElement('img');
-  options.setAttribute('src', './assets/options.png');
-  options.setAttribute('height', '20');
+  if (currentUid === postData.uid) {
+    const options = document.createElement('img');
+    options.setAttribute('class', 'options-menu');
+    options.setAttribute('src', './assets/options.png');
+    options.setAttribute('height', '20');
 
-  post.append(like, options);
+    const dropdownContainer = document.createElement('div');
+    dropdownContainer.setAttribute('class', 'dropdown-container');
+    dropdownContainer.setAttribute('tabindex', '-1');
+    dropdownContainer.innerHTML = `
+        <div class="dropdown">
+          <a href="#"><div>Edit</div></a>
+          <a href="#"><div>Delete</div></a>
+        </div>
+      `;
+
+    options.addEventListener('click', () => {
+      dropdownContainer.classList.toggle('show');
+    });
+
+    post.append(like, options, dropdownContainer);
+    const postArea = document.querySelector('#postsArea');
+    postArea.append(post);
+
+    return postArea;
+  }
+
+  post.append(like);
   const postArea = document.querySelector('#postsArea');
   postArea.append(post);
 

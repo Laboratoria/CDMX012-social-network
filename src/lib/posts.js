@@ -3,7 +3,7 @@
 import {
   getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection, addDoc, getDocs,
 } from '../firebase-imports.js';
-import { app } from './firebase-config.js';
+import { app } from '../firebase-config.js';
 import {
   usernameError, usernameTaken, emptyFields, validUsername, createNewPost, showAllPosts,
 } from '../ui.js';
@@ -24,7 +24,7 @@ export function saveInfo(userForm) {
       name: userForm.name.value,
       username: userForm.username.value,
       bio: userForm.bio.value,
-      uid: uid,
+      uid,
     })
       .then(() => {
         userForm.reset();
@@ -86,7 +86,9 @@ export async function saveNewPostData(postsForm) {
     // Gets the username of the current user
     const userDocRef = doc(db, 'profiles', currentUserUid);
     const userDocSnap = await getDoc(userDocRef);
+    // eslint-disable-next-line no-unused-vars
     const username = userDocSnap.data().username;
+    // eslint-disable-next-line no-unused-vars
     const profileName = userDocSnap.data().name;
 
     // Creates a new doc in the posts coleccion with the new input
@@ -115,6 +117,6 @@ export async function saveNewPostData(postsForm) {
 export async function getPosts() {
   const querySnapshot = await getDocs(collection(db, 'posts'));
   querySnapshot.forEach((docu) => {
-    showAllPosts(docu.data());
+    showAllPosts(docu.data(), currentUserUid);
   });
 }

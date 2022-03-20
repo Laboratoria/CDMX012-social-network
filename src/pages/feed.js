@@ -66,7 +66,7 @@ export const feed = () => {
 
   readingPage.append(header, readingForm, newPost, postsArea);
 
-  getPosts(); // Averiguar cómo ordenar los posts, más reciente primero
+  document.addEventListener('DOMContentLoaded', getPosts()); // Averiguar cómo ordenar los posts, más reciente primero
   newPostBtn.addEventListener('click', () => {
     saveNewPostData(readingForm);
   });
