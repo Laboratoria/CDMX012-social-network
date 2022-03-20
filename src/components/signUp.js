@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 /* eslint-disable import/named */
 import { onNavigate } from '../main.js';
 import { createUser, createUserWithTwitter, createUserWithGoogle } from '../firebase.js';
@@ -6,10 +5,18 @@ import { validateInformation, errorHandler } from './helper.js';
 
 export const signup = () => {
   // elements
+  const pinkContainer = document.createElement('div');
+  const pinkTextOne = document.createElement('div');
+  const pinkTexTwo = document.createElement('div');
+  const pinkTextThree = document.createElement('div');
   const header = document.createElement('header');
   const imgLogo = document.createElement('img');
   const divLogo = document.createElement('div');
+  const imgTextOne = document.createElement('img');
   const pLogo = document.createElement('p');
+  const imgTextTwo = document.createElement('img');
+  const imgTextThree = document.createElement('img');
+  const signUpFree = document.createElement('p');
   const buttonGoogle = document.createElement('button');
   const imgGoogle = document.createElement('img');
   const buttonTwitter = document.createElement('button');
@@ -26,11 +33,25 @@ export const signup = () => {
   const buttonSignup = document.createElement('button');
   const errorMessage = document.createElement('div');
   const divAccount = document.createElement('div');
+  const pAccount = document.createElement('p');
   const globalSignupDiv = document.createElement('div');
+  const globalContainer = document.getElementById('globalContainer');
 
   // attributes
+  pinkContainer.setAttribute('class', 'pinkContainer');
+  pinkTextOne.setAttribute('class', 'pinkTextOneAndThree');
+  imgTextOne.setAttribute('src', './img/mujeres.png');
+  imgTextOne.setAttribute('class', 'imgTextPink');
+  imgTextTwo.setAttribute('class', 'imgTextPink');
+  imgTextThree.setAttribute('class', 'imgTextPink');
+  imgTextTwo.setAttribute('src', './img/pensamiento.png');
+  imgTextThree.setAttribute('src', './img/unidas.png');
+  pinkTexTwo.setAttribute('class', 'pinkTextTwo');
+  pinkTextThree.setAttribute('class', 'pinkTextOneAndThree');
   imgLogo.setAttribute('src', './img/logosmall.png');
+  pLogo.setAttribute('class', 'pLogo');
   divLogo.setAttribute('id', 'divLogo');
+  signUpFree.setAttribute('class', 'singUpFree');
   buttonGoogle.setAttribute('id', 'buttonGoogle');
   imgGoogle.setAttribute('src', './img/google-logo.png');
   imgGoogle.setAttribute('id', 'imgGoogle');
@@ -59,15 +80,21 @@ export const signup = () => {
   errorMessage.setAttribute('id', 'errorMessage');
   divAccount.setAttribute('id', 'divAccount');
   globalSignupDiv.setAttribute('id', 'globalSignupDiv');
+  pAccount.setAttribute('class', 'pAccount');
 
   // innerText
   divLogo.innerText = 'Mukí';
   pLogo.innerText = 'A safe network for women';
+  pinkTextOne.innerText = 'Connect with women from all over the world.';
+  pinkTexTwo.innerText = 'Tell us what you think, in a safe space to share ideas.';
+  pinkTextThree.innerText = 'Create support networks among women.';
+  signUpFree.innerText = 'Sign Up. It’s free!';
   buttonGoogle.innerText = 'Sign up with Google';
   buttonTwitter.innerText = 'Sign up with Twitter';
   or.innerText = 'Or';
   buttonSignup.innerText = 'Continue';
   divAccount.innerText = 'Already have an account?';
+  pAccount.innerText = 'Log in';
 
   // append
   header.appendChild(divLogo);
@@ -81,6 +108,7 @@ export const signup = () => {
   buttonGoogle.appendChild(imgGoogle);
   buttonTwitter.appendChild(imgTwitter);
   globalSignupDiv.appendChild(header);
+  globalSignupDiv.appendChild(signUpFree);
   globalSignupDiv.appendChild(buttonGoogle);
   globalSignupDiv.appendChild(buttonTwitter);
   globalSignupDiv.appendChild(separation);
@@ -90,6 +118,14 @@ export const signup = () => {
   globalSignupDiv.appendChild(errorMessage);
   globalSignupDiv.appendChild(buttonSignup);
   globalSignupDiv.appendChild(divAccount);
+  globalContainer.appendChild(pinkContainer);
+  pinkContainer.appendChild(pinkTextOne);
+  pinkContainer.appendChild(pinkTexTwo);
+  pinkContainer.appendChild(pinkTextThree);
+  pinkTextOne.appendChild(imgTextOne);
+  pinkTexTwo.appendChild(imgTextTwo);
+  pinkTextThree.appendChild(imgTextThree);
+  divAccount.appendChild(pAccount);
 
   imgEye.addEventListener('click', () => {
     if (inputPassword.type === 'password') {
@@ -127,7 +163,6 @@ export const signup = () => {
     const email = document.getElementById('inputEmail').value;
     const password = document.getElementById('inputPassword').value;
     const username = document.getElementById('inputUsername').value;
-
     const informationValidated = validateInformation(email, password);
     if (informationValidated.status) {
       createUser(email, password, username).then((userCredential) => {
@@ -142,9 +177,10 @@ export const signup = () => {
     }
   });
 
-  // divAccount.addEventListener('click', (event) => {
-
-  // }
-
+  divAccount.addEventListener('click', (event) => {
+    if (event) {
+      onNavigate('/');
+    }
+  });
   return globalSignupDiv;
 };
