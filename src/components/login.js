@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { signIn } from '../lib/firebase.js';
+import { signIn, loginGoogle } from '../lib/firebase.js';
 
 export const login = `
 <a onclick="onNavigate('/'); return
@@ -12,7 +12,7 @@ export const login = `
     <button id="loginButton" class="registerButton" onclick="loginFireBase(event)">Login</button>
   </div>
   <section class="githubGoogleButtons">
-    <button type="button" class="button">Inicia sesión con Gmail</button>
+    <button type="button" class="button" onclick="clickGoogle(event)">Inicia sesión con Gmail</button>
     <button type="button" class="button">Inicia sesión con Github</button>
   </section>
 </div>
@@ -24,5 +24,10 @@ function loginFireBase(e) {
   console.log(loginEmail, loginPass);
   signIn(loginEmail, loginPass);
 }
+function clickGoogle(e) {
+  e.preventDefault();
+  loginGoogle();
+}
 
 window.loginFireBase = loginFireBase;
+window.clickGoogle = clickGoogle;

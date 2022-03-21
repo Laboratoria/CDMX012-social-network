@@ -1,29 +1,39 @@
 // eslint-disable-next-line import/no-unresolved
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js'; // viene desde una CDN y no de lib
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+// viene desde una CDN y no de lib
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
+import { onNavigate } from "../main.js";
 
 // Funcion para crear usuario con correo electronico
 export const createUserRed = (email, password) => {
   const auth = getAuth(); // clave para au
   createUserWithEmailAndPassword(auth, email, password) // Crea el usuario
-    .then((userCredential) => { // una vez creado con Éxito, devuelve las credenciales del usuario
+    .then((userCredential) => {
+      // una vez creado con Éxito, devuelve las credenciales del usuario
       // const user = userCredential.user; // trae info del usuario (nos podria servir para despues)
-      console.log('¡Registro Exitoso!');
-      alert('registrado');
-      onNavigate('/login');
+      console.log("¡Registro Exitoso!");
+      alert("registrado");
+      onNavigate("/login");
     })
     .catch((error) => {
       const errorCode = error.code;
       // const errorMessage = error.message;
-      if (errorCode === 'auth/invalid-email') {
-        alert('Por favor ingresa un correo válido');
+      if (errorCode === "auth/invalid-email") {
+        alert("Por favor ingresa un correo válido");
       }
-      if (errorCode === 'auth/weak-password') {
-        alert('Tu contraseña debe contener al menos 6 carácteres.');
+      if (errorCode === "auth/weak-password") {
+        alert("Tu contraseña debe contener al menos 6 carácteres.");
       }
-      if (errorCode === 'auth/email-already-in-use') {
-        alert('Ya existe una cuenta con este correo, intenta con uno nuevo o Inicia Sesión');
+      if (errorCode === "auth/email-already-in-use") {
+        alert(
+          "Ya existe una cuenta con este correo, intenta con uno nuevo o Inicia Sesión"
+        );
       }
     });
 };
@@ -33,20 +43,71 @@ export const signIn = (email, password) => {
   const auth = getAuth();
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-    // Signed in
-      console.log('¡Login Exitoso!');
+      // Signed in
+      console.log("¡Login Exitoso!");
       const user = userCredential.user;
-      alert('Logged in!');
-      onNavigate('/feed');
+      alert("Logged in!");
+      onNavigate("/feed");
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
-      if (errorCode === 'auth/wrong-password') {
-        alert('Tu contraseña es incorrecta, intenta de nuevo o da click en "Olivde mi contraseña"');
+      if (errorCode === "auth/wrong-password") {
+        alert(
+          'Tu contraseña es incorrecta, intenta de nuevo o da click en "Olivde mi contraseña"'
+        );
       }
-      if (errorCode === 'auth/invalid-email') {
-        alert('Por favor ingresa un correo válido');
+      if (errorCode === "auth/invalid-email") {
+        alert("Por favor ingresa un correo válido");
       }
     });
 };
+// función para hacer login con google login con google
+
+export const loginGoogle = () => {
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      // ...
+      onNavigate("/feed");
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+};
+// const auth = getAuth();
+// signInWithRedirect(auth, provider);
+// alert('FUNCIONA');
+// getRedirectResult(auth)
+//   .then((result) => {
+//     // This gives you a Google Access Token. You can use it to access Google APIs.
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+
+//     // The signed-in user info.
+//     const user = result.user;
+//     console.log(user);
+//   })
+//   .catch((error) => {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // The email of the user's account used.
+//     const email = error.email;
+//     // The AuthCredential type that was used.
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//     // ...
+//   });
