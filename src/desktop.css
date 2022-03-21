@@ -12,7 +12,7 @@
         padding: 10px;
         border-radius:20px;
         row-gap: 5px;
-        margin-top: 30%
+        margin-top: 30%;
        
     }
     .welcomeText{
@@ -46,17 +46,25 @@
     }
     .githubGoogleButtons{
         display: flex;
-        row-gap: 5px;
+        row-gap: 6px;
         flex-direction: column;
         min-width: 6rem;
     }
     .register{
-        border-radius: 35px;
-        width: 200px;
+        border-radius: 6px;
+        width: 280px;
         height:35px;
-        text-align: center;
-        border: 3px solid #3734CE;
+        border: 2px solid #a4a3dd;
         font-size: .8rem;
+        caret-color: #3734CE;
+        padding: 0px 5px 0px 5px;
+    }
+    .register:focus{
+        outline: none;
+        border: 3px solid #3734CE;
+    }
+    .register:focus-visible{
+        outline-offset: 0px;
     }
     .registerText{
         text-align: center; 
@@ -72,6 +80,20 @@
         text-decoration: none;
     }
     .containerRegister{
+        margin-top: 6%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border-radius:10px;
+        row-gap: 3px;
+        border:3px solid #6462D9;
+        width: 400px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.199), 0 8px 16px rgba(0, 0, 0, 0.342);
+        font-family: 'Roboto', sans-serif;   
+    }
+    .containerLogin{
+        margin-top: 25%;
         display:flex;
         flex-direction: column;
         align-items: center;
@@ -84,7 +106,7 @@
     .containerInputR{
         display: flex;
         flex-direction: column;
-        row-gap: 5px;
+        row-gap: 16px;
         align-items: center;
     }
     .arrowBack{

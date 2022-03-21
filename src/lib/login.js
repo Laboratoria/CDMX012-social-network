@@ -1,12 +1,15 @@
 import {
   getAuth,
   signInWithEmailAndPassword,
+// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+// eslint-disable-next-line import/no-cycle
+import { onNavigate } from '../main.js';
 
 export const login = `
 <a onclick="onNavigate('/'); return
       false"><img class="arrowBack" src="img/Arrow.png"></img></a>
-<div class="containerRegister">
+<div class="containerLogin">
   <img class="logo" src="img/logoSize.png">
   <div class="containerInputR">
     <input id="loginEmail" type="text" class="register" placeholder="Ingresa tu correo" autocomplete="off"> 

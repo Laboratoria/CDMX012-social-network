@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js'; // viene desde una CDN y no de lib
+// eslint-disable-next-line import/no-cycle
+import { onNavigate } from '../main.js';
 
 export const register = `
 <a onclick="onNavigate('/'); return
@@ -10,10 +12,10 @@ export const register = `
     <p> Registrate con tu correo <p>
   </section>
   <div class="containerInputR">
-    <input id="mail" type="text" class="register" placeholder="Ingresa tu correo" autocomplete="off"> 
-    <input id="user" type="text" class="register" placeholder="Ingresa tu nombre de usuaria" autocomplete="off"> 
-    <input id="password" type="password" class="register" placeholder="Ingresa tu contraseña" autocomplete="off"> 
-    <input id="area" type="text" class="register" placeholder="Ingresa tu area tech" autocomplete="off"> 
+    <input id="mail" type="text" class="register" placeholder="Correo electrónico" autocomplete="off"> 
+    <input id="user" type="text" class="register" placeholder="Nombre de usuaria" autocomplete="off"> 
+    <input id="password" type="password" class="register" placeholder="Contraseña" autocomplete="off"> 
+    <input id="area" type="text" class="register" placeholder="Area tech" autocomplete="off"> 
     <button id="registerButton" class="registerButton" onclick="registerFireBase(event)">Registrarme</button>
   </div>
 </div>`;
