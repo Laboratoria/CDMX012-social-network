@@ -32,7 +32,7 @@ export const feed = () => {
   readingForm.setAttribute('id', 'readingForm');
 
   const readingTitle = document.createElement('div');
-  readingTitle.innerHTML = '<label for="reading" class="reading">Reading:</label>';
+  readingTitle.innerHTML = '<label for="reading" class="reading book-title">Reading:</label>';
 
   const readingBook = document.createElement('input');
   readingBook.setAttribute('class', 'book-title');
@@ -67,6 +67,7 @@ export const feed = () => {
   readingPage.append(header, readingForm, newPost, postsArea);
 
   document.addEventListener('DOMContentLoaded', getPosts()); // Averiguar cómo ordenar los posts, más reciente primero
+
   newPostBtn.addEventListener('click', () => {
     saveNewPostData(readingForm);
   });
