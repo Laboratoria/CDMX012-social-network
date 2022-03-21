@@ -1,3 +1,4 @@
+@import 'slideshow.css';
 body {
   background-image: none;
   margin: 0;
@@ -67,6 +68,12 @@ a div {
 
 .config-menu {
   justify-self: flex-end;
+}
+
+/* book suggestions title */
+.bookSuggest {
+  padding-left: 5%;
+  font-weight:lighter;
 }
 
 /* New post form */
