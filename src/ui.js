@@ -119,7 +119,7 @@ export const showAllPosts = (postData, currentUid) => {
     dropdownContainer.setAttribute('tabindex', '-1');
     dropdownContainer.innerHTML = `
         <div class="dropdown">
-          <a href="#"><div>Edit</div></a>
+          <a href="#" id='edit'><div>Edit</div></a>
           <a href="#"><div>Delete</div></a>
         </div>
       `;
@@ -131,6 +131,11 @@ export const showAllPosts = (postData, currentUid) => {
     post.append(like, options, dropdownContainer);
     const postArea = document.querySelector('#postsArea');
     postArea.append(post);
+
+    // const edit = document.querySelector('#edit');
+    dropdownContainer.addEventListener('click', () => {
+      console.log(postData);
+    });
 
     return postArea;
   }
