@@ -16,6 +16,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { modal } from '../Component/modal.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -44,10 +45,16 @@ export function iniciarSesion() {
       // const textoVerificado = '';
       if (emailVerificado === false) {
         alert('Email no verificado');
-        onNavigate('/');
+        document.getElementById('loginbo').addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementsById('contmodal').style.visibility = 'visible';
+          document.getElementsById('contmodal').style.opacity = '1';
+        });
+      // document.getElemnentById('loginbo').addEventListener('click', modal());
+      // onNavigate('/');
       } else {
-        alert('Email verificado');
-        alert('Estas logueado');
+      // alert('Email verificado');
+      // alert('Estas logueado');
         onNavigate('/muro');
         // eslint-disable-next-line prefer-template
         document.getElementById('mensajeLogin').textContent = ' Estas Logueado ' + email;

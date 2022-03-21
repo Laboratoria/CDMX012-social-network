@@ -1,8 +1,10 @@
 export const modal = () => {
-  
-
+  const contenedorPadre = document.createElement('div');
+  contenedorPadre.setAttribute('class', 'contmodal');
+  contenedorPadre.setAttribute('id', 'contmodal');
   const contenedorModal = document.createElement('div');
-  contenedorModal.setAttribute('class', 'contenedorModal');
+  contenedorModal.setAttribute('class', 'modal1');
+  contenedorModal.setAttribute('id', 'modal');
   const iconomal = document.createElement('IMG');
   iconomal.src = './images/tachecito.png';
   iconomal.setAttribute('id', 'iconomal');
@@ -13,8 +15,16 @@ export const modal = () => {
   const btnVolver = document.createElement('button');
   btnVolver.setAttribute('id', 'botonVolver');
   btnVolver.setAttribute('class', 'botones');
-  btnVolver.textContent = 'Volver';
+  const cerrarModal = document.createElement('a');
+  cerrarModal.textContent = 'Volver';
+  cerrarModal.setAttribute('href', '#');
   contenedorModal.append(iconomal, mensajemal, btnVolver);
- 
-  return contenedorModal;
+  const btnMostrarModal = document.createElement('button');
+  const mostrarModal = document.createElement('a');
+  mostrarModal.textContent = 'Ver';
+  mostrarModal.setAttribute('href', '#contmodal');
+  btnVolver.appendChild(cerrarModal);
+  btnMostrarModal.appendChild(mostrarModal);
+  contenedorPadre.append(contenedorModal, iconomal, mensajemal, btnVolver);
+  return contenedorPadre;
 };

@@ -39,12 +39,15 @@ export const muro = () => {
   const btnVolver = document.createElement('button');
   btnVolver.setAttribute('id', 'botonVolver');
   btnVolver.setAttribute('class', 'botones');
-  btnVolver.textContent = 'Volver';
+  const cerrarModal = document.createElement('a');
+  cerrarModal.textContent = 'Volver';
+  cerrarModal.setAttribute('href', '#');
   contenedorModal.append(iconomal, mensajemal, btnVolver);
   const btnMostrarModal = document.createElement('button');
   const mostrarModal = document.createElement('a');
   mostrarModal.textContent = 'Ver';
   mostrarModal.setAttribute('href', '#contmodal');
+  btnVolver.appendChild(cerrarModal);
   btnMostrarModal.appendChild(mostrarModal);
   contenedorPadre.appendChild(contenedorModal);
   seccionMuro.append(logoYummi, parrafo, mensajeLogin, btnCerrarSesion, contenedorPadre, btnMostrarModal);
