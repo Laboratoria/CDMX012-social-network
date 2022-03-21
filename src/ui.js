@@ -1,3 +1,7 @@
+/* eslint-disable import/no-cycle */
+/* import { userData } from './lib/posts.js';
+import { onSnapshot } from './firebase-imports.js'; */
+
 export const showSignUpError = (error) => {
   const errorArea = document.querySelector('#errorArea');
 
@@ -39,7 +43,6 @@ export const showPassword = (pass, eyeIcon) => {
 };
 
 // username error messages add-info
-
 export const usernameError = () => {
   const errorArea1 = document.querySelector('#errorAreaUsername');
   const errorArea2 = document.querySelector('#errorAreaForm');
@@ -66,20 +69,19 @@ export const validUsername = () => {
 };
 
 // form error message add-Info
-
 export const emptyFields = () => {
   const errorArea = document.querySelector('#errorAreaForm');
   errorArea.innerHTML = 'Profile name and/or username cannot be empty';
   errorArea.style.color = 'red';
 };
 
-export const createNewPost = (postData) => {
-  const post = document.createElement('div');
+export const createNewPost = (postData, name, username) => {
+  const post = document.createElement('article');
   post.setAttribute('class', 'post-container');
   post.innerHTML = ` <hr>
-    ${postData.name} @${postData.user} <span>· ${postData.date}</span> <br> 
-    Reading: ${postData.reading} <br> 
-    ${postData.text} 
+    ${name} @${username} <span>· ${postData.date}</span> <br>
+    Reading: ${postData.reading} <br>
+    ${postData.text}
     `;
 
   const like = document.createElement('img');
@@ -96,11 +98,11 @@ export const createNewPost = (postData) => {
   return newPost;
 };
 
-export const showAllPosts = (postData, currentUid) => {
-  const post = document.createElement('div');
+export const showAllPosts = (postData, currentUid, name, username) => {
+  const post = document.createElement('article');
   post.setAttribute('class', 'post-container');
   post.innerHTML = ` <hr>
-    ${postData.name} @${postData.user} <span>· ${postData.date}</span> <br> 
+    ${name} @${username} <span>· ${postData.date}</span> <br> 
     Reading: ${postData.reading} <br> 
     ${postData.text} 
     `;

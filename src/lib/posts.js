@@ -140,7 +140,6 @@ export function getPosts() { // Gets all the docs in the Posts collection
     const posts = [];
     querySnapshot.forEach((docu) => {
       posts.push(docu.data());
-      console.log(docu.id, '=>', docu.data());
     });
     posts.map((post) => getAnyUserData(post));
   });
