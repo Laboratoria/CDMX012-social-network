@@ -1,7 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js'; // viene desde una CDN y no de lib
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
+import { createUserRed } from '../lib/firebase.js';
 
 export const register = `
 <a onclick="onNavigate('/'); return
@@ -14,6 +12,7 @@ export const register = `
   <div class="containerInputR">
     <input id="mail" type="text" class="register" placeholder="Correo electrónico" autocomplete="off"> 
     <input id="user" type="text" class="register" placeholder="Nombre de usuaria" autocomplete="off"> 
+    <button id = "maskify" class = "maskify" onclick = "maskifyPass()"> HERE</button>
     <input id="password" type="password" class="register" placeholder="Contraseña" autocomplete="off"> 
     <input id="area" type="text" class="register" placeholder="Area tech" autocomplete="off"> 
     <button id="registerButton" class="registerButton" onclick="registerFireBase(event)">Registrarme</button>
@@ -27,28 +26,17 @@ function registerFireBase(e) {
   const userPassword = document.getElementById('password').value;
   const userArea = document.getElementById('area').value;
   console.log(userMail, userName, userPassword, userArea);
+  createUserRed(userMail, userPassword);
+}
 
-  const auth = getAuth(); // clave para au
-  createUserWithEmailAndPassword(auth, userMail, userPassword) // Crea el usuario
-    .then((userCredential) => { // una vez creado con Éxito, devuelve las credenciales del usuario
-      const user = userCredential.user; // trae info del usuario (nos podria servir para despues)
-      console.log('¡Registro Exitoso!');
-      alert('registrado');
-      onNavigate('/login');
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      if (errorCode === 'auth/invalid-email') {
-        alert('Por favor ingresa un correo válido');
-      }
-      if (errorCode === 'auth/weak-password') {
-        alert('Tu contraseña debe contener al menos 6 carácteres.');
-      }
-      if (errorCode === 'auth/email-already-in-use') {
-        alert('Ya existe una cuenta con este correo, intenta con uno nuevo o Inicia Sesión');
-      }
-    });
+function maskifyPass() {
+  const passWord = document.getElementById('password');
+  if (passWord.type === 'password') {
+    passWord.type = 'text';
+  } else {
+    passWord.type = 'password';
+  }
 }
 
 window.registerFireBase = registerFireBase;
+window.maskifyPass = maskifyPass;
