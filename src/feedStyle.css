@@ -28,6 +28,11 @@ a div {
   padding: 2px;
 }
 
+.editPost:hover, .deletePost:hover {
+ color:#951C45;
+ font-weight: bold;
+}
+
 .dropdown-container {
   visibility: hidden;
   position: absolute;

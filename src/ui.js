@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* import { userData } from './lib/posts.js';
 import { onSnapshot } from './firebase-imports.js'; */
+import { deletePost } from './lib/deletePost.js';
 
 export const showSignUpError = (error) => {
   const errorArea = document.querySelector('#errorArea');
@@ -121,13 +122,18 @@ export const showAllPosts = (postData, currentUid, name, username) => {
     dropdownContainer.setAttribute('tabindex', '-1');
     dropdownContainer.innerHTML = `
         <div class="dropdown">
-          <a href="#"><div>Edit</div></a>
-          <a href="#"><div>Delete</div></a>
+          <a href="#" class='editPost' id='editPost'><div>Edit</div></a>
+          <a href="#" class='deletePost' id='deletePost'><div>Delete</div></a>
         </div>
       `;
 
     options.addEventListener('click', () => {
       dropdownContainer.classList.toggle('show');
+
+      const btnDeletePost = document.getElementById('deletePost');
+      btnDeletePost.addEventListener('click', () => {
+        deletePost(postData.key);
+      });
     });
 
     post.append(like, options, dropdownContainer);
