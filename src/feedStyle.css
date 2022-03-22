@@ -65,10 +65,14 @@ a div {
   border-bottom: solid 1px #951C45;
   margin-bottom: 0.5em;
   padding-bottom: 0.3em;
+  height:60px;
+  width:auto;
+  justify-content:space-between;
+  align-items: center;
 }
 
 .feed-header img {
-  height: 30px;
+  height: 50px;
 }
 
 .config-menu {

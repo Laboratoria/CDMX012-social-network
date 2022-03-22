@@ -22,7 +22,7 @@ export const feed = () => {
 
   const configMenu = document.createElement('img');
   configMenu.setAttribute('class', 'config-menu');
-  configMenu.setAttribute('src', './assets/icons8-menú-30.png');
+  configMenu.setAttribute('src', './assets/hamburgerMenu.png');
   configMenu.setAttribute('alt', 'configuration menu');
 
   header.append(logo, bookreads, configMenu);
