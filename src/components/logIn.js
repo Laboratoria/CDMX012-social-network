@@ -1,7 +1,10 @@
 /* eslint-disable import/no-cycle */
 // // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import { loginUserWithEmail, LoginUserWithGoogle, loginUserWithTwitter } from '../firebase.js';
+import {
+  loginUserWithEmail, LoginUserWithGoogle, loginUserWithTwitter,
+  createUserWithGoogle, createUserWithTwitter,
+} from '../database/firebase.js';
 
 export const login = () => {
   // elements
@@ -28,10 +31,10 @@ export const login = () => {
   const divSignUp = document.createElement('div');
   const pSignUp = document.createElement('p');
   // attributes
-  imgLogo.setAttribute('src', './img/logosmall.png');
+  imgLogo.setAttribute('src', '../assets/img/logosmall.png');
   pLogo.setAttribute('class', 'pLogo');
   divLogo.setAttribute('id', 'divLogo');
-  imgLogo.setAttribute('src', './img/logosmall.png');
+  imgLogo.setAttribute('src', '../assets/img/logosmall.png');
   globalLogInDiv.setAttribute('class', 'globalLogInDiv');
   baseLogin.setAttribute('class', 'baseLogin');
   loginPassword.setAttribute('class', 'inputLogin');
@@ -52,10 +55,10 @@ export const login = () => {
   loginWithGoogle.setAttribute('class', 'loginWith');
   loginWithTwitter.setAttribute('class', 'loginWith');
   loginWithGoogle.setAttribute('id', 'loginGoogle');
-  imgGoogle.setAttribute('src', './img/google-logo.png');
+  imgGoogle.setAttribute('src', '../assets/img/google-logo.png');
   imgGoogle.setAttribute('id', 'imgGoogle');
   loginWithTwitter.setAttribute('id', 'loginTwitter');
-  imgTwitter.setAttribute('src', './img/logo.png');
+  imgTwitter.setAttribute('src', '../assets/img/logo.png');
   imgTwitter.setAttribute('id', 'imgTwitter');
   errorMessage.setAttribute('id', 'errorMessage');
   divSignUp.setAttribute('id', 'divSignUp');
@@ -153,7 +156,6 @@ export const login = () => {
   loginWithTwitter.addEventListener('click', () => {
     createUserWithTwitter().then((result) => {
       if (result) {
-        alert('User created');
         onNavigate('/home');
       } else {
         errorMessage.innerText = 'You must choose a Twitter account';
