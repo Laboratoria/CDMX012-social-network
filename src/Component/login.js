@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 import { iniciarSesion, usuarioExistente, google } from '../lib/index.js';
-//import { modal } from '../Component/modal.js';
+import { modal } from '../Component/modal.js';
 
 export const login = () => {
   const seccionGeneral = document.createElement('section');
@@ -83,35 +83,36 @@ export const login = () => {
   });
   seccionGeneral.append(tabla, seccionLogin);
 
-  const contenedorPadre = document.createElement('div');
-  contenedorPadre.setAttribute('class', 'contmodal');
-  contenedorPadre.setAttribute('id', 'contmodal');
-  const contenedorModal = document.createElement('div');
-  contenedorModal.setAttribute('class', 'modal1');
-  contenedorModal.setAttribute('id', 'modal');
-  const iconomal = document.createElement('IMG');
-  iconomal.src = './images/tachecito.png';
-  iconomal.setAttribute('id', 'iconomal');
-  iconomal.setAttribute('alt', 'incorrecto');
-  const mensajemal = document.createElement('h1');
-  mensajemal.setAttribute('class', 'mensajemal');
-  mensajemal.textContent = 'Verifica tu información';
-  const btnVolver = document.createElement('button');
-  btnVolver.setAttribute('id', 'botonVolver');
-  btnVolver.setAttribute('class', 'botones');
-  const cerrarModal = document.createElement('a');
-  cerrarModal.textContent = 'Volver';
-  cerrarModal.setAttribute('href', '#');
-  contenedorModal.append(iconomal, mensajemal, btnVolver);
-  const btnMostrarModal = document.createElement('button');
-  const mostrarModal = document.createElement('a');
-  mostrarModal.textContent = 'Ver';
-  mostrarModal.setAttribute('href', '#contmodal');
-  btnVolver.appendChild(cerrarModal);
-  btnMostrarModal.appendChild(mostrarModal);
-  contenedorPadre.append(contenedorModal, iconomal, mensajemal, btnVolver);
+  // const contenedorPadre = document.createElement('div');
+  // contenedorPadre.setAttribute('class', 'contmodal');
+  // contenedorPadre.setAttribute('id', 'contmodal');
+  // const contenedorModal = document.createElement('div');
+  // contenedorModal.setAttribute('class', 'modal1');
+  // contenedorModal.setAttribute('id', 'modal');
+  // const iconomal = document.createElement('IMG');
+  // iconomal.src = './images/tachecito.png';
+  // iconomal.setAttribute('id', 'iconomal');
+  // iconomal.setAttribute('alt', 'incorrecto');
+  // const mensajemal = document.createElement('h1');
+  // mensajemal.setAttribute('class', 'mensajemal');
+  // mensajemal.textContent = 'Verifica tu información';
+  // const btnVolver = document.createElement('button');
+  // btnVolver.setAttribute('id', 'botonVolver');
+  // btnVolver.setAttribute('class', 'botones');
+  // const cerrarModal = document.createElement('a');
+  // cerrarModal.textContent = 'Volver';
+  // cerrarModal.setAttribute('href', '#');
+  // contenedorModal.append(iconomal, mensajemal, btnVolver);
+  // const btnMostrarModal = document.createElement('button');
+  // const mostrarModal = document.createElement('a');
+  // mostrarModal.textContent = 'Ver';
+  // mostrarModal.setAttribute('href', '#contmodal');
+  // btnVolver.appendChild(cerrarModal);
+  // btnMostrarModal.appendChild(mostrarModal);
+  // contenedorPadre.append(contenedorModal, iconomal, mensajemal, btnVolver);
   // eslint-disable-next-line max-len
-  seccionLogin.append(logoYummi, inputEmailLogin, inputContraseñaLogin, botonLogin, botonGoogle, botonContraseña, parrafo, botonRegistrate, contenedorPadre, btnmostrarcontraseña);
-
+  seccionLogin.append(logoYummi, inputEmailLogin, inputContraseñaLogin, botonLogin, botonGoogle, botonContraseña, parrafo, botonRegistrate, /*contenedorPadre,*/ btnmostrarcontraseña);
+const modalqueque = modal();
+seccionGeneral.appendChild(modalqueque);
   return seccionGeneral;
 };

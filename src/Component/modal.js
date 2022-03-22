@@ -11,6 +11,7 @@ export const modal = () => {
   iconomal.setAttribute('alt', 'incorrecto');
   const mensajemal = document.createElement('h1');
   mensajemal.setAttribute('class', 'mensajemal');
+  mensajemal.setAttribute('id', 'mensajemal');
   mensajemal.textContent = 'Verifica tu información';
   const btnVolver = document.createElement('button');
   btnVolver.setAttribute('id', 'botonVolver');
@@ -25,6 +26,7 @@ export const modal = () => {
   mostrarModal.setAttribute('href', '#contmodal');
   btnVolver.appendChild(cerrarModal);
   btnMostrarModal.appendChild(mostrarModal);
-  contenedorPadre.append(contenedorModal, iconomal, mensajemal, btnVolver);
+  contenedorModal.append(iconomal, mensajemal, btnVolver);
+  contenedorPadre.appendChild(contenedorModal);
   return contenedorPadre;
 };

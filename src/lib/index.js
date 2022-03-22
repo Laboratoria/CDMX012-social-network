@@ -44,12 +44,12 @@ export function iniciarSesion() {
       const emailVerificado = user.emailVerified;
       // const textoVerificado = '';
       if (emailVerificado === false) {
+        //modal();
         alert('Email no verificado');
-        document.getElementById('loginbo').addEventListener('click', (e) => {
-          e.preventDefault();
-          document.getElementsById('contmodal').style.visibility = 'visible';
-          document.getElementsById('contmodal').style.opacity = '1';
-        });
+        console.log("whatsup")
+        document.getElementById('contmodal').style.opacity = '1';
+        document.getElementById('contmodal').style.visibility = 'visible';
+        document.getElementById('mensajemal').textContent = 'Email no verificado';
       // document.getElemnentById('loginbo').addEventListener('click', modal());
       // onNavigate('/');
       } else {
@@ -109,6 +109,9 @@ export function registrar() {
       .then(() => {
         verificarCorreo();
         alert('Registrado exitosamente,Porfavor verifica tu correo');
+        document.getElementById('contmodal').style.opacity = '1';
+        document.getElementById('contmodal').style.visibility = 'visible';
+        document.getElementById('mensajemal').textContent = 'Registrado exitosamente';
       }); onNavigate('/');
   } else {
     alert('Las contraseñas no coinciden');
