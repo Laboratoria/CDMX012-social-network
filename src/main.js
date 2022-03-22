@@ -16,7 +16,6 @@ const routes = {
 };
 
 const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
@@ -24,10 +23,18 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  rootDiv.innerHTML = routes[pathname];
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[pathname]());
   // whenRoute(pathname);
 };
 window.onNavigate = onNavigate;
 window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[window.location.pathname]());
 };
+const components = routes[window.location.pathname];
+rootDiv.appendChild(components());
