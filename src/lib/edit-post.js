@@ -1,12 +1,12 @@
 import { getFirestore, doc, updateDoc } from '../firebase-imports.js';
 
 async function saveChanges(postData, node) {
-  const editForm = document.querySelector('#edit-form');
+  const editForm = document.querySelector('.edit-form');
   // eslint-disable-next-line no-param-reassign
-  node.innerHTML = `<div id="post-content">
-    <p>Reading: ${editForm.reading.value}</p>
+  node.innerHTML = `<div class="post-content">
+    <div><img src= "./assets/libro-abierto.png" class= "book-icon"><p><strong>  ${editForm.reading.value}</strong></p></div> <br>
     <p>${editForm.txt.value}</p>
-    <div>`;
+    </div>`;
 
   const db = getFirestore();
 
@@ -24,10 +24,13 @@ export function toEditable(postData, node) {
   node.removeChild(node.firstChild);
 
   const editionForm = document.createElement('form');
-  editionForm.setAttribute('id', 'edit-form');
-  editionForm.innerHTML = `<p>Reading:<input type="text" name="reading" value="${reading}"></p>
-  <textarea name="txt">${text}</textarea>
-  <input type="button"`;
+  editionForm.setAttribute('class', 'edit-form');
+  editionForm.innerHTML = `<div class="post-content">
+  <div><img src= "./assets/libro-abierto.png" class= "book-icon"> <input type="text" class= "reading-txt" name="reading" value="${reading}"></div>
+  <br>
+  <textarea name="txt" rows="5">${text}</textarea>
+  <br>
+  </div>`;
 
   const btnSave = document.createElement('input');
   btnSave.setAttribute('type', 'button');
