@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/no-unresolved */
 import {
-  getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection, addDoc,
+  getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection,
   query, where, onSnapshot, orderBy, serverTimestamp,
 } from '../firebase-imports.js';
 import { app } from './firebase-config.js';
@@ -93,7 +93,7 @@ export async function saveNewPostData(postsForm) {
       likes: [],
       timestamp: serverTimestamp(),
     };
-    
+
     await setDoc(docRef, infoPost);
 
     form.reset();
