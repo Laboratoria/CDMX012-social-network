@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-cycle */
 import { createUserRed } from '../lib/firebase.js';
 
 export const register = `
@@ -19,13 +19,15 @@ export const register = `
   </div>
 </div>`;
 
-function registerFireBase(e) {
+export function registerFireBase(e) {
   e.preventDefault();
   const userMail = document.getElementById('mail').value;
+  // eslint-disable-next-line no-unused-vars
   const userName = document.getElementById('user').value;
   const userPassword = document.getElementById('password').value;
+  // eslint-disable-next-line no-unused-vars
   const userArea = document.getElementById('area').value;
-  console.log(userMail, userName, userPassword, userArea);
+  // console.log(userMail, userName, userPassword, userArea);
   createUserRed(userMail, userPassword);
 }
 
@@ -37,6 +39,5 @@ function maskifyPass() {
     passWord.type = 'password';
   }
 }
-
 window.registerFireBase = registerFireBase;
 window.maskifyPass = maskifyPass;

@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-cycle */
 import { signIn, loginGoogle } from '../lib/firebase.js';
 
 export const login = `
@@ -13,7 +13,6 @@ export const login = `
   </div>
   <section class="githubGoogleButtons">
     <button type="button" class="button" onclick="clickGoogle(event)">Inicia sesión con Gmail</button>
-    <button type="button" class="button">Inicia sesión con Github</button>
   </section>
 </div>
 `;
@@ -28,6 +27,12 @@ function clickGoogle(e) {
   e.preventDefault();
   loginGoogle();
 }
+// function clickGithub(e) {
+//   e.preventDefault();
+//   loginGithub();
+// } - Template literal boton de github
+// <button type="button" class="button" onclick="clickGithub(event)">Inicia sesión Github</button>
 
 window.loginFireBase = loginFireBase;
 window.clickGoogle = clickGoogle;
+// window.clickGithub = clickGithub;
