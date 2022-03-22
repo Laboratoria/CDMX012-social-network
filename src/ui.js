@@ -148,6 +148,7 @@ export const createPosts = (postData, currentUid, name, username) => {
       dropdownContainer.classList.toggle('show');
 
       deleteP.addEventListener('click', () => {
+        dropdownContainer.classList.toggle('show'); // Agregue nuevamente esta linea aquí para que al dar click en Delete el dropdowm desaparezca
         const result = window.confirm('Are you sure you want to delete this post?');
         if (result) {
           deletePost(postData.key);
@@ -162,6 +163,7 @@ export const createPosts = (postData, currentUid, name, username) => {
     editP.addEventListener('click', (e) => {
       e.preventDefault();
       toEditable(postData, nodeTobeEdited);
+      dropdownContainer.classList.toggle('show');
     });
 
     return postArea;
