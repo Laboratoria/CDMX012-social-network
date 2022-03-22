@@ -2,6 +2,7 @@
 /* import { userData } from './lib/posts.js';
 import { onSnapshot } from './firebase-imports.js'; */
 import { toEditable } from './lib/edit-post.js';
+import { deletePost } from './lib/deletePost.js';
 
 export const showSignUpError = (error) => {
   const errorArea = document.querySelector('#errorArea');
@@ -132,13 +133,21 @@ export const showAllPosts = (postData, currentUid, name, username) => {
     dropdownContainer.setAttribute('tabindex', '-1');
     dropdownContainer.innerHTML = `
         <div class="dropdown">
-          <a href="#" id='edit'><div>Edit</div></a>
-          <a href="#"><div>Delete</div></a>
+          <a href="#" class='editPost' id='editPost'><div>Edit</div></a>
+          <a href="#" class='deletePost' id='deletePost'><div>Delete</div></a>
         </div>
       `;
 
     options.addEventListener('click', () => {
       dropdownContainer.classList.toggle('show');
+
+      const btnDeletePost = document.getElementById('deletePost');
+      btnDeletePost.addEventListener('click', () => {
+        const result = window.confirm('Are you sure you want to delete this post?');
+        if (result) {
+          deletePost(postData.key);
+        }
+      });
     });
 
     post.append(infoUserPost, nodeTobeEdited, like, options, dropdownContainer);

@@ -12,3 +12,4 @@ export const FacebookAuthProvider = () => Promise.resolve({});
 export const GithubAuthProvider = () => Promise.resolve({});
 export const getAdditionalUserInfo = () => Promise.resolve({});
 export const signInWithEmailAndPassword = () => Promise.resolve({});
+export const deleteDoc = () => Promise.resolve({});
