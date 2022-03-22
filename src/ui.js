@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* import { userData } from './lib/posts.js';
 import { onSnapshot } from './firebase-imports.js'; */
+import { toEditable } from './lib/edit-post.js';
 import { deletePost } from './lib/deletePost.js';
 
 export const showSignUpError = (error) => {
@@ -79,11 +80,17 @@ export const emptyFields = () => {
 export const createPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');
   post.setAttribute('class', 'post-container');
-  post.innerHTML = ` <hr>
-    ${name} @${username} <span>· ${postData.date}</span> <br> 
-    Reading: ${postData.reading} <br> 
-    ${postData.text} 
+  const infoUserPost = document.createElement('div');
+  infoUserPost.innerHTML = ` <hr>
+    ${name} @${username} <span>· ${postData.date}</span> <br>
     `;
+
+  const nodeTobeEdited = document.createElement('div');
+  nodeTobeEdited.setAttribute('id', 'to-edit');
+  nodeTobeEdited.innerHTML = `<div id="post-content">
+  <p>Reading: ${postData.reading}</p>
+  <p>${postData.text}</p>
+  <div>`;
 
   const like = document.createElement('img');
   like.setAttribute('src', './assets/like.png');
@@ -97,18 +104,31 @@ export const createPosts = (postData, currentUid, name, username) => {
     const dropdownContainer = document.createElement('div');
     dropdownContainer.setAttribute('class', 'dropdown-container');
     dropdownContainer.setAttribute('tabindex', '-1');
-    dropdownContainer.innerHTML = `
-        <div class="dropdown">
-          <a href="#" class='editPost' id='editPost'><div>Edit</div></a>
-          <a href="#" class='deletePost' id='deletePost'><div>Delete</div></a>
-        </div>
-      `;
+
+    const editDeletContainer = document.createElement('div');
+    editDeletContainer.setAttribute('class', 'dropdown');
+
+    const editP = document.createElement('a');
+    editP.setAttribute('href', '#');
+    editP.setAttribute('class', 'editPost');
+    editP.setAttribute('id', 'editPost');
+
+    editP.innerHTML = '<div>Edit</div>';
+
+    const deleteP = document.createElement('a');
+    deleteP.setAttribute('href', '#');
+    deleteP.setAttribute('class', 'deletePost');
+    deleteP.setAttribute('id', 'deletePost');
+
+    deleteP.innerHTML = '<div>Delete</div>';
+
+    editDeletContainer.append(editP, deleteP);
+    dropdownContainer.append(editDeletContainer);
 
     options.addEventListener('click', () => {
       dropdownContainer.classList.toggle('show');
 
-      const btnDeletePost = document.getElementById('deletePost');
-      btnDeletePost.addEventListener('click', () => {
+      deleteP.addEventListener('click', () => {
         const result = window.confirm('Are you sure you want to delete this post?');
         if (result) {
           deletePost(postData.key);
@@ -116,14 +136,19 @@ export const createPosts = (postData, currentUid, name, username) => {
       });
     });
 
-    post.append(like, options, dropdownContainer);
+    post.append(infoUserPost, nodeTobeEdited, like, options, dropdownContainer);
     const postArea = document.querySelector('#postsArea');
     postArea.append(post);
+
+    editP.addEventListener('click', (e) => {
+      e.preventDefault();
+      toEditable(postData, nodeTobeEdited);
+    });
 
     return postArea;
   }
 
-  post.append(like);
+  post.append(infoUserPost, nodeTobeEdited, like);
   const postArea = document.querySelector('#postsArea');
   postArea.append(post);
 
