@@ -21,7 +21,6 @@ export function toEditable(postData, node) {
   const reading = postData.reading;
   const text = postData.text;
 
-  // const postToEdit = document.querySelector(`#${postData.idDocument}`);
   node.removeChild(node.firstChild);
 
   const editionForm = document.createElement('form');

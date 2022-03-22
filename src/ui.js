@@ -131,18 +131,31 @@ export const showAllPosts = (postData, currentUid, name, username) => {
     const dropdownContainer = document.createElement('div');
     dropdownContainer.setAttribute('class', 'dropdown-container');
     dropdownContainer.setAttribute('tabindex', '-1');
-    dropdownContainer.innerHTML = `
-        <div class="dropdown">
-          <a href="#" class='editPost' id='editPost'><div>Edit</div></a>
-          <a href="#" class='deletePost' id='deletePost'><div>Delete</div></a>
-        </div>
-      `;
+
+    const editDeletContainer = document.createElement('div');
+    editDeletContainer.setAttribute('class', 'dropdown');
+
+    const editP = document.createElement('a');
+    editP.setAttribute('href', '#');
+    editP.setAttribute('class', 'editPost');
+    editP.setAttribute('id', 'editPost');
+
+    editP.innerHTML = '<div>Edit</div>';
+
+    const deleteP = document.createElement('a');
+    deleteP.setAttribute('href', '#');
+    deleteP.setAttribute('class', 'deletePost');
+    deleteP.setAttribute('id', 'deletePost');
+
+    deleteP.innerHTML = '<div>Delete</div>';
+
+    editDeletContainer.append(editP, deleteP);
+    dropdownContainer.append(editDeletContainer);
 
     options.addEventListener('click', () => {
       dropdownContainer.classList.toggle('show');
 
-      const btnDeletePost = document.getElementById('deletePost');
-      btnDeletePost.addEventListener('click', () => {
+      deleteP.addEventListener('click', () => {
         const result = window.confirm('Are you sure you want to delete this post?');
         if (result) {
           deletePost(postData.key);
@@ -154,7 +167,7 @@ export const showAllPosts = (postData, currentUid, name, username) => {
     const postArea = document.querySelector('#postsArea');
     postArea.append(post);
 
-    dropdownContainer.addEventListener('click', (e) => {
+    editP.addEventListener('click', (e) => {
       e.preventDefault();
       toEditable(postData, nodeTobeEdited);
     });
