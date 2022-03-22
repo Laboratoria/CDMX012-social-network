@@ -81,25 +81,44 @@ export const createPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');
   post.setAttribute('class', 'post-container');
   const infoUserPost = document.createElement('div');
-  infoUserPost.innerHTML = ` <hr>
-    ${name} @${username} <span>· ${postData.date}</span> <br>
-    `;
+  infoUserPost.setAttribute('class', 'info-user-post');
+  const line = document.createElement('hr');
+  const info = document.createElement('div');
+  info.setAttribute('class', 'info');
+
+  const nameProfile = document.createElement('p');
+  nameProfile.setAttribute('class', 'nameProfile-P');
+  nameProfile.innerHTML = `<strong>${name}</strong>`;
+
+  const userName = document.createElement('p');
+  userName.setAttribute('class', 'userName-P');
+  userName.innerHTML = `@${username}`;
+
+  const date = document.createElement('span');
+  date.setAttribute('class', 'date-P');
+  date.innerHTML = `· ${postData.date}`;
+
+  info.append(nameProfile, userName, date);
+  infoUserPost.append(line, info);
 
   const nodeTobeEdited = document.createElement('div');
-  nodeTobeEdited.setAttribute('id', 'to-edit');
-  nodeTobeEdited.innerHTML = `<div id="post-content">
-  <p>Reading: ${postData.reading}</p>
+  nodeTobeEdited.setAttribute('class', 'to-edit');
+  nodeTobeEdited.innerHTML = `<div class="post-content">
+  <div><img src= "./assets/libro-abierto.png" class= "book-icon"><p><strong>  ${postData.reading}</strong></p></div> <br>
   <p>${postData.text}</p>
   <div>`;
 
-  const like = document.createElement('img');
-  like.setAttribute('src', './assets/like.png');
+  const like = document.createElement('div');
+  like.setAttribute('class', 'like-btn');
+  like.innerHTML = '<img src= "./assets/like.png" alt="like button">';
 
   if (currentUid === postData.uid) {
     const options = document.createElement('img');
     options.setAttribute('class', 'options-menu');
     options.setAttribute('src', './assets/options.png');
     options.setAttribute('height', '20');
+
+    info.append(options);
 
     const dropdownContainer = document.createElement('div');
     dropdownContainer.setAttribute('class', 'dropdown-container');
@@ -129,6 +148,7 @@ export const createPosts = (postData, currentUid, name, username) => {
       dropdownContainer.classList.toggle('show');
 
       deleteP.addEventListener('click', () => {
+        dropdownContainer.classList.toggle('show'); // Agregue nuevamente esta linea aquí para que al dar click en Delete el dropdowm desaparezca
         const result = window.confirm('Are you sure you want to delete this post?');
         if (result) {
           deletePost(postData.key);
@@ -136,13 +156,14 @@ export const createPosts = (postData, currentUid, name, username) => {
       });
     });
 
-    post.append(infoUserPost, nodeTobeEdited, like, options, dropdownContainer);
+    post.append(infoUserPost, nodeTobeEdited, like, dropdownContainer);
     const postArea = document.querySelector('#postsArea');
     postArea.append(post);
 
     editP.addEventListener('click', (e) => {
       e.preventDefault();
       toEditable(postData, nodeTobeEdited);
+      dropdownContainer.classList.toggle('show');
     });
 
     return postArea;

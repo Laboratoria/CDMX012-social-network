@@ -1,4 +1,4 @@
-@import 'slideshow.css';
+@import "slideshow.css";
 body {
   background-image: none;
   margin: 0;
@@ -10,59 +10,150 @@ body {
 
 .post-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
+
+.info-user-post {
+  position: relative;
+}
+
+.info {
+  padding-top: 0.5em;
+  display: flex;
+  gap: 0.5em;
+}
+
+.nameProfile-P {
+  color: #e63f66;
+}
+
+.userName-P {
+  color: #8f8f8f;
+}
+
+.post-content div {
+  margin-top: 0.5em;
+  display: flex;
+  gap: 1em;
+  align-content: center;
+}
+
+.book-icon {
+  width: 1.5em;
+}
+
+.to-edit {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+/* dropdown menu */
 
 .options-menu {
   position: absolute;
-  top: 15%;
-  right: 2%;
+  top: auto;
+  right: 0;
 }
 
 a {
   text-decoration: none;
   color: black;
-  font-size: 0.5em;
 }
 
 a div {
   padding: 2px;
 }
 
-.editPost:hover, .deletePost:hover {
- color:#951C45;
- font-weight: bold;
+.editPost:hover,
+.deletePost:hover {
+  color: #951c45;
+  font-weight: bold;
 }
 
 .dropdown-container {
   visibility: hidden;
   position: absolute;
-  top: 40%;
-  right: 2%;
+  top: 1em;
+  right: 1em;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s;
+  transform: translateY(5%);
+  opacity: 0;
 }
 
 .dropdown-container.show {
   visibility: visible;
   position: absolute;
-  top: 40%;
-  right: 2%;
+  top: 2em;
+  right: 1em;
+  transform: translateY(5%);
+  opacity: 1;
 }
 
 .dropdown {
-  border: 1px solid black;
-  background-color: white;
+  border-radius: 5%;
+  background-color: #fde6e9;
   height: fit-content;
   position: absolute;
-  right: 0;
+  right: 5%;
   outline: none;
   z-index: 1;
-  padding: 0.3rem;
-  transition: opacity 0.1s, z-index 0.1s, max-height 5s;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+/* Fields edition */
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.reading-txt {
+  border: none;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  padding: 0.2em;
+  margin-bottom: 0.4em;
+  width: 100%;
+}
+
+.post-content textarea {
+  width: 100%;
+}
+
+.to-edit [type="button"] {
+  margin: 2% auto;
+  border-radius: 30px;
+  border: none;
+  width: 15%;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  font-size: 0.8em;
+  color: white;
+  font-weight: bold;
+  background-color: #951c45;
+  cursor: pointer;
+}
+
+/* Like btn */
+
+.like-btn {
+  width: 8%;
+  align-self: flex-end;
+}
+
+.like-btn img {
+  width: 1.5rem;
 }
 
 /* Header */
-.feed-header{
+.feed-header {
   display: flex;
-  border-bottom: solid 1px #951C45;
+  border-bottom: solid 1px #951c45;
   margin-bottom: 0.5em;
   padding-bottom: 0.3em;
 }
@@ -78,20 +169,21 @@ a div {
 /* book suggestions title */
 .bookSuggest {
   padding-left: 5%;
-  font-weight:lighter;
+  font-weight: lighter;
 }
 
 /* New post form */
 .reading-form {
   border-radius: 10px;
-  border: solid 0.5px #951C45;
-  padding: 0.5em; 
+  border: solid 0.5px #951c45;
+  padding: 0.5em;
   margin-bottom: 1em;
 }
 
-.reading-form input, textarea {
+.reading-form input,
+textarea {
   border: none;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   border-radius: 5px;
   padding: 0.2em;
   margin-bottom: 0.4em;
@@ -99,7 +191,7 @@ a div {
 
 #newPostButton {
   border-radius: 5px;
-  background-color: #E63F66;
+  background-color: #e63f66;
   color: white;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   width: 30%;
@@ -107,4 +199,3 @@ a div {
   align-self: flex-end;
   margin-bottom: 0;
 }
-
