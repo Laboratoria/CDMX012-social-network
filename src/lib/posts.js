@@ -83,14 +83,18 @@ export async function saveNewPostData(postsForm) {
     const dateToday = `${today.getDate()}/${(today.getMonth() + 1)}/${today.getFullYear()}`;
 
     // Creates a new doc in the posts coleccion with the new input
-    await addDoc(collection(db, 'posts'), {
+    const docRef = doc(collection(db, 'posts'));
+    const infoPost = {
+      idDocument: docRef.id, // add document id
       uid: currentUserUid,
       reading: postsForm.bookTitle.value,
       text: postsForm.postContent.value,
       date: dateToday,
       likes: [],
       timestamp: serverTimestamp(),
-    });
+    };
+    
+    await setDoc(docRef, infoPost);
 
     form.reset();
   } catch (e) {
