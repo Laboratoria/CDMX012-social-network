@@ -132,7 +132,10 @@ export const showAllPosts = (postData, currentUid, name, username) => {
 
       const btnDeletePost = document.getElementById('deletePost');
       btnDeletePost.addEventListener('click', () => {
-        deletePost(postData.key);
+        const result = window.confirm('Are you sure you want to delete this post?');
+        if (result) {
+          deletePost(postData.key);
+        }
       });
     });
 
