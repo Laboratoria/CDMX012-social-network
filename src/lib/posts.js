@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/no-unresolved */
 import {
-  getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection, addDoc,
+  getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection,
   query, where, onSnapshot,
 } from '../firebase-imports.js';
 import { app } from './firebase-config.js';
@@ -99,13 +99,16 @@ export async function saveNewPostData(postsForm) {
     const dateToday = `${today.getDate()}/${(today.getMonth() + 1)}/${today.getFullYear()}`;
 
     // Creates a new doc in the posts coleccion with the new input
-    const docRef = await addDoc(collection(db, 'posts'), {
+    const docRef = doc(collection(db, 'posts'));
+    const infoPost = {
+      idDocument: docRef.id, // add document id
       uid: currentUserUid,
       reading: postsForm.bookTitle.value,
       text: postsForm.postContent.value,
       date: dateToday,
       likes: [],
-    });
+    };
+    await setDoc(docRef, infoPost);
 
     form.reset();
 

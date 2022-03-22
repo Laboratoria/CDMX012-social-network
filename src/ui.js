@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* import { userData } from './lib/posts.js';
 import { onSnapshot } from './firebase-imports.js'; */
+import { toEditable } from './lib/edit-post.js';
 
 export const showSignUpError = (error) => {
   const errorArea = document.querySelector('#errorArea');
@@ -78,11 +79,15 @@ export const emptyFields = () => {
 export const createNewPost = (postData, name, username) => {
   const post = document.createElement('article');
   post.setAttribute('class', 'post-container');
-  post.innerHTML = ` <hr>
+  const infoUserPost = document.createElement('div');
+  infoUserPost.innerHTML = ` <hr>
     ${name} @${username} <span>· ${postData.date}</span> <br>
-    Reading: ${postData.reading} <br>
-    ${postData.text}
     `;
+  const reading = document.createElement('p');
+  reading.innerHTML = `Reading: ${postData.reading}`;
+
+  const txtReading = document.createElement('p');
+  txtReading.innerHTML = `${postData.text}`;
 
   const like = document.createElement('img');
   like.setAttribute('src', './assets/like.png');
@@ -91,7 +96,7 @@ export const createNewPost = (postData, name, username) => {
   options.setAttribute('src', './assets/options.png');
   options.setAttribute('height', '20');
 
-  post.append(like, options);
+  post.append(infoUserPost, reading, txtReading, like, options);
   const newPost = document.querySelector('#newPost');
   newPost.append(post);
 
@@ -101,11 +106,17 @@ export const createNewPost = (postData, name, username) => {
 export const showAllPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');
   post.setAttribute('class', 'post-container');
-  post.innerHTML = ` <hr>
-    ${name} @${username} <span>· ${postData.date}</span> <br> 
-    Reading: ${postData.reading} <br> 
-    ${postData.text} 
+  const infoUserPost = document.createElement('div');
+  infoUserPost.innerHTML = ` <hr>
+    ${name} @${username} <span>· ${postData.date}</span> <br>
     `;
+
+  const nodeTobeEdited = document.createElement('div');
+  nodeTobeEdited.setAttribute('id', 'to-edit');
+  nodeTobeEdited.innerHTML = `<div id="post-content">
+  <p>Reading: ${postData.reading}</p>
+  <p>${postData.text}</p>
+  <div>`;
 
   const like = document.createElement('img');
   like.setAttribute('src', './assets/like.png');
@@ -130,19 +141,19 @@ export const showAllPosts = (postData, currentUid, name, username) => {
       dropdownContainer.classList.toggle('show');
     });
 
-    post.append(like, options, dropdownContainer);
+    post.append(infoUserPost, nodeTobeEdited, like, options, dropdownContainer);
     const postArea = document.querySelector('#postsArea');
     postArea.append(post);
 
-    // const edit = document.querySelector('#edit');
-    dropdownContainer.addEventListener('click', () => {
-      console.log(postData);
+    dropdownContainer.addEventListener('click', (e) => {
+      e.preventDefault();
+      toEditable(postData, nodeTobeEdited);
     });
 
     return postArea;
   }
 
-  post.append(like);
+  post.append(infoUserPost, nodeTobeEdited, like);
   const postArea = document.querySelector('#postsArea');
   postArea.append(post);
 
