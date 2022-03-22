@@ -246,6 +246,11 @@ p {
   margin-top: 100px;
   border-radius: 10px;
 }
+.pLogin{
+  color:rgba(0, 0, 0, 0.38);
+font-size: 30px;
+margin-top: 5px;
+}
 .inputLogin {
   text-align: center;
   border-radius: 5px;
@@ -256,12 +261,12 @@ p {
   font-weight: bold;
   transition: 0.5s;
   outline: none;
-  margin: 45px 0px 8px;
+  margin:35px 0px 8px;
   align-items: center;
   justify-content: center;
 }
 #loginEmail{
-  background: url("./img/user.png");
+  background: url("./img/email.png");
   background-size: 24px;
   background-repeat: no-repeat;
   background-position: 38px;
@@ -286,7 +291,7 @@ p {
   font-weight: bold;
   transition: 0.5s;
   margin: 8px 0px 8px;
-  background-color: #ffffff;
+  background-color: #ffffffd0;
 }
 .focused {
   border: 3px solid #eca05f;
@@ -317,13 +322,13 @@ p {
 }
 .divLoginWith{
 
-  height: 180px;
+  height: 120px;
   margin-right: 5px;
   border: transparent;
   display:flex;
   justify-content: center;
   font-weight: bold;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   position: relative;
   text-align: center;
@@ -331,24 +336,34 @@ p {
 }
 
 #loginGoogle{
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   text-align: justify;
-  border: transparent;
-  background-color: transparent;
+  /* border: transparent; */
+  /* background-color: transparent; */
   margin-top: 10px;
-  position: absolute;
+  /* position: absolute; */
   
 }
 #loginTwitter{
   width: 80px;
   height: 80px;
-  background-color: transparent;
-  position: absolute;
-  border: transparent;
+  /* background-color: transparent; */
+  /* position: absolute; */
+  /* border: transparent; */
   right: 2px;
   margin-top:2px;
  }
+ #divSignUp{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   
+ }
+ .pSignUp{
+  font-weight: bold;
+}
 }
 
 
@@ -382,7 +397,7 @@ p {
   #divLogo {
     font-weight: 700;
     font-size: 80px;
-    color:#ffffff;
+    color:#ffffff rgba(255, 255, 255, 0.5) ;
     display: flex;
     flex-direction: column;
     margin-top: 20px;

@@ -12,6 +12,7 @@ export const login = () => {
   const divLogo = document.createElement('div');
   const pLogo = document.createElement('p');
   const baseLogin = document.createElement('div');
+  const pLogin = document.createElement('p');
   const loginEmail = document.createElement('input');
   const loginPassword = document.createElement('input');
   const pForgotPassword = document.createElement('p');
@@ -34,6 +35,7 @@ export const login = () => {
   imgLogo.setAttribute('src', './img/logosmall.png');
   globalLogInDiv.setAttribute('class', 'globalLogInDiv');
   baseLogin.setAttribute('class', 'baseLogin');
+  pLogin.setAttribute('class', 'pLogin');
   loginPassword.setAttribute('class', 'inputLogin');
   loginEmail.setAttribute('type', 'text');
   loginEmail.setAttribute('class', 'inputLogin');
@@ -64,6 +66,7 @@ export const login = () => {
   // innerText
   divLogo.innerText = 'Mukí';
   pLogo.innerText = 'A safe network for women';
+  pLogin.innerText = 'Log in';
   buttonLogin.textContent = 'Login';
   pForgotPassword.innerText = 'Forgot password?';
   loginWithP.innerText = 'Or login with';
@@ -78,6 +81,7 @@ export const login = () => {
   divLogo.appendChild(pLogo);
   span.appendChild(loginPassword);
   span.appendChild(imgEye);
+  baseLogin.appendChild(pLogin);
   baseLogin.appendChild(loginEmail);
   baseLogin.appendChild(loginPassword);
   baseLogin.appendChild(pForgotPassword);
