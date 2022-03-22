@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { saveNewPostData, getPosts } from '../lib/posts.js';
 import { slideshow } from '../slideshow.js';
+import { showAndHideItems } from '../ui.js';
 
 export const feed = () => {
   const readingPage = document.createElement('div');
@@ -35,19 +36,29 @@ export const feed = () => {
   suggestions.append(bookSuggest);
 
   // Create a new post section
+  const makeNewPost = document.createElement('div');
+  makeNewPost.setAttribute('class', 'make-new-post');
+  makeNewPost.setAttribute('id', 'makeNewPost');
+  makeNewPost.innerHTML = "What's on your mind?";
+
   const readingForm = document.createElement('form');
   readingForm.setAttribute('class', 'reading-form');
   readingForm.setAttribute('id', 'readingForm');
 
+  const insertReadingTitle = document.createElement('div');
+  insertReadingTitle.setAttribute('class', 'reading-area');
+
   const readingTitle = document.createElement('div');
-  readingTitle.innerHTML = '<label for="reading" class="reading book-title">Reading:</label>';
+  readingTitle.innerHTML = '<label for="reading" class="reading">Reading:</label>';
 
   const readingBook = document.createElement('input');
   readingBook.setAttribute('class', 'book-title');
   readingBook.setAttribute('id', 'bookTitle');
   readingBook.setAttribute('type', 'text');
-  readingBook.setAttribute('placeholder', 'Insert the title of the book you are reading here');
+  readingBook.setAttribute('placeholder', 'What are you reading?');
   readingBook.setAttribute('name', 'bookTitle');
+
+  insertReadingTitle.append(readingTitle, readingBook);
 
   const readingDescription = document.createElement('textarea');
   readingDescription.setAttribute('class', 'post-content');
@@ -60,7 +71,7 @@ export const feed = () => {
   newPostBtn.setAttribute('class', 'new-post-button');
   newPostBtn.setAttribute('id', 'newPostButton');
 
-  readingForm.append(readingTitle, readingBook, readingDescription, newPostBtn);
+  readingForm.append(insertReadingTitle, readingDescription, newPostBtn);
 
   // Posts section
   const postsArea = document.createElement('div');
@@ -68,12 +79,17 @@ export const feed = () => {
   postsArea.setAttribute('id', 'postsArea');
 
   const slideshowElement = slideshow();
-  readingPage.append(header, suggestions, slideshowElement, readingForm, postsArea);
+  readingPage.append(header, suggestions, slideshowElement, makeNewPost, readingForm, postsArea);
 
   document.addEventListener('DOMContentLoaded', getPosts()); // Averiguar cómo ordenar los posts, más reciente primero
 
+  makeNewPost.addEventListener('click', () => {
+    showAndHideItems(readingForm, makeNewPost);
+  });
+
   newPostBtn.addEventListener('click', () => {
     saveNewPostData(readingForm);
+    showAndHideItems(makeNewPost, readingForm);
   });
 
   return readingPage;
