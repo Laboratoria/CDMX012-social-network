@@ -71,18 +71,21 @@ a div {
   align-items: center;
 }
 
-.feed-header img {
-  height: 50px;
+.logo-title img {
+  height: 30px;
+  margin-left: 10px;
 }
 
 .config-menu {
-  justify-self: flex-end;
+  max-height:20px;
+  width:auto;
 }
 
 /* book suggestions title */
 .bookSuggest {
+  font-size: 16px;
   padding-left: 5%;
-  font-weight:lighter;
+  font-weight:bold;
 }
 
 /* New post form */
