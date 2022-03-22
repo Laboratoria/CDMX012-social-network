@@ -76,30 +76,7 @@ export const emptyFields = () => {
   errorArea.style.color = 'red';
 };
 
-export const createNewPost = (postData, name, username) => {
-  const post = document.createElement('article');
-  post.setAttribute('class', 'post-container');
-  post.innerHTML = ` <hr>
-    ${name} @${username} <span>· ${postData.date}</span> <br>
-    Reading: ${postData.reading} <br>
-    ${postData.text}
-    `;
-
-  const like = document.createElement('img');
-  like.setAttribute('src', './assets/like.png');
-
-  const options = document.createElement('img');
-  options.setAttribute('src', './assets/options.png');
-  options.setAttribute('height', '20');
-
-  post.append(like, options);
-  const newPost = document.querySelector('#newPost');
-  newPost.append(post);
-
-  return newPost;
-};
-
-export const showAllPosts = (postData, currentUid, name, username) => {
+export const createPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');
   post.setAttribute('class', 'post-container');
   post.innerHTML = ` <hr>

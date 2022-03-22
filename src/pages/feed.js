@@ -62,18 +62,13 @@ export const feed = () => {
 
   readingForm.append(readingTitle, readingBook, readingDescription, newPostBtn);
 
-  // Área para mostrar el post recién creado
-  const newPost = document.createElement('div');
-  newPost.setAttribute('class', 'new-post');
-  newPost.setAttribute('id', 'newPost');
-
   // Posts section
   const postsArea = document.createElement('div');
   postsArea.setAttribute('class', 'posts');
   postsArea.setAttribute('id', 'postsArea');
 
   const slideshowElement = slideshow();
-  readingPage.append(header, suggestions, slideshowElement, readingForm, newPost, postsArea);
+  readingPage.append(header, suggestions, slideshowElement, readingForm, postsArea);
 
   document.addEventListener('DOMContentLoaded', getPosts()); // Averiguar cómo ordenar los posts, más reciente primero
 
