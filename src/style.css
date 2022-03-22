@@ -348,7 +348,7 @@
   }
 }
 
-@media only screen and (max-width: 2000px) and (min-width: 762px) {
+@media only screen and (max-width: 2500px) and (min-width: 762px) {
   * {
     margin: 0;
     padding: 0;

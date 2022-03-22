@@ -49,7 +49,9 @@ export const validateInformation = (email, password) => {
 };
 
 export const errorHandler = (errorCode) => {
+  let error;
   if (errorCode === 'auth/email-already-in-use') {
-    return 'There is already an account with this email';
+    error = 'There is already an account with this email';
   }
+  return error;
 };

@@ -2,6 +2,7 @@
 import { login } from './components/logIn.js';
 import { signup } from './components/signUp.js';
 import { home } from './components/home.js';
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 const rootDiv = document.getElementById('globalContainer');
 
@@ -28,6 +29,20 @@ export const onNavigate = (pathname) => {
 window.onpopstate = () => {
   rootDiv.appendChild(routes[window.location.pathname]());
 };
+
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const userlogin = auth.currentUser;
+    console.log(userlogin);
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    onNavigate('/home');
+    // ...
+  } else {
+    onNavigate('/');
+  }
+});
 
 const component = routes[window.location.pathname];
 rootDiv.appendChild(component());
