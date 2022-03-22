@@ -115,3 +115,19 @@ a div {
   margin-bottom: 0;
 }
 
+@media screen and (min-width: 768px) {
+/* Header */
+.logo-title img {
+  height: 50px;
+}
+
+.config-menu {
+  max-height:40px;
+}
+
+/* book suggestions title */
+.bookSuggest {
+  font-size: 20px;
+}
+
+}
