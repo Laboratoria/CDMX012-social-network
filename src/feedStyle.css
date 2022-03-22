@@ -1,3 +1,4 @@
+@import 'slideshow.css';
 body {
   background-image: none;
   margin: 0;
@@ -25,6 +26,11 @@ a {
 
 a div {
   padding: 2px;
+}
+
+.editPost:hover, .deletePost:hover {
+ color:#951C45;
+ font-weight: bold;
 }
 
 .dropdown-container {
@@ -67,6 +73,12 @@ a div {
 
 .config-menu {
   justify-self: flex-end;
+}
+
+/* book suggestions title */
+.bookSuggest {
+  padding-left: 5%;
+  font-weight:lighter;
 }
 
 /* New post form */

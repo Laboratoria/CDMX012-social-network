@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { saveNewPostData, getPosts } from '../lib/posts.js';
+import { slideshow } from '../slideshow.js';
 
 export const feed = () => {
   const readingPage = document.createElement('div');
@@ -25,6 +26,13 @@ export const feed = () => {
   configMenu.setAttribute('alt', 'configuration menu');
 
   header.append(logo, bookreads, configMenu);
+
+  // book suggestions h2
+  const suggestions = document.createElement('div');
+  const bookSuggest = document.createElement('h2');
+  bookSuggest.setAttribute('class', 'bookSuggest');
+  bookSuggest.innerHTML = 'Book suggestions:';
+  suggestions.append(bookSuggest);
 
   // Create a new post section
   const readingForm = document.createElement('form');
@@ -64,7 +72,8 @@ export const feed = () => {
   postsArea.setAttribute('class', 'posts');
   postsArea.setAttribute('id', 'postsArea');
 
-  readingPage.append(header, readingForm, newPost, postsArea);
+  const slideshowElement = slideshow();
+  readingPage.append(header, suggestions, slideshowElement, readingForm, newPost, postsArea);
 
   document.addEventListener('DOMContentLoaded', getPosts()); // Averiguar cómo ordenar los posts, más reciente primero
 
