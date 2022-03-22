@@ -1,7 +1,6 @@
-/* eslint-disable import/no-cycle */
 /* eslint-disable import/named */
 import { onNavigate } from '../main.js';
-import { createUser, createUserWithTwitter, createUserWithGoogle } from '../firebase.js';
+import { createUser, createUserWithTwitter, createUserWithGoogle } from '../database/firebase.js';
 import { validateInformation, errorHandler } from './helper.js';
 
 export const signup = () => {
@@ -37,26 +36,27 @@ export const signup = () => {
   const pAccount = document.createElement('p');
   const globalSignupDiv = document.createElement('div');
   const globalContainer = document.getElementById('globalContainer');
+
   // attributes
   pinkContainer.setAttribute('class', 'pinkContainer');
   pinkTextOne.setAttribute('class', 'pinkTextOneAndThree');
-  imgTextOne.setAttribute('src', './img/mujeres.png');
+  imgTextOne.setAttribute('src', '../assets/img/mujeres.png');
   imgTextOne.setAttribute('class', 'imgTextPink');
   imgTextTwo.setAttribute('class', 'imgTextPink');
   imgTextThree.setAttribute('class', 'imgTextPink');
-  imgTextTwo.setAttribute('src', './img/pensamiento.png');
-  imgTextThree.setAttribute('src', './img/unidas.png');
+  imgTextTwo.setAttribute('src', '../assets/img/pensamiento.png');
+  imgTextThree.setAttribute('src', '../assets/img/unidas.png');
   pinkTexTwo.setAttribute('class', 'pinkTextTwo');
   pinkTextThree.setAttribute('class', 'pinkTextOneAndThree');
-  imgLogo.setAttribute('src', './img/logosmall.png');
+  imgLogo.setAttribute('src', '../assets/img/logosmall.png');
   pLogo.setAttribute('class', 'pLogo');
   divLogo.setAttribute('id', 'divLogo');
   signUpFree.setAttribute('class', 'singUpFree');
   buttonGoogle.setAttribute('id', 'buttonGoogle');
-  imgGoogle.setAttribute('src', './img/google-logo.png');
+  imgGoogle.setAttribute('src', '../assets/img/google-logo.png');
   imgGoogle.setAttribute('id', 'imgGoogle');
   buttonTwitter.setAttribute('id', 'buttonTwitter');
-  imgTwitter.setAttribute('src', './img/logo.png');
+  imgTwitter.setAttribute('src', '../assets/img/logo.png');
   imgTwitter.setAttribute('id', 'imgTwitter');
   separation.setAttribute('id', 'separation');
   line.setAttribute('class', 'line');
@@ -151,7 +151,6 @@ export const signup = () => {
   buttonTwitter.addEventListener('click', () => {
     createUserWithTwitter().then((result) => {
       if (result) {
-        alert('User created');
         onNavigate('/home');
       } else {
         errorMessage.innerText = 'You must choose a Twitter account';
@@ -163,7 +162,6 @@ export const signup = () => {
     const email = document.getElementById('inputEmail').value;
     const password = document.getElementById('inputPassword').value;
     const username = document.getElementById('inputUsername').value;
-
     const informationValidated = validateInformation(email, password);
     if (informationValidated.status) {
       createUser(email, password, username).then((userCredential) => {
@@ -175,6 +173,12 @@ export const signup = () => {
       });
     } else {
       errorMessage.innerText = informationValidated.message;
+      if (!informationValidated.isEmailCorrect) {
+        inputEmail.style.border = '1px solid red';
+      }
+      if (!informationValidated.isPasswordCorrect) {
+        span.style.border = '1px solid red';
+      }
     }
   });
 
@@ -183,6 +187,5 @@ export const signup = () => {
       onNavigate('/');
     }
   });
-
   return globalSignupDiv;
 };
