@@ -81,20 +81,50 @@ a div {
   font-weight:lighter;
 }
 
-/* New post form */
-.reading-form {
+/* Make new post origninal section */
+.make-new-post{
   border-radius: 10px;
   border: solid 0.5px #951C45;
   padding: 0.5em; 
-  margin-bottom: 1em;
+  margin: 1em auto;
+  box-shadow: 0 4px 4px 0 rgb(128 128 128 / 30%);
+  display: block;
+  cursor: pointer;
+  color: #474747;
+}
+
+.make-new-post:hover, .make-new-post:active{
+  border: solid 0.5px #E63F66;
+}
+
+/* New post form */
+.reading-form {
+  display: none;
+  border-radius: 10px;
+  border: solid 0.5px #951C45;
+  padding: 0.5em; 
+  margin: 1em auto;
+}
+.reading-area {
+  display: flex;
+}
+
+.reading-form textarea{
+  height: 8em;
+  resize: none;
 }
 
 .reading-form input, textarea {
   border: none;
-  background-color: #E5E5E5;
+  background-color: rgba(229, 229, 229, 0.7);
   border-radius: 5px;
   padding: 0.2em;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.5em;
+  width: 100%;
+}
+
+.book-title {
+  margin-left: 0.4em;
 }
 
 #newPostButton {
@@ -106,5 +136,6 @@ a div {
   font-weight: bold;
   align-self: flex-end;
   margin-bottom: 0;
+  font-size: 0.9rem;
 }
 
