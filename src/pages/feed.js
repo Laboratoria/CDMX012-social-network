@@ -11,6 +11,8 @@ export const feed = () => {
   const header = document.createElement('header');
   header.setAttribute('class', 'feed-header');
 
+  const logoTitle = document.createElement('div');
+  logoTitle.setAttribute('class', 'logo-title');
   const logo = document.createElement('img');
   logo.setAttribute('class', 'logo-book-feed');
   logo.setAttribute('src', './assets/logo sin fondo 1.png');
@@ -21,12 +23,14 @@ export const feed = () => {
   bookreads.setAttribute('src', './assets/nombre_sin_fondo-removebg-preview 1.png');
   bookreads.setAttribute('alt', 'titleBookReads');
 
+  logoTitle.append(logo, bookreads);
+
   const configMenu = document.createElement('img');
   configMenu.setAttribute('class', 'config-menu');
-  configMenu.setAttribute('src', './assets/icons8-menú-30.png');
+  configMenu.setAttribute('src', './assets/hamburgerMenu.png');
   configMenu.setAttribute('alt', 'configuration menu');
 
-  header.append(logo, bookreads, configMenu);
+  header.append(logoTitle, configMenu);
 
   // book suggestions h2
   const suggestions = document.createElement('div');

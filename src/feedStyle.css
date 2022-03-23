@@ -156,20 +156,27 @@ a div {
   border-bottom: solid 1px #951c45;
   margin-bottom: 0.5em;
   padding-bottom: 0.3em;
+  height:60px;
+  width:auto;
+  justify-content:space-between;
+  align-items: center;
 }
 
-.feed-header img {
+.logo-title img {
   height: 30px;
+  margin-left: 10px;
 }
 
 .config-menu {
-  justify-self: flex-end;
+  max-height:20px;
+  width:auto;
 }
 
 /* book suggestions title */
 .bookSuggest {
+  font-size: 16px;
   padding-left: 5%;
-  font-weight: lighter;
+  font-weight:bold;
 }
 
 /* Make new post origninal section */
@@ -230,4 +237,21 @@ textarea {
   align-self: flex-end;
   margin-bottom: 0;
   font-size: 0.9rem;
+}
+
+@media screen and (min-width: 768px) {
+/* Header */
+.logo-title img {
+  height: 50px;
+}
+
+.config-menu {
+  max-height:40px;
+}
+
+/* book suggestions title */
+.bookSuggest {
+  font-size: 20px;
+}
+
 }
