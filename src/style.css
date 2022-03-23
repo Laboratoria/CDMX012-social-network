@@ -1,231 +1,708 @@
 @media screen and (max-width: 761px) {
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
-  font-size: medium;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: medium;
+  }
+  
+  body {
+    display: flex;
+    background-color: #e8effd;
+    justify-content: center;
+    font-family: "League Gothic", sans-serif;
+    overflow: hidden;
+  }
+  
+  header {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  #divLogo {
+    font-weight: 700;
+    font-size: 40px;
+    color: rgba(85, 86, 89, 0.8);
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  #globalSignupDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+  }
+  
+  #buttonGoogle {
+    background-color: #ffffff;
+    border-radius: 30px;
+    width: 250px;
+    height: 45px;
+    margin: 45px 0px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    color: #000000a6;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    cursor: pointer;
+  }
+  
+  #imgGoogle {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  #buttonTwitter {
+    background-color: #ffffff;
+    border-radius: 30px;
+    width: 250px;
+    height: 45px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    color: #000000a6;
+    font-weight: bold;
+    margin: 8px 0px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    cursor: pointer;
+  }
+  
+  #imgTwitter {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+  }
+  
+  .input {
+    text-align: center;
+    border-radius: 5px;
+    width: 250px;
+    height: 38px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    font-weight: bold;
+    transition: 0.5s;
+    outline: none;
+    margin: 8px 0px 8px;
+  }
+  
+  input:focus {
+    border: 3px solid #eca05f;
+  }
+  
+  #inputEmail::placeholder {
+    background: url("./img/email.png");
+    background-size: 17px;
+    background-repeat: no-repeat;
+    background-position: 43px 3px;
+    color: #00000080;
+  }
+  
+  .eye {
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+    width: 250px;
+    height: 38px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    font-weight: bold;
+    transition: 0.5s;
+    /* outline: none; */
+    margin: 8px 0px 8px;
+    background-color: #ffffff;
+  }
+  
+  .focused {
+    border: 3px solid #eca05f;
+  }
+  
+  #imgEye {
+    position: absolute;
+    right: 10px;
+    top: 55%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #808080;
+  }
+  
+  #inputPassword::placeholder {
+    background: url("./img/lock.png");
+    background-size: 47px;
+    background-repeat: no-repeat;
+    background-position: 3px 3px;
+    color: #00000080;
+  }
+  
+  #inputPassword {
+    border: 0;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+    transition: 0.5s;
+    outline: none;
+    margin: 0;
+  }
+  
+  #inputUsername::placeholder {
+    background: url("./img/user.png");
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: 38px;
+    color: #00000080;
+  }
+  
+  #buttonSignup {
+    background-color: #bd72be;
+    border-radius: 30px;
+    width: 100px;
+    height: 45px;
+    margin: 25px 0px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  #divAccount {
+    display: flex;
+    color: rgba(0, 0, 0, 0.65);
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pAccount {
+    font-weight: bold;
+    text-shadow: 1px 1px #9e9e9e;
+    cursor: pointer;
+  }
+  
+  .pAccount {
+    font-weight: bold;
+  }
+  
+  #errorMessage {
+    margin: 1px solid black;
+    margin: 8px 0px 10px;
+    color: #fa1607c7;
+    font-weight: 900;
+  }
+  
+  #separation {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 10px 20px 10px;
+  }
+  
+  .line {
+    background-color: #9e9e9e;
+    width: 100px;
+    height: 1px;
+    align-self: center;
+  }
+  
+  p {
+    margin: 0px 5px 0px 5px;
+  }
+  
+  .pinkContainer{
+    display: none;
+  }
+  
+  .singUpFree{
+    display:none;
+  }
+  
+  
+  /* Vista Log In */
+  
+  .globalLogInDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    }
+    .baseLogin{
+    background-color:#ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-top: 100px;
+    border-radius: 10px;
+  }
+  .pLogin{
+    color:rgba(0, 0, 0, 0.38);
+  font-size: 30px;
+  margin-top: 5px;
+  text-shadow: .5px .5px #9e9e9e;
+  }
+  .inputLogin {
+    text-align: center;
+    border-radius: 5px;
+    width: 200px;
+    height: 38px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    font-weight: bold;
+    transition: 0.5s;
+    outline: none;
+    margin:35px 0px 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  #loginEmail{
+    background: url("./assets/img/email.png");
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: 38px;
+    color: #00000080;
+    border-radius: 5px;
+  }
+  #loginPassword{
+    background: url("./assets/img/lock.png");
+    background-size: 47px;
+    background-repeat: no-repeat;
+    background-position: 28px;
+    color: #00000080;
+  }
+  .eye {
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+    width: 250px;
+    height: 38px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    font-weight: bold;
+    transition: 0.5s;
+    margin: 8px 0px 8px;
+    background-color: #ffffffd0;
+  }
+  .focused {
+    border: 3px solid #eca05f;
+  }
+  
+  #imgEye {
+    position: absolute;
+    right: 10px;
+    top: 55%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #808080;
+  }
+  .pForgotPassword{
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .buttonLogin{
+    background-color: #bd72be;
+    border-radius: 30px;
+    width: 100px;
+    height: 45px;
+    margin: 35px 0px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .divLoginWith{
+  
+    height: 100px;
+    margin-right: 5px;
+    border: transparent;
+    display:flex;
+    flex-direction: column;
+    font-weight: bold; 
+   
+    margin-top: 25px;
+    gap:30px;
+   
+    align-self: center;
+  }
+  .loginWhitP{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    align-items: flex-start;
+    
+  }
+  .divButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  #loginGoogle{
+    width: 40px;
+    height: 40px;
+    
+    border: transparent;
+    background-color: transparent;
+    margin-top: 10px;
+    }
+    #imgGoogle{
+      width: 40px;
+      height: 40px;
+    }
+    #imgTwitter{
+      width: 44px;
+      height: 44px;
+    }
+  #loginTwitter{
+    width: 42px;
+    height: 42px;
+    background-color: transparent;
+    border: transparent;
+    right: 2px;
+    margin-top:6px;
+   }
+   #divSignUp{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     
+   }
+   .pSignUp{
+    font-weight: bold;
+  }
+  }
+  
+  
+  
+  
+  @media only screen and (max-width: 2000px) and (min-width: 762px) {
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      font-size: medium;
+    }
+  
+    body {
+      background-color: #e8effd;
+      font-family: "League Gothic", sans-serif;
+      overflow: hidden;
+    }
+  
+    #globalContainer{
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+  
+    header {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-right: 210%;
+    }
+  
+    #divLogo {
+      font-weight: 700;
+      font-size: 80px;
+      color:#ffffff;
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      margin-left: 10%;
+      text-shadow: 2px 2px #9e9e9e;
+    }
+  
+    .pLogo{
+      font-size: 25px;
+      width: 100%;
+      text-shadow: 2px 2px #9e9e9e;
+    }
+  
+    .pinkContainer{
+      background-color:#BD72BE ;
+      display: flex;
+      height: 870px;
+      width: 50%;
+      flex-direction: column;
+      justify-content: center;
+      
+      }
+  
+    .singUpFree{
+      color: #BD72BE;
+      font-size: 40px;
+      font-weight: bold;
+      margin-top: -15%;
+    }
+  
+    .pinkTextOneAndThree{
+     margin-top: 100px;
+     align-items: center;
+     justify-content: center;
+     color:#ffffff;
+     font-size: 20px;
+     flex-direction: row-reverse;
+     display: flex;
+     gap:20px;
+     font-weight: bold;
+    }
+  
+    .imgTextPink{
+      width: 70px;
+      height: 70px;
+    }
+  
+    .pinkTextTwo{
+      margin-top: 100px;
+      align-items: center;
+      color: #ffffff;
+      font-size: 20px;
+      display: flex;
+      flex-direction:row ;
+      gap: 20px;
+      margin-left: 80px;
+      font-weight: bold;
+    }
+  
+    #globalSignupDiv {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 100%;
+    }
+  
+    #buttonGoogle {
+      background-color: #ffffff;
+      border-radius: 30px;
+      width: 300px;
+      height: 60px;
+      margin: 45px 0px 10px;
+      border: 1px solid rgba(0, 0, 0, 0.38);
+      color: #000000a6;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row-reverse;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  
+    #imgGoogle {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+    }
+  
+    #buttonTwitter {
+      background-color: #ffffff;
+      border-radius: 30px;
+      width: 300px;
+      height: 60px;
+      margin: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.38);
+      color: #000000a6;
+      font-weight: bold;
+      margin: 8px 0px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row-reverse;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  
+    #imgTwitter {
+      width: 40px;
+      height: 40px;
+      margin-right: 5px;
+    }
+  
+    .input {
+      text-align: center;
+      border-radius: 5px;
+      width: 280px;
+      height: 48px;
+      margin: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.38);
+      font-weight: bold;
+      transition: 0.5s;
+      outline: none;
+      margin: 8px 0px 8px;
+      font-size: 18px;
+    }
+  
+    input:focus {
+      border: 3px solid #eca05f;
+    }
+  
+    #inputEmail::placeholder {
+      background: url("./img/email.png");
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: 43px 3px;
+      color: #00000080;
+    }
+  
+    .eye {
+      position: relative;
+      text-align: center;
+      border-radius: 5px;
+      width: 280px;
+      height: 48px;
+      margin: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.38);
+      font-weight: bold;
+      transition: 0.5s;
+      margin: 8px 0px 8px;
+      background-color: #ffffff;
+    }
+  
+    .focused {
+      border: 3px solid #eca05f;
+    }
+  
+    #imgEye {
+      position: absolute;
+      right: 20px;
+      top: 55%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #808080;
+    }
+  
+    #inputPassword::placeholder {
+      background: url("./img/lock.png");
+      background-size: 55px;
+      background-repeat: no-repeat;
+      background-position: 1px 3px;
+      color: #00000080;
+    }
+  
+    #inputPassword {
+      border: 0;
+      width: 80%;
+      height: 100%;
+      text-align: center;
+      font-weight: bold;
+      transition: 0.5s;
+      outline: none;
+      margin: 0;
+    }
+  
+    #inputUsername::placeholder {
+      background: url("./img/user.png");
+      background-size: 26px;
+      background-repeat: no-repeat;
+      background-position: 38px;
+      color: #00000080;
+    }
+  
+    #buttonSignup {
+      background-color: #bd72be;
+      border-radius: 30px;
+      width: 100px;
+      height: 45px;
+      margin: 5px 0px 15px;
+      border: 1px solid rgba(0, 0, 0, 0.38);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  
+    #divAccount {
+      display: flex;
+      color: rgba(0, 0, 0, 0.65);
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .pAccount {
+      font-weight: bold;
+      text-shadow: 1px 1px #9e9e9e;
+      cursor: pointer;
+    }
+  
+    #errorMessage {
+      margin: 1px solid black;
+      margin: 8px 0px 10px;
+      color: #fa1607c7;
+      font-weight: 900;
+    }
+  
+    #separation {
+      display: flex;
+      flex-direction: row;
+      margin: 20px 10px 20px 10px;
+    }
+  
+    .line {
+      background-color: #9e9e9e;
+      width: 130px;
+      height: 1px;
+      align-self: center;
+    }
+  
+    p {
+      margin: 0px 5px 0px 5px;
+    }
+    
+    /* VISTA LOGIN DESKTOP */
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      font-size: medium;
+    }
+  
+    body {
+      background-color: #e8effd;
+      font-family: "League Gothic", sans-serif;
+      overflow: hidden;
+    }
+  
+  #globalConteiner{
+    display: flex;
+    margin:0;
+    padding:0;
+  }
+  header {
+    display: absolute;
+    flex-direction: row-reverse;
+    justify-content: center;
+    text-align: center;
+    top: 150px;
+    
+  }
 
-body {
-  display: flex;
-  background-color: #e8effd;
-  justify-content: center;
-  font-family: "League Gothic", sans-serif;
-  overflow: hidden;
-}
-
-header {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-#divLogo {
-  font-weight: 700;
-  font-size: 40px;
-  color: rgba(85, 86, 89, 0.8);
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
-
-#globalSignupDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  margin-top: 50px;
-}
-
-#buttonGoogle {
-  background-color: #ffffff;
-  border-radius: 30px;
-  width: 250px;
-  height: 45px;
-  margin: 45px 0px 10px;
-  border: 1px solid rgba(0, 0, 0, 0.38);
-  color: #000000a6;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row-reverse;
-  cursor: pointer;
-}
-
-#imgGoogle {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-#buttonTwitter {
-  background-color: #ffffff;
-  border-radius: 30px;
-  width: 250px;
-  height: 45px;
-  margin: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.38);
-  color: #000000a6;
-  font-weight: bold;
-  margin: 8px 0px 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row-reverse;
-  cursor: pointer;
-}
-
-#imgTwitter {
-  width: 30px;
-  height: 30px;
-  margin-right: 5px;
-}
-
-.input {
-  text-align: center;
-  border-radius: 5px;
-  width: 250px;
-  height: 38px;
-  margin: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.38);
-  font-weight: bold;
-  transition: 0.5s;
-  outline: none;
-  margin: 8px 0px 8px;
-}
-
-input:focus {
-  border: 3px solid #eca05f;
-}
-
-#inputEmail::placeholder {
-  background: url("./img/email.png");
-  background-size: 17px;
-  background-repeat: no-repeat;
-  background-position: 43px 3px;
-  color: #00000080;
-}
-
-.eye {
-  position: relative;
-  text-align: center;
-  border-radius: 5px;
-  width: 250px;
-  height: 38px;
-  margin: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.38);
-  font-weight: bold;
-  transition: 0.5s;
-  /* outline: none; */
-  margin: 8px 0px 8px;
-  background-color: #ffffff;
-}
-
-.focused {
-  border: 3px solid #eca05f;
-}
-
-#imgEye {
-  position: absolute;
-  right: 10px;
-  top: 55%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #808080;
-}
-
-#inputPassword::placeholder {
-  background: url("./img/lock.png");
-  background-size: 47px;
-  background-repeat: no-repeat;
-  background-position: 3px 3px;
-  color: #00000080;
-}
-
-#inputPassword {
-  border: 0;
-  width: 80%;
-  height: 100%;
-  text-align: center;
-  font-weight: bold;
-  transition: 0.5s;
-  outline: none;
-  margin: 0;
-}
-
-#inputUsername::placeholder {
-  background: url("./img/user.png");
-  background-size: 24px;
-  background-repeat: no-repeat;
-  background-position: 38px;
-  color: #00000080;
-}
-
-#buttonSignup {
-  background-color: #bd72be;
-  border-radius: 30px;
-  width: 100px;
-  height: 45px;
-  margin: 25px 0px 15px;
-  border: 1px solid rgba(0, 0, 0, 0.38);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#divAccount {
-  display: flex;
-  color: rgba(0, 0, 0, 0.65);
-  flex-direction: column;
-  align-items: center;
-}
-
-.pAccount {
-  font-weight: bold;
-  text-shadow: 1px 1px #9e9e9e;
-  cursor: pointer;
-}
-
-.pAccount {
-  font-weight: bold;
-}
-
-#errorMessage {
-  margin: 1px solid black;
-  margin: 8px 0px 10px;
-  color: #fa1607c7;
-  font-weight: 900;
-}
-
-#separation {
-  display: flex;
-  flex-direction: row;
-  margin: 20px 10px 20px 10px;
-}
-
-.line {
-  background-color: #9e9e9e;
-  width: 100px;
-  height: 1px;
-  align-self: center;
-}
-
-p {
-  margin: 0px 5px 0px 5px;
-}
-
-.pinkContainer{
-  display: none;
-}
-
-.singUpFree{
-  display:none;
-}
-
-
-/* Vista Log In */
+  #divLogo {
+    font-weight: 700;
+    font-size: 40px;
+    color: rgba(85, 86, 89, 0.8);
+    display: absolute;
+    flex-direction: column;
+    /* margin-top: 20px; */
+  }
+  .pinkContainerLogin {
+    background-color: #bd72be;
+    height: 850px;
+    width: 100%;
+  }
 
 .globalLogInDiv{
   display: flex;
@@ -242,14 +719,16 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  margin-top: 100px;
+  width: 50%;
+  height: 88%;
+  margin-top: 5px;
   border-radius: 10px;
 }
 .pLogin{
   color:rgba(0, 0, 0, 0.38);
 font-size: 30px;
 margin-top: 5px;
+text-shadow: .5px .5px #9e9e9e;
 }
 .inputLogin {
   text-align: center;
@@ -266,7 +745,7 @@ margin-top: 5px;
   justify-content: center;
 }
 #loginEmail{
-  background: url("./img/email.png");
+  background: url("./assets/img/email.png");
   background-size: 24px;
   background-repeat: no-repeat;
   background-position: 38px;
@@ -274,7 +753,7 @@ margin-top: 5px;
   border-radius: 5px;
 }
 #loginPassword{
-  background: url("./img/lock.png");
+  background: url("./assets/img/lock.png");
   background-size: 47px;
   background-repeat: no-repeat;
   background-position: 28px;
@@ -322,38 +801,48 @@ margin-top: 5px;
 }
 .divLoginWith{
 
-  height: 120px;
+  height: 100px;
   margin-right: 5px;
   border: transparent;
   display:flex;
-  justify-content: center;
-  font-weight: bold;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  text-align: center;
+  flex-direction: column;
+  font-weight: bold; 
+ 
   margin-top: 25px;
+  gap:30px;
+ 
+  align-self: center;
+}
+.loginWhitP{
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+ 
+  
+  align-items: flex-start;
+  
+}
+.divButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #loginGoogle{
-  width: 80px;
-  height: 80px;
-  text-align: justify;
-  /* border: transparent; */
-  /* background-color: transparent; */
-  margin-top: 10px;
-  /* position: absolute; */
+  width: 40px;
+  height: 40px;
+  
+border: transparent;
+  background-color: transparent;
+
   
 }
 #loginTwitter{
-  width: 80px;
-  height: 80px;
-  /* background-color: transparent; */
-  /* position: absolute; */
-  /* border: transparent; */
-  right: 2px;
-  margin-top:2px;
- }
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: transparent;
+}
  #divSignUp{
    display: flex;
    justify-content: center;
@@ -364,281 +853,5 @@ margin-top: 5px;
  .pSignUp{
   font-weight: bold;
 }
-}
 
-
-
-@media only screen and (max-width: 2000px) and (min-width: 762px) {
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto", sans-serif;
-    font-size: medium;
   }
-
-  body {
-    background-color: #e8effd;
-    font-family: "League Gothic", sans-serif;
-    overflow: hidden;
-  }
-
-  #globalContainer{
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-
-  header {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-right: 210%;
-  }
-
-  #divLogo {
-    font-weight: 700;
-    font-size: 80px;
-    color:#ffffff rgba(255, 255, 255, 0.5) ;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-left: 10%;
-    text-shadow: 2px 2px #9e9e9e;
-  }
-
-  .pLogo{
-    font-size: 25px;
-    width: 100%;
-    text-shadow: 2px 2px #9e9e9e;
-  }
-
-  .pinkContainer{
-    background-color:#BD72BE ;
-    display: flex;
-    height: 750px;
-    width: 50%;
-    flex-direction: column;
-    justify-content: center;
-    border-radius:0 30% 30% 0;
-    }
-
-  .singUpFree{
-    color: #BD72BE;
-    font-size: 40px;
-    font-weight: bold;
-    margin-top: -15%;
-  }
-
-  .pinkTextOneAndThree{
-   margin-top: 100px;
-   align-items: center;
-   justify-content: center;
-   color:#ffffff;
-   font-size: 20px;
-   flex-direction: row-reverse;
-   display: flex;
-   gap:20px;
-   font-weight: bold;
-  }
-
-  .imgTextPink{
-    width: 70px;
-    height: 70px;
-  }
-
-  .pinkTextTwo{
-    margin-top: 100px;
-    align-items: center;
-    color: #ffffff;
-    font-size: 20px;
-    display: flex;
-    flex-direction:row ;
-    gap: 20px;
-    margin-left: 80px;
-    font-weight: bold;
-  }
-
-  #globalSignupDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-  }
-
-  #buttonGoogle {
-    background-color: #ffffff;
-    border-radius: 30px;
-    width: 300px;
-    height: 60px;
-    margin: 45px 0px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.38);
-    color: #000000a6;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row-reverse;
-    cursor: pointer;
-    font-size: 20px;
-  }
-
-  #imgGoogle {
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-  }
-
-  #buttonTwitter {
-    background-color: #ffffff;
-    border-radius: 30px;
-    width: 300px;
-    height: 60px;
-    margin: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.38);
-    color: #000000a6;
-    font-weight: bold;
-    margin: 8px 0px 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row-reverse;
-    cursor: pointer;
-    font-size: 20px;
-  }
-
-  #imgTwitter {
-    width: 40px;
-    height: 40px;
-    margin-right: 5px;
-  }
-
-  .input {
-    text-align: center;
-    border-radius: 5px;
-    width: 280px;
-    height: 48px;
-    margin: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.38);
-    font-weight: bold;
-    transition: 0.5s;
-    outline: none;
-    margin: 8px 0px 8px;
-    font-size: 18px;
-  }
-
-  input:focus {
-    border: 3px solid #eca05f;
-  }
-
-  #inputEmail::placeholder {
-    background: url("./img/email.png");
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: 43px 3px;
-    color: #00000080;
-  }
-
-  .eye {
-    position: relative;
-    text-align: center;
-    border-radius: 5px;
-    width: 280px;
-    height: 48px;
-    margin: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.38);
-    font-weight: bold;
-    transition: 0.5s;
-    margin: 8px 0px 8px;
-    background-color: #ffffff;
-  }
-
-  .focused {
-    border: 3px solid #eca05f;
-  }
-
-  #imgEye {
-    position: absolute;
-    right: 20px;
-    top: 55%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: #808080;
-  }
-
-  #inputPassword::placeholder {
-    background: url("./img/lock.png");
-    background-size: 55px;
-    background-repeat: no-repeat;
-    background-position: 1px 3px;
-    color: #00000080;
-  }
-
-  #inputPassword {
-    border: 0;
-    width: 80%;
-    height: 100%;
-    text-align: center;
-    font-weight: bold;
-    transition: 0.5s;
-    outline: none;
-    margin: 0;
-  }
-
-  #inputUsername::placeholder {
-    background: url("./img/user.png");
-    background-size: 26px;
-    background-repeat: no-repeat;
-    background-position: 38px;
-    color: #00000080;
-  }
-
-  #buttonSignup {
-    background-color: #bd72be;
-    border-radius: 30px;
-    width: 100px;
-    height: 45px;
-    margin: 5px 0px 15px;
-    border: 1px solid rgba(0, 0, 0, 0.38);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  #divAccount {
-    display: flex;
-    color: rgba(0, 0, 0, 0.65);
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .pAccount {
-    font-weight: bold;
-    text-shadow: 1px 1px #9e9e9e;
-    cursor: pointer;
-  }
-
-  #errorMessage {
-    margin: 1px solid black;
-    margin: 8px 0px 10px;
-    color: #fa1607c7;
-    font-weight: 900;
-  }
-
-  #separation {
-    display: flex;
-    flex-direction: row;
-    margin: 20px 10px 20px 10px;
-  }
-
-  .line {
-    background-color: #9e9e9e;
-    width: 130px;
-    height: 1px;
-    align-self: center;
-  }
-
-  p {
-    margin: 0px 5px 0px 5px;
-  }
-}
