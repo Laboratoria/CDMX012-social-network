@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable semi */
 /* eslint-disable max-len */
 /* eslint-disable dot-notation */
@@ -6,7 +7,7 @@
 import { welcome } from './components/welcome.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
-import { saveRegisterFormData } from './lib/firebase.js';
+//import { saveRegisterFormData } from './lib/firebase.js';
 // SPA
 const rootDiv = document.getElementById('root');
 
@@ -38,17 +39,17 @@ const component = routes[window.location.pathname];
 rootDiv.appendChild(component());
 
 // Information to register a new Acc************************************************************************
-window.addEventListener('DOMContentLoaded', () => {
+// window.addEventListener('DOMContentLoaded', () => {
 
-});
-const registerForm = document.getElementById('registerForm');
+// });
+// const registerForm = document.getElementById('registerForm');
 
-registerForm.addEventListener('submit', (e) => {
-  e.preventDefault()
+// registerForm.addEventListener('submit', (e) => {
+//   e.preventDefault()
 
-  const usernameRegister = registerForm['username'];
-  const emailRegister = registerForm['email'];
-  const passwordRegister = registerForm['password'];
-  saveRegisterFormData(usernameRegister.value, emailRegister.value, passwordRegister.value);
-  registerForm.reset();
-});
+//   const usernameRegister = registerForm['username'];
+//   const emailRegister = registerForm['email'];
+//   const passwordRegister = registerForm['password'];
+//   saveRegisterFormData(usernameRegister.value, emailRegister.value, passwordRegister.value);
+//   registerForm.reset();
+// });

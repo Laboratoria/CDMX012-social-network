@@ -1,9 +1,11 @@
+/* eslint-disable max-len */
+/* eslint-disable spaced-comment */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+//import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 // Your web app's Firebase configuration
@@ -22,6 +24,24 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app); // Save registerData collection in fireStore
+const auth = getAuth(app);
+//const db = getFirestore(); // Save registerData collection in fireStore
 
-export const saveRegisterFormData = (username, email, password) => addDoc(collection(db, 'registerData'), { username, email, password });
+const btnJoin = document.getElementById('submitInfoJoin');
+btnJoin.addEventListener('click', (e) => {
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  createUserWithEmailAndPassword(auth, username, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      alert('user created');
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.messsage;
+      alert(errorMessage);
+    });
+});
+
+//export const saveRegisterFormData = (username, email, password) => addDoc(collection(db, 'registerData'), { username, email, password });

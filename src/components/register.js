@@ -86,7 +86,7 @@ export const register = () => {
 
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
-  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, errorMessage);
-  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs);
+  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, btnInfoJoinUs, errorMessage);
+  joinUsSection.append(header, signInWith, containerIcons, infoForm);
   return joinUsSection;
 };
