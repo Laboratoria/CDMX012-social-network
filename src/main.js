@@ -1,9 +1,13 @@
+/* eslint-disable semi */
+/* eslint-disable max-len */
+/* eslint-disable dot-notation */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/no-cycle */
 import { welcome } from './components/welcome.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
 
+// SPA
 const rootDiv = document.getElementById('root');
 
 const routes = {
@@ -32,3 +36,8 @@ window.onpopstate = () => {
 const component = routes[window.location.pathname];
 
 rootDiv.appendChild(component());
+
+// Information to register a new Acc************************************************************************
+window.addEventListener('DOMContentLoaded', () => {
+
+});

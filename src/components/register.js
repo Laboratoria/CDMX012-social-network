@@ -1,5 +1,8 @@
+/* eslint-disable import/no-cycle */
+
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
+import { createAccount } from '../lib/firebase.js';
 
 export const register = () => {
   const joinUsSection = document.createElement('section');
@@ -29,6 +32,9 @@ export const register = () => {
   const iconG = document.createElement('img');
   iconG.setAttribute('src', './assets/google.png');
 
+  const iconF = document.createElement('img');
+  iconF.setAttribute('src', './assets/facebook.png');
+
   const infoForm = document.createElement('div');
   infoForm.className = 'formContainer';
   const labelUser = document.createElement('label');
@@ -37,6 +43,7 @@ export const register = () => {
 
   const inputUserName = document.createElement('input');
   inputUserName.setAttribute('type', 'text');
+  inputUserName.setAttribute('placeholder', 'Username');
   inputUserName.className = 'inputs';
   inputUserName.id = 'username';
 
@@ -45,7 +52,9 @@ export const register = () => {
   labelMail.textContent = 'Email:';
   const inputEmail = document.createElement('input');
   inputEmail.setAttribute('type', 'email');
+  inputEmail.setAttribute('placeholder', 'Example@gmail.com');
   inputEmail.className = 'inputs';
+  inputEmail.required = 'true';
   inputEmail.id = 'email';
 
   const labelPassword = document.createElement('label');
@@ -53,17 +62,40 @@ export const register = () => {
   labelPassword.textContent = 'Password:';
   const inputPassword = document.createElement('input');
   inputPassword.setAttribute('type', 'password');
+  inputPassword.setAttribute('placeholder', 'More than 6 characters');
   inputPassword.className = 'inputs';
+  inputPassword.required = 'true';
   inputPassword.id = 'password';
+
+  // const eyeIconSpan = document.createElement('span');
+  // eyeIconSpan.className = 'eye';
+  // const eyeIconReg = document.createElement('i');
+  // eyeIconReg.id = 'eyeImg';
+  // eyeIconReg.setAttribute('class', 'fa-solid fa-eye');
+  // inputPassword.append(eyeIconSpan);
+  // eyeIconSpan.append(eyeIconReg);
+
+  const errorMessage = document.createElement('p');
+  errorMessage.className = 'messages';
+  errorMessage.id = 'pError';
 
   const btnInfoJoinUs = document.createElement('button');
   btnInfoJoinUs.className = 'btnsSign';
   btnInfoJoinUs.id = 'submitInfoJoin';
   btnInfoJoinUs.textContent = 'Join Us';
 
+  btnInfoJoinUs.addEventListener('click', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    createAccount(username, email, password);
+  });
+
   header.append(imgArrowBack, titles);
-  containerIcons.appendChild(iconG);
-  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, btnInfoJoinUs);
-  joinUsSection.append(header, signInWith, containerIcons, infoForm);
+  containerIcons.append(iconG, iconF);
+  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, errorMessage);
+  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs);
   return joinUsSection;
 };

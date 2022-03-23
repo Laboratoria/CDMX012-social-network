@@ -139,12 +139,21 @@ body{
     background: rgba(196, 196, 196, 0.25);
     border-radius: 10px;
     margin-left: 20px;
+    padding-left: 20px;
+    font-size: 18px;
+   display: flex;
 }
-/* .btns{
-    width: 89px;
-    height: 59px;
-} */
+.inputs::placeholder{
+font-size: 18px;
+color: gray;
+}
 
+.messages{
+    width: fit-content;
+    height: fit-content;
+    color: #F2A928;
+    font-size: 14px;
+}
 .btnsSign{
     width: 119px;
     height: 46px;
