@@ -1,5 +1,4 @@
 /* eslint-disable import/no-cycle */
-
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
 import { createAccount } from '../lib/firebase.js';
@@ -66,14 +65,6 @@ export const register = () => {
   inputPassword.className = 'inputs';
   inputPassword.required = 'true';
   inputPassword.id = 'password';
-
-  // const eyeIconSpan = document.createElement('span');
-  // eyeIconSpan.className = 'eye';
-  // const eyeIconReg = document.createElement('i');
-  // eyeIconReg.id = 'eyeImg';
-  // eyeIconReg.setAttribute('class', 'fa-solid fa-eye');
-  // inputPassword.append(eyeIconSpan);
-  // eyeIconSpan.append(eyeIconReg);
 
   const errorMessage = document.createElement('p');
   errorMessage.className = 'messages';

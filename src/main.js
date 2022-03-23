@@ -37,7 +37,6 @@ const component = routes[window.location.pathname];
 
 rootDiv.appendChild(component());
 
-// Information to register a new Acc************************************************************************
 window.addEventListener('DOMContentLoaded', () => {
 
 });

@@ -1,173 +1,171 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: 1px solid red;   
-    width: 360px;
-    height: 640px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 1px solid red;
+  width: 360px;
+  height: 640px;
 }
 @font-face {
-    font-family: arcade;
-    src: url(ka1.ttf);
-  }
-  @font-face {
-    font-family: neon;
-    src: url(NEON____.TTF);
-  }
-
-body{
-    background: linear-gradient(to bottom, #010409, #5B1E87);
-    background-repeat: no-repeat;
-    width: 100%;  
-    height: 100%;
-    font-family: 'Roboto', sans-serif; 
+  font-family: arcade;
+  src: url(ka1.ttf);
+}
+@font-face {
+  font-family: neon;
+  src: url(NEON____.TTF);
 }
 
+body {
+  background: linear-gradient(to bottom, #010409, #5b1e87);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
 
 /* Primera seccion login */
 
-#logIn{
-    display: flex;
-    flex-flow:wrap row;
-    justify-content: space-evenly;
-    align-items: center;
+#logIn {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.meetArcade{
-    width: 95%;
-    padding-left: 20px;
-    height: 260px;
-    /* justify-self: center; */
+.meetArcade {
+  width: 95%;
+  padding-left: 20px;
+  height: 260px;
+  /* justify-self: center; */
 }
-.divContainer{
-    display: flex;
-    justify-content: space-around;
-   align-self: flex-start;
-    width: 100%;
-    height: 52px;
+.divContainer {
+  display: flex;
+  justify-content: space-around;
+  align-self: flex-start;
+  width: 100%;
+  height: 52px;
 }
 
-.log{
-    width: 132px;
-    height: 52px; 
-    font-weight: bolder;
-    color: #E587ED; 
-    background-color: #c4c4c400;
-    border: 3px solid #E587ED;
-    box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
-    border-radius: 15px;
-    margin-bottom: 100px;
-    cursor: pointer;
-    font-size: 18px;
-} 
-
-
+.log {
+  width: 132px;
+  height: 52px;
+  font-weight: bolder;
+  color: #e587ed;
+  background-color: #c4c4c400;
+  border: 3px solid #e587ed;
+  box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
+  border-radius: 15px;
+  margin-bottom: 100px;
+  cursor: pointer;
+  font-size: 18px;
+}
 
 /* Segunda seccion join us */
 
- .screenJoin{
-    display: flex;
-    flex-flow: wrap column;
+.screenJoin {
+  display: flex;
+  flex-flow: wrap column;
 }
-.header{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    padding-left: 20px;
-    margin-top: 20px;
-    align-items: center;
+.header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  margin-top: 20px;
+  align-items: center;
 }
-.titles{
-    font-family: arcade;
-    line-height: 28px;
-    font-size: 24px;
-    color: #28CEF2;
-    text-shadow: 0px 0px 5px #E587ED;
-    height: 50px;
-    padding-top: 8px;
-}
-
-.arrowBack{
-   width: 30px;
-   height: 30px;
-   cursor: pointer;
-   margin: 10px  15px 10px 15px;
+.titles {
+  font-family: arcade;
+  line-height: 28px;
+  font-size: 24px;
+  color: #28cef2;
+  text-shadow: 0px 0px 5px #e587ed;
+  height: 50px;
+  padding-top: 8px;
 }
 
-.sign{
-    color: #F2A928;
-    height: auto;
-    margin-left: 20px;
-    font-size: 18px;
-    font-family:'Roboto', sans-serif; 
-    margin-top: 10px;
-    width: fit-content;
+.arrowBack {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 10px 15px 10px 15px;
 }
 
-.container{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 10px;
-    height: 60px;
-    margin-bottom: 50px;
-}
-.container img{
-    width: 90px;
-    height: 60px;
-    margin-left: 20px;
-}
-.formContainer{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-}
-.text{
-    font-size: 18px;
-    color: #FFFFFF;
-    font-family:'Roboto', sans-serif; 
-    margin-left: 20px;
-    height: fit-content;
-    width: fit-content;
-}
-.inputs{
-    color: #E587ED;
-    width: 240px;
-    height: 50px;
-    background: rgba(196, 196, 196, 0.25);
-    border-radius: 10px;
-    margin-left: 20px;
-    padding-left: 20px;
-    font-size: 18px;
-   display: flex;
-}
-.inputs::placeholder{
-font-size: 18px;
-color: gray;
+.sign {
+  color: #f2a928;
+  height: auto;
+  margin-left: 20px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  margin-top: 10px;
+  width: fit-content;
 }
 
-.messages{
-    width: fit-content;
-    height: fit-content;
-    color: #F2A928;
-    font-size: 14px;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+  height: 60px;
+  margin-bottom: 50px;
 }
-.btnsSign{
-    width: 119px;
-    height: 46px;
-    color: #E587ED;
-    font-weight: bold;
-    font-size: 18px;
-    border: 3px solid #E587ED;
-    box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
-    border-radius: 10px;
-    background-color: #c4c4c400;
-    margin-left: 100px; 
-    margin-top: 50px;
-    text-align: center;
-    cursor: pointer;
+.container img {
+  width: 90px;
+  height: 60px;
+  margin-left: 20px;
+}
+.formContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.text {
+  font-size: 18px;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  margin-left: 20px;
+  height: fit-content;
+  width: fit-content;
+}
+.inputs {
+  color: #e587ed;
+  width: 240px;
+  height: 50px;
+  background: rgba(196, 196, 196, 0.25);
+  border-radius: 10px;
+  margin-left: 20px;
+  padding-left: 20px;
+  font-size: 18px;
+  display: flex;
+}
+
+.inputs::placeholder {
+  font-size: 18px;
+  color: gray;
+}
+
+.messages {
+  width: fit-content;
+  height: fit-content;
+  color: #f2a928;
+  font-size: 14px;
+}
+.btnsSign {
+  width: 119px;
+  height: 46px;
+  color: #e587ed;
+  font-weight: bold;
+  font-size: 18px;
+  border: 3px solid #e587ed;
+  box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
+  border-radius: 10px;
+  background-color: #c4c4c400;
+  margin-left: 100px;
+  margin-top: 50px;
+  text-align: center;
+  cursor: pointer;
 }
 
 /* .sign a{
