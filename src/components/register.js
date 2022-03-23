@@ -75,8 +75,7 @@ export const register = () => {
   btnInfoJoinUs.id = 'submitInfoJoin';
   btnInfoJoinUs.textContent = 'Join Us';
 
-  btnInfoJoinUs.addEventListener('click', (e) => {
-    e.preventDefault();
+  btnInfoJoinUs.addEventListener('click', () => {
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
