@@ -46,7 +46,6 @@ export function iniciarSesion() {
       // const textoVerificado = '';
         if (emailVerificado === false) {
         // modal();
-          alert('Email no verificado');
           // console.log("whatsup")
           document.getElementById('contmodal').style.opacity = '1';
           document.getElementById('contmodal').style.visibility = 'visible';
