@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-cycle */
 import { signIn, loginGoogle } from '../lib/firebase.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
@@ -54,6 +54,7 @@ export const login = () => {
   containerInputLogin.appendChild(buttonGmail);
   containerInputLogin.appendChild(imgMaskify);
 
+
   containerLogin.appendChild(logo);
   containerLogin.appendChild(containerInputLogin);
   containerLoginAll.appendChild(containerLogin);
@@ -82,3 +83,4 @@ export const login = () => {
   });
   return containerLogin;
 };
+=======

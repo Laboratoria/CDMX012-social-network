@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-cycle */
 import { createUserRed } from '../lib/firebase.js';
 
 // eslint-disable-next-line import/no-cycle
