@@ -2,11 +2,11 @@
 /* eslint-disable import/no-unresolved */
 import {
   getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection,
-  query, where, onSnapshot,
+  query, where, onSnapshot, orderBy, serverTimestamp,
 } from '../firebase-imports.js';
 import { app } from './firebase-config.js';
 import {
-  usernameError, usernameTaken, emptyFields, validUsername, /* createNewPost, */ createPosts,
+  usernameError, usernameTaken, emptyFields, validUsername, createPosts,
 } from '../ui.js';
 import { onNavigate } from '../app.js';
 
@@ -91,7 +91,9 @@ export async function saveNewPostData(postsForm) {
       text: postsForm.postContent.value,
       date: dateToday,
       likes: [],
+      timestamp: serverTimestamp(),
     };
+
     await setDoc(docRef, infoPost);
 
     form.reset();
@@ -121,7 +123,7 @@ function renderingPosts(post) {
 }
 
 export function getPosts() { // Gets all the docs in the Posts collection
-  const q = query(collection(db, 'posts'));
+  const q = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));
   onSnapshot(q, (querySnapshot) => {
     const posts = [];
     querySnapshot.forEach((docu) => {

@@ -1,6 +1,4 @@
 /* eslint-disable import/no-cycle */
-/* import { userData } from './lib/posts.js';
-import { onSnapshot } from './firebase-imports.js'; */
 import { toEditable } from './lib/edit-post.js';
 import { deletePost } from './lib/deletePost.js';
 
@@ -75,6 +73,13 @@ export const emptyFields = () => {
   const errorArea = document.querySelector('#errorAreaForm');
   errorArea.innerHTML = 'Profile name and/or username cannot be empty';
   errorArea.style.color = 'red';
+};
+
+export const showAndHideItems = (show, hide) => {
+  const areaShown = show;
+  const areaHidden = hide;
+  areaShown.style.display = 'flex';
+  areaHidden.style.display = 'none';
 };
 
 export const createPosts = (postData, currentUid, name, username) => {
