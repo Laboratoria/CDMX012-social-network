@@ -2,7 +2,7 @@
 import { login } from './components/logIn.js';
 import { signup } from './components/signUp.js';
 import { home } from './components/home.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { getAuth, onAuthStateChanged } from './database/firebase-import.js';
 
 const rootDiv = document.getElementById('globalContainer');
 

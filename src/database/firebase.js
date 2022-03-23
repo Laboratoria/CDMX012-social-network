@@ -2,6 +2,7 @@ import {
   initializeApp, getDatabase, set, ref, update,
   getAuth, createUserWithEmailAndPassword, GoogleAuthProvider,
   signInWithPopup, TwitterAuthProvider, signInWithEmailAndPassword,
+  signOut,
 } from './firebase-import.js';
 import { firebaseSecret } from './firebase-secret.js';
 
@@ -137,7 +138,6 @@ export const LoginUserWithGoogle = async () => {
     const email = error.email;
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
-    alert(errorMessage);
     loginWithGoogle = false;
   }
   return loginWithGoogle;
@@ -174,6 +174,16 @@ export const loginUserWithTwitter = async () => {
     loginWithTwitter = false;
   }
   return loginWithTwitter;
+};
+
+// Logout
+export const logOut = async () => {
+  const auth = getAuth();
+  try {
+    signOut(auth);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // export const LoginUserWithGoogle = async () => {
