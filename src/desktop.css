@@ -122,4 +122,29 @@
     .arrowBack{
         display:none;
     }
+    #containerFeed{
+        background-color: yellow;
+        width: 1400px;
+        height: 600px;
+    }
+    #feedHeader{
+        display: flex;
+        background-color: #A653BB;
+        width: 100%;
+        height: 10%;
+    
+    }
+    #feedFooter{
+        display: flex;
+        background-color: #1F1BC8;
+        align-items:flex-end;
+        width: 100%;
+        height: 10%;
+    }
+    #postFeed{
+        display: flex;
+        background-color: green;
+        width: 100%;
+        height: 80%;
+    }
 }

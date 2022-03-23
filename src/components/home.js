@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+
 export const home = () => {
   const sectionStart = document.createElement('section');
   sectionStart.setAttribute('class', 'containerStart');
