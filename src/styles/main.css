@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,700;1,900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100&display=swap");
+
+body {
+  background: #4cdee2;
+  /* background-size: 100%; */
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  background-image: url("../Resourses/Pattern_Mesa de trabajo 1.png");
+  background-size: 50%;
+}
+#root {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.father {
+  margin: 0;
+  margin: auto;
+}
+
+.son {
+  width: 80%;
+  margin: auto;
+}
+
+.solovino_logo {
+  width: 60%;
+  margin: 5% 20%;
+}
+.button {
+  width: 90%;
+  height: 4rem;
+  border-radius: 1.25rem;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 5% 3%;
+}
+
+#facebook {
+  background-color: rgba(59, 89, 153, 1);
+  color: white;
+  margin: 0 5% 0.3%;
+}
+
+#google {
+  background-color: rgba(221, 76, 57, 1);
+  color: white;
+  margin: 0 5 5%;
+}
+/*boton de iniciar sesion "morado"*/
+.log-In {
+  width: 60%;
+  height: 2.9375rem;
+  font-size: 1.125rem;
+  background-color: #5a0b95;
+  color: #ffffff;
+  border-radius: 1.3125rem;
+  font-size: 1.25rem;
+  margin: 1% 20% 0.3%;
+}
+
+/*instruccion*/
+.new-User {
+  width: 80%;
+  height: 1.75rem;
+  font-size: 1.25rem;
+  margin: 0 10% 0.3% 10%;
+  text-align: center;
+}
+
+/*boton de registro "rosa"*/
+.sing-In {
+  width: 60%;
+  height: 2.9375rem;
+  font-size: 1.125rem;
+  background-color: #e78bb7;
+  color: #ffffff;
+  border-radius: 1.3125rem;
+  font-size: 1.25rem;
+  justify-content: center;
+  margin: 0 20% 0.3%;
+}
+
+.father_register {
+  background-color: #d4d4d4;
+  width: 80%;
+  border-radius: 20px;
+  margin: 10% 5%;
+  padding: 5%;
+  display: flex;
+}
+
+.solovino_logo_register {
+  width: 40%;
+  margin: 2% 30%;
+}
+
+.new_User_register {
+  text-align: center;
+  width: 80%;
+  margin: 2% 10%;
+}
+
+.button_register {
+  width: 80%;
+  height: 3rem;
+  border-radius: 1.25rem;
+  font-size: 1rem;
+  text-align: center;
+  margin: 2% 10% 3%;
+  border: none;
+}
+.condicions_register {
+  width: 70%;
+  font-family: "Lato";
+  font-weight: 300;
+  text-align: center;
+  margin: 2% 15% 2%;
+}
+.logIn_register {
+  width: 50%;
+  height: 3rem;
+  font-size: 1.125rem;
+  background-color: #e78bb7;
+  color: #ffffff;
+  border-radius: 1.3rem;
+  justify-content: center;
+  margin: 4% 25%;
+  border-style: none;
+}
+
+/***********************************************/
+.solovino_working_img {
+  width: 50%;
+  margin: 2% 25%;
+}
+
+.solovino_working {
+  width: 25%;
+  margin: 5% 37.5% 0%;
+  font-size: medium;
+  text-align: center;
+}
+#return_index {
+  background: pink;
+  width: 50%;
+  margin: 2% 25% 0%;
+}
+footer {
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  margin: 5% auto 2%;
+}
+
+@media (max-width: 450px) {
+  body {
+    background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg");
+    background-size: 100%;
+    font-family: "Lato", sans-serif;
+    margin: 0;
+  }
+}
