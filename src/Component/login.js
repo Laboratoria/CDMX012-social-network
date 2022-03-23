@@ -29,7 +29,11 @@ export const login = () => {
   inputContraseñaLogin.setAttribute('id', 'contraseña');
   inputContraseñaLogin.setAttribute('placeholder', 'Contraseña');
   const btnmostrarcontraseña = document.createElement('button');
-  btnmostrarcontraseña.textContent = 'mostrar Contraseña';
+  btnmostrarcontraseña.setAttribute('id', 'ojito');
+  const ojo = document.createElement('IMG');
+  ojo.src = './images/ojitobueno.png';
+  btnmostrarcontraseña.appendChild(ojo);
+  // btnmostrarcontraseña.textContent = 'mostrar Contraseña';
   btnmostrarcontraseña.addEventListener('click', () => {
     if (inputContraseñaLogin.type === 'password') {
       inputContraseñaLogin.type = 'text';
@@ -49,6 +53,7 @@ export const login = () => {
     //modal();
     usuarioExistente();
     iniciarSesion();
+    console.log(iniciarSesion());
   });
   const imgGoogle = document.createElement('IMG');
   imgGoogle.src = './images/google.png';
@@ -68,6 +73,9 @@ export const login = () => {
   botonContraseña.setAttribute('class', 'invisible');
   botonContraseña.textContent = '¿Olvidaste tu contraseña?';
   botonContraseña.setAttribute('id', 'letras1');
+  botonContraseña.addEventListener('click', () => {
+    console.log('hola');
+  });
 
   const parrafo = document.createElement('p');
   parrafo.textContent = '¿No tienes cuenta con nosotros?';
@@ -112,7 +120,7 @@ export const login = () => {
   // contenedorPadre.append(contenedorModal, iconomal, mensajemal, btnVolver);
   // eslint-disable-next-line max-len
   seccionLogin.append(logoYummi, inputEmailLogin, inputContraseñaLogin, botonLogin, botonGoogle, botonContraseña, parrafo, botonRegistrate, /*contenedorPadre,*/ btnmostrarcontraseña);
-const modalqueque = modal();
-seccionGeneral.appendChild(modalqueque);
+  const modalqueque = modal();
+  seccionGeneral.appendChild(modalqueque);
   return seccionGeneral;
 };

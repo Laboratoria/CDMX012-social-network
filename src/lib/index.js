@@ -16,7 +16,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import { modal } from '../Component/modal.js';
+// import { modal } from '../Component/modal.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -42,15 +42,16 @@ export function iniciarSesion() {
     // https://firebase.google.com/docs/reference/js/firebase.User
       const email = user.email;
       const emailVerificado = user.emailVerified;
+      console.log(email + emailVerificado);
       // const textoVerificado = '';
-      if (emailVerificado === false) {
-        //modal();
-        alert('Email no verificado');
-        console.log("whatsup")
-        document.getElementById('contmodal').style.opacity = '1';
-        document.getElementById('contmodal').style.visibility = 'visible';
-        document.getElementById('mensajemal').textContent = 'Email no verificado';
-      // document.getElemnentById('loginbo').addEventListener('click', modal());
+        if (emailVerificado === false) {
+        // modal();
+          alert('Email no verificado');
+          // console.log("whatsup")
+          document.getElementById('contmodal').style.opacity = '1';
+          document.getElementById('contmodal').style.visibility = 'visible';
+          document.getElementById('mensajemal').textContent = 'Email no verificado';
+        
       // onNavigate('/');
       } else {
       // alert('Email verificado');
@@ -58,10 +59,11 @@ export function iniciarSesion() {
         onNavigate('/muro');
         // eslint-disable-next-line prefer-template
         document.getElementById('mensajeLogin').textContent = ' Estas Logueado ' + email;
-      } /* else {
+      /* }  else {
       console.log(user.uid);
       alert('No estas logueado :( ');
     } */
+  }
     }
   });
 }
@@ -89,6 +91,19 @@ export function verificarCorreo() {
       // ...
     });
 }
+/* export function correoContraseña() {
+  const auth = getAuth();
+sendPasswordResetEmail(auth, email)
+    .then(() => {
+    // Password reset email sent!
+    // ..
+    })
+    .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+    });
+} */
 export function registrar() {
   const email = document.getElementById('emailRegi').value;
   const contraseña = document.getElementById('contraseñaRegi').value;
