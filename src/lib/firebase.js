@@ -1,12 +1,15 @@
-// eslint-disable-next-line import/no-unresolved
+/* eslint-disable no-alert */
+/* eslint-disable no-unused-vars */
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 // viene desde una CDN y no de lib
+
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
@@ -88,6 +91,32 @@ export const loginGoogle = () => {
       // ...
     });
 };
+// LOGIN CON GITHUB
+// export const loginGithub = () => {
+//   const auth = getAuth();
+//   const provider = new GithubAuthProvider();
+//   signInWithPopup(auth, provider)
+//     .then((result) => {
+//       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+//       const credential = GithubAuthProvider.credentialFromResult(result);
+//       const token = credential.accessToken;
+
+//       // The signed-in user info.
+//       const user = result.user;
+//       // ...
+//     })
+//     .catch((error) => {
+//       // Handle Errors here.
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       // The email of the user's account used.
+//       const email = error.email;
+//       // The AuthCredential type that was used.
+//       const credential = GithubAuthProvider.credentialFromError(error);
+//       // ...
+//     });
+// };
+// LOG IN GOOGLE CON REDIRECT
 // const auth = getAuth();
 // signInWithRedirect(auth, provider);
 // alert('FUNCIONA');
