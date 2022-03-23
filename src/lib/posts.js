@@ -1,12 +1,12 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/no-unresolved */
 import {
-  getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection, addDoc,
+  getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection,
   query, where, onSnapshot,
 } from '../firebase-imports.js';
 import { app } from './firebase-config.js';
 import {
-  usernameError, usernameTaken, emptyFields, validUsername, createNewPost, showAllPosts,
+  usernameError, usernameTaken, emptyFields, validUsername, /* createNewPost, */ createPosts,
 } from '../ui.js';
 import { onNavigate } from '../app.js';
 
@@ -74,64 +74,50 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// Gets name and username for the current user
-const name = [];
-const username = [];
-function userData() {
-  const profilesRef = collection(db, 'profiles');
-  const q = query(profilesRef, where('uid', '==', currentUserUid));
-
-  onSnapshot(q, (snapshot) => {
-    snapshot.forEach((docu) => {
-      username.push(docu.data().username);
-      name.push(docu.data().name);
-    });
-  });
-}
-
-// Create new post
+// Saves the data from the post just created in the 'posts' collection
 export async function saveNewPostData(postsForm) {
   const form = document.querySelector('#readingForm');
 
   try {
-    userData();
     const today = new Date();
     const dateToday = `${today.getDate()}/${(today.getMonth() + 1)}/${today.getFullYear()}`;
 
     // Creates a new doc in the posts coleccion with the new input
-    const docRef = await addDoc(collection(db, 'posts'), {
+    const docRef = doc(collection(db, 'posts'));
+    const infoPost = {
+      idDocument: docRef.id, // add document id
       uid: currentUserUid,
       reading: postsForm.bookTitle.value,
       text: postsForm.postContent.value,
       date: dateToday,
       likes: [],
-    });
+    };
+    await setDoc(docRef, infoPost);
 
     form.reset();
-
-    // Gets the data from the post just created
-    const docSecRef = doc(db, 'posts', docRef.id);
-    const docSnap = await getDoc(docSecRef);
-    const docData = docSnap.data();
-
-    createNewPost(docData, name, username);
   } catch (e) {
     console.error('Error adding document: ', e);
   }
 }
 
-// Obtains the original poster (OP) data (username and name) and prints it
-let posterName = '';
-let posterUsername = '';
+// Gets the original poster(OP) data and renders all the posts
+function renderingPosts(post) {
+  // Cleans the post area
+  const postsArea = document.querySelector('#postsArea');
+  postsArea.innerHTML = '';
 
-async function getAnyUserData(post) { // Gets the doc in the Profiles collection for the OP
-  const profileDocRef = doc(db, 'profiles', post.uid);
-  const docSnap = await getDoc(profileDocRef);
-  const docData = docSnap.data();
-  posterName = docData.name;
-  posterUsername = docData.username;
-  // console.log(posterName, ' ', posterUsername);
-  showAllPosts(post, currentUserUid, posterName, posterUsername);
+  const profilesRef = collection(db, 'profiles'); // Gets the profile that matches the post.uid
+  const q = query(profilesRef, where('uid', '==', post.uid));
+  let name = '';
+  let username = '';
+
+  onSnapshot(q, (snapshot) => {
+    snapshot.forEach((docu) => {
+      name = docu.data().name;
+      username = docu.data().username;
+      createPosts(post, currentUserUid, name, username);
+    });
+  });
 }
 
 export function getPosts() { // Gets all the docs in the Posts collection
@@ -141,9 +127,8 @@ export function getPosts() { // Gets all the docs in the Posts collection
     querySnapshot.forEach((docu) => {
       const data = docu.data();
       data.key = docu.id;
-      /* posts.push(docu.data()); */
       posts.push(data);
     });
-    posts.map((post) => getAnyUserData(post));
+    posts.map((post) => renderingPosts(post));
   });
 }

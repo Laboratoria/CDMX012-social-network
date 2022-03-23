@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* import { userData } from './lib/posts.js';
 import { onSnapshot } from './firebase-imports.js'; */
+import { toEditable } from './lib/edit-post.js';
 import { deletePost } from './lib/deletePost.js';
 
 export const showSignUpError = (error) => {
@@ -76,40 +77,40 @@ export const emptyFields = () => {
   errorArea.style.color = 'red';
 };
 
-export const createNewPost = (postData, name, username) => {
+export const createPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');
   post.setAttribute('class', 'post-container');
-  post.innerHTML = ` <hr>
-    ${name} @${username} <span>· ${postData.date}</span> <br>
-    Reading: ${postData.reading} <br>
-    ${postData.text}
-    `;
+  const infoUserPost = document.createElement('div');
+  infoUserPost.setAttribute('class', 'info-user-post');
+  const line = document.createElement('hr');
+  const info = document.createElement('div');
+  info.setAttribute('class', 'info');
 
-  const like = document.createElement('img');
-  like.setAttribute('src', './assets/like.png');
+  const nameProfile = document.createElement('p');
+  nameProfile.setAttribute('class', 'nameProfile-P');
+  nameProfile.innerHTML = `<strong>${name}</strong>`;
 
-  const options = document.createElement('img');
-  options.setAttribute('src', './assets/options.png');
-  options.setAttribute('height', '20');
+  const userName = document.createElement('p');
+  userName.setAttribute('class', 'userName-P');
+  userName.innerHTML = `@${username}`;
 
-  post.append(like, options);
-  const newPost = document.querySelector('#newPost');
-  newPost.append(post);
+  const date = document.createElement('span');
+  date.setAttribute('class', 'date-P');
+  date.innerHTML = `· ${postData.date}`;
 
-  return newPost;
-};
+  info.append(nameProfile, userName, date);
+  infoUserPost.append(line, info);
 
-export const showAllPosts = (postData, currentUid, name, username) => {
-  const post = document.createElement('article');
-  post.setAttribute('class', 'post-container');
-  post.innerHTML = ` <hr>
-    ${name} @${username} <span>· ${postData.date}</span> <br> 
-    Reading: ${postData.reading} <br> 
-    ${postData.text} 
-    `;
+  const nodeTobeEdited = document.createElement('div');
+  nodeTobeEdited.setAttribute('class', 'to-edit');
+  nodeTobeEdited.innerHTML = `<div class="post-content">
+  <div><img src= "./assets/libro-abierto.png" class= "book-icon"><p><strong>  ${postData.reading}</strong></p></div> <br>
+  <p>${postData.text}</p>
+  <div>`;
 
-  const like = document.createElement('img');
-  like.setAttribute('src', './assets/like.png');
+  const like = document.createElement('div');
+  like.setAttribute('class', 'like-btn');
+  like.innerHTML = '<img src= "./assets/like.png" alt="like button">';
 
   if (currentUid === postData.uid) {
     const options = document.createElement('img');
@@ -117,21 +118,37 @@ export const showAllPosts = (postData, currentUid, name, username) => {
     options.setAttribute('src', './assets/options.png');
     options.setAttribute('height', '20');
 
+    info.append(options);
+
     const dropdownContainer = document.createElement('div');
     dropdownContainer.setAttribute('class', 'dropdown-container');
     dropdownContainer.setAttribute('tabindex', '-1');
-    dropdownContainer.innerHTML = `
-        <div class="dropdown">
-          <a href="#" class='editPost' id='editPost'><div>Edit</div></a>
-          <a href="#" class='deletePost' id='deletePost'><div>Delete</div></a>
-        </div>
-      `;
+
+    const editDeletContainer = document.createElement('div');
+    editDeletContainer.setAttribute('class', 'dropdown');
+
+    const editP = document.createElement('a');
+    editP.setAttribute('href', '#');
+    editP.setAttribute('class', 'editPost');
+    editP.setAttribute('id', 'editPost');
+
+    editP.innerHTML = '<div>Edit</div>';
+
+    const deleteP = document.createElement('a');
+    deleteP.setAttribute('href', '#');
+    deleteP.setAttribute('class', 'deletePost');
+    deleteP.setAttribute('id', 'deletePost');
+
+    deleteP.innerHTML = '<div>Delete</div>';
+
+    editDeletContainer.append(editP, deleteP);
+    dropdownContainer.append(editDeletContainer);
 
     options.addEventListener('click', () => {
       dropdownContainer.classList.toggle('show');
 
-      const btnDeletePost = document.getElementById('deletePost');
-      btnDeletePost.addEventListener('click', () => {
+      deleteP.addEventListener('click', () => {
+        dropdownContainer.classList.toggle('show'); // Agregue nuevamente esta linea aquí para que al dar click en Delete el dropdowm desaparezca
         const result = window.confirm('Are you sure you want to delete this post?');
         if (result) {
           deletePost(postData.key);
@@ -139,14 +156,20 @@ export const showAllPosts = (postData, currentUid, name, username) => {
       });
     });
 
-    post.append(like, options, dropdownContainer);
+    post.append(infoUserPost, nodeTobeEdited, like, dropdownContainer);
     const postArea = document.querySelector('#postsArea');
     postArea.append(post);
+
+    editP.addEventListener('click', (e) => {
+      e.preventDefault();
+      toEditable(postData, nodeTobeEdited);
+      dropdownContainer.classList.toggle('show');
+    });
 
     return postArea;
   }
 
-  post.append(like);
+  post.append(infoUserPost, nodeTobeEdited, like);
   const postArea = document.querySelector('#postsArea');
   postArea.append(post);
 
