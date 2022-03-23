@@ -1,10 +1,13 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable import/no-cycle */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { onNavigate } from '../main.js';
 
 // Your web app's Firebase configuration
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,12 +25,57 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app); // Save registerData collection in fireStore
 
-export const createAccount = (username, email, password) => {
-  addDoc(collection(db, 'users'), {
-    username,
-    email,
-    password,
-  });
+// Create new users with email acc
+export const createNewUsers = (username, email, password) => {
+  const auth = getAuth(); // clave para au
+  createUserWithEmailAndPassword(auth, username, email, password) // Crea el usuario
+    .then((userCredential) => {
+      alert('User created');
+      onNavigate('/login');
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+
+      if (errorCode === 'auth/invalid-email') {
+        alert('write a valid mail example@gmail.com');
+      }
+      if (errorCode === 'auth/weak-password') {
+        alert('Your Password must have 6 characters at least.');
+      }
+      if (errorCode === 'auth/email-already-in-use') {
+        alert('This email is in use, try another or logIn.');
+      }
+    });
 };
+
+// login with a registered email
+export const shootIn = (email, password) => {
+  const auth = getAuth();
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      alert('You are In!');
+      onNavigate('/home');
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password, try again.');
+      }
+      if (errorCode === 'auth/invalid-email') {
+        alert('write a valid email');
+      }
+    });
+};
+// const db = getFirestore(app); // Save registerData collection in fireStore
+
+// export const createAccount = (username, email, password) => {
+//   addDoc(collection(db, 'users'), {
+//     username,
+//     email,
+//     password,
+//   });
+// };
