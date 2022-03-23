@@ -29,10 +29,11 @@ const app = initializeApp(firebaseConfig);
 // Create new users with email acc
 export const createNewUsers = (username, email, password) => {
   const auth = getAuth(); // clave para au
-  createUserWithEmailAndPassword(auth, username, email, password) // Crea el usuario
+  createUserWithEmailAndPassword(auth, email, password) // Crea el usuario
     .then((userCredential) => {
+      console.log('User created');
       alert('User created');
-      onNavigate('/login');
+      onNavigate('/');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -50,26 +51,26 @@ export const createNewUsers = (username, email, password) => {
 };
 
 // login with a registered email
-export const shootIn = (email, password) => {
-  const auth = getAuth();
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      alert('You are In!');
-      onNavigate('/home');
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password, try again.');
-      }
-      if (errorCode === 'auth/invalid-email') {
-        alert('write a valid email');
-      }
-    });
-};
+// export const shootIn = (email, password) => {
+//   const auth = getAuth();
+//   signInWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       // Signed in
+//       const user = userCredential.user;
+//       alert('You are In!');
+//       onNavigate('/home');
+//       // ...
+//     })
+//     .catch((error) => {
+//       const errorCode = error.code;
+//       if (errorCode === 'auth/wrong-password') {
+//         alert('Wrong password, try again.');
+//       }
+//       if (errorCode === 'auth/invalid-email') {
+//         alert('write a valid email');
+//       }
+//     });
+// };
 // const db = getFirestore(app); // Save registerData collection in fireStore
 
 // export const createAccount = (username, email, password) => {

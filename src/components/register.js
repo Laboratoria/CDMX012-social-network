@@ -81,7 +81,7 @@ export const register = () => {
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-
+    console.log(username, email, password);
     createNewUsers(username, email, password);
   });
 
