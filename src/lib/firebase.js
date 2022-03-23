@@ -6,8 +6,9 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-// eslint-disable-next-line import/no-unresolved
-} from './firebaseFunctions';
+
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+// viene desde una CDN y no de lib
 
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
@@ -18,14 +19,14 @@ export const createUserRed = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password) // Crea el usuario
     .then((userCredential) => {
       // una vez creado con Éxito, devuelve las credenciales del usuario
-      const user = userCredential.user; // trae info del usuario (nos podria servir para despues)
+      // const user = userCredential.user; // trae info del usuario (nos podria servir para despues)
       console.log('¡Registro Exitoso!');
       alert('registrado');
       onNavigate('/login');
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
+      // const errorMessage = error.message;
       if (errorCode === 'auth/invalid-email') {
         alert('Por favor ingresa un correo válido');
       }
@@ -33,7 +34,9 @@ export const createUserRed = (email, password) => {
         alert('Tu contraseña debe contener al menos 6 carácteres.');
       }
       if (errorCode === 'auth/email-already-in-use') {
-        alert('Ya existe una cuenta con este correo, intenta con uno nuevo o Inicia Sesión');
+        alert(
+          'Ya existe una cuenta con este correo, intenta con uno nuevo o Inicia Sesión'
+        );
       }
     });
 };
@@ -53,7 +56,9 @@ export const signIn = (email, password) => {
     .catch((error) => {
       const errorCode = error.code;
       if (errorCode === 'auth/wrong-password') {
-        alert('Tu contraseña es incorrecta, intenta de nuevo o da click en "Olivde mi contraseña"');
+        alert(
+          'Tu contraseña es incorrecta, intenta de nuevo o da click en "Olivde mi contraseña"'
+        );
       }
       if (errorCode === 'auth/invalid-email') {
         alert('Por favor ingresa un correo válido');

@@ -92,6 +92,16 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.199), 0 8px 16px rgba(0, 0, 0, 0.342);
         font-family: 'Roboto', sans-serif;   
     }
+    #maskify{
+    position: relative;
+    left:120px;
+    top: -160px;
+    }
+    #imgMaskify{
+    position: relative;
+    top: -163px;
+    left: 125px;
+    }
     .containerLogin{
         margin-top: 25%;
         display:flex;
