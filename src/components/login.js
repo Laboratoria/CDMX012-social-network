@@ -6,9 +6,9 @@ import { onNavigate } from '../main.js';
 export const login = () => {
   const containerLoginAll = document.createElement('section');
 
-  const arrowBack = document.createElement('img');
-  arrowBack.setAttribute('src', 'img/Arrow.png');
-  arrowBack.setAttribute('class', 'arrowBack');
+  const arrowBackLogin = document.createElement('img');
+  arrowBackLogin.setAttribute('src', 'img/Arrow.png');
+  arrowBackLogin.setAttribute('class', 'arrowBack');
 
   const containerLogin = document.createElement('div');
   containerLogin.setAttribute('class', 'containerLogin');
@@ -47,6 +47,7 @@ export const login = () => {
   buttonGmail.setAttribute('id', 'loginGoogle');
   buttonGmail.textContent = 'Inicia sesión con Gmail';
 
+  containerLogin.appendChild(arrowBackLogin);
   containerInputLogin.appendChild(loginEmail);
   containerInputLogin.appendChild(loginPass);
   containerInputLogin.appendChild(loginButton);
@@ -55,9 +56,8 @@ export const login = () => {
 
   containerLogin.appendChild(logo);
   containerLogin.appendChild(containerInputLogin);
-  containerLoginAll.appendChild(arrowBack);
   containerLoginAll.appendChild(containerLogin);
-  arrowBack.addEventListener('click', () => {
+  arrowBackLogin.addEventListener('click', () => {
     onNavigate('/');
   });
   loginButton.addEventListener('click', (e) => {
