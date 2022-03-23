@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 
 export const login = () => {
@@ -37,7 +39,7 @@ export const login = () => {
   const inputEmail = document.createElement('input');
   inputEmail.setAttribute('type', 'email');
   inputEmail.className = 'inputs';
-  inputEmail.id = 'email2';
+  inputEmail.id = 'email';
 
   const labelPassword = document.createElement('label');
   labelPassword.className = 'text';
@@ -45,16 +47,20 @@ export const login = () => {
   const inputPassword = document.createElement('input');
   inputPassword.setAttribute('type', 'password');
   inputPassword.className = 'inputs';
-  inputPassword.id = 'password2';
+  inputPassword.id = 'password';
 
   const btnInfoShootIn = document.createElement('button');
   btnInfoShootIn.className = 'btnsSign';
   btnInfoShootIn.id = 'submitInfoShoot';
   btnInfoShootIn.textContent = 'Shoot In';
 
+  const errorMessage = document.createElement('p');
+  errorMessage.className = 'messages';
+  errorMessage.id = 'pError';
+
   header.append(imgArrowBack, titles);
   containerIcons.appendChild(iconG);
-  infoForm.append(labelMail, inputEmail, labelPassword, inputPassword, btnInfoShootIn);
+  infoForm.append(labelMail, inputEmail, labelPassword, inputPassword, errorMessage, btnInfoShootIn);
   shootInSection.append(header, logInWith, containerIcons, infoForm);
   return shootInSection;
 };
