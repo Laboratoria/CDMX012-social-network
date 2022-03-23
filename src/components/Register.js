@@ -37,7 +37,7 @@ export const register = () => {
     "Para completar tu registro, aceptas que has leído los términos y condiciones de uso y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad.";
 
   const logIn = document.createElement("button");
-  logIn.textContent = "Crear cuenta e iniciar sesión";
+  logIn.textContent = "Continuar";
   logIn.addEventListener("click", () => {
     let userMail = document.getElementById("email_register").value;
 

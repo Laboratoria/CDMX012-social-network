@@ -12,6 +12,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { onNavigate } from "../main.js";
 import { firebaseConfig } from "./firebase-config.js";
@@ -54,24 +56,51 @@ export const isLogin = (emailLogin, passwordLogin) => {
     });
 };
 
-export const authenticationObserver = () => {
-  // usar firebase onauth state change
-  // si esta login invocar onnavigate a time line
-  // si no esta login invocar onavigate a /
-  // https://firebase.google.com/docs/auth/web/manage-users?hl=es
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
+// export const authenticationObserver = () => {
+//   // usar firebase onauth state change
+//   // si esta login invocar onnavigate a time line
+//   // si no esta login invocar onavigate a /
+//   // https://firebase.google.com/docs/auth/web/manage-users?hl=es
+//   const auth = getAuth();
+//   onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//       // User is signed in, see docs for a list of available properties
+//       // https://firebase.google.com/docs/reference/js/firebase.User
+//       const uid = user.uid;
+//       // ...
+//       console.log("se ejecuta la funcion observador");
+//       onNavigate("/Timeline");
+//     } else {
+//       // User is signed out
+//       // ...
+//       onNavigate("/");
+//     }
+//   });
+// };
+
+//iniciar sesión con Google
+
+export const loginWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
       // ...
-      console.log("se ejecuta la funcion observador");
       onNavigate("/Timeline");
-    } else {
-      // User is signed out
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
-      onNavigate("/");
-    }
-  });
+      alert(errorCode || errorMessage || email || credential);
+    });
 };

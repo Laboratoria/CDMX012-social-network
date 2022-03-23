@@ -32,8 +32,6 @@ export const timeline = (user) => {
   returnIndex.setAttribute("class", "button");
   returnIndex.setAttribute("type", "button");
 
-  console.log(user);
-
   content.append(textTimeline, solovinoWorking, returnIndex);
   return content;
 };

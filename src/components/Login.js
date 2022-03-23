@@ -1,5 +1,5 @@
 import { onNavigate } from "../main.js";
-import { isLogin, authenticationObserver } from "../lib/auth.js";
+import { isLogin, loginWithGoogle } from "../lib/auth.js";
 
 export const login = () => {
   const contentSectionLogin = document.createElement("section");
@@ -20,6 +20,9 @@ export const login = () => {
 
   const loginGoogle = document.createElement("button");
   loginGoogle.textContent = "Inicie sesión con Google";
+  loginGoogle.addEventListener("click", () => {
+    loginWithGoogle();
+  });
   loginGoogle.setAttribute("id", "google");
   loginGoogle.setAttribute("class", "button");
   loginGoogle.setAttribute("type", "button");
@@ -45,9 +48,9 @@ export const login = () => {
 
     isLogin(userMail, userPass);
   });
-  logIn.addEventListener("click", () => {
-    authenticationObserver();
-  });
+  // logIn.addEventListener("click", () => {
+  //   authenticationObserver();
+  // });
   logIn.setAttribute("class", "log-In");
 
   const text = document.createElement("h2");

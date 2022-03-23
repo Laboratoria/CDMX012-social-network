@@ -20,58 +20,62 @@ body {
 }
 
 .son {
-  width: 80%;
-  margin: auto;
+  width: 100%;
+  height: 50%;
+  margin: 0;
 }
 
 .solovino_logo {
-  width: 60%;
-  margin: 5% 20%;
+  position: absolute;
+  width: 30%;
+  /* margin-right: 65%;
+  margin-left: 13.5%; */
+  margin: 13% 65% 30% 5%;
 }
 .button {
-  width: 90%;
+  width: 40%;
   height: 4rem;
   border-radius: 1.25rem;
   font-size: 20px;
   text-align: center;
-  margin: 0 5% 3%;
+  margin: 0 3% 0% 57%;
 }
 
 #facebook {
   background-color: rgba(59, 89, 153, 1);
   color: white;
-  margin: 0 5% 0.3%;
+  margin: 25% 3% 0% 57%;
 }
 
 #google {
   background-color: rgba(221, 76, 57, 1);
   color: white;
-  margin: 0 5 5%;
+  margin: 0 3% 0% 57%;
 }
 /*boton de iniciar sesion "morado"*/
 .log-In {
-  width: 60%;
+  width: 40%;
   height: 2.9375rem;
   font-size: 1.125rem;
   background-color: #5a0b95;
   color: #ffffff;
   border-radius: 1.3125rem;
   font-size: 1.25rem;
-  margin: 1% 20% 0.3%;
+  margin: 1% 3% 0.3% 57%;
 }
 
 /*instruccion*/
 .new-User {
-  width: 80%;
+  width: 40%;
   height: 1.75rem;
   font-size: 1.25rem;
-  margin: 0 10% 0.3% 10%;
+  margin: 0 3% 0.3% 57%;
   text-align: center;
 }
 
 /*boton de registro "rosa"*/
 .sing-In {
-  width: 60%;
+  width: 40%;
   height: 2.9375rem;
   font-size: 1.125rem;
   background-color: #e78bb7;
@@ -79,7 +83,7 @@ body {
   border-radius: 1.3125rem;
   font-size: 1.25rem;
   justify-content: center;
-  margin: 0 20% 0.3%;
+  margin: 0 3% 0.3% 57%;
 }
 
 .father_register {
@@ -160,5 +164,68 @@ footer {
     background-size: 100%;
     font-family: "Lato", sans-serif;
     margin: 0;
+  }
+  .son {
+    width: 80%;
+    margin: auto;
+  }
+
+  .solovino_logo {
+    position: static;
+    width: 60%;
+    margin: 5% 20%;
+  }
+  .button {
+    width: 90%;
+    height: 4rem;
+    border-radius: 1.25rem;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 5% 3%;
+  }
+
+  #facebook {
+    background-color: rgba(59, 89, 153, 1);
+    color: white;
+    margin: 0 5% 0.3%;
+  }
+
+  #google {
+    background-color: rgba(221, 76, 57, 1);
+    color: white;
+    margin: 0% 5% 5%;
+  }
+  /*boton de iniciar sesion "morado"*/
+  .log-In {
+    width: 60%;
+    height: 2.9375rem;
+    font-size: 1.125rem;
+    background-color: #5a0b95;
+    color: #ffffff;
+    border-radius: 1.3125rem;
+    font-size: 1.25rem;
+    margin: 1% 20% 0.3%;
+  }
+
+  /*instruccion*/
+  .new-User {
+    width: 80%;
+    height: 1.75rem;
+    font-size: 1.25rem;
+    margin: 0 10% 0.3% 10%;
+    text-align: center;
+  }
+
+  /*boton de registro "rosa"*/
+  .sing-In {
+    width: 60%;
+    height: 2.9375rem;
+    font-size: 1.125rem;
+    background-color: #e78bb7;
+    color: #ffffff;
+    border-radius: 1.3125rem;
+    font-size: 1.25rem;
+    justify-content: center;
+    margin: 0 20% 0.3%;
   }
 }
