@@ -34,6 +34,9 @@ body {
 .userName-P {
   color: #8f8f8f;
 }
+a div {
+  padding: 2px;
+}
 
 .post-content div {
   margin-top: 0.5em;
@@ -64,9 +67,6 @@ a {
   color: black;
 }
 
-a div {
-  padding: 2px;
-}
 
 .editPost:hover,
 .deletePost:hover {
@@ -119,6 +119,22 @@ a div {
   padding: 0.2em;
   margin-bottom: 0.4em;
   width: 100%;
+}
+
+.reading-form input,
+textarea {
+  border: none;
+  background-color: rgba(229, 229, 229, 0.7);
+
+  border-radius: 5px;
+  padding: 0.2em;
+  margin-bottom: 0.5em;
+  width: 100%;
+}
+
+.reading-form textarea{
+  height: 8em;
+  resize: none;
 }
 
 .post-content textarea {
@@ -205,22 +221,6 @@ a div {
 }
 .reading-area {
   display: flex;
-}
-
-.reading-form textarea{
-  height: 8em;
-  resize: none;
-}
-
-.reading-form input,
-textarea {
-  border: none;
-  background-color: rgba(229, 229, 229, 0.7);
-
-  border-radius: 5px;
-  padding: 0.2em;
-  margin-bottom: 0.5em;
-  width: 100%;
 }
 
 .book-title {
