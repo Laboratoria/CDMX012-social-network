@@ -1,8 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
-import { createNewUsers } from '../lib/firebase.js';
-// import { createAccount } from '../lib/firebase.js';
+import { createNewUsers, createAccount } from '../lib/firebase.js';
 
 export const register = () => {
   const joinUsSection = document.createElement('section');
@@ -35,7 +34,7 @@ export const register = () => {
   const iconF = document.createElement('img');
   iconF.setAttribute('src', './assets/facebook.png');
 
-  const infoForm = document.createElement('div');
+  const infoForm = document.createElement('form');
   infoForm.className = 'formContainer';
   const labelUser = document.createElement('label');
   labelUser.className = 'text';
@@ -53,6 +52,7 @@ export const register = () => {
   const inputEmail = document.createElement('input');
   inputEmail.setAttribute('type', 'email');
   inputEmail.setAttribute('placeholder', 'Example@gmail.com');
+  inputEmail.setAttribute('autocomplete', 'off');
   inputEmail.className = 'inputs';
   inputEmail.required = 'true';
   inputEmail.id = 'email';
@@ -63,6 +63,7 @@ export const register = () => {
   const inputPassword = document.createElement('input');
   inputPassword.setAttribute('type', 'password');
   inputPassword.setAttribute('placeholder', 'More than 6 characters');
+  inputPassword.setAttribute('autocomplete', 'off');
   inputPassword.className = 'inputs';
   inputPassword.required = 'true';
   inputPassword.id = 'password';
@@ -81,8 +82,17 @@ export const register = () => {
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    console.log(username, email, password);
+
     createNewUsers(username, email, password);
+  });
+
+  btnInfoJoinUs.addEventListener('click', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    createAccount(username, email, password);
   });
 
   header.append(imgArrowBack, titles);
