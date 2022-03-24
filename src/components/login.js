@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable import/no-cycle */
+import { shootIn, googleSignIn } from '../lib/firebase.js';
 import { onNavigate } from '../main.js';
 
 export const login = () => {
@@ -30,10 +31,15 @@ export const login = () => {
 
   const iconG = document.createElement('img');
   iconG.setAttribute('src', './assets/google.png');
+  iconG.addEventListener('click', (e) => {
+    e.preventDefault();
+    googleSignIn();
+  });
+
   const iconF = document.createElement('img');
   iconF.setAttribute('src', './assets/facebook.png');
 
-  const infoForm = document.createElement('div');
+  const infoForm = document.createElement('form');
   infoForm.className = 'formContainer';
 
   const labelMail = document.createElement('label');
@@ -41,6 +47,7 @@ export const login = () => {
   labelMail.textContent = 'Email:';
   const inputEmail = document.createElement('input');
   inputEmail.setAttribute('type', 'email');
+  inputEmail.setAttribute('autocomplete', 'off');
   inputEmail.className = 'inputs';
   inputEmail.id = 'email';
 
@@ -49,8 +56,27 @@ export const login = () => {
   labelPassword.textContent = 'Password:';
   const inputPassword = document.createElement('input');
   inputPassword.setAttribute('type', 'password');
+  inputPassword.setAttribute('autocomplete', 'off');
   inputPassword.className = 'inputs';
   inputPassword.id = 'password';
+
+  const btnInfoShootIn = document.createElement('button');
+  btnInfoShootIn.className = 'btnsSign';
+  btnInfoShootIn.id = 'submitInfoShoot';
+  btnInfoShootIn.textContent = 'Shoot In';
+
+  btnInfoShootIn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    shootIn(email, password);
+  });
+
+  const errorMessage = document.createElement('p');
+  errorMessage.className = 'messages';
+  errorMessage.id = 'pError';
+
 
   const divFooter = document.createElement('div');
   divFooter.className = 'containerFooter';
@@ -63,15 +89,6 @@ export const login = () => {
   btnRefJoinUs.className = 'btnRefLogin';
   btnRefJoinUs.id = 'refJoinUs';
   btnRefJoinUs.textContent = 'Join us';
-
-  const btnInfoShootIn = document.createElement('button');
-  btnInfoShootIn.className = 'btnShootIn';
-  btnInfoShootIn.id = 'submitInfoShoot';
-  btnInfoShootIn.textContent = 'Shoot In';
-
-  const errorMessage = document.createElement('p');
-  errorMessage.className = 'messages';
-  errorMessage.id = 'pError';
 
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);

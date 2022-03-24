@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
-import { createNewUsers } from '../lib/firebase.js';
+import { createNewUsers, googleSignIn } from '../lib/firebase.js';
 // import { createAccount } from '../lib/firebase.js';
 
 export const register = () => {
@@ -29,8 +29,13 @@ export const register = () => {
   // containerIcons es contenedor del icono de Google
   const containerIcons = document.createElement('div');
   containerIcons.className = 'container';
+
   const iconG = document.createElement('img');
   iconG.setAttribute('src', './assets/google.png');
+  iconG.addEventListener('click', (e) => {
+    e.preventDefault();
+    googleSignIn();
+  });
 
   const iconF = document.createElement('img');
   iconF.setAttribute('src', './assets/facebook.png');

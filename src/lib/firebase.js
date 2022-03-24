@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable object-curly-newline */
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-unused-vars */
@@ -6,7 +7,7 @@
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 import { onNavigate } from '../main.js';
 
 // Your web app's Firebase configuration
@@ -33,7 +34,7 @@ export const createNewUsers = (username, email, password) => {
     .then((userCredential) => {
       console.log('User created');
       alert('User created');
-      onNavigate('/');
+      onNavigate('/home');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -51,32 +52,60 @@ export const createNewUsers = (username, email, password) => {
 };
 
 // login with a registered email
-// export const shootIn = (email, password) => {
-//   const auth = getAuth();
-//   signInWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//       // Signed in
-//       const user = userCredential.user;
-//       alert('You are In!');
-//       onNavigate('/home');
-//       // ...
-//     })
-//     .catch((error) => {
-//       const errorCode = error.code;
-//       if (errorCode === 'auth/wrong-password') {
-//         alert('Wrong password, try again.');
-//       }
-//       if (errorCode === 'auth/invalid-email') {
-//         alert('write a valid email');
-//       }
-//     });
-// };
-// const db = getFirestore(app); // Save registerData collection in fireStore
+export const shootIn = (email, password) => {
+  const auth = getAuth();
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      alert('You are In!');
+      onNavigate('/home');
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password, try again.');
+      }
+      if (errorCode === 'auth/invalid-email') {
+        alert('write a valid email');
+      }
+    });
+};
 
-// export const createAccount = (username, email, password) => {
-//   addDoc(collection(db, 'users'), {
-//     username,
-//     email,
-//     password,
-//   });
-// };
+// Google Login
+export const googleSignIn = () => {
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      // ...
+      onNavigate('/');
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+};
+
+// save date to firestore
+const db = getFirestore(app); // Save registerData collection in fireStore
+
+export const createAccount = (username, email, password) => {
+  addDoc(collection(db, 'users'), {
+    username,
+    email,
+    password,
+  });
+};
