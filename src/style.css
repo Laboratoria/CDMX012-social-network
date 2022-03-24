@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 1px solid red;
+  /*outline: 1px solid red;*/
   width: 360px;
   height: 640px;
 }
@@ -168,6 +168,13 @@ body {
   cursor: pointer;
 }
 
+.containerFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 60px;
+  width: auto;
+  margin-top: auto;
 /* .sign a{
     color: #F2A928;
     height: auto;

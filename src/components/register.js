@@ -76,18 +76,29 @@ export const register = () => {
   btnInfoJoinUs.id = 'submitInfoJoin';
   btnInfoJoinUs.textContent = 'Join Us';
 
+  const divFooter = document.createElement('div');
+  divFooter.className = 'containerFooter';
+
+  const labelHaveAcc = document.createElement('footer');
+  labelHaveAcc.className = 'sign';
+  labelHaveAcc.textContent = 'Have an account?';
+
+  const refLogin = document.createElement('href');
+  refLogin.className = 'sign';
+  refLogin.textContent = 'Shoot in';
+
   btnInfoJoinUs.addEventListener('click', (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    console.log(username, email, password);
     createNewUsers(username, email, password);
   });
 
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
   infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, errorMessage);
-  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs);
+  divFooter.append(labelHaveAcc, refLogin);
+  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs, divFooter);
   return joinUsSection;
 };

@@ -27,8 +27,11 @@ export const login = () => {
   // containerIcons es contenedor del icono de Google
   const containerIcons = document.createElement('div');
   containerIcons.className = 'container';
+
   const iconG = document.createElement('img');
   iconG.setAttribute('src', './assets/google.png');
+  const iconF = document.createElement('img');
+  iconF.setAttribute('src', './assets/facebook.png');
 
   const infoForm = document.createElement('div');
   infoForm.className = 'formContainer';
@@ -49,6 +52,17 @@ export const login = () => {
   inputPassword.className = 'inputs';
   inputPassword.id = 'password';
 
+  const divFooter = document.createElement('div');
+  divFooter.className = 'containerFooter';
+
+  const labelHaveAcc = document.createElement('footer');
+  labelHaveAcc.className = 'sign';
+  labelHaveAcc.textContent = 'Dont have an account?';
+
+  const refJoinUs = document.createElement('href');
+  refJoinUs.className = 'sign';
+  refJoinUs.textContent = 'Join us';
+
   const btnInfoShootIn = document.createElement('button');
   btnInfoShootIn.className = 'btnsSign';
   btnInfoShootIn.id = 'submitInfoShoot';
@@ -59,8 +73,9 @@ export const login = () => {
   errorMessage.id = 'pError';
 
   header.append(imgArrowBack, titles);
-  containerIcons.appendChild(iconG);
+  containerIcons.append(iconG, iconF);
   infoForm.append(labelMail, inputEmail, labelPassword, inputPassword, errorMessage, btnInfoShootIn);
-  shootInSection.append(header, logInWith, containerIcons, infoForm);
+  divFooter.append(labelHaveAcc, refJoinUs);
+  shootInSection.append(header, logInWith, containerIcons, infoForm, divFooter);
   return shootInSection;
 };
