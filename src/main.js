@@ -6,6 +6,7 @@
 import { welcome } from './components/welcome.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
+import { home } from './components/home.js';
 
 // SPA
 const rootDiv = document.getElementById('root');
@@ -14,6 +15,7 @@ const routes = {
   '/': welcome,
   '/register': register,
   '/login': login,
+  '/home': home,
 };
 
 export const onNavigate = (pathname) => {
