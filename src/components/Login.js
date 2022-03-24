@@ -65,6 +65,9 @@ export const login = () => {
   singIn.setAttribute("class", "sing-In");
   singIn.setAttribute("id", "sing-In");
 
+  const footerPage = document.createElement("footer");
+  footerPage.textContent = "Derechos Reservados 2022 ©️";
+
   contentSectionLogin.appendChild(loginSesion);
   loginSesion.append(
     imgLogo,
@@ -74,7 +77,8 @@ export const login = () => {
     inputPasword,
     logIn,
     text,
-    singIn
+    singIn,
+    footerPage
   );
   return contentSectionLogin;
 };

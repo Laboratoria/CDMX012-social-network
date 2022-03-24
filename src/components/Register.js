@@ -46,10 +46,13 @@ export const register = () => {
     registeNewUsers(userMail, userPass);
   });
 
+  const footerPage = document.createElement("footer");
+  footerPage.textContent = "Derechos Reservados 2022 ©️";
+
   logIn.setAttribute("class", "logIn_register");
   logIn.setAttribute("id", "create_account");
 
-  contentSection.appendChild(registerSection);
+  contentSection.append(registerSection, footerPage);
   registerSection.append(
     imgLogo,
     textCreate,

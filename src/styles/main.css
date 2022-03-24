@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,700;1,900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100&display=swap");
 
 body {
-  background: #4cdee2;
+  /* background: #4cdee2;
   /* background-size: 100%; */
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
   margin: 0;
-  background-image: url("../Resourses/Pattern_Mesa de trabajo 1.png");
-  background-size: 50%;
+  /* background-image: url("../Resourses/Pattern_Mesa de trabajo 1.png");
+  background-size: 50%; */
 }
 #root {
   margin: 0;
@@ -16,7 +16,11 @@ body {
 
 .father {
   margin: 0;
-  margin: auto;
+  background: #4cdee2;
+  /* background-size: 100%; */
+  font-family: "Lato", sans-serif;
+  background-image: url("../Resourses/Pattern_Mesa de trabajo 1.png");
+  background-size: 50%;
 }
 
 .son {
@@ -86,15 +90,6 @@ body {
   margin: 0 3% 0.3% 57%;
 }
 
-.father_register {
-  background-color: #d4d4d4;
-  width: 80%;
-  border-radius: 20px;
-  margin: 10% 5%;
-  padding: 5%;
-  display: flex;
-}
-
 .solovino_logo_register {
   width: 40%;
   margin: 2% 30%;
@@ -134,41 +129,52 @@ body {
   border-style: none;
 }
 
-/***********************************************/
-.solovino_working_img {
-  width: 50%;
-  margin: 2% 25%;
-}
-
-.solovino_working {
-  width: 25%;
-  margin: 5% 37.5% 0%;
-  font-size: medium;
-  text-align: center;
-}
-#return_index {
-  background: pink;
-  width: 50%;
-  margin: 2% 25% 0%;
-}
 footer {
   text-align: center;
   bottom: 0;
   width: 100%;
-  margin: 5% auto 2%;
+  margin: 13% auto 5%;
+  bottom: 0;
 }
 
 @media (max-width: 450px) {
-  body {
+  .father {
     background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg");
     background-size: 100%;
     font-family: "Lato", sans-serif;
     margin: 0;
+    width: 100%;
   }
+
   .son {
+    width: 100%;
+    margin: 0;
+  }
+
+  .father_register {
+    background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg");
+    background-size: 100%;
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .son_register {
+    background-color: #d4d4d4;
+    width: 80%;
+    border-radius: 20px;
+    margin: 10% 5% 18%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+  }
+  /* .son_register {
     width: 80%;
     margin: auto;
-  }
+
+  } */
 
   .solovino_logo {
     position: static;
@@ -227,5 +233,22 @@ footer {
     font-size: 1.25rem;
     justify-content: center;
     margin: 0 20% 0.3%;
+  }
+
+  .solovino_logo_register {
+    width: 40%;
+    margin: 5% 30%;
+  }
+  .new_User_register {
+    text-align: center;
+    width: 80%;
+    margin: 5% 10%;
+  }
+  .condicions_register{
+    width: 70%;
+    font-family: "Lato";
+    font-weight: 300;
+    text-align: center;
+    margin: 5% 15%;
   }
 }
