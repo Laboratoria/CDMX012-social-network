@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /*outline: 1px solid red;*/
+ /* outline: 1px solid red;*/
   width: 360px;
   height: 640px;
 }
@@ -79,6 +79,8 @@ body {
   font-family: arcade;
   line-height: 28px;
   font-size: 24px;
+  justify-content: center;
+  margin-left: 30px;
   color: #28cef2;
   text-shadow: 0px 0px 5px #e587ed;
   height: 50px;
@@ -116,16 +118,18 @@ body {
   margin-left: 20px;
 }
 .formContainer {
-  width: 100%;
+  width: auto;
   height: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-left: -15px;
+  
 }
 .text {
   font-size: 18px;
   color: #ffffff;
   font-family: "Roboto", sans-serif;
-  margin-left: 20px;
   height: fit-content;
   width: fit-content;
 }
@@ -162,7 +166,23 @@ body {
   box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
   border-radius: 10px;
   background-color: #c4c4c400;
-  margin-left: 100px;
+  margin-left: 32%;
+  margin-top: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btnShootIn {
+  width: 119px;
+  height: 46px;
+  color: #e587ed;
+  font-weight: bold;
+  font-size: 18px;
+  border: 3px solid #e587ed;
+  box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
+  border-radius: 10px;
+  background-color: #c4c4c400;
+  margin-left: inherit;
   margin-top: 50px;
   text-align: center;
   cursor: pointer;
@@ -175,6 +195,22 @@ body {
   height: 60px;
   width: auto;
   margin-top: auto;
+}
+
+.btnRefLogin {
+  width: 119px;
+  height: 46px;
+  color: #f2a928;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 18px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
 /* .sign a{
     color: #F2A928;
     height: auto;

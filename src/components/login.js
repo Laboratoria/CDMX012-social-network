@@ -59,12 +59,13 @@ export const login = () => {
   labelHaveAcc.className = 'sign';
   labelHaveAcc.textContent = 'Dont have an account?';
 
-  const refJoinUs = document.createElement('href');
-  refJoinUs.className = 'sign';
-  refJoinUs.textContent = 'Join us';
+  const btnRefJoinUs = document.createElement('button');
+  btnRefJoinUs.className = 'btnRefLogin';
+  btnRefJoinUs.id = 'refJoinUs';
+  btnRefJoinUs.textContent = 'Join us';
 
   const btnInfoShootIn = document.createElement('button');
-  btnInfoShootIn.className = 'btnsSign';
+  btnInfoShootIn.className = 'btnShootIn';
   btnInfoShootIn.id = 'submitInfoShoot';
   btnInfoShootIn.textContent = 'Shoot In';
 
@@ -75,7 +76,7 @@ export const login = () => {
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
   infoForm.append(labelMail, inputEmail, labelPassword, inputPassword, errorMessage, btnInfoShootIn);
-  divFooter.append(labelHaveAcc, refJoinUs);
+  divFooter.append(labelHaveAcc, btnRefJoinUs);
   shootInSection.append(header, logInWith, containerIcons, infoForm, divFooter);
   return shootInSection;
 };

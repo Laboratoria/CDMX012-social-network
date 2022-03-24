@@ -83,9 +83,10 @@ export const register = () => {
   labelHaveAcc.className = 'sign';
   labelHaveAcc.textContent = 'Have an account?';
 
-  const refLogin = document.createElement('href');
-  refLogin.className = 'sign';
-  refLogin.textContent = 'Shoot in';
+  const btnRefLogin = document.createElement('button');
+  btnRefLogin.className = 'btnRefLogin';
+  btnRefLogin.id = 'refLogin';
+  btnRefLogin.textContent = 'Shoot in';
 
   btnInfoJoinUs.addEventListener('click', (e) => {
     e.preventDefault();
@@ -98,7 +99,7 @@ export const register = () => {
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
   infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, errorMessage);
-  divFooter.append(labelHaveAcc, refLogin);
+  divFooter.append(labelHaveAcc, btnRefLogin);
   joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs, divFooter);
   return joinUsSection;
 };
