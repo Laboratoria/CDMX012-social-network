@@ -2,7 +2,6 @@
 import { onNavigate } from '../main.js';
 import { templatePost } from './post.js';
 
-
 export const feed = () => {
   const feedView = document.createElement('div');
   feedView.setAttribute('id', 'feedView');

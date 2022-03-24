@@ -3,6 +3,7 @@ import { createUserRed } from '../lib/firebase.js';
 
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+import { saveForm } from './FireStore.js';
 
 export const register = () => {
   const containerAllRegister = document.createElement('section');
@@ -81,6 +82,7 @@ export const register = () => {
     const userArea = document.getElementById('area').value;
     console.log(userMail, userName, userPassword, userArea);
     createUserRed(userMail, userPassword);
+    saveForm(userName, userArea);
   });
   return containerAllRegister;
 };
