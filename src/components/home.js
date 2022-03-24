@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 /* eslint-disable import/no-cycle */
-import { shootIn, googleSignIn } from '../lib/firebase.js';
+import { shootIn } from '../lib/firebase.js';
 import { onNavigate } from '../main.js';
 
-export const login = () => {
+export const home = () => {
   const shootInSection = document.createElement('section');
   shootInSection.className = 'screenJoin';
   shootInSection.id = 'shootInScreen';
@@ -30,12 +30,8 @@ export const login = () => {
   containerIcons.className = 'container';
   const iconG = document.createElement('img');
   iconG.setAttribute('src', './assets/google.png');
-  iconG.addEventListener('click', (e) => {
-    e.preventDefault();
-    googleSignIn();
-  });
 
-  const infoForm = document.createElement('form');
+  const infoForm = document.createElement('div');
   infoForm.className = 'formContainer';
 
   const labelMail = document.createElement('label');
@@ -52,7 +48,6 @@ export const login = () => {
   labelPassword.textContent = 'Password:';
   const inputPassword = document.createElement('input');
   inputPassword.setAttribute('type', 'password');
-  inputPassword.setAttribute('autocomplete', 'off');
   inputPassword.className = 'inputs';
   inputPassword.id = 'password';
 
