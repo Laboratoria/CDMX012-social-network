@@ -1,7 +1,8 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
-import { createAccount } from '../lib/firebase.js';
+import { createNewUsers } from '../lib/firebase.js';
+// import { createAccount } from '../lib/firebase.js';
 
 export const register = () => {
   const joinUsSection = document.createElement('section');
@@ -75,12 +76,13 @@ export const register = () => {
   btnInfoJoinUs.id = 'submitInfoJoin';
   btnInfoJoinUs.textContent = 'Join Us';
 
-  btnInfoJoinUs.addEventListener('click', () => {
+  btnInfoJoinUs.addEventListener('click', (e) => {
+    e.preventDefault();
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-
-    createAccount(username, email, password);
+    console.log(username, email, password);
+    createNewUsers(username, email, password);
   });
 
   header.append(imgArrowBack, titles);
