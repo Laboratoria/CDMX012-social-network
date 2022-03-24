@@ -28,12 +28,16 @@ export const login = () => {
   // containerIcons es contenedor del icono de Google
   const containerIcons = document.createElement('div');
   containerIcons.className = 'container';
+
   const iconG = document.createElement('img');
   iconG.setAttribute('src', './assets/google.png');
   iconG.addEventListener('click', (e) => {
     e.preventDefault();
     googleSignIn();
   });
+
+  const iconF = document.createElement('img');
+  iconF.setAttribute('src', './assets/facebook.png');
 
   const infoForm = document.createElement('form');
   infoForm.className = 'formContainer';
@@ -73,9 +77,23 @@ export const login = () => {
   errorMessage.className = 'messages';
   errorMessage.id = 'pError';
 
+
+  const divFooter = document.createElement('div');
+  divFooter.className = 'containerFooter';
+
+  const labelHaveAcc = document.createElement('footer');
+  labelHaveAcc.className = 'sign';
+  labelHaveAcc.textContent = 'Dont have an account?';
+
+  const btnRefJoinUs = document.createElement('button');
+  btnRefJoinUs.className = 'btnRefLogin';
+  btnRefJoinUs.id = 'refJoinUs';
+  btnRefJoinUs.textContent = 'Join us';
+
   header.append(imgArrowBack, titles);
-  containerIcons.appendChild(iconG);
+  containerIcons.append(iconG, iconF);
   infoForm.append(labelMail, inputEmail, labelPassword, inputPassword, errorMessage, btnInfoShootIn);
-  shootInSection.append(header, logInWith, containerIcons, infoForm);
+  divFooter.append(labelHaveAcc, btnRefJoinUs);
+  shootInSection.append(header, logInWith, containerIcons, infoForm, divFooter);
   return shootInSection;
 };
