@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
 
 export const welcome = () => {
@@ -22,7 +23,7 @@ export const welcome = () => {
   btnShoot.addEventListener('click', () => {
     onNavigate('/login');
   });
-  btnDiv.append(btnJoinUs, btnShoot)
+  btnDiv.append(btnJoinUs, btnShoot);
   firstSection.append(imgLogo, btnDiv);
   return firstSection;
 };

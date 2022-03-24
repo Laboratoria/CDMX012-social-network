@@ -1,7 +1,9 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
-import { createNewUsers, createAccount } from '../lib/firebase.js';
+import { createNewUsers, googleSignIn } from '../lib/firebase.js';
+// import { createAccount } from '../lib/firebase.js';
+
 
 export const register = () => {
   const joinUsSection = document.createElement('section');
@@ -28,8 +30,13 @@ export const register = () => {
   // containerIcons es contenedor del icono de Google
   const containerIcons = document.createElement('div');
   containerIcons.className = 'container';
+
   const iconG = document.createElement('img');
   iconG.setAttribute('src', './assets/google.png');
+  iconG.addEventListener('click', (e) => {
+    e.preventDefault();
+    googleSignIn();
+  });
 
   const iconF = document.createElement('img');
   iconF.setAttribute('src', './assets/facebook.png');
@@ -77,6 +84,18 @@ export const register = () => {
   btnInfoJoinUs.id = 'submitInfoJoin';
   btnInfoJoinUs.textContent = 'Join Us';
 
+  const divFooter = document.createElement('div');
+  divFooter.className = 'containerFooter';
+
+  const labelHaveAcc = document.createElement('footer');
+  labelHaveAcc.className = 'sign';
+  labelHaveAcc.textContent = 'Have an account?';
+
+  const btnRefLogin = document.createElement('button');
+  btnRefLogin.className = 'btnRefLogin';
+  btnRefLogin.id = 'refLogin';
+  btnRefLogin.textContent = 'Shoot in';
+
   btnInfoJoinUs.addEventListener('click', (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;
@@ -98,6 +117,7 @@ export const register = () => {
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
   infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, errorMessage);
-  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs);
+  divFooter.append(labelHaveAcc, btnRefLogin);
+  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs, divFooter);
   return joinUsSection;
 };
