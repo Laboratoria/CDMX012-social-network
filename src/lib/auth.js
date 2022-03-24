@@ -56,27 +56,7 @@ export const isLogin = (emailLogin, passwordLogin) => {
     });
 };
 
-// export const authenticationObserver = () => {
-//   // usar firebase onauth state change
-//   // si esta login invocar onnavigate a time line
-//   // si no esta login invocar onavigate a /
-//   // https://firebase.google.com/docs/auth/web/manage-users?hl=es
-//   const auth = getAuth();
-//   onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       // User is signed in, see docs for a list of available properties
-//       // https://firebase.google.com/docs/reference/js/firebase.User
-//       const uid = user.uid;
-//       // ...
-//       console.log("se ejecuta la funcion observador");
-//       onNavigate("/Timeline");
-//     } else {
-//       // User is signed out
-//       // ...
-//       onNavigate("/");
-//     }
-//   });
-// };
+
 
 //iniciar sesión con Google
 

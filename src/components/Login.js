@@ -47,6 +47,7 @@ export const login = () => {
     let userPass = document.getElementById("pasword").value;
 
     isLogin(userMail, userPass);
+    authenticationObserver();
   });
   // logIn.addEventListener("click", () => {
   //   authenticationObserver();

@@ -1,7 +1,10 @@
 import { login } from "./components/Login.js";
 import { register } from "./components/Register.js";
 import { timeline } from "./components/Timeline.js";
-// import "./styles/main.css";
+import {
+  onAuthStateChanged,
+  getAuth,
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 
 const rootContent = document.getElementById("root");
 
@@ -20,10 +23,25 @@ export const onNavigate = (pathname) => {
   rootContent.appendChild(routes[pathname]());
 };
 
-
 window.onpopstate = () => {
   rootContent.appendChild(routes[window.location.pathname]());
 };
+
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+    console.log(user);
+    onNavigate("/Timeline");
+  } else {
+    // User is signed out
+
+    onNavigate("/");
+  }
+});
 
 let component = routes[window.location.pathname];
 rootContent.appendChild(component());
