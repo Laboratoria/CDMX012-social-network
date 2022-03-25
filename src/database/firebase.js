@@ -86,6 +86,7 @@ export const loginUserWithEmail = async () => {
 export const LoginUserWithGoogle = async () => {
   const auth = getAuth();
   let loginWithGoogle;
+  const provider = new GoogleAuthProvider();
   try {
     const userCredential = await signInWithPopup(auth, provider);
     const credential = GoogleAuthProvider.credentialFromResult(userCredential);
@@ -139,6 +140,5 @@ export const logOut = async () => {
   } catch (error) {
     console.log(error);
   // eslint-disable-next-line no-empty
-  } catch (error) {
   }
 };
