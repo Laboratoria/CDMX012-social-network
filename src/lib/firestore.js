@@ -3,6 +3,7 @@ import { getFirestore,
         collection,
         addDoc,
         getDocs,
+        onSnapshot,
     } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { app } from './index.js';
 
@@ -12,3 +13,8 @@ export const guardarReceta = (receta, procedimiento) => {
     addDoc(collection(db, 'recetas'), { receta, procedimiento });
 };
 export const conseguirRecetas = () => getDocs(collection(db, 'recetas'));
+export{
+    onSnapshot,
+    collection,
+    db,
+};
