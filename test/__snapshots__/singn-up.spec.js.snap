@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests  of signUpPage render sign up page 1`] = `
+"<div class=\\"lp-content\\"><div class=\\"createAccount-container\\"><h2 class=\\"account-title\\">Create an Account</h2><form class=\\"account-form\\"><div class=\\"label-icon\\">
+    <img class=\\"mail\\" src=\\"./assets/icons8-email-64 1.png\\" alt=\\"mail\\">
+    <label for=\\"email\\" class=\\"e-mail\\">E-mail</label></div><input name=\\"email\\" class=\\"e-mail\\" type=\\"email\\" placeholder=\\"e-mail@example.com\\" required=\\"\\" id=\\"txtEmail\\"><div class=\\"label-icon\\">
+    <img class=\\"padlock\\" src=\\"./assets/icons8-contraseña-24 1.png\\" alt=\\"padlock\\">
+    <label for=\\"password\\" class=\\"password\\" title=\\"Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters\\">Password</label><span class=\\"material-icons-outlined eye-icon\\" id=\\"eyeIcon1\\">visibility</span></div><input name=\\"password\\" class=\\"password\\" type=\\"password\\" placeholder=\\"Insert your password here\\" required=\\"\\" id=\\"txtPassword\\"><div class=\\"label-icon\\">
+    <img class=\\"padlock\\" src=\\"./assets/icons8-contraseña-24 1.png\\" alt=\\"padlock\\">
+    <label for=\\"passwordConfirm\\" class=\\"password\\" title=\\"Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters\\">Confirm your password</label><span class=\\"material-icons-outlined eye-icon\\" id=\\"eyeIcon2\\">visibility</span></div><input name=\\"passwordConfirm\\" class=\\"password\\" type=\\"password\\" placeholder=\\"Confirm your password\\" required=\\"\\" id=\\"passwordConfirm\\"></form><p class=\\"error show-error-msg\\" id=\\"errorArea\\"></p><input type=\\"button\\" class=\\"btn-signUp\\" value=\\"Sign Up\\"><div class=\\"otherProviders\\"><label class=\\"otherProviders\\">or sign up with</label><img class=\\"logoGoogle\\" id=\\"btn-google\\" src=\\"./assets/icons8-logo-de-google-48 2.png\\" alt=\\"logo Google\\"><img class=\\"logoFacebook\\" id=\\"btn-facebook\\" src=\\"./assets/image 15.png\\" alt=\\"logo Facebook\\"><img class=\\"logoGithub\\" id=\\"btn-github\\" src=\\"./assets/icons8-github-60.png\\" alt=\\"logo Github\\"></div></div><div class=\\"landing-page-img\\"></div></div>"
+`;
