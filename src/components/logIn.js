@@ -1,10 +1,7 @@
 /* eslint-disable import/no-cycle */
 // // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import {
-  loginUserWithEmail, LoginUserWithGoogle, loginUserWithTwitter,
-  createUserWithGoogle, createUserWithTwitter,
-} from '../database/firebase.js';
+import { loginUserWithEmail, LoginUserWithGoogle, loginUserWithTwitter } from '../database/firebase.js';
 
 export const login = () => {
   // elements
@@ -17,6 +14,8 @@ export const login = () => {
   const baseLogin = document.createElement('div');
   const loginEmail = document.createElement('input');
   const loginPassword = document.createElement('input');
+  const span = document.createElement('span');
+  const imgEye = document.createElement('i');
   const pForgotPassword = document.createElement('p');
   const errorMessage = document.createElement('div');
   const buttonLogin = document.createElement('button');
@@ -26,10 +25,9 @@ export const login = () => {
   const loginWithTwitter = document.createElement('button');
   const imgGoogle = document.createElement('img');
   const imgTwitter = document.createElement('img');
-  const span = document.createElement('span');
-  const imgEye = document.createElement('i');
   const divSignUp = document.createElement('div');
   const pSignUp = document.createElement('p');
+
   // attributes
   imgLogo.setAttribute('src', '../assets/img/logosmall.png');
   pLogo.setAttribute('class', 'pLogo');
@@ -45,8 +43,8 @@ export const login = () => {
   loginPassword.setAttribute('type', 'password');
   loginPassword.setAttribute('placeholder', 'Password');
   loginPassword.setAttribute('id', 'loginPassword');
-  span.setAttribute('class', 'eye');
-  imgEye.setAttribute('id', 'imgEye');
+  span.setAttribute('class', 'eyePassword');
+  imgEye.setAttribute('id', 'imgEyePassword');
   imgEye.setAttribute('class', 'fa-solid fa-eye');
   pForgotPassword.setAttribute('class', 'pForgotPassword');
   buttonLogin.setAttribute('class', 'buttonLogin');
@@ -112,8 +110,6 @@ export const login = () => {
     LoginUserWithGoogle().then((result) => {
       if (result) {
         onNavigate('/home');
-      } else {
-        errorMessage.innerText = 'You must choose a Google account';
       }
     });
   });
@@ -122,8 +118,6 @@ export const login = () => {
     loginUserWithTwitter().then((result) => {
       if (result) {
         onNavigate('/home');
-      } else {
-        errorMessage.innerText = 'You must choose a Twitter account';
       }
     });
   });
@@ -132,35 +126,35 @@ export const login = () => {
     onNavigate('/signup');
   });
 
-  imgEye.addEventListener('click', () => {
-    if (loginPassword.type === 'password') {
-      loginPassword.type = 'text';
-    } else {
-      loginPassword.type = 'password';
-    }
-  });
+  // imgEye.addEventListener('click', () => {
+  //   if (loginPassword.type === 'password') {
+  //     loginPassword.type = 'text';
+  //   } else {
+  //     loginPassword.type = 'password';
+  //   }
+  // });
 
   span.addEventListener('focus', () => span.classList.add('focused'), true);
   span.addEventListener('blur', () => span.classList.remove('focused'), true);
 
-  loginWithGoogle.addEventListener('click', () => {
-    createUserWithGoogle().then((result) => {
-      if (result) {
-        onNavigate('/home');
-      } else {
-        errorMessage.innerText = 'You must choose a Google account';
-      }
-    });
-  });
+  // loginWithGoogle.addEventListener('click', () => {
+  //   createUserWithGoogle().then((result) => {
+  //     if (result) {
+  //       onNavigate('/home');
+  //     } else {
+  //       errorMessage.innerText = 'You must choose a Google account';
+  //     }
+  //   });
+  // });
 
-  loginWithTwitter.addEventListener('click', () => {
-    createUserWithTwitter().then((result) => {
-      if (result) {
-        onNavigate('/home');
-      } else {
-        errorMessage.innerText = 'You must choose a Twitter account';
-      }
-    });
-  });
+  // loginWithTwitter.addEventListener('click', () => {
+  //   createUserWithTwitter().then((result) => {
+  //     if (result) {
+  //       onNavigate('/home');
+  //     } else {
+  //       errorMessage.innerText = 'You must choose a Twitter account';
+  //     }
+  //   });
+  // });
   return globalLogInDiv;
 };

@@ -137,7 +137,6 @@ export const LoginUserWithGoogle = async () => {
     const email = error.email;
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
-    alert(errorMessage);
     loginWithGoogle = false;
   }
   return loginWithGoogle;
@@ -176,62 +175,12 @@ export const loginUserWithTwitter = async () => {
   return loginWithTwitter;
 };
 
-// export const LoginUserWithGoogle = async () => {
-//   const auth = getAuth();
-//   let loginWithGoogle;
-//   try {
-//     const userCredential = await signInWithPopup(auth, provider);
-//     // Get Google Access Token, then we use it to access the Google API.
-//     GoogleAuthProvider.credentialFromResult(userCredential);
-//     // const token = credential.accessToken;
-//     // const user = result.user;
-//     const user = userCredential.user;
-//     const dt = new Date();
-//     update(ref(database, `users/${user.uid}`), {
-//       last_login: dt,
-//     });
-//     loginWithGoogle = true;
-//   } catch (error) {
-//     // const errorCode = error.code;
-//     // const errorMessage = error.message;
-//     // The email of the user's account used.
-//     // const email = error.email;
-//     // The AuthCredential type that was used.
-//     GoogleAuthProvider.credentialFromError(error);
-//     loginWithGoogle = false;
-//   }
-//   return loginWithGoogle;
-// };
-
-// export const loginUserWithTwitter = async () => {
-//   const provider2 = new TwitterAuthProvider();
-//   const auth = getAuth();
-//   // Auth with twitter
-//   let loginWithTwitter;
-//   try {
-//     const userCredential = await signInWithPopup(auth, provider2);
-//     // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-//     // You can use these server side with your app's credentials to access the Twitter API.
-//     TwitterAuthProvider.credentialFromResult(userCredential);
-//     // const token = credential.accessToken;
-//     // const secret = credential.secret;
-//     // The signed-in user info.
-//     // const user = result.user;
-//     const user = userCredential.user;
-//     const dt = new Date();
-//     update(ref(database, `users/${user.uid}`), {
-//       last_login: dt,
-//     });
-//     loginWithTwitter = true;
-//   } catch (error) {
-//     // Handle Errors here.
-//     // const errorCode = error.code;
-//     // const errorMessage = error.message;
-//     // The email of the user's account used.
-//     // const email = error.email;
-//     // The AuthCredential type that was used.
-//     TwitterAuthProvider.credentialFromError(error);
-//     loginWithTwitter = false;
-//   }
-//   return loginWithTwitter;
-// };
+// Logout
+export const logOut = async () => {
+  const auth = getAuth();
+  try {
+    signOut(auth);
+  } catch (error) {
+    console.log(error);
+  }
+};
