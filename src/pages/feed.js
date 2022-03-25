@@ -2,6 +2,7 @@
 import { saveNewPostData, getPosts } from '../lib/posts.js';
 import { slideshow } from '../slideshow.js';
 import { showAndHideItems } from '../ui.js';
+import { menu } from '../menu.js';
 
 export const feed = () => {
   const readingPage = document.createElement('div');
@@ -29,6 +30,12 @@ export const feed = () => {
   configMenu.setAttribute('class', 'config-menu');
   configMenu.setAttribute('src', './assets/hamburgerMenu.png');
   configMenu.setAttribute('alt', 'configuration menu');
+
+  configMenu.addEventListener('click', () => {
+    const body = document.body;
+    body.style.overflow = 'hidden';
+    readingPage.append(menu());
+  });
 
   header.append(logoTitle, configMenu);
 

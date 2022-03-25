@@ -1,0 +1,55 @@
+#general-container {
+  background: rgba(0, 0, 0, 0.46);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+#menu-container {
+  background-color: white;
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+}
+
+#profile-container {
+  width: 100%;
+  height: 34%;
+  background-color: #951c45;
+  position: relative;
+}
+
+#close-img {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 1em;
+}
+
+#config-container {
+  width: 100%;
+  height: 66%;
+  border: 1px solid black;
+  position: relative;
+}
+
+#config-container div {
+  position: absolute;
+  top: 8%;
+  left: 20%;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+#config-container img {
+  width: 2em;
+}
+
+#config-container p {
+  font-weight: bold;
+}
