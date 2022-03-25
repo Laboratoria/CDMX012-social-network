@@ -1,4 +1,6 @@
-import { validateEmail, validatePassword, validateInformation, errorHandler } from '../../../src/components/helper.js';
+import {
+  validateEmail, validatePassword, validateInformation, errorHandler,
+} from '../../../src/components/helper.js';
 
 describe('validateEmail', () => {
   it('Should be a function', () => {

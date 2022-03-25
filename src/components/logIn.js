@@ -10,6 +10,12 @@ export const login = () => {
   // elements
   const globalContainer = document.getElementById('globalContainer');
   const pinkContainerLogin = document.createElement('div');
+  const pinkTextOne = document.createElement('div');
+  const pinkTexTwo = document.createElement('div');
+  const pinkTextThree = document.createElement('div');
+  const imgTextOne = document.createElement('img');
+  const imgTextTwo = document.createElement('img');
+  const imgTextThree = document.createElement('img');
   const globalLogInDiv = document.createElement('div');
   const header = document.createElement('header');
   const imgLogo = document.createElement('img');
@@ -39,6 +45,15 @@ export const login = () => {
   divLogo.setAttribute('id', 'divLogo');
   imgLogo.setAttribute('src', '../assets/img/logosmall.png');
   pinkContainerLogin.setAttribute('class', 'pinkContainerLogin');
+  pinkTextOne.setAttribute('class', 'pinkTextOneAndThree');
+  imgTextOne.setAttribute('src', '../assets/img/mujeres.png');
+  imgTextOne.setAttribute('class', 'imgTextPink');
+  imgTextTwo.setAttribute('class', 'imgTextPink');
+  imgTextThree.setAttribute('class', 'imgTextPink');
+  imgTextTwo.setAttribute('src', '../assets/img/pensamiento.png');
+  imgTextThree.setAttribute('src', '../assets/img/unidas.png');
+  pinkTexTwo.setAttribute('class', 'pinkTextTwo');
+  pinkTextThree.setAttribute('class', 'pinkTextOneAndThree');
   globalLogInDiv.setAttribute('class', 'globalLogInDiv');
   baseLogin.setAttribute('class', 'baseLogin');
   pLogin.setAttribute('class', 'pLogin');
@@ -73,6 +88,9 @@ export const login = () => {
   // innerText
   divLogo.innerText = 'Mukí';
   pLogo.innerText = 'A safe network for women';
+  pinkTextOne.innerText = 'Connect with women from all over the world.';
+  pinkTexTwo.innerText = 'Tell us what you think, in a safe space to share ideas.';
+  pinkTextThree.innerText = 'Create support networks among women.';
   pLogin.innerText = 'Log in';
   buttonLogin.textContent = 'Login';
   pForgotPassword.innerText = 'Forgot password?';
@@ -83,13 +101,19 @@ export const login = () => {
   header.appendChild(divLogo);
   header.appendChild(imgLogo);
   divLogo.appendChild(pLogo);
-  globalContainer.appendChild(pinkContainerLogin);
-  globalContainer.appendChild(globalLogInDiv);
-  globalLogInDiv.appendChild(header);
-  globalLogInDiv.appendChild(baseLogin);
   span.appendChild(loginPassword);
   span.appendChild(imgEye);
-  baseLogin.appendChild(pLogin);
+  globalContainer.appendChild(pinkContainerLogin);
+  globalContainer.appendChild(globalLogInDiv);
+  pinkContainerLogin.appendChild(pinkTextOne);
+  pinkContainerLogin.appendChild(pinkTexTwo);
+  pinkContainerLogin.appendChild(pinkTextThree);
+  pinkTextOne.appendChild(imgTextOne);
+  pinkTexTwo.appendChild(imgTextTwo);
+  pinkTextThree.appendChild(imgTextThree);
+  globalLogInDiv.appendChild(header);
+  globalLogInDiv.appendChild(pLogin);
+  globalLogInDiv.appendChild(baseLogin);
   baseLogin.appendChild(loginEmail);
   baseLogin.appendChild(loginPassword);
   baseLogin.appendChild(span);
@@ -144,35 +168,35 @@ export const login = () => {
     onNavigate('/signup');
   });
 
-  imgEye.addEventListener('click', () => {
-    if (loginPassword.type === 'password') {
-      loginPassword.type = 'text';
-    } else {
-      loginPassword.type = 'password';
-    }
-  });
+  // imgEye.addEventListener('click', () => {
+  //   if (loginPassword.type === 'password') {
+  //     loginPassword.type = 'text';
+  //   } else {
+  //     loginPassword.type = 'password';
+  //   }
+  // });
 
-  span.addEventListener('focus', () => span.classList.add('focused'), true);
-  span.addEventListener('blur', () => span.classList.remove('focused'), true);
+  // span.addEventListener('focus', () => span.classList.add('focused'), true);
+  // span.addEventListener('blur', () => span.classList.remove('focused'), true);
 
-  loginWithGoogle.addEventListener('click', () => {
-    createUserWithGoogle().then((result) => {
-      if (result) {
-        onNavigate('/home');
-      } else {
-        errorMessage.innerText = 'You must choose a Google account';
-      }
-    });
-  });
+  // loginWithGoogle.addEventListener('click', () => {
+  //   createUserWithGoogle().then((result) => {
+  //     if (result) {
+  //       onNavigate('/home');
+  //     } else {
+  //       errorMessage.innerText = 'You must choose a Google account';
+  //     }
+  //   });
+  // });
 
-  loginWithTwitter.addEventListener('click', () => {
-    createUserWithTwitter().then((result) => {
-      if (result) {
-        onNavigate('/home');
-      } else {
-        errorMessage.innerText = 'You must choose a Twitter account';
-      }
-    });
-  });
+  // loginWithTwitter.addEventListener('click', () => {
+  //   createUserWithTwitter().then((result) => {
+  //     if (result) {
+  //       onNavigate('/home');
+  //     } else {
+  //       errorMessage.innerText = 'You must choose a Twitter account';
+  //     }
+  //   });
+  // });
   return globalLogInDiv;
 };
