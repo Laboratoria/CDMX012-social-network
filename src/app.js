@@ -13,9 +13,10 @@ const routes = {
   '/home': feed,
 };
 
-const rootDiv = document.getElementById('root');
+// eslint-disable-next-line no-unused-vars
+export const onNavigate = (pathname, mockRoutes = routes) => {
+  const rootDiv = document.getElementById('root');
 
-export const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
@@ -24,12 +25,13 @@ export const onNavigate = (pathname) => {
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
   }
-  rootDiv.appendChild(routes[pathname]());
+  rootDiv.appendChild(mockRoutes[pathname]());
 };
 
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
+  const rootDiv = document.getElementById('root');
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
   }
@@ -37,6 +39,7 @@ window.onpopstate = () => {
 };
 
 window.onload = () => {
+  const rootDiv = document.getElementById('root');
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
   }
