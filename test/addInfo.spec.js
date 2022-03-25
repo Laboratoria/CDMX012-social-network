@@ -10,4 +10,7 @@ describe('Tests of signInPage', () => {
     rootDiv.appendChild(renderAddInfo);
     expect(rootDiv.innerHTML).toMatchSnapshot();
   });
+  it('OnNavigate funciona bien', () => {
+    expect(window.location.pathname).toBe('/');
+  });
 });
