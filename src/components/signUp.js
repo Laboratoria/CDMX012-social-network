@@ -163,6 +163,8 @@ export const signup = () => {
     const password = document.getElementById('inputPassword').value;
     const username = document.getElementById('inputUsername').value;
     const informationValidated = validateInformation(email, password);
+    inputEmail.style.border = '1px solid rgba(0, 0, 0, 0.38)';
+    span.style.border = '1px solid rgba(0, 0, 0, 0.38)';
     if (informationValidated.status) {
       createUser(email, password, username).then((userCredential) => {
         if (userCredential.status) {
@@ -181,6 +183,7 @@ export const signup = () => {
       }
     }
   });
+
 
   divAccount.addEventListener('click', (event) => {
     if (event) {

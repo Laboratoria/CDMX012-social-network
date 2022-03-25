@@ -10,9 +10,3 @@ export {
 export {
   getFirestore, collection, addDoc, getDocs,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
-
-// export {
-//   initializeApp, getDatabase, set, ref, update, getAuth, createUserWithEmailAndPassword,
-//   GoogleAuthProvider, signInWithPopup, TwitterAuthProvider, signInWithEmailAndPassword,
-//   getFirestore, collection, addDoc, getDocs,
-// };

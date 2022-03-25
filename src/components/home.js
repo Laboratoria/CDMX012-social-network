@@ -3,11 +3,6 @@ import { onNavigate } from '../main.js';
 import { post } from '../database/firestore.js';
 import { logOut } from '../database/firebase.js';
 
-// window.addEventListener('DOMContentLoaded', async () => {
-//   const querySnapshot = await getShares();
-//   console.log(querySnapshot);
-// });
-
 export const home = () => {
   const divHome = document.createElement('div');
   const inputHome = document.createElement('input');
