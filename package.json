@@ -14,7 +14,7 @@
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
-    "test": "jest  --env=jsdom --coverage --watch",
+    "test": "jest --env=jsdom --coverage --watch",
     "start": "serve -s src/",
     "build": "webpack"
   },

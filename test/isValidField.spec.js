@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { isValidField } from '../src/lib/posts.js';
 
 jest.mock('../src/firebase-imports.js');
