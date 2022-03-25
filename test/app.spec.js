@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 import { onNavigate } from '../src/app.js';
-import { signInAccount } from '../src/lib/auth.js';
 
 jest.mock('../src/firebase-imports.js');
 
