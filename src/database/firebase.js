@@ -136,6 +136,8 @@ export const logOut = async () => {
   const auth = getAuth();
   try {
     signOut(auth);
+  } catch (error) {
+    console.log(error);
   // eslint-disable-next-line no-empty
   } catch (error) {
   }

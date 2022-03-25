@@ -226,7 +226,7 @@
 
   /*VISTA LOGIN*/
 
-globalLogInDiv{
+.globalLogInDiv{
   display: flex;
   flex-direction: column;
   justify-content: center;
