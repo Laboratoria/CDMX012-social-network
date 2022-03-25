@@ -1,23 +1,26 @@
 /* STYLES Timeline */
-
+/* 
 /***********************************************/
-/* .solovino_working_img {
+ /* .solovino_working_img {
   width: 50%;
   margin: 2% 25%;
-}
+  position:absolute;
+  top: 50%;
+} */
 
+/*
 .solovino_working {
   width: 25%;
   margin: 5% 37.5% 0%;
   font-size: medium;
   text-align: center;
-} */
+} */ 
 .content-timeline {
-  background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg");
+  /* background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg"); */
   background-size: 100%;
   font-family: "Lato", sans-serif;
   margin: 0;
-  width: 100%;
+  width: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -26,19 +29,39 @@
   background-color: #4cdee2;
   width: 100%;
   height: 10%;
-  position: absolute;
+  position: fixed;
 }
 
 .solovinoLogoTimeline {
-  position: fixed;
-  width: 100%;
-  top: 0;
+  position: relative;
+  width: auto;
+  height: 80%;
+  top: 10%;
+  justify-content: center;
 }
+
+
 .post {
+background-color: rgb(119, 209, 35);
+width: 80%;
+height: 35%;
+margin-top: 25%;
+position: relative;
+border-radius: .625rem;
+justify-content: center;
+
+}
+
+.toPost{
+position: relative;
+left: 15%;
+
 }
 
 #return_index {
   background: pink;
   width: 50%;
   margin: 2% 25% 0%;
+  top: 80%;
+  position: absolute;
 }
