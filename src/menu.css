@@ -53,3 +53,9 @@
 #config-container p {
   font-weight: bold;
 }
+
+@media screen and (min-width: 768px) {
+  #menu-container {
+    width: 34%;
+  }
+}
