@@ -1,13 +1,16 @@
 import {
-  getFirestore, collection, addDoc, getDocs,
+  getFirestore, collection, addDoc, getAuth,
 } from './firebase-import.js';
 
-export const share = (text) => {
+export const post = (text) => {
   const db = getFirestore();
-  addDoc(collection(db, 'Shares'), { text });
+  const auth = getAuth();
+  const userlogin = auth.currentUser;
+  const uid = userlogin.uid;
+  addDoc(collection(db, 'Posts'), { text, uid });
 };
 
-export const getShares = () => {
-  const db = getFirestore();
-  getDocs(collection(db, 'Shares'));
-};
+// export const getShares = () => {
+//   const db = getFirestore();
+//   getDocs(collection(db, 'Shares'));
+// };

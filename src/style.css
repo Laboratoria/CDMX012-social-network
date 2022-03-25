@@ -188,10 +188,6 @@
     cursor: pointer;
   }
   
-  .pAccount {
-    font-weight: bold;
-  }
-  
   #errorMessage {
     margin: 1px solid black;
     margin: 8px 0px 10px;
@@ -246,12 +242,14 @@
     margin-top: 100px;
     border-radius: 10px;
   }
+  
   .pLogin{
-    color:rgba(0, 0, 0, 0.38);
+  color:rgba(0, 0, 0, 0.38);
   font-size: 30px;
   margin-top: 5px;
   text-shadow: .5px .5px #9e9e9e;
   }
+  
   .inputLogin {
     text-align: center;
     border-radius: 5px;
@@ -266,6 +264,7 @@
     align-items: center;
     justify-content: center;
   }
+  
   #loginEmail{
     background: url("./assets/img/email.png");
     background-size: 24px;
@@ -274,6 +273,7 @@
     color: #00000080;
     border-radius: 5px;
   }
+  
   #loginPassword{
     background: url("./assets/img/lock.png");
     background-size: 47px;
@@ -281,6 +281,7 @@
     background-position: 28px;
     color: #00000080;
   }
+  
   .eye {
     position: relative;
     text-align: center;
@@ -294,6 +295,7 @@
     margin: 8px 0px 8px;
     background-color: #ffffffd0;
   }
+  
   .focused {
     border: 3px solid #eca05f;
   }
@@ -306,10 +308,12 @@
     cursor: pointer;
     color: #808080;
   }
+  
   .pForgotPassword{
     font-weight: bold;
     font-size: 13px;
   }
+  
   .buttonLogin{
     background-color: #bd72be;
     border-radius: 30px;
@@ -321,50 +325,50 @@
     font-weight: bold;
     cursor: pointer;
   }
-  .divLoginWith{
   
+  .divLoginWith{
     height: 100px;
     margin-right: 5px;
     border: transparent;
     display:flex;
     flex-direction: column;
     font-weight: bold; 
-   
     margin-top: 25px;
     gap:30px;
-   
     align-self: center;
   }
+  
   .loginWhitP{
     font-size: 20px;
     text-align: center;
     font-weight: bold;
     align-items: flex-start;
-    
   }
+  
   .divButtons{
     display: flex;
     justify-content: center;
     align-items: center;
-    
   }
   
   #loginGoogle{
     width: 40px;
     height: 40px;
-    
     border: transparent;
     background-color: transparent;
     margin-top: 10px;
     }
+  
     #imgGoogle{
       width: 40px;
       height: 40px;
     }
+  
     #imgTwitter{
       width: 44px;
       height: 44px;
     }
+  
   #loginTwitter{
     width: 42px;
     height: 42px;
@@ -373,16 +377,18 @@
     right: 2px;
     margin-top:6px;
    }
+  
    #divSignUp{
      display: flex;
      justify-content: center;
      align-items: center;
      flex-direction: column;
-     
    }
+  
    .pSignUp{
     font-weight: bold;
   }
+  
   .pinkContainerLogin{
     display: none;
   }
@@ -390,12 +396,8 @@
   .singUpFree{
     display:none;
   }
-  
   }
-  
-  
-  
-  
+ 
   @media only screen and (max-width: 2000px) and (min-width: 762px) {
     * {
       margin: 0;
@@ -446,7 +448,6 @@
       width: 50%;
       flex-direction: column;
       justify-content: center;
-      
       }
   
     .singUpFree{
@@ -479,7 +480,7 @@
       color: #ffffff;
       font-size: 20px;
       display: flex;
-      flex-direction:row ;
+      flex-direction:row;
       gap: 20px;
       margin-left: 80px;
       font-weight: bold;
@@ -669,6 +670,7 @@
     p {
       margin: 0px 5px 0px 5px;
     }
+
     
     /* VISTA LOGIN DESKTOP */
     * {
@@ -706,6 +708,7 @@
     flex-direction: column;
     margin-top: 20px;
   }
+    
   .pinkContainerLogin {
     background-color: #bd72be;
     height: 850px;
@@ -755,12 +758,14 @@
   margin-top: 50px;
   gap:40px;
   }
+    
   .pLogin{
     color: #BD72BE;
     font-size: 40px;
     font-weight: bold;
     margin-top: -25%;
   }
+    
   .baseLogin{
   background-color:#ffffff;
   display: flex;
@@ -787,6 +792,7 @@
   align-items: center;
   justify-content: center;
 }
+    
 #loginEmail{
   background: url("./assets/img/email.png");
   background-size: 24px;
@@ -795,6 +801,7 @@
   color: #00000080;
   border-radius: 5px;
 }
+    
 #loginPassword{
   background: url("./assets/img/lock.png");
   background-size: 47px;
@@ -802,6 +809,7 @@
   background-position: 28px;
   color: #00000080;
 }
+    
 .eye {
   position: relative;
   text-align: center;
@@ -815,6 +823,7 @@
   margin: 8px 0px 8px;
   background-color: #ffffffd0;
 }
+    
 .focused {
   border: 3px solid #eca05f;
 }
@@ -827,10 +836,12 @@
   cursor: pointer;
   color: #808080;
 }
+    
 .pForgotPassword{
   font-weight: bold;
   font-size: 13px;
 }
+    
 .buttonLogin{
   background-color: #bd72be;
   border-radius: 30px;
@@ -842,29 +853,26 @@
   font-weight: bold;
   cursor: pointer;
 }
+    
 .divLoginWith{
-
   height: 100px;
   margin-right: 5px;
   border: transparent;
   display:flex;
   flex-direction: column;
   font-weight: bold; 
- 
   margin-top: 25px;
   gap:30px;
- 
   align-self: center;
 }
+    
 .loginWhitP{
   font-size: 20px;
   text-align: center;
   font-weight: bold;
- 
-  
   align-items: flex-start;
-  
 }
+    
 .divButtons{
   display: flex;
   justify-content: center;
@@ -874,27 +882,25 @@
 #loginGoogle{
   width: 40px;
   height: 40px;
-  
-border: transparent;
+  border: transparent;
   background-color: transparent;
-
-  
 }
+    
 #loginTwitter{
   width: 40px;
   height: 40px;
   background-color: transparent;
   border: transparent;
 }
+    
  #divSignUp{
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
-   
  }
+    
  .pSignUp{
   font-weight: bold;
 }
-
-  }
+}
