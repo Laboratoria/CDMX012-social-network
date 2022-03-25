@@ -9,3 +9,8 @@ export const post = (text) => {
   const uid = userlogin.uid;
   addDoc(collection(db, 'Posts'), { text, uid });
 };
+
+// export const getShares = () => {
+//   const db = getFirestore();
+//   getDocs(collection(db, 'Shares'));
+// };

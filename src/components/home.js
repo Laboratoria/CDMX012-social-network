@@ -3,13 +3,6 @@ import { onNavigate } from '../main.js';
 import { post } from '../database/firestore.js';
 import { logOut } from '../database/firebase.js';
 
-// const rootDiv = document.getElementById('globalContainer');
-// while (rootDiv.firstChild) {
-//   rootDiv.removeChild(rootDiv.firstChild);
-// }
-
-// rootDiv.appendChild(routes[pathname]());
-
 export const home = () => {
   const divHome = document.createElement('div');
   const inputHome = document.createElement('input');
