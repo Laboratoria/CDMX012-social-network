@@ -81,8 +81,8 @@ export const createAccForm = () => {
   createAccContainer.append(createAccTitle, signUpForm, errorSection, btnSignUp);
 
   // Password verification
-  txtPassword.addEventListener('keyup', () => showIncorrectPass());
-  passwordConf.addEventListener('keyup', () => showIncorrectPass());
+  txtPassword.addEventListener('keyup', () => showIncorrectPass(txtPassword.value, passwordConf.value));
+  passwordConf.addEventListener('keyup', () => showIncorrectPass(txtPassword.value, passwordConf.value));
 
   // Mask and unmask passwords
   eyeIcon1.addEventListener('click', () => showPassword(txtPassword, eyeIcon1));

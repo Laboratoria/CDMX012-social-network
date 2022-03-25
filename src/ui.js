@@ -14,9 +14,7 @@ export const showSignUpError = (error) => {
   }
 };
 
-export const showIncorrectPass = () => {
-  const pass1 = document.getElementById('txtPassword').value;
-  const pass2 = document.getElementById('passwordConfirm').value;
+export const showIncorrectPass = (pass1, pass2) => {
   const errorArea = document.querySelector('#errorArea');
   const signUpButton = document.querySelector('.btn-signUp');
 
