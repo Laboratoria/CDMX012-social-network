@@ -22,7 +22,7 @@ import {
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyAC5Xdg_jFGY0p6OJSwkX52fkXRqdKnjqw',
   authDomain: 'yummy-65cbb.firebaseapp.com',
   projectId: 'yummy-65cbb',
@@ -42,26 +42,15 @@ export function iniciarSesion() {
     // https://firebase.google.com/docs/reference/js/firebase.User
       const email = user.email;
       const emailVerificado = user.emailVerified;
-      console.log(email + emailVerificado);
-      // const textoVerificado = '';
         if (emailVerificado === false) {
-        // modal();
-          // console.log("whatsup")
           document.getElementById('contmodal').style.opacity = '1';
           document.getElementById('contmodal').style.visibility = 'visible';
           document.getElementById('mensajemal').textContent = 'Email no verificado';
-        
-      // onNavigate('/');
       } else {
-      // alert('Email verificado');
-      // alert('Estas logueado');
+        console.log(user);
         onNavigate('/muro');
         // eslint-disable-next-line prefer-template
         document.getElementById('mensajeLogin').textContent = ' Estas Logueado ' + email;
-      /* }  else {
-      console.log(user.uid);
-      alert('No estas logueado :( ');
-    } */
   }
     }
   });
@@ -77,9 +66,13 @@ export function usuarioExistente() { // OBSERVADOR
     })
     .catch((error) => {
       const errorCode = error.code;
-      alert(errorCode);
+      document.getElementById('contmodal').style.opacity = '1';
+      document.getElementById('contmodal').style.visibility = 'visible';
+      document.getElementById('mensajemal').textContent = errorCode;
       const errorMessage = error.message;
-      alert(errorMessage);
+      document.getElementById('contmodal').style.opacity = '1';
+      document.getElementById('contmodal').style.visibility = 'visible';
+      document.getElementById('mensajemal').textContent = errorMessage;
     });
 }
 export function verificarCorreo() {
@@ -153,6 +146,7 @@ export function google() {
       // The signed-in user info.
       // eslint-disable-next-line no-unused-vars
       const user = result.user;
+      console.log(user);
       onNavigate('/muro');
       // ...
     // eslint-disable-next-line no-unused-vars
@@ -164,3 +158,20 @@ export function google() {
       // ...
     });
 }
+//export function datos() {
+  export const auth = getAuth();
+  export const user = auth.currentUser;
+  //if (user !== null) {
+    // The user object has basic properties such as display name, email, etc.
+    //const displayName = user.displayName;
+    //const email = user.email;
+    //const photoURL = user.photoURL;
+    //const emailVerified = user.emailVerified;
+  
+    // The user's ID, unique to the Firebase project. Do NOT use
+    // this value to authenticate with your backend server, if
+    // you have one. Use User.getToken() instead.
+    //const uid = user.uid;
+//}
+  //return { user };
+//}

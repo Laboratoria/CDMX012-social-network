@@ -50,10 +50,8 @@ export const login = () => {
   linkbotonlogin.textContent = 'Iniciar sesión';
   botonLogin.appendChild(linkbotonlogin);
   botonLogin.addEventListener('click', () => {
-    //modal();
     usuarioExistente();
     iniciarSesion();
-    console.log(iniciarSesion());
   });
   const imgGoogle = document.createElement('IMG');
   imgGoogle.src = './images/google.png';

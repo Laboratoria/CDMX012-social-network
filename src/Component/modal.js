@@ -18,7 +18,7 @@ export const modal = () => {
   btnVolver.setAttribute('class', 'botones');
   const cerrarModal = document.createElement('a');
   cerrarModal.textContent = 'Volver';
-  cerrarModal.setAttribute('href', '/');
+  cerrarModal.setAttribute('href', '');
   contenedorModal.append(iconomal, mensajemal, btnVolver);
   const btnMostrarModal = document.createElement('button');
   const mostrarModal = document.createElement('a');

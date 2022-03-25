@@ -1,5 +1,6 @@
 import { onNavigate } from '../main.js';
 import { cerrar } from '../lib/index.js';
+import { user } from '../lib/index.js';
 
 export const muro = () => {
   const seccionMuro = document.createElement('section');
@@ -26,12 +27,7 @@ export const muro = () => {
   filtrarPor.textContent = 'Filtrar por';
   filtrador.append(filtrarPor);
   cabeza.append(logoYummi, buscador, lupa, filtrador);
-  // Parrafo
-  /* const parrafo = document.createElement('h1');
-  parrafo.textContent = 'Algo bueno se esta cocinando...';
-  const mensajeLogin = document.createElement('h1');
-  mensajeLogin.setAttribute('id', 'mensajeLogin'); */
-  // Perfil
+
   const contenedorPerfil = document.createElement('article');
   contenedorPerfil.setAttribute('id', 'contenedorPerfil');
   const perfilCaja = document.createElement('section');
@@ -48,7 +44,7 @@ export const muro = () => {
   usuarioImg.setAttribute('id', 'fotousuario');
   const nombreUser = document.createElement('h1');
   nombreUser.setAttribute('id', 'nombreUser');
-  nombreUser.textContent = 'Nombre';
+  nombreUser.textContent = user;
   const cerrarSesionImg = document.createElement('IMG');
   cerrarSesionImg.src = '../images/puerta.png';
   cerrarSesionImg.setAttribute('id', 'cerrarSesionImg');
@@ -74,6 +70,30 @@ export const muro = () => {
   cajaFoto.appendChild(usuarioImg);
   perfilCaja.append(cajaPortada, cajaFoto, nombreUser, btnCerrarSesion);
   contenedorPerfil.appendChild(perfilCaja);
-  seccionMuro.append(cabeza, publicar/* parrafo, mensajeLogin, */, contenedorPerfil);
+
+  const formPublicacion = document.createElement('form');
+  formPublicacion.setAttribute('id', 'formPublicacion');
+  const labelReceta = document.createElement('label');
+  labelReceta.setAttribute('id', 'labelReceta');
+  labelReceta.textContent = 'Nombre Receta';
+  const inputReceta = document.createElement('input');
+  inputReceta.setAttribute('id', 'inputReceta');
+  inputReceta.setAttribute('type', 'text');
+  inputReceta.setAttribute('placeholder', 'Nombre de receta');
+  const labelProcedimiento = document.createElement('label');
+  labelProcedimiento.textContent = 'Procedimiento de la receta';
+  const inputProcedimiento = document.createElement('input');
+  inputProcedimiento.setAttribute('id', 'inputProcedimiento');
+  inputProcedimiento.setAttribute('placeholder', 'Procedimiento');
+  inputProcedimiento.setAttribute('type', 'text');
+  const btnPublicar = document.createElement('button');
+  btnPublicar.textContent = 'Publicar';
+  btnPublicar.setAttribute('id', 'btnPostear');
+
+  const postPublicado = document.createElement('div');
+  postPublicado.setAttribute('id', 'postPublicado');
+
+  formPublicacion.append(labelReceta, inputReceta, labelProcedimiento, inputProcedimiento, btnPublicar);
+  seccionMuro.append(cabeza, publicar/* parrafo, mensajeLogin, */, contenedorPerfil,formPublicacion, postPublicado);
   return seccionMuro;
 };

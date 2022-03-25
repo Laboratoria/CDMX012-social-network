@@ -41,11 +41,7 @@ export const registro = () => {
   botonRegistro.addEventListener('click', () => {
     registrar();
     verificarCorreo();
-  // onNavigate('/muro');
   });
-  // botonRegistro.addEventListener('click', () => {
-  //   registrar();
-  // });
   seccionGeneral.append(tabla, seccionRegistro);
   // eslint-disable-next-line max-len
   seccionRegistro.append(logoYummi, inputEmailRegistro, inputContraseñaRegistro, inputContraseñaConfirmar, botonRegistro);

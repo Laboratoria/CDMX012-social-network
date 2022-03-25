@@ -339,40 +339,23 @@
         background-color: #EBC920;
         color: white;
     }
-   
-   /* #btnCerrarSesion{
-        background: red;
-        color: black;
-        font-size: medium;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
-        width: 15%;
-        height: 25%;
-        position: relative;
-    
-
-    }
-    #cerrarSesionImg{
-        width: 15%;
-        position: relative;
-        right: 85%;
-        top: 0.4%;
-        
-    }
-    
-    /*#perfilCaja{
-        background-color: #eb209d;
-        width: 25%;
-        height: 100%;
-    }
-   
-    #fotoPortada{
-      display: none;
-        width: 35%;
-        height:15%;
-        position: relative;
-    }*/
+   #btnPostear{
+    position: absolute;
+    left: 11%;
+    width: 20%;
+    height: 5%;
+    background-color: white;
+    border: #EBC920 1.5px solid;
+    border-radius: 12px;
+    color: gray;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+   }
+   form{
+       background-color: blue;
+       height: 700px;
+   }
 }
 
     @media (max-width:500px){
