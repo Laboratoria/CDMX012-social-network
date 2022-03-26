@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from './app.js';
 import { signOutBR } from './lib/auth.js';
+import { getProfileInfo } from './lib/profileUser.js';
 
 export const menu = () => {
   const background = document.createElement('div');
@@ -23,7 +24,18 @@ export const menu = () => {
     fathernode.removeChild(background);
   });
 
-  profileInfo.append(close);
+  const profileData = document.createElement('div');
+  profileData.setAttribute('id', 'profile-data');
+
+  getProfileInfo().then((user) => {
+    profileData.innerHTML = `
+        <p id="user-name">${user.name}</p>
+        <p id="user-username">@${user.username}</p>
+        <p id="user-bio">${user.bio}</p>
+    `;
+  });
+
+  profileInfo.append(close, profileData);
 
   const configuration = document.createElement('div');
   configuration.setAttribute('id', 'config-container');
