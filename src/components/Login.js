@@ -47,7 +47,6 @@ export const login = () => {
     let userPass = document.getElementById("pasword").value;
 
     isLogin(userMail, userPass);
-    authenticationObserver();
   });
   // logIn.addEventListener("click", () => {
   //   authenticationObserver();
@@ -67,6 +66,7 @@ export const login = () => {
   singIn.setAttribute("id", "sing-In");
 
   const footerPage = document.createElement("footer");
+  footerPage.setAttribute("class", "footer-login-register");
   footerPage.textContent = "Derechos Reservados 2022 ©️";
 
   contentSectionLogin.appendChild(loginSesion);

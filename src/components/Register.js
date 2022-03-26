@@ -47,9 +47,11 @@ export const register = () => {
   });
 
   const footerPage = document.createElement("footer");
+  
   footerPage.textContent = "Derechos Reservados 2022 ©️";
 
   logIn.setAttribute("class", "logIn_register");
+  footerPage.setAttribute("class", "footer-login-register");
   logIn.setAttribute("id", "create_account");
 
   contentSection.append(registerSection, footerPage);

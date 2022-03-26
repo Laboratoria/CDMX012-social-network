@@ -2,6 +2,7 @@ import {
   getAuth,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+import { singOut } from "../lib/auth.js";
 import { onNavigate } from "../main.js";
 
 // const auth = getAuth();
@@ -24,12 +25,21 @@ export const timeline = () => {
   const TimelineHeader = document.createElement("header");
   TimelineHeader.setAttribute("class", "timeline-header");
   const headerLogo = document.createElement("img");
-  TimelineHeader.append(headerLogo);
   headerLogo.setAttribute("class", "solovino-logo-timeline");
   headerLogo.setAttribute(
     "src",
     "./Resourses/solovino movil_Mesa de trabajo 1.png"
   );
+
+  const headerSingOut = document.createElement("p");
+  headerSingOut.setAttribute("type", "text");
+  headerSingOut.setAttribute("class", "sing-out");
+  headerSingOut.textContent = "Cerrar Sesión";
+  headerSingOut.addEventListener("click", () => {
+    singOut();
+  });
+
+  TimelineHeader.append(headerLogo, headerSingOut); ////////
 
   const postContent = document.createElement("section");
   postContent.setAttribute("id", "postContent");

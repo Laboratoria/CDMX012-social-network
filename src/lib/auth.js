@@ -11,7 +11,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
+  signOut,
   signInWithPopup,
   GoogleAuthProvider,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
@@ -56,8 +56,6 @@ export const isLogin = (emailLogin, passwordLogin) => {
     });
 };
 
-
-
 //iniciar sesión con Google
 
 export const loginWithGoogle = () => {
@@ -82,5 +80,19 @@ export const loginWithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
       alert(errorCode || errorMessage || email || credential);
+    });
+};
+
+export const singOut = () => {
+  const auth = getAuth();
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      console.log("funciona");
+      onNavigate("/");
+    })
+    .catch((error) => {
+      // An error happened.
+      alert("Error al intentar cerrar sesión");
     });
 };

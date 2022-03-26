@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,700;1,900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100&display=swap");
 
+html {
+  background: #4cdee2;
+  /* background-size: 100%; */
+  font-family: "Lato", sans-serif;
+  background-image: url("../Resourses/Pattern_Mesa de trabajo 1.png");
+  background-size: 50%;
+}
 body {
   /* background: #4cdee2;
   /* background-size: 100%; */
@@ -16,11 +23,6 @@ body {
 
 .father {
   margin: 0;
-  background: #4cdee2;
-  /* background-size: 100%; */
-  font-family: "Lato", sans-serif;
-  background-image: url("../Resourses/Pattern_Mesa de trabajo 1.png");
-  background-size: 50%;
 }
 
 .son {
@@ -42,19 +44,19 @@ body {
   border-radius: 1.25rem;
   font-size: 20px;
   text-align: center;
-  margin: 0 3% 0% 57%;
+  margin: 0 3% 1% 57%;
 }
 
 #facebook {
   background-color: rgba(59, 89, 153, 1);
   color: white;
-  margin: 25% 3% 0% 57%;
+  margin: 21% 3% 1% 57%;
 }
 
 #google {
   background-color: rgba(221, 76, 57, 1);
   color: white;
-  margin: 0 3% 0% 57%;
+  margin: 0 3% 1% 57%;
 }
 /*boton de iniciar sesion "morado"*/
 .log-In {
@@ -91,8 +93,8 @@ body {
 }
 
 .solovino_logo_register {
-  width: 40%;
-  margin: 2% 30%;
+  width: 20%;
+  margin: 5% 40% 0%;
 }
 
 .new_User_register {
@@ -101,13 +103,22 @@ body {
   margin: 2% 10%;
 }
 
+.son_register {
+  background-color: #d4d4d4;
+  width: 60%;
+  border-radius: 20px;
+
+  margin: 5% 20% 0%;
+  display: flex;
+  flex-direction: column;
+}
 .button_register {
   width: 80%;
   height: 3rem;
   border-radius: 1.25rem;
   font-size: 1rem;
   text-align: center;
-  margin: 2% 10% 3%;
+  margin: 1% 10% 1%;
   border: none;
 }
 .condicions_register {
@@ -129,19 +140,28 @@ body {
   border-style: none;
 }
 
-footer {
+.footer-login-register {
+  position: fixed;
+  width: 23%;
+  bottom: 0;
+  margin: 5% 38.5% 0%;
+  bottom: 0;
+  background-color: #4cdee2;
   text-align: center;
-  bottom: 0;
-  width: 100%;
-  margin: 13% auto 5%;
-  bottom: 0;
 }
 
 @media (max-width: 450px) {
+  html {
+    font-family: "Lato", sans-serif;
+    background-color: #ffffff;
+    background-image: none;
+    margin: 0;
+  }
+
   .father {
     background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg");
     background-size: 100%;
-    font-family: "Lato", sans-serif;
+
     margin: 0;
     width: 100%;
   }
@@ -232,7 +252,7 @@ footer {
     border-radius: 1.3125rem;
     font-size: 1.25rem;
     justify-content: center;
-    margin: 0 20% 0.3%;
+    margin: 0 20% 3%;
   }
 
   .solovino_logo_register {
@@ -244,7 +264,7 @@ footer {
     width: 80%;
     margin: 5% 10%;
   }
-  .condicions_register{
+  .condicions_register {
     width: 70%;
     font-family: "Lato";
     font-weight: 300;
