@@ -21,7 +21,10 @@ window.addEventListener('DOMContentLoaded', async () => {
       html += `
       <div class = 'post'>
         <h3>${publicacion.receta}</h3>
+        <p>${publicacion.ingredientes}</p>
         <p>${publicacion.procedimiento}</p>
+        <p>${publicacion.categoria}</p>
+        <img src="${publicacion.categoria.src}">
         <button class = 'borrarPost' data-id= "${doc.id}"> Borrar </button>
         <button class = 'editarPost' data-id= "${doc.id}"> Editar </button>
     </div>
@@ -42,6 +45,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         const datosReceta = await conseguirReceta(dataset.id);
         const recetaEditar = datosReceta.data();
         formPublicacion.inputReceta.value = recetaEditar.receta;
+        formPublicacion.inputIngredientes.value = recetaEditar.ingredientes;
         formPublicacion.inputProcedimiento.value = recetaEditar.procedimiento;
         editandoReceta = true;
         id = datosReceta.id;
@@ -52,12 +56,15 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 formPublicacion.addEventListener('submit', (e) => {
   e.preventDefault();
-  const receta = formPublicacion['inputReceta'];
-  const procedimiento = formPublicacion['inputProcedimiento'];
+  const receta = formPublicacion.inputReceta;
+  const ingredientes = formPublicacion.inputIngredientes;
+  const procedimiento = formPublicacion.inputProcedimiento;
+  const categoria = formPublicacion.selectCategoria;
+  console.log(categoria);
   if (!editandoReceta) {
-    guardarReceta(receta.value, procedimiento.value);
+    guardarReceta(receta.value, ingredientes.value, procedimiento.value, categoria.value);
   } else {
-    actualizarReceta(id, { receta: receta.value, procedimiento: procedimiento.value });
+    actualizarReceta(id, { receta: receta.value, ingredientes: ingredientes.value, procedimiento: procedimiento.value, categoria: categoria.value});
   }
 
   formPublicacion.reset();

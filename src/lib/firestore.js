@@ -13,8 +13,10 @@ import { app } from './index.js';
 
 const db = getFirestore();
 
-export const guardarReceta = (receta, procedimiento) => {
-    addDoc(collection(db, 'recetas'), { receta, procedimiento });
+export const guardarReceta = (receta, ingredientes, procedimiento, categoria) => {
+  addDoc(collection(db, 'recetas'), {
+    receta, ingredientes, procedimiento, categoria,
+  });
 };
 export const conseguirRecetas = () => getDocs(collection(db, 'recetas'));
 export const alConseguirRecetas = (callback) => onSnapshot(collection(db, 'recetas'), callback);

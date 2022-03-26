@@ -202,8 +202,7 @@
         width: 100%;
         height: 100%;
        
-       /* display: flex;
-        flex-wrap: wrap;*/
+      
     }
     #cabeza{
         position: relative;
@@ -253,7 +252,7 @@
         width: 25%;
         height: 528px;
         background-color: #F8ECB1;
-        position: relative;
+        position: fixed;
         left: 75%;
         display: flex;
     }
@@ -302,8 +301,6 @@
         position: relative;
         right: 60%;
         bottom: 5%;
-      
-        
     }
 
     #publicar{
@@ -317,7 +314,6 @@
         border-radius: 12px;
         border: #EBC920 1px solid;
         box-shadow: 1px 1px 1px 1px rgba(173, 147, 13, 0.527);
-        
     }
     #publicar img{
         width: 8%;
@@ -339,9 +335,24 @@
         background-color: #EBC920;
         color: white;
     }
+   form{
+       position: absolute;
+       top:40%;
+       left:20%;
+       width: 60%;
+       height: 78%;
+       background-color: white;
+       height: 700px;
+       border: #EBC920 1.5px solid;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       align-content: space-around;
+   }
+   #inputReceta{
+       width: 65%;
+   }
    #btnPostear{
-    position: absolute;
-    left: 11%;
     width: 20%;
     height: 5%;
     background-color: white;
@@ -352,10 +363,23 @@
     text-align: left;
     cursor: pointer;
    }
-   form{
-       background-color: blue;
-       height: 700px;
+   #selectCategoria{
+       width: 10%;
+       height: 5%;
    }
+   .post{
+       background-color: aquamarine;
+       width: 50%;
+       padding: 1%;
+       border: #EBC920 1.5px solid;
+       border-radius: 10px;
+       margin: 1%;
+       position: relative;
+       top:50%;
+       left:10%;
+       box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.295);
+
+   }    
 }
 
     @media (max-width:500px){
@@ -486,8 +510,52 @@
     top: 74%;
     left: 26%;
 }
-
 .modal1{
+    position:absolute;
+    width: 80%;
+    height: 50%;
+    background-color: white;
+    border-radius: 10px;
+    left: 50%;
+    top:50%;
+    border: 2px solid #FF0606;
+    transform: translate(-50%, -50%);
+}
+.contmodal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 600ms;
+
+}
+#iconomal{
+ position: relative;
+ width: 30%;
+ left: 35%;
+ top:10%;
+}
+.mensajemal{
+    text-align: center;
+    position: relative;
+    top:5%;
+}
+#botonVolver{
+    background-color: black;
+    color: white;
+    width: 45%;
+    height: 12%;
+    position: relative;
+    left: 27.5%;
+    top: 5%;
+}
+a{
+    text-decoration:none ;
+    color: white;
+}
+/*.modal1{
     position:absolute;
     width: 20%;
     height: 39%;
@@ -531,7 +599,7 @@
 a{
     text-decoration:none ;
     color: white;
-}
+} */
 #ojito{
     background: none;
     border: none;
