@@ -49,6 +49,8 @@ export const menu = () => {
 
   SignOutTxt.addEventListener('click', () => {
     signOutBR().then(() => {
+      const body = document.body;
+      body.style.overflow = '';
       onNavigate('/');
     }).catch((error) => {
       console.log(error);
