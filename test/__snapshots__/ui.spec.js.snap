@@ -6,6 +6,17 @@ exports[`Tests  to check if the error message shows invalid e-mail 1`] = `"Inval
 
 exports[`Tests  to check if the error message shows weak password 1`] = `"Your password must be at least 6 characters long."`;
 
-exports[`Tests for matched passwords passwords do not match, shows error message 1`] = `"Passwords do not match"`;
+exports[`Tests for matched passwords passwords do not match, shows error message and disables button 1`] = `
+"
+    <div id=\\"errorArea\\">Passwords do not match</div>
+    <input type=\\"button\\" class=\\"btn-signUp\\" value=\\"Sign Up\\" disabled=\\"\\">
+    "
+`;
 
-exports[`Tests for matched passwords passwords match, does not show any error message 1`] = `""`;
+exports[`Tests for matched passwords passwords match, does not show any error message, sign-up button is enabled 1`] = `
+"
+    <div id=\\"errorArea\\"></div>
+    <input type=\\"button\\" class=\\"btn-signUp\\" value=\\"Sign Up\\">
+    "
+`;
+
