@@ -1,19 +1,17 @@
-import { getFirestore, doc, updateDoc } from '../firebase-imports.js';
+import { updatePost } from './update-doc.js';
 
-async function saveChanges(postData, node) {
+function saveChanges(postData, node) {
   const editForm = document.querySelector('.edit-form');
-  // eslint-disable-next-line no-param-reassign
-  node.innerHTML = `<div class="post-content">
+  updatePost(editForm, postData).then(() => {
+    console.log('Post edited');
+    // eslint-disable-next-line no-param-reassign
+    node.innerHTML = `<div class="post-content">
     <div><img src= "./assets/libro-abierto.png" class= "book-icon"><p><strong>  ${editForm.reading.value}</strong></p></div> <br>
     <p>${editForm.txt.value}</p>
     </div>`;
-
-  const db = getFirestore();
-
-  const postRef = doc(db, 'posts', postData.idDocument);
-  await updateDoc(postRef, {
-    reading: editForm.reading.value,
-    text: editForm.txt.value,
+    console.log(node.innerHTML);
+  }).catch((error) => {
+    console.log(error, 'Post cannot be update');
   });
 }
 
@@ -34,6 +32,7 @@ export function toEditable(postData, node) {
 
   const btnSave = document.createElement('input');
   btnSave.setAttribute('type', 'button');
+  btnSave.setAttribute('id', 'btn-save');
   btnSave.setAttribute('value', 'Save');
 
   node.append(editionForm, btnSave);
