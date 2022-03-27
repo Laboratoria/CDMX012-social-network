@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { usernameValidation, isValidField, saveInfo } from '../lib/posts.js';
+import { usernameValidation, isValidField, saveInfo } from '../lib/saveInfo.js';
 import { onNavigate } from '../app.js';
 
 export const addInfoPage = () => {

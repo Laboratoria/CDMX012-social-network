@@ -1,61 +1,16 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/no-unresolved */
 import {
-  getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged, collection,
+  getFirestore, doc, setDoc, getAuth, onAuthStateChanged, collection,
   query, where, onSnapshot, orderBy, serverTimestamp,
 } from '../firebase-imports.js';
 import { app } from './firebase-config.js';
-import {
-  usernameError, usernameTaken, emptyFields, validUsername, createPosts,
-} from '../ui.js';
+import { createPosts } from '../renderingPosts.js';
 import { onNavigate } from '../app.js';
 
 const auth = getAuth(app); // Init firebase app
 
 const db = getFirestore();
-
-export function saveInfo(userForm) {
-  onAuthStateChanged(auth, (result) => {
-    const uid = result.uid;
-    setDoc(doc(db, 'usernames', userForm.username.value), {
-      uid: result.uid,
-    });
-    setDoc(doc(db, 'profiles', uid), {
-      name: userForm.name.value,
-      username: userForm.username.value,
-      bio: userForm.bio.value,
-      uid: result.uid,
-    })
-      .then(() => {
-        userForm.reset();
-      });
-  });
-}
-
-// Validation functions
-export function isValidField(nameValue, usernameValue) {
-  if (nameValue === '' || usernameValue === '') {
-    emptyFields();
-    return false;
-  }
-  return true;
-}
-
-export async function usernameValidation(username) {
-  if (!/[^a-zA-Z0-9._]/g.test(username)) {
-    const docRef = doc(db, 'usernames', username);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      usernameTaken();
-    } else {
-      validUsername();
-      return true;
-    }
-  } else {
-    usernameError();
-  }
-  return false;
-}
 
 // Current user id
 let currentUserUid = '';
