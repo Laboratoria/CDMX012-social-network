@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 export const getFirestore = () => Promise.resolve({});
-export const doc = (db, collection, idDocument) => Promise.resolve({});
+export const doc = () => Promise.resolve({});
 export const setDoc = () => Promise.resolve({});
 export const getDoc = () => Promise.resolve({});
 export const getAuth = () => Promise.resolve({});

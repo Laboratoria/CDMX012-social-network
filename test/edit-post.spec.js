@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { createPosts } from '../src/ui.js';
+import { createPosts } from '../src/renderingPosts.js';
 
 jest.mock('../src/firebase-imports.js');
 
