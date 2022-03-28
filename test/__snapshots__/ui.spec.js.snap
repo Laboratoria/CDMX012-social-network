@@ -1,11 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests  to check if the error message shows e-mail already in use 1`] = `"This e-mail address has already been registered."`;
+exports[`Tests for matched passwords passwords do not match, shows error message and disables button 1`] = `
+"
+    <div id=\\"errorArea\\">Passwords do not match</div>
+    <input type=\\"button\\" class=\\"btn-signUp\\" value=\\"Sign Up\\" disabled=\\"\\">
+    "
+`;
 
-exports[`Tests  to check if the error message shows invalid e-mail 1`] = `"Invalid e-mail address, please try another one."`;
+exports[`Tests for matched passwords passwords match, does not show any error message, sign-up button is enabled 1`] = `
+"
+    <div id=\\"errorArea\\"></div>
+    <input type=\\"button\\" class=\\"btn-signUp\\" value=\\"Sign Up\\">
+    "
+`;
 
-exports[`Tests  to check if the error message shows weak password 1`] = `"Your password must be at least 6 characters long."`;
+exports[`Tests to check what error message is shown e-mail already in use 1`] = `"This e-mail address has already been registered."`;
 
-exports[`Tests for matched passwords passwords do not match, shows error message 1`] = `"Passwords do not match"`;
+exports[`Tests to check what error message is shown invalid e-mail 1`] = `"Invalid e-mail address, please try another one."`;
 
-exports[`Tests for matched passwords passwords match, does not show any error message 1`] = `""`;
+exports[`Tests to check what error message is shown weak password 1`] = `"Your password must be at least 6 characters long."`;

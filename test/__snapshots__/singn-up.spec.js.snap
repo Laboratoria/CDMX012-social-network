@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests  of signUpPage render sign up page 1`] = `
+exports[`Tests of signUpPage render sign up page 1`] = `
 "<div class=\\"lp-content\\"><div class=\\"createAccount-container\\"><h2 class=\\"account-title\\">Create an Account</h2><form class=\\"account-form\\"><div class=\\"label-icon\\">
     <img class=\\"mail\\" src=\\"./assets/icons8-email-64 1.png\\" alt=\\"mail\\">
     <label for=\\"email\\" class=\\"e-mail\\">E-mail</label></div><input name=\\"email\\" class=\\"e-mail\\" type=\\"email\\" placeholder=\\"e-mail@example.com\\" required=\\"\\" id=\\"txtEmail\\"><div class=\\"label-icon\\">
