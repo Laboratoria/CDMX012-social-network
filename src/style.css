@@ -150,6 +150,14 @@ body {
   color: gray;
 }
 
+.eye {
+  width: 1.875rem;
+  height: 1.875rem;
+  position: relative;
+  bottom: 2.5rem;
+  left: 6.5rem;
+}
+
 .messages {
   width: fit-content;
   height: fit-content;

@@ -77,7 +77,6 @@ export const login = () => {
   errorMessage.className = 'messages';
   errorMessage.id = 'pError';
 
-
   const divFooter = document.createElement('div');
   divFooter.className = 'containerFooter';
 

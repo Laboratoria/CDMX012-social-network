@@ -38,14 +38,18 @@ export const createNewUsers = (username, email, password) => {
     })
     .catch((error) => {
       const errorCode = error.code;
+      const authError = document.getElementById('pError');
 
       if (errorCode === 'auth/invalid-email') {
+        authError.textContent = 'Write a valid mail example@gmail.com';
         alert('write a valid mail example@gmail.com');
       }
       if (errorCode === 'auth/weak-password') {
-        alert('Your Password must have 6 characters at least.');
+        authError.textContent = 'Your Password must have 6 characters at least';
+        alert('Your Password must have 6 characters at least');
       }
       if (errorCode === 'auth/email-already-in-use') {
+        authError.textContent = 'This email is in use, try another or logIn';
         alert('This email is in use, try another or logIn.');
       }
     });
