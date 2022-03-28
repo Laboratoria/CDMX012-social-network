@@ -89,6 +89,10 @@ export const login = () => {
   btnRefJoinUs.id = 'refJoinUs';
   btnRefJoinUs.textContent = 'Join us';
 
+  btnRefJoinUs.addEventListener('click', () => {
+    onNavigate('/register');
+  });
+
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
   infoForm.append(labelMail, inputEmail, labelPassword, inputPassword, errorMessage, btnInfoShootIn);
