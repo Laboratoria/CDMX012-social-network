@@ -1,11 +1,11 @@
 @import "slideshow.css";
 body {
-  background-image: none;
   margin: 0;
 }
 
-.feed-content {
-  margin: 3% 6%;
+.readingPage {
+  padding: 3% 6%;
+  background-color: white;
 }
 
 .post-container {
@@ -65,7 +65,6 @@ a {
   text-decoration: none;
   color: black;
 }
-
 
 .editPost:hover,
 .deletePost:hover {
@@ -131,7 +130,7 @@ textarea {
   width: 100%;
 }
 
-.reading-form textarea{
+.reading-form textarea {
   height: 8em;
   resize: none;
 }
@@ -196,24 +195,28 @@ textarea {
 /* book suggestions title */
 .bookSuggest {
   font-size: 16px;
-  font-weight:bold;
+  font-weight: bold;
   margin-bottom: 2.5%;
+  padding-left: 5%;
+  font-weight: bold;
 }
 
 /* Make new post origninal section */
-.make-new-post{
+.make-new-post {
   border-radius: 10px;
   border: solid 0.5px #951C45;
   padding: 0.5em; 
   margin-top: 1.4em;
+
   box-shadow: 0 4px 4px 0 rgb(128 128 128 / 30%);
   display: block;
   cursor: pointer;
   color: #474747;
 }
 
-.make-new-post:hover, .make-new-post:active{
-  border: solid 0.5px #E63F66;
+.make-new-post:hover,
+.make-new-post:active {
+  border: solid 0.5px #e63f66;
 }
 
 /* New post form */
@@ -224,6 +227,7 @@ textarea {
   padding: 0.5em; 
   margin-top: 1.4em;
 }
+
 .reading-area {
   display: flex;
 }
@@ -245,18 +249,17 @@ textarea {
 }
 
 @media screen and (min-width: 768px) {
-/* Header */
-.logo-title img {
-  height: 50px;
-}
+  /* Header */
+  .logo-title img {
+    height: 50px;
+  }
 
-.config-menu {
-  max-height:40px;
-}
+  .config-menu {
+    max-height: 40px;
+  }
 
-/* book suggestions title */
-.bookSuggest {
-  font-size: 20px;
-}
-
+  /* book suggestions title */
+  .bookSuggest {
+    font-size: 20px;
+  }
 }
