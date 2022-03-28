@@ -1,7 +1,7 @@
 import { toEditable } from './edit-post.js';
 import { deletePost } from '../lib/deletePost.js';
-import { like as likeComponent } from './like.js';
-import { currentUser } from '../lib/likes.js';
+// import { like as likeComponent } from './like.js';
+// import { currentUser } from '../lib/likes.js';
 
 export const createPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');
@@ -35,20 +35,20 @@ export const createPosts = (postData, currentUid, name, username) => {
     <div>`;
 
   // ¿le di like a un post?
-  const doIlikePost = false;
-  console.log(postData.likes);
-  const sessionUser = currentUser();
-  console.log(sessionUser);
+  // const doIlikePost = false;
+  // console.log(postData.likes);
+  // const sessionUser = currentUser();
+  // console.log(sessionUser);
   // if (postData.likes.includes(sessionUser.uid)) {
   //   doIlikePost = true;
   // }
-  const like = likeComponent(
-    // doIlikePost,
-    // postData.likes.length,
-    // sessionUser.uid,
-    // postData.key,
-    // postData.likes,
-  );
+  // const like = likeComponent(
+  //   doIlikePost,
+  //   postData.likes.length,
+  //   sessionUser.uid,
+  //   postData.key,
+  //   postData.likes,
+  // );
 
   if (currentUid === postData.uid) {
     const options = document.createElement('img');
@@ -95,7 +95,7 @@ export const createPosts = (postData, currentUid, name, username) => {
       });
     });
 
-    post.append(infoUserPost, nodeTobeEdited, like, dropdownContainer);
+    post.append(infoUserPost, nodeTobeEdited, dropdownContainer);
     const postArea = document.querySelector('#postsArea');
     postArea.append(post);
 
@@ -108,7 +108,7 @@ export const createPosts = (postData, currentUid, name, username) => {
     return postArea;
   }
 
-  post.append(infoUserPost, nodeTobeEdited, like);
+  post.append(infoUserPost, nodeTobeEdited);
   const postArea = document.querySelector('#postsArea');
   postArea.append(post);
 

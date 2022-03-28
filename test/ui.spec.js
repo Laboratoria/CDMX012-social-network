@@ -3,7 +3,7 @@
  */
 import {
   showSignUpError, showIncorrectPass, showPassword, showAndHideItems,
-} from '../src/ui.js';
+} from '../src/components/ui.js';
 
 jest.mock('../src/firebase-imports.js');
 
