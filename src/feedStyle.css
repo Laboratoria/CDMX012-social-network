@@ -4,8 +4,11 @@ body {
 }
 
 .readingPage {
-  padding: 3% 6%;
   background-color: white;
+}
+
+.feed-content {
+  padding: 3% 6%;
 }
 
 .post-container {
