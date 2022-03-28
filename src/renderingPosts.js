@@ -35,19 +35,19 @@ export const createPosts = (postData, currentUid, name, username) => {
     <div>`;
 
   // ¿le di like a un post?
-  let doIlikePost = false;
+  const doIlikePost = false;
   console.log(postData.likes);
   const sessionUser = currentUser();
-  console.log(sessionUser.uid);
-  if (postData.likes.includes(sessionUser.uid)) {
-    doIlikePost = true;
-  }
+  console.log(sessionUser);
+  // if (postData.likes.includes(sessionUser.uid)) {
+  //   doIlikePost = true;
+  // }
   const like = likeComponent(
-    doIlikePost,
-    postData.likes.length,
-    sessionUser.uid,
-    postData.key,
-    postData.likes,
+    // doIlikePost,
+    // postData.likes.length,
+    // sessionUser.uid,
+    // postData.key,
+    // postData.likes,
   );
 
   if (currentUid === postData.uid) {

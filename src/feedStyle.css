@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1em;
-  border-bottom: 1px solid #E63F66;
+  border-bottom: 1px solid #e63f66;
 }
 
 .info-user-post {
@@ -38,7 +38,7 @@ body {
 }
 
 .date-P {
-  color:#E63F66;
+  color: #e63f66;
 }
 
 a div {
@@ -165,15 +165,20 @@ textarea {
 
 .like-btn {
   width: 8%;
-  display:flex;
-  justify-content: flex-end;
+  display: flex;
   align-self: flex-end;
   justify-content: space-around;
 }
 
 .like-btn img {
   width: 1.8rem;
-  cursor:pointer;
+  cursor: pointer;
+}
+
+.logo-title img {
+  height: 30px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .like-btn img:hover {
@@ -181,7 +186,7 @@ textarea {
 }
 
 .likeCount {
-  color:#951c45;
+  color: #951c45;
   font-weight: bold;
 }
 
@@ -191,24 +196,18 @@ textarea {
   border-bottom: solid 1px #951c45;
   margin-bottom: 0.3em;
   padding-top: 0.5em;
-  width:auto;
-  justify-content:space-between;
+  width: auto;
+  justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 5;
-  background-color: #951C45;
-}
-
-.logo-title img {
-  height: 30px;
-  margin-left: 10px;
-  cursor: pointer;
+  background-color: #951c45;
 }
 
 .config-menu {
-  max-height:20px;
-  width:auto;
+  max-height: 20px;
+  width: auto;
   margin-right: 5%;
   margin-bottom: 2%;
 }
@@ -219,14 +218,13 @@ textarea {
   font-weight: bold;
   margin-bottom: 2.5%;
   padding-left: 5%;
-  font-weight: bold;
 }
 
 /* Make new post origninal section */
 .make-new-post {
   border-radius: 10px;
-  border: solid 0.5px #951C45;
-  padding: 0.5em; 
+  border: solid 0.5px #951c45;
+  padding: 0.5em;
   margin-top: 1.4em;
 
   box-shadow: 0 4px 4px 0 rgb(128 128 128 / 30%);
@@ -244,8 +242,8 @@ textarea {
 .reading-form {
   display: none;
   border-radius: 10px;
-  border: solid 0.5px #951C45;
-  padding: 0.5em; 
+  border: solid 0.5px #951c45;
+  padding: 0.5em;
   margin-top: 1.4em;
 }
 
