@@ -4,7 +4,6 @@ import { onNavigate } from '../main.js';
 import { createNewUsers, googleSignIn } from '../lib/firebase.js';
 // import { createAccount } from '../lib/firebase.js';
 
-
 export const register = () => {
   const joinUsSection = document.createElement('section');
   joinUsSection.className = 'screenJoin';
@@ -74,6 +73,30 @@ export const register = () => {
   inputPassword.className = 'inputs';
   inputPassword.required = 'true';
   inputPassword.id = 'password';
+  const maskifyOff = document.createElement('img');
+  maskifyOff.setAttribute('src', './assets/eye.png');
+  maskifyOff.id = 'maskifyOff';
+  maskifyOff.className = 'eye';
+  const maskifyOn = document.createElement('img');
+  maskifyOn.setAttribute('src', './assets/eye_off.png');
+  maskifyOn.setAttribute('hidden', 'true');
+  maskifyOn.id = 'maskifyOn';
+  maskifyOn.className = 'eye';
+  maskifyOff.addEventListener('click', () => {
+    if (inputPassword.type === 'password') {
+      inputPassword.type = 'text';
+      maskifyOff.setAttribute('hidden', 'true');
+      maskifyOn.removeAttribute('hidden');
+    }
+  });
+
+  maskifyOn.addEventListener('click', () => {
+    if (inputPassword.type === 'text') {
+      inputPassword.type = 'password';
+      maskifyOn.setAttribute('hidden', 'true');
+      maskifyOff.removeAttribute('hidden');
+    }
+  });
 
   const errorMessage = document.createElement('p');
   errorMessage.className = 'messages';
@@ -105,18 +128,9 @@ export const register = () => {
     createNewUsers(username, email, password);
   });
 
-  btnInfoJoinUs.addEventListener('click', (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    createAccount(username, email, password);
-  });
-
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
-  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, errorMessage);
+  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage);
   divFooter.append(labelHaveAcc, btnRefLogin);
   joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs, divFooter);
   return joinUsSection;
