@@ -5,7 +5,7 @@ import { createPosts } from '../src/renderingPosts.js';
 
 jest.mock('../src/firebase-imports.js');
 
-describe('toEditable', () => {
+describe('createPosts edit btns', () => {
   document.body.innerHTML = '<div id="postsArea"></div>';
   const postData = {
     reading: 'Book1',

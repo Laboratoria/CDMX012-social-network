@@ -1,11 +1,11 @@
 @import "slideshow.css";
 body {
-  background-image: none;
   margin: 0;
 }
 
 .readingPage {
-  margin: 2% 6%;
+  padding: 2% 6%;
+  background-color: white;
 }
 
 .post-container {
@@ -66,7 +66,6 @@ a {
   text-decoration: none;
   color: black;
 }
-
 
 .editPost:hover,
 .deletePost:hover {
@@ -132,7 +131,7 @@ textarea {
   width: 100%;
 }
 
-.reading-form textarea{
+.reading-form textarea {
   height: 8em;
   resize: none;
 }
@@ -172,9 +171,9 @@ textarea {
   border-bottom: solid 1px #951c45;
   margin-bottom: 0.5em;
   padding-bottom: 0.3em;
-  height:60px;
-  width:auto;
-  justify-content:space-between;
+  height: 60px;
+  width: auto;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -184,22 +183,22 @@ textarea {
 }
 
 .config-menu {
-  max-height:20px;
-  width:auto;
+  max-height: 20px;
+  width: auto;
 }
 
 /* book suggestions title */
 .bookSuggest {
   font-size: 16px;
   padding-left: 5%;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 /* Make new post origninal section */
-.make-new-post{
+.make-new-post {
   border-radius: 10px;
-  border: solid 0.5px #951C45;
-  padding: 0.5em; 
+  border: solid 0.5px #951c45;
+  padding: 0.5em;
   margin: 1em auto;
   box-shadow: 0 4px 4px 0 rgb(128 128 128 / 30%);
   display: block;
@@ -207,16 +206,17 @@ textarea {
   color: #474747;
 }
 
-.make-new-post:hover, .make-new-post:active{
-  border: solid 0.5px #E63F66;
+.make-new-post:hover,
+.make-new-post:active {
+  border: solid 0.5px #e63f66;
 }
 
 /* New post form */
 .reading-form {
   display: none;
   border-radius: 10px;
-  border: solid 0.5px #951C45;
-  padding: 0.5em; 
+  border: solid 0.5px #951c45;
+  padding: 0.5em;
   margin: 1em auto;
 }
 .reading-area {
@@ -240,18 +240,17 @@ textarea {
 }
 
 @media screen and (min-width: 768px) {
-/* Header */
-.logo-title img {
-  height: 50px;
-}
+  /* Header */
+  .logo-title img {
+    height: 50px;
+  }
 
-.config-menu {
-  max-height:40px;
-}
+  .config-menu {
+    max-height: 40px;
+  }
 
-/* book suggestions title */
-.bookSuggest {
-  font-size: 20px;
-}
-
+  /* book suggestions title */
+  .bookSuggest {
+    font-size: 20px;
+  }
 }

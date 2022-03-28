@@ -33,3 +33,4 @@ export const updateDoc = () => Promise.resolve({}); // updateDoc regresa Promise
 export const orderBy = () => Promise.resolve({});
 export const serverTimestamp = () => Promise.resolve({});
 export const collection = () => Promise.resolve({});
+export const signOut = () => Promise.resolve({});
