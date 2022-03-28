@@ -7,7 +7,7 @@ import {
 
 jest.mock('../src/firebase-imports.js');
 
-describe('Tests  to check if the error message shows', () => {
+describe('Tests to check what error message is shown', () => {
   test('e-mail already in use', () => {
     const error = {
       code: 'auth/email-already-in-use',

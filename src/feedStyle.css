@@ -4,17 +4,16 @@ body {
   margin: 0;
 }
 
-.readingPage {
-  margin: 2% 6%;
+.feed-content {
+  margin: 3% 6%;
 }
 
 .post-container {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-bottom: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
+  border-bottom: 1px solid #E63F66;
 }
 
 .info-user-post {
@@ -163,36 +162,42 @@ textarea {
 }
 
 .like-btn img {
-  width: 1.5rem;
+  width: 1.2rem;
 }
 
 /* Header */
 .feed-header {
   display: flex;
   border-bottom: solid 1px #951c45;
-  margin-bottom: 0.5em;
-  padding-bottom: 0.3em;
-  height:60px;
+  margin-bottom: 0.3em;
+  padding-top: 0.5em;
   width:auto;
   justify-content:space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #951C45;
 }
 
 .logo-title img {
   height: 30px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .config-menu {
   max-height:20px;
   width:auto;
+  margin-right: 5%;
+  margin-bottom: 2%;
 }
 
 /* book suggestions title */
 .bookSuggest {
   font-size: 16px;
-  padding-left: 5%;
   font-weight:bold;
+  margin-bottom: 2.5%;
 }
 
 /* Make new post origninal section */
@@ -200,7 +205,7 @@ textarea {
   border-radius: 10px;
   border: solid 0.5px #951C45;
   padding: 0.5em; 
-  margin: 1em auto;
+  margin-top: 1.4em;
   box-shadow: 0 4px 4px 0 rgb(128 128 128 / 30%);
   display: block;
   cursor: pointer;
@@ -217,7 +222,7 @@ textarea {
   border-radius: 10px;
   border: solid 0.5px #951C45;
   padding: 0.5em; 
-  margin: 1em auto;
+  margin-top: 1.4em;
 }
 .reading-area {
   display: flex;
