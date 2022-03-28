@@ -1,7 +1,7 @@
-import { toEditable } from './lib/edit-post.js';
-import { deletePost } from './lib/deletePost.js';
-import { like as likeComponent } from './components/like.js';
-import { currentUser } from './lib/likes.js';
+import { toEditable } from './edit-post.js';
+import { deletePost } from '../lib/deletePost.js';
+import { like as likeComponent } from './like.js';
+import { currentUser } from '../lib/likes.js';
 
 export const createPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');

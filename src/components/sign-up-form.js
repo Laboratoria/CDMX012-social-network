@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { createAccount } from '../lib/auth.js';
-import { showIncorrectPass, showPassword } from '../ui.js';
+import { showIncorrectPass, showPassword } from './ui.js';
 
 export const createAccForm = () => {
   const createAccContainer = document.createElement('div');

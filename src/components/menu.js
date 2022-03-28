@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
-import { onNavigate } from './app.js';
-import { signOutBR } from './lib/auth.js';
-import { getProfileInfo } from './lib/profileUser.js';
+import { onNavigate } from '../app.js';
+import { signOutBR } from '../lib/auth.js';
+import { getProfileInfo } from '../lib/profileUser.js';
 
 export const menu = () => {
   const background = document.createElement('div');

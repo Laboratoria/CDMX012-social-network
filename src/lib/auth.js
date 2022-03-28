@@ -7,7 +7,7 @@ import {
 } from '../firebase-imports.js';
 import { app } from './firebase-config.js';
 import { onNavigate } from '../app.js';
-import { showSignUpError } from '../ui.js';
+import { showSignUpError } from '../components/ui.js';
 
 // Init firebase app
 const auth = getAuth(app);

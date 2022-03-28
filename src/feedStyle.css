@@ -181,6 +181,12 @@ textarea {
   cursor: pointer;
 }
 
+.logo-title img {
+  height: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 .like-btn img:hover {
   transform: translateY(5px);
 }
