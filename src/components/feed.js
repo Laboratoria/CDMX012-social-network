@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+import { savePost } from './FireStore.js';
 import { templatePost } from './post.js';
 
 export const feed = () => {
@@ -12,6 +13,23 @@ export const feed = () => {
   const logoFeed = document.createElement('img');
   logoFeed.setAttribute('src', 'img/Icono_.png');
   logoFeed.setAttribute('id', 'logoFeed');
+
+  const writePost = document.createElement('div');
+  writePost.setAttribute('class', 'sectionPost');
+  const createTop = document.createElement('div');
+  createTop.setAttribute('class', 'templateTop');
+
+  const namePost = document.createElement('label');
+  namePost.setAttribute('class', 'profileName');
+  namePost.textContent = 'Ana';
+
+  const inputPost = document.createElement('input');
+  inputPost.setAttribute('id', 'inputPost');
+  inputPost.setAttribute('placeholder', '¿Que estas pensando?');
+
+  const sendPost = document.createElement('button');
+  sendPost.setAttribute('id', 'sendPost');
+  sendPost.textContent = 'Publicar';
 
   const searchFeed = document.createElement('input');
   searchFeed.setAttribute('class', 'register');
@@ -42,7 +60,12 @@ export const feed = () => {
   feedView.appendChild(header);
   feedView.appendChild(postFeed);
   feedView.appendChild(footer);
+  postFeed.appendChild(writePost);
   postFeed.appendChild(divPost);
+  writePost.appendChild(createTop);
+  createTop.appendChild(namePost);
+  writePost.appendChild(inputPost);
+  writePost.appendChild(sendPost);
   header.appendChild(logoFeed);
   header.appendChild(searchFeed);
   footer.appendChild(logOutFeed);
@@ -53,6 +76,13 @@ export const feed = () => {
   logOutFeed.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/');
+  });
+  sendPost.addEventListener('click', (e) => {
+    e.preventDefault();
+    const textPost = document.getElementById('inputPost').value;
+    const datePost = new Date();
+    console.log(textPost, datePost);
+    savePost(textPost, datePost);
   });
   return feedView;
 };

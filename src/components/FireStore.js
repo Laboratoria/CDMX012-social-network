@@ -19,3 +19,9 @@ export const saveForm = (name, area) => {
     Area: area,
   });
 };
+export const savePost = (textPost, datePost) => {
+  addDoc(collection(db, 'Newposts'), {
+    post: textPost,
+    date: datePost,
+  });
+};

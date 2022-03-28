@@ -173,7 +173,7 @@
    row-gap: auto;
    border: 3px solid #9531AE;
 } */
-#templateTop{
+.templateTop{
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -183,7 +183,7 @@
     margin-top: 5%;
     margin-left:5%
 }
-#profileName{
+.profileName{
     background-color:#1F1BC8;
     opacity: 0.8;
     color:white;
