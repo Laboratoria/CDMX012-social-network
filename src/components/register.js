@@ -119,6 +119,10 @@ export const register = () => {
   btnRefLogin.id = 'refLogin';
   btnRefLogin.textContent = 'Shoot in';
 
+  btnRefLogin.addEventListener('click', () => {
+    onNavigate('/login');
+  });
+
   btnInfoJoinUs.addEventListener('click', (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;

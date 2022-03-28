@@ -1,5 +1,3 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable max-len */
 /* ------ AQUI VAN ELEMENTOS PARA CREAR POST------ */
 // import { onNavigate } from '../main.js';
 
