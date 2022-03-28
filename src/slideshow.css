@@ -42,7 +42,7 @@
     border-radius: 3px 0 0 3px;
   }
   
-  /* On hover, add a black background color with a little bit see-through */
+  /* On hover, add a black background color */
   .btnPrev:hover, .btnNext:hover {
     color:#F5F5F5;
     background-color: rgba(0,0,0,0.8);

@@ -1,4 +1,4 @@
-import { isValidField } from '../src/lib/posts.js';
+import { isValidField } from '../src/lib/saveInfo.js';
 
 jest.mock('../src/firebase-imports.js');
 
