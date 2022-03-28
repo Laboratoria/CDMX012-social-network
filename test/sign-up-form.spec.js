@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { createAccForm } from '../src/pages/sign-up-form.js';
+import { createAccForm } from '../src/components/sign-up-form.js';
 
 jest.mock('../src/firebase-imports.js');
 

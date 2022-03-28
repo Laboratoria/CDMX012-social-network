@@ -7,7 +7,7 @@ function saveChanges(postData, node, newData) {
     console.log('Post edited');
     // eslint-disable-next-line no-param-reassign
     node.innerHTML = `<div class="post-content">
-    <div><img src= "./assets/libro-abierto.png" class= "book-icon"><p><strong>  ${newData.reading}</strong></p></div> <br>
+    <div><img src= "./assets/open-book.png" class= "book-icon"><p><strong>  ${newData.reading}</strong></p></div> <br>
     <p>${newData.text}</p>
     </div>`;
 

@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { createPosts } from '../src/renderingPosts.js';
+import { createPosts } from '../src/components/renderingPosts.js';
 
 jest.mock('../src/firebase-imports.js');
 
@@ -16,7 +16,7 @@ describe('createPosts edit btns', () => {
   const elements = createPosts(postData, '6fgyg87tguyg78t76t87g87t', 'name', 'username');
   const node = elements.querySelector('.to-edit');
   const result = `<form class="edit-form"><div class="post-content">
-  <div><img src="./assets/libro-abierto.png" class="book-icon"> <input type="text" class="reading-txt" name="reading" value="${postData.reading}"></div>
+  <div><img src="./assets/open-book.png" class="book-icon"> <input type="text" class="reading-txt" name="reading" value="${postData.reading}"></div>
   <br>
   <textarea name="txt" class="reading-description" rows="5">${postData.text}</textarea>
   <br>
@@ -44,7 +44,7 @@ describe('toContent', () => {
   const btnSave = elements.querySelector('#btn-save');
   btnSave.dispatchEvent(new Event('click'));
   const result2 = `<div class="post-content">
-    <div><img src="./assets/libro-abierto.png" class="book-icon"><p><strong>  ${postData.reading}</strong></p></div> <br>
+    <div><img src="./assets/open-book.png" class="book-icon"><p><strong>  ${postData.reading}</strong></p></div> <br>
     <p>${postData.text}</p>
     </div>`;
   test('should return from input to show content', () => {
