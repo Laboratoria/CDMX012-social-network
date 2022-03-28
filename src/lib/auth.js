@@ -3,6 +3,7 @@
 import {
   getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
   FacebookAuthProvider, GithubAuthProvider, getAdditionalUserInfo, signInWithEmailAndPassword,
+  signOut,
 } from '../firebase-imports.js';
 import { app } from './firebase-config.js';
 import { onNavigate } from '../app.js';
@@ -107,3 +108,7 @@ export const signUpGithub = () => {
 
 // sign in with email and password in welcome back page
 export const signInAccount = (email, pass) => signInWithEmailAndPassword(auth, email, pass);
+
+// Sign Out
+
+export const signOutBR = () => signOut(auth);

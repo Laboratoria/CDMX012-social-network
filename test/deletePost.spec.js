@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { deletePost } from '../src/lib/deletePost.js';
 
 jest.mock('../src/firebase-imports.js');
