@@ -75,3 +75,9 @@ export const showAndHideItems = (show, hide) => {
   areaShown.style.display = 'flex';
   areaHidden.style.display = 'none';
 };
+
+export const goToTop = () => {
+  document.body.scrollIntoView({
+    behavior: 'smooth',
+  });
+};

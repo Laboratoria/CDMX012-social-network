@@ -26,6 +26,8 @@ body {
   background-image: url("./assets/photo-1543002588-bfa74002ed7e\ 1.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-y: 50%;
+  background-position-x: 50%;
   height: 100%;
 }
 
@@ -335,9 +337,9 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  body {
+  /* body {
     background-image: none;
-  }
+  } */
 
   #root {
     width: 100%;

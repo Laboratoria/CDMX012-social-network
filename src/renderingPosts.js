@@ -1,12 +1,14 @@
 import { toEditable } from './lib/edit-post.js';
 import { deletePost } from './lib/deletePost.js';
+import { like as likeComponent } from './components/like.js';
+import { currentUser } from './lib/likes.js';
 
 export const createPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');
   post.setAttribute('class', 'post-container');
   const infoUserPost = document.createElement('div');
   infoUserPost.setAttribute('class', 'info-user-post');
-  const line = document.createElement('hr');
+  /* const line = document.createElement('hr'); */
   const info = document.createElement('div');
   info.setAttribute('class', 'info');
 
@@ -23,18 +25,30 @@ export const createPosts = (postData, currentUid, name, username) => {
   date.innerHTML = `· ${postData.date}`;
 
   info.append(nameProfile, userName, date);
-  infoUserPost.append(line, info);
+  infoUserPost.append(/* line, */ info);
 
   const nodeTobeEdited = document.createElement('div');
   nodeTobeEdited.setAttribute('class', 'to-edit');
   nodeTobeEdited.innerHTML = `<div class="post-content">
-    <div><img src= "./assets/libro-abierto.png" class= "book-icon"><p><strong>  ${postData.reading}</strong></p></div> <br>
+    <div><img src= "./assets/open-book.png" class= "book-icon"><p><strong>  ${postData.reading}</strong></p></div> <br>
     <p>${postData.text}</p>
     <div>`;
 
-  const like = document.createElement('div');
-  like.setAttribute('class', 'like-btn');
-  like.innerHTML = '<img src= "./assets/like.png" alt="like button">';
+  // ¿le di like a un post?
+  let doIlikePost = false;
+  console.log(postData.likes);
+  const sessionUser = currentUser();
+  console.log(sessionUser.uid);
+  if (postData.likes.includes(sessionUser.uid)) {
+    doIlikePost = true;
+  }
+  const like = likeComponent(
+    doIlikePost,
+    postData.likes.length,
+    sessionUser.uid,
+    postData.key,
+    postData.likes,
+  );
 
   if (currentUid === postData.uid) {
     const options = document.createElement('img');

@@ -1,20 +1,22 @@
 @import "slideshow.css";
 body {
-  background-image: none;
   margin: 0;
 }
 
 .readingPage {
-  margin: 2% 6%;
+  background-color: white;
+}
+
+.feed-content {
+  padding: 3% 6%;
 }
 
 .post-container {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-bottom: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
+  border-bottom: 1px solid #E63F66;
 }
 
 .info-user-post {
@@ -28,12 +30,17 @@ body {
 }
 
 .nameProfile-P {
-  color: #e63f66;
+  color: #951c45;
 }
 
 .userName-P {
   color: #8f8f8f;
 }
+
+.date-P {
+  color:#E63F66;
+}
+
 a div {
   padding: 2px;
 }
@@ -46,7 +53,7 @@ a div {
 }
 
 .book-icon {
-  width: 1.5em;
+  width: 2.5em;
 }
 
 .to-edit {
@@ -66,7 +73,6 @@ a {
   text-decoration: none;
   color: black;
 }
-
 
 .editPost:hover,
 .deletePost:hover {
@@ -132,7 +138,7 @@ textarea {
   width: 100%;
 }
 
-.reading-form textarea{
+.reading-form textarea {
   height: 8em;
   resize: none;
 }
@@ -159,56 +165,79 @@ textarea {
 
 .like-btn {
   width: 8%;
+  display:flex;
+  justify-content: flex-end;
   align-self: flex-end;
+  justify-content: space-around;
 }
 
 .like-btn img {
-  width: 1.5rem;
+  width: 1.8rem;
+  cursor:pointer;
+}
+
+.like-btn img:hover {
+  transform: translateY(5px);
+}
+
+.likeCount {
+  color:#951c45;
+  font-weight: bold;
 }
 
 /* Header */
 .feed-header {
   display: flex;
   border-bottom: solid 1px #951c45;
-  margin-bottom: 0.5em;
-  padding-bottom: 0.3em;
-  height:60px;
+  margin-bottom: 0.3em;
+  padding-top: 0.5em;
   width:auto;
   justify-content:space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #951C45;
 }
 
 .logo-title img {
   height: 30px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .config-menu {
   max-height:20px;
   width:auto;
+  margin-right: 5%;
+  margin-bottom: 2%;
 }
 
 /* book suggestions title */
 .bookSuggest {
   font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 2.5%;
   padding-left: 5%;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 /* Make new post origninal section */
-.make-new-post{
+.make-new-post {
   border-radius: 10px;
   border: solid 0.5px #951C45;
   padding: 0.5em; 
-  margin: 1em auto;
+  margin-top: 1.4em;
+
   box-shadow: 0 4px 4px 0 rgb(128 128 128 / 30%);
   display: block;
   cursor: pointer;
   color: #474747;
 }
 
-.make-new-post:hover, .make-new-post:active{
-  border: solid 0.5px #E63F66;
+.make-new-post:hover,
+.make-new-post:active {
+  border: solid 0.5px #e63f66;
 }
 
 /* New post form */
@@ -217,8 +246,9 @@ textarea {
   border-radius: 10px;
   border: solid 0.5px #951C45;
   padding: 0.5em; 
-  margin: 1em auto;
+  margin-top: 1.4em;
 }
+
 .reading-area {
   display: flex;
 }
@@ -240,18 +270,17 @@ textarea {
 }
 
 @media screen and (min-width: 768px) {
-/* Header */
-.logo-title img {
-  height: 50px;
-}
+  /* Header */
+  .logo-title img {
+    height: 50px;
+  }
 
-.config-menu {
-  max-height:40px;
-}
+  .config-menu {
+    max-height: 40px;
+  }
 
-/* book suggestions title */
-.bookSuggest {
-  font-size: 20px;
-}
-
+  /* book suggestions title */
+  .bookSuggest {
+    font-size: 20px;
+  }
 }

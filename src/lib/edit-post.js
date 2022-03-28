@@ -1,19 +1,19 @@
-import { getFirestore, doc, updateDoc } from '../firebase-imports.js';
+import { updatePost } from './update-doc.js';
 
-async function saveChanges(postData, node) {
-  const editForm = document.querySelector('.edit-form');
-  // eslint-disable-next-line no-param-reassign
-  node.innerHTML = `<div class="post-content">
-    <div><img src= "./assets/libro-abierto.png" class= "book-icon"><p><strong>  ${editForm.reading.value}</strong></p></div> <br>
-    <p>${editForm.txt.value}</p>
+function saveChanges(postData, node, newData) {
+  const idDoc = postData.idDocument;
+
+  updatePost(idDoc, newData).then(() => {
+    console.log('Post edited');
+    // eslint-disable-next-line no-param-reassign
+    node.innerHTML = `<div class="post-content">
+    <div><img src= "./assets/libro-abierto.png" class= "book-icon"><p><strong>  ${newData.reading}</strong></p></div> <br>
+    <p>${newData.text}</p>
     </div>`;
 
-  const db = getFirestore();
-
-  const postRef = doc(db, 'posts', postData.idDocument);
-  await updateDoc(postRef, {
-    reading: editForm.reading.value,
-    text: editForm.txt.value,
+    console.log(node.innerHTML);
+  }).catch((error) => {
+    console.log(error, 'Post cannot be update');
   });
 }
 
@@ -28,18 +28,25 @@ export function toEditable(postData, node) {
   editionForm.innerHTML = `<div class="post-content">
   <div><img src= "./assets/libro-abierto.png" class= "book-icon"> <input type="text" class= "reading-txt" name="reading" value="${reading}"></div>
   <br>
-  <textarea name="txt" rows="5">${text}</textarea>
+  <textarea name="txt" class="reading-description" rows="5">${text}</textarea>
   <br>
   </div>`;
 
   const btnSave = document.createElement('input');
   btnSave.setAttribute('type', 'button');
+  btnSave.setAttribute('id', 'btn-save');
   btnSave.setAttribute('value', 'Save');
 
   node.append(editionForm, btnSave);
 
   btnSave.addEventListener('click', (e) => {
+    const readingTxt = document.querySelector('.reading-txt');
+    const readingDescription = document.querySelector('.reading-description');
+    const newData = {
+      reading: readingTxt.value,
+      text: readingDescription.value,
+    };
     e.preventDefault();
-    saveChanges(postData, node);
+    saveChanges(postData, node, newData);
   });
 }

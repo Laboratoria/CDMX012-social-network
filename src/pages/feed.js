@@ -1,7 +1,8 @@
 /* eslint-disable import/no-cycle */
 import { saveNewPostData, getPosts } from '../lib/posts.js';
 import { slideshow } from '../slideshow.js';
-import { showAndHideItems } from '../ui.js';
+import { showAndHideItems, goToTop } from '../ui.js';
+import { menu } from '../menu.js';
 
 export const feed = () => {
   const readingPage = document.createElement('div');
@@ -13,6 +14,7 @@ export const feed = () => {
 
   const logoTitle = document.createElement('div');
   logoTitle.setAttribute('class', 'logo-title');
+
   const logo = document.createElement('img');
   logo.setAttribute('class', 'logo-book-feed');
   logo.setAttribute('src', './assets/logo sin fondo 1.png');
@@ -20,17 +22,27 @@ export const feed = () => {
 
   const bookreads = document.createElement('img');
   bookreads.setAttribute('class', 'titleBookReads-feed');
-  bookreads.setAttribute('src', './assets/nombre_sin_fondo-removebg-preview 1.png');
+  bookreads.setAttribute('src', './assets/bookreads-white-logo.png');
   bookreads.setAttribute('alt', 'titleBookReads');
 
   logoTitle.append(logo, bookreads);
 
   const configMenu = document.createElement('img');
   configMenu.setAttribute('class', 'config-menu');
-  configMenu.setAttribute('src', './assets/hamburgerMenu.png');
+  configMenu.setAttribute('src', './assets/white-config-icon.png');
   configMenu.setAttribute('alt', 'configuration menu');
 
+  configMenu.addEventListener('click', () => {
+    const body = document.body;
+    body.style.overflow = 'hidden';
+    readingPage.append(menu());
+  });
+
   header.append(logoTitle, configMenu);
+
+  // feed content section
+  const feedContent = document.createElement('div');
+  feedContent.setAttribute('class', 'feed-content');
 
   // book suggestions h2
   const suggestions = document.createElement('div');
@@ -83,9 +95,14 @@ export const feed = () => {
   postsArea.setAttribute('id', 'postsArea');
 
   const slideshowElement = slideshow();
-  readingPage.append(header, suggestions, slideshowElement, makeNewPost, readingForm, postsArea);
+  feedContent.append(suggestions, slideshowElement, makeNewPost, readingForm, postsArea);
+  readingPage.append(header, feedContent);
 
   document.addEventListener('DOMContentLoaded', getPosts()); // Averiguar cómo ordenar los posts, más reciente primero
+
+  logoTitle.addEventListener('click', () => {
+    goToTop();
+  });
 
   makeNewPost.addEventListener('click', () => {
     showAndHideItems(readingForm, makeNewPost);
