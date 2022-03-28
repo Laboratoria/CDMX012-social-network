@@ -5,8 +5,6 @@ import { templatePost } from './post.js';
 export const feed = () => {
   const feedView = document.createElement('div');
   feedView.setAttribute('id', 'feedView');
-  const containerFeed = document.createElement('div');
-  containerFeed.setAttribute('id', 'containerFeed');
 
   const header = document.createElement('div');
   header.setAttribute('id', 'feedHeader');
@@ -20,10 +18,12 @@ export const feed = () => {
   searchFeed.setAttribute('id', 'searchFeed');
   searchFeed.setAttribute('placeholder', 'Buscar...');
 
-  const postFeed = document.createElement('section');
+  const postFeed = document.createElement('div');
   postFeed.setAttribute('id', 'postFeed');
+
   const footer = document.createElement('div');
   footer.setAttribute('id', 'feedFooter');
+
   const logOutFeed = document.createElement('img');
   logOutFeed.setAttribute('src', 'img/logOut.png');
   logOutFeed.setAttribute('id', 'logOutFeed');
@@ -37,17 +37,18 @@ export const feed = () => {
   profileFeed.setAttribute('id', 'profileFeed');
   profileFeed.setAttribute('src', 'img/Profile.png');
   const divPost = templatePost();
+  divPost.setAttribute('id', 'divPost');
+
+  feedView.appendChild(header);
+  feedView.appendChild(postFeed);
+  feedView.appendChild(footer);
+  postFeed.appendChild(divPost);
   header.appendChild(logoFeed);
   header.appendChild(searchFeed);
-  postFeed.appendChild(divPost);
-  containerFeed.appendChild(header);
-  containerFeed.appendChild(postFeed);
   footer.appendChild(logOutFeed);
   footer.appendChild(writeFeed);
   footer.appendChild(homeFeed);
   footer.appendChild(profileFeed);
-  containerFeed.appendChild(footer);
-  feedView.appendChild(containerFeed);
 
   logOutFeed.addEventListener('click', (e) => {
     e.preventDefault();
