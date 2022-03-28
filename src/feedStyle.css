@@ -4,17 +4,19 @@ body {
 }
 
 .readingPage {
-  padding: 2% 6%;
   background-color: white;
+}
+
+.feed-content {
+  padding: 3% 6%;
 }
 
 .post-container {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-bottom: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
+  border-bottom: 1px solid #E63F66;
 }
 
 .info-user-post {
@@ -187,27 +189,35 @@ textarea {
 .feed-header {
   display: flex;
   border-bottom: solid 1px #951c45;
-  margin-bottom: 0.5em;
-  padding-bottom: 0.3em;
-  height: 60px;
-  width: auto;
-  justify-content: space-between;
+  margin-bottom: 0.3em;
+  padding-top: 0.5em;
+  width:auto;
+  justify-content:space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #951C45;
 }
 
 .logo-title img {
   height: 30px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .config-menu {
-  max-height: 20px;
-  width: auto;
+  max-height:20px;
+  width:auto;
+  margin-right: 5%;
+  margin-bottom: 2%;
 }
 
 /* book suggestions title */
 .bookSuggest {
   font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 2.5%;
   padding-left: 5%;
   font-weight: bold;
 }
@@ -215,9 +225,10 @@ textarea {
 /* Make new post origninal section */
 .make-new-post {
   border-radius: 10px;
-  border: solid 0.5px #951c45;
-  padding: 0.5em;
-  margin: 1em auto;
+  border: solid 0.5px #951C45;
+  padding: 0.5em; 
+  margin-top: 1.4em;
+
   box-shadow: 0 4px 4px 0 rgb(128 128 128 / 30%);
   display: block;
   cursor: pointer;
@@ -233,10 +244,11 @@ textarea {
 .reading-form {
   display: none;
   border-radius: 10px;
-  border: solid 0.5px #951c45;
-  padding: 0.5em;
-  margin: 1em auto;
+  border: solid 0.5px #951C45;
+  padding: 0.5em; 
+  margin-top: 1.4em;
 }
+
 .reading-area {
   display: flex;
 }

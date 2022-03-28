@@ -29,7 +29,7 @@ export const deleteDoc = () => Promise.resolve({});
 export const query = () => Promise.resolve({});
 export const where = () => Promise.resolve({});
 export const onSnapshot = () => Promise.resolve({});
-export const updateDoc = () => Promise.resolve({});
+export const updateDoc = () => Promise.resolve({}); // updateDoc regresa Promise<void>
 export const orderBy = () => Promise.resolve({});
 export const serverTimestamp = () => Promise.resolve({});
 export const collection = () => Promise.resolve({});
