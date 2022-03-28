@@ -166,7 +166,6 @@ textarea {
 .like-btn {
   width: 8%;
   display:flex;
-  justify-content: flex-end;
   align-self: flex-end;
   justify-content: space-around;
 }
@@ -174,6 +173,12 @@ textarea {
 .like-btn img {
   width: 1.8rem;
   cursor:pointer;
+}
+
+.logo-title img {
+  height: 30px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .like-btn img:hover {
@@ -200,11 +205,6 @@ textarea {
   background-color: #951C45;
 }
 
-.logo-title img {
-  height: 30px;
-  margin-left: 10px;
-  cursor: pointer;
-}
 
 .config-menu {
   max-height:20px;
@@ -219,7 +219,6 @@ textarea {
   font-weight: bold;
   margin-bottom: 2.5%;
   padding-left: 5%;
-  font-weight: bold;
 }
 
 /* Make new post origninal section */

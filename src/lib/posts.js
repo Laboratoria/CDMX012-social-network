@@ -5,7 +5,7 @@ import {
   query, where, onSnapshot, orderBy, serverTimestamp,
 } from '../firebase-imports.js';
 import { app } from './firebase-config.js';
-import { createPosts } from '../renderingPosts.js';
+import { createPosts } from '../components/renderingPosts.js';
 import { onNavigate } from '../app.js';
 
 const auth = getAuth(app); // Init firebase app
