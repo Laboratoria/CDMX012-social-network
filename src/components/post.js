@@ -1,3 +1,4 @@
+import { postFirebase } from './FireStore.js';
 // export const createPost = () => {
 //   const writePost = document.createElement('div');
 //   writePost.setAttribute('class', 'sectionPost');
@@ -12,7 +13,7 @@
 //   writePost.innerHTML = templateWrite;
 //   return writePost;
 // };
-
+console.log(postFirebase);
 export const templatePost = () => {
   const sectionPost = document.createElement('div');
   sectionPost.setAttribute('class', 'sectionPost');
@@ -22,7 +23,7 @@ export const templatePost = () => {
     <label class="profileName">Ana</label>
     <img id="dots" src="img/dots.png"></img>
   </div>
-  <p id="inputPost"> Holaaaa!! asdfghjkasdfghjkasdfghjkasdfghjkasdfghjkasdfghjkasdfghjklasdfghjkl</p>
+  <p id="inputPost"></p>
   <div id="likeComment">
     <img id="likePost" src="img/like.png"></img>
     <img id="commentPost" src="img/comment.png"></img>
