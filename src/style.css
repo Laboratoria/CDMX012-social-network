@@ -17,7 +17,7 @@ html {
   height: 100%;
 }
 
-/*.material-icons-outlined {
+.material-icons-outlined {
   font-family: "Material Icons";
 }
 /*********************************mobile de landing page*******************************/
@@ -310,7 +310,6 @@ body {
   width: 100%;
 }
 
-
 #errorAreaUsername {
   height: 1em;
   display: block;
@@ -330,7 +329,7 @@ body {
 }
 
 /* Feed section */
-.reading-form{
+.reading-form {
   display: flex;
   flex-direction: column;
 }
