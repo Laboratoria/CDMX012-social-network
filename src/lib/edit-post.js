@@ -26,7 +26,7 @@ export function toEditable(postData, node) {
   const editionForm = document.createElement('form');
   editionForm.setAttribute('class', 'edit-form');
   editionForm.innerHTML = `<div class="post-content">
-  <div><img src= "./assets/libro-abierto.png" class= "book-icon"> <input type="text" class= "reading-txt" name="reading" value="${reading}"></div>
+  <div><img src= "./assets/open-book.png" class= "book-icon"> <input type="text" class= "reading-txt" name="reading" value="${reading}"></div>
   <br>
   <textarea name="txt" class="reading-description" rows="5">${text}</textarea>
   <br>
