@@ -1,4 +1,4 @@
-import { updatePost } from './update-doc.js';
+import { updatePost } from '../lib/update-doc.js';
 
 function saveChanges(postData, node, newData) {
   const idDoc = postData.idDocument;

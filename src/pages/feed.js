@@ -1,8 +1,8 @@
 /* eslint-disable import/no-cycle */
 import { saveNewPostData, getPosts } from '../lib/posts.js';
-import { slideshow } from '../slideshow.js';
-import { showAndHideItems, goToTop } from '../ui.js';
-import { menu } from '../menu.js';
+import { slideshow } from '../components/slideshow.js';
+import { showAndHideItems, goToTop } from '../components/ui.js';
+import { menu } from '../components/menu.js';
 
 export const feed = () => {
   const readingPage = document.createElement('div');

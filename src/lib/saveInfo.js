@@ -3,7 +3,7 @@ import {
 } from '../firebase-imports.js';
 import {
   usernameError, usernameTaken, emptyFields, validUsername,
-} from '../ui.js';
+} from '../components/ui.js';
 import { app } from './firebase-config.js';
 
 const auth = getAuth(app); // Init firebase app
