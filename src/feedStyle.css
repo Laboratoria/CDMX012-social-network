@@ -30,12 +30,17 @@ body {
 }
 
 .nameProfile-P {
-  color: #e63f66;
+  color: #951c45;
 }
 
 .userName-P {
   color: #8f8f8f;
 }
+
+.date-P {
+  color:#E63F66;
+}
+
 a div {
   padding: 2px;
 }
@@ -48,7 +53,7 @@ a div {
 }
 
 .book-icon {
-  width: 1.5em;
+  width: 2.5em;
 }
 
 .to-edit {
@@ -160,11 +165,24 @@ textarea {
 
 .like-btn {
   width: 8%;
+  display:flex;
+  justify-content: flex-end;
   align-self: flex-end;
+  justify-content: space-around;
 }
 
 .like-btn img {
-  width: 1.2rem;
+  width: 1.8rem;
+  cursor:pointer;
+}
+
+.like-btn img:hover {
+  transform: translateY(5px);
+}
+
+.likeCount {
+  color:#951c45;
+  font-weight: bold;
 }
 
 /* Header */
