@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { addInfoPage } from '../src/pages/add-info.js';
 
 jest.mock('../src/firebase-imports.js');
