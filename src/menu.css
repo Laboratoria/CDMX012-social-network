@@ -1,0 +1,91 @@
+#general-container {
+  background: rgba(0, 0, 0, 0.46);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+#menu-container {
+  background-color: white;
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+}
+
+#profile-container {
+  width: 100%;
+  height: 34%;
+  background-color: #951c45;
+  position: relative;
+}
+
+#close-img {
+  cursor: pointer;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 1em;
+}
+
+#profile-data {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-name {
+  color: white;
+  font-weight: bolder;
+  font-size: 2em;
+}
+
+#user-username {
+  color: white;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+#user-bio {
+  margin-left: 15%;
+  margin-right: 15%;
+  color: white;
+  font-size: 1em;
+  text-align: center;
+}
+
+#config-container {
+  width: 100%;
+  height: 66%;
+  position: relative;
+}
+
+#config-container div {
+  position: absolute;
+  top: 8%;
+  left: 20%;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+#config-container img {
+  width: 2em;
+}
+
+#config-container p {
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 768px) {
+  #menu-container {
+    width: 34%;
+  }
+}
