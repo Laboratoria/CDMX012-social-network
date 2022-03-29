@@ -1,5 +1,5 @@
 import {
-  getFirestore, doc, setDoc, getDoc, getAuth, onAuthStateChanged,
+  getFirestore, doc, setDoc, getDoc, getAuth,
 } from '../firebase-imports.js';
 import {
   usernameError, usernameTaken, emptyFields, validUsername,
@@ -10,22 +10,38 @@ const auth = getAuth(app); // Init firebase app
 
 const db = getFirestore();
 
-export function saveInfo(userForm) {
-  onAuthStateChanged(auth, (result) => {
-    const uid = result.uid;
-    setDoc(doc(db, 'usernames', userForm.username.value), {
-      uid: result.uid,
+export async function saveInfo(userForm) {
+  const user = auth.currentUser;
+  const userUid = user.uid;
+
+  if (user) {
+    await setDoc(doc(db, 'usernames', userForm.username.value), {
+      uid: userUid,
     });
-    setDoc(doc(db, 'profiles', uid), {
+    await setDoc(doc(db, 'profiles', userUid), {
       name: userForm.name.value,
       username: userForm.username.value,
       bio: userForm.bio.value,
-      uid: result.uid,
-    })
-      .then(() => {
-        userForm.reset();
-      });
-  });
+      uid: userUid,
+    });
+  } else {
+    console.log('no user is signed in');
+  }
+  // onAuthStateChanged(auth, (result) => {
+  //   const uid = result.uid;
+  //   setDoc(doc(db, 'usernames', userForm.username.value), {
+  //     uid: result.uid,
+  //   });
+  //   setDoc(doc(db, 'profiles', uid), {
+  //     name: userForm.name.value,
+  //     username: userForm.username.value,
+  //     bio: userForm.bio.value,
+  //     uid: result.uid,
+  //   })
+  //     .then(() => {
+  //       userForm.reset();
+  //     });
+  // });
 }
 
 export function isValidField(nameValue, usernameValue) {
