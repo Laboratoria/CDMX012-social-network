@@ -1,19 +1,7 @@
-import {
-  getAuth,
-  onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+// import { createPost } from "../lib/firestore.js";
 import { singOut } from "../lib/auth.js";
 import { onNavigate } from "../main.js";
-
-// const auth = getAuth();
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     timeline();
-//   } else {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//   }
-// });
+import { savePost } from "../lib/firestore.js";
 
 export const timeline = () => {
   const content = document.createElement("section");
@@ -49,7 +37,15 @@ export const timeline = () => {
   post.setAttribute("class", "post");
   const buttonToPost = document.createElement("button");
   buttonToPost.textContent = "Publicar";
+  buttonToPost.setAttribute("type", "submit");
   buttonToPost.setAttribute("id", "toPost");
+  buttonToPost.addEventListener("click", () => {
+    //   createPost();
+    const contentPost = document.getElementById("post").value;
+    const date = new Date();
+    savePost(contentPost, date);
+    contentPost;
+  });
   buttonToPost.setAttribute("class", "to-post");
 
   postContent.append(post, buttonToPost);

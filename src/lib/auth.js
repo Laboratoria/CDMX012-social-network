@@ -6,6 +6,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase
 //   ref,
 //   update,
 // } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+//"https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js"
 
 import {
   getAuth,
