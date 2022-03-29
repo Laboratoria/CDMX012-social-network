@@ -2,6 +2,7 @@
 import { singOut } from "../lib/auth.js";
 import { onNavigate } from "../main.js";
 import { savePost } from "../lib/firestore.js";
+import ReadPost from "./post/ReadPost.js";
 
 export const timeline = () => {
   const content = document.createElement("section");
@@ -44,8 +45,10 @@ export const timeline = () => {
     const contentPost = document.getElementById("post").value;
     const date = new Date();
     savePost(contentPost, date);
-    contentPost;
   });
+  const getPosts = document.createElement("div");
+  getPosts.appendChild(ReadPost());
+
   buttonToPost.setAttribute("class", "to-post");
 
   postContent.append(post, buttonToPost);
@@ -93,6 +96,6 @@ export const timeline = () => {
   returnIndex.setAttribute("type", "button");
 
   content.appendChild(contentTimeline);
-  contentTimeline.append(TimelineHeader, postContent, returnIndex);
+  contentTimeline.append(TimelineHeader, postContent, getPosts, returnIndex);
   return content;
 };

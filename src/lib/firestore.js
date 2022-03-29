@@ -12,6 +12,13 @@ const db = getFirestore();
 
 export let savePost = (post, date) => addDoc(collection(db, "post"),{post,date })
 
+export const dataCall = (callBackFunction) => {
+  getDocs(collection(db, 'newColection')).then((snapshot) => {
+    callBackFunction(snapshot.docs);
+  });
+};
+
+
 
 // try {
 //   const docRef = await addDoc(collection(db, "users"), {
