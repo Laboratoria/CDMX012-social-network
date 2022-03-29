@@ -1,6 +1,7 @@
 import { onNavigate } from '../main.js';
-import { cerrar } from '../lib/index.js';
-import { user } from '../lib/index.js';
+import { cerrar, user } from '../lib/index.js';
+
+import GetPost from './post/GetPost.js';
 
 export const muro = () => {
   const seccionMuro = document.createElement('section');
@@ -62,6 +63,7 @@ export const muro = () => {
   publicar.setAttribute('id', 'publicar');
   const fotoUsuarioP = document.createElement('IMG');
   fotoUsuarioP.src = '../images/fotoperfil.png';
+  fotoUsuarioP.setAttribute('id', 'usuarioPublicar');
   const botonPublicar = document.createElement('button');
   botonPublicar.setAttribute('id', 'btnPublicar');
   botonPublicar.textContent = 'Comparte una nueva receta ...';
@@ -116,11 +118,23 @@ export const muro = () => {
   const btnPublicar = document.createElement('button');
   btnPublicar.textContent = 'Publicar';
   btnPublicar.setAttribute('id', 'btnPostear');
-
+  btnPublicar.addEventListener('click', () => {
+    formPublicacion.style.visibility = 'hidden';
+  });
+  const cerrarModal = document.createElement('button');
+  cerrarModal.setAttribute('id', 'cerrarModal');
+  cerrarModal.textContent = 'X';
+  cerrarModal.addEventListener('click', (e) => {
+    e.preventDefault();
+    formPublicacion.style.visibility = 'hidden';
+  });
   const postPublicado = document.createElement('div');
   postPublicado.setAttribute('id', 'postPublicado');
 
-  formPublicacion.append(labelReceta, inputReceta, labelIngredientes, inputIngredientes, labelProcedimiento, inputProcedimiento, btnPublicar,  selectCategoria);
-  seccionMuro.append(cabeza, publicar, contenedorPerfil, formPublicacion, postPublicado);
+  formPublicacion.append(cerrarModal, labelReceta, inputReceta, labelIngredientes, inputIngredientes, labelProcedimiento, inputProcedimiento, selectCategoria, btnPublicar);
+  seccionMuro.append(cabeza, publicar, contenedorPerfil, formPublicacion, postPublicado, GetPost());
+  botonPublicar.addEventListener('click', () => {
+    formPublicacion.style.visibility = 'visible';
+  });
   return seccionMuro;
 };

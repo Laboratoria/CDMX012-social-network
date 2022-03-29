@@ -335,38 +335,72 @@
         background-color: #EBC920;
         color: white;
     }
-   form{
-       position: absolute;
-       top:40%;
-       left:20%;
-       width: 60%;
-       height: 78%;
-       background-color: white;
-       height: 700px;
-       border: #EBC920 1.5px solid;
-       display: flex;
-       flex-wrap: wrap;
-       justify-content: center;
-       align-content: space-around;
-   }
-   #inputReceta{
-       width: 65%;
-   }
-   #btnPostear{
-    width: 20%;
-    height: 5%;
-    background-color: white;
-    border: #EBC920 1.5px solid;
-    border-radius: 12px;
-    color: gray;
-    font-weight: bold;
-    text-align: left;
-    cursor: pointer;
-   }
-   #selectCategoria{
-       width: 10%;
-       height: 5%;
-   }
+    form{
+        position: absolute;
+        top:20%;
+        left:20%;
+        width: 60%;
+        height: 78%;
+        background-color: white;
+        height: 700px;
+        border: #EBC920 1.5px solid;
+        border-radius: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        z-index:1000;
+        align-content:space-around;
+        visibility: hidden;
+    }
+    #cerrarModal{
+        width: 10%;
+        margin-left: 85%;
+        text-size-adjust:calc(40px);
+        border: none;
+        border-radius: 60px;
+    }
+    form #inputReceta{
+        width: 75%;
+        height: 2%;
+        margin-left: 12.5%;
+    }
+    #inputIngredientes{
+        width: 75%;
+        height: 10%;
+        margin-left: 12.5%;
+        
+    }
+    #inputProcedimiento{
+        width: 75%;
+        height: 20%;
+        margin-left: 12.5%;
+    }
+    form label{
+        width: 100%;
+        height: 5%;
+        margin-left: 12.5%;
+     }
+     #selectCategoria{
+        width: 10%;
+        height: 5%;
+        margin-left: 5%;
+    }
+     #btnPostear{
+        width: 20%;
+        height: 5%;
+        background-color:black;
+        border: #EBC920 1.5px solid;
+        border-radius: 12px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        margin-left:55%;
+       }
+       #selectCategoria{
+           width: 15%;
+           height: 5%;
+       }
+ 
    .post{
        background-color: aquamarine;
        width: 50%;
@@ -378,8 +412,17 @@
        top:50%;
        left:10%;
        box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.295);
-
    }    
+   .borrarPost{
+    position: absolute;
+    left: 90%;
+    bottom :80%;
+   }
+   .editarPost{
+       position: absolute;
+       left: 90%;
+       bottom: 60%;
+   }
 }
 
     @media (max-width:500px){
@@ -555,51 +598,7 @@ a{
     text-decoration:none ;
     color: white;
 }
-/*.modal1{
-    position:absolute;
-    width: 20%;
-    height: 39%;
-    background-color: white;
-    border-radius: 10px;
-    left: 50%;
-    top:50%;
-    border: 2px solid #FF0606;
-    transform: translate(-50%, -50%);
-}
-.contmodal{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    z-index: 9999;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 600ms;
 
-}
-#iconomal{
- position: relative;
- width: 30%;
- left: 35%;
- top:10%;
-}
-.mensajemal{
-    text-align: center;
-    position: relative;
-    top:5%;
-}
-#botonVolver{
-    background-color: black;
-    color: white;
-    width: 75%;
-    height: 18%;
-    position: relative;
-    left: 27.5%;
-    top: 5%;
-}
-a{
-    text-decoration:none ;
-    color: white;
-} */
 #ojito{
     background: none;
     border: none;
@@ -608,4 +607,201 @@ a{
     left: 73%;
     cursor: pointer;
 }
+#seccionMuro{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+   
+  
+}
+#cabeza{
+    position: relative;
+    background-color: #EBC920;
+    width: 100%;
+    height: 10%;
+}
+#logoMuro{
+    width: 25%;
+    position: relative;
+    margin: 0.5%;
+    margin-left: 1%;
+    left: 2%;
+}
+#buscador {
+    width: 30%;
+    height: 30%;
+    padding: 1%;
+    position: absolute;
+    top: 42%;
+    left: 58%;
+}
+#lupaimg{
+    width:350%;
+}   
+#lupita{
+    width: 4.5%;
+    position: absolute;
+    background-color: #ebc920a1;
+    border: none;
+    top: 45.9%;
+    left: 83.2%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+#filtrador{
+    display:none;
+} #contenedorPerfil{
+    width: 25%;
+    height: 528px;
+    background-color: #F8ECB1;
+    position: fixed;
+    left: 75%;
+    display: flex;
+}
+#publicar {
+    display:flex;
+    display:flex;
+    justify-content: space-around;
+    border-radius: 12px;
+    border: none;
+    box-shadow: none;
+}
+#usuarioPublicar{
+    width: 10%;
+    height: auto;
+}
+#btnPublicar{
+    width: 60%;
+    background-color: white;
+    border: #EBC920 1.5px solid;
+    border-radius: 12px;
+    color: gray;
+    font-weight: bold;
+    text-align: left;
+}
+filCaja, #fotoPortada, #fndotousuuariroo, #nombreUser, #contenedorPerfil{
+    display:none
+}
+#btnCerrarSesion{
+    background: red;
+    border: none;
+    position: relative;
+    top: 40%;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+    width: 70%;
+    height: 10%;
+}
+#cerrarSesionImg{
+    width: 20%;
+    position: relative;
+    right: 60%;
+    bottom: 5%;
+}
+.post{
+    border-bottom:#EBC920 1px solid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+form{
+    position: absolute;
+    top:10%;
+    left:5%;
+    width: 90%;
+    height: 70%;
+    background-color: white;
+    height: 700px;
+    border: #EBC920 1.5px solid;
+    border-radius: 5px;
+    display: flex;
+     flex-wrap: wrap;
+    align-content:space-around;
+    visibility: hidden;
+    transition: 1s;
+    z-index: 1000;
+    transform: TranslateY(0%);
+}
+#cerrarModal{
+    width: 10%;
+    margin-left: 85%;
+    text-size-adjust:calc(40px);
+    border: none;
+    border-radius: 60px;
+}
+form #inputReceta{
+    width: 80%;
+    height: 2%;
+    margin-left: 10%;
+}
+#inputIngredientes{
+    width: 80%;
+    height: 10%;
+    margin-left: 10%;
+    
+}
+#inputProcedimiento{
+    width: 80%;
+    height: 20%;
+    margin-left: 10%;
+}
+form label{
+    width: 100%;
+    height: 5%;
+    margin-left: 10%;
+ }
+ #selectCategoria{
+    width: 80%;
+    height: 5%;
+    margin-left: 10%;
+}
+ #btnPostear{
+    width: 30%;
+    height: 5%;
+    background-color:black;
+    border: #EBC920 1.5px solid;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+
+    text-align: center;
+   }
+   #selectCategoria{
+       width: 15%;
+       height: 5%;
+   }
+   #postPublicado{
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 15%;
+   
+   }
+   .post{
+       background-color: white;
+       width: 100%;
+       padding: 1%;
+       border: #EBC920 1.5px solid;
+       position: relative;
+       top:50%;
+
+   }
+   .borrarPost{
+    position: absolute;
+    left: 70%;
+    bottom :80%;
+   }
+   .editarPost{
+       position: absolute;
+       left: 70%;
+       bottom: 60%;
+   }
+
 }
