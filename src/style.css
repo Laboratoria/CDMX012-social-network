@@ -8,11 +8,11 @@
 }
 @font-face {
   font-family: arcade;
-  src: url(ka1.ttf);
+  src: url(./assets/ka1.ttf);
 }
 @font-face {
   font-family: neon;
-  src: url(NEON____.TTF);
+  src: url(./assets/NEON____.TTF);
 }
 
 body {
