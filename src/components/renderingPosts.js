@@ -1,7 +1,8 @@
 import { toEditable } from './edit-post.js';
+import { genericModal } from './genericModal.js';
+import { like as likeComponent } from './like.js';
+import { currentUser } from '../lib/likes.js';
 import { deletePost } from '../lib/deletePost.js';
-// import { like as likeComponent } from './like.js';
-// import { currentUser } from '../lib/likes.js';
 
 export const createPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');
@@ -35,20 +36,20 @@ export const createPosts = (postData, currentUid, name, username) => {
     <div>`;
 
   // ¿le di like a un post?
-  // const doIlikePost = false;
-  // console.log(postData.likes);
-  // const sessionUser = currentUser();
-  // console.log(sessionUser);
-  // if (postData.likes.includes(sessionUser.uid)) {
-  //   doIlikePost = true;
-  // }
-  // const like = likeComponent(
-  //   doIlikePost,
-  //   postData.likes.length,
-  //   sessionUser.uid,
-  //   postData.key,
-  //   postData.likes,
-  // );
+  let doIlikePost = false;
+  console.log(postData.likes);
+  const sessionUser = currentUser();
+  console.log(sessionUser.uid);
+  if (postData.likes.includes(sessionUser.uid)) {
+    doIlikePost = true;
+  }
+  const like = likeComponent(
+    doIlikePost,
+    postData.likes.length,
+    sessionUser.uid,
+    postData.key,
+    postData.likes,
+  );
 
   if (currentUid === postData.uid) {
     const options = document.createElement('img');
@@ -84,18 +85,15 @@ export const createPosts = (postData, currentUid, name, username) => {
 
     options.addEventListener('click', () => {
       dropdownContainer.classList.toggle('show');
-
-      deleteP.addEventListener('click', (e) => {
-        e.preventDefault();
-        dropdownContainer.classList.toggle('show'); // Agregue nuevamente esta linea aquí para que al dar click en Delete el dropdowm desaparezca
-        const result = window.confirm('Are you sure you want to delete this post?');
-        if (result) {
-          deletePost(postData.key);
-        }
-      });
     });
 
-    post.append(infoUserPost, nodeTobeEdited, dropdownContainer);
+    deleteP.addEventListener('click', (e) => {
+      e.preventDefault();
+      dropdownContainer.classList.toggle('show'); // Agregue nuevamente esta linea aquí para que al dar click en Delete el dropdowm desaparezca
+      genericModal(deletePost, [postData.key], 'Are you sure you want to delete this post?');
+    });
+
+    post.append(infoUserPost, nodeTobeEdited, like, dropdownContainer);
     const postArea = document.querySelector('#postsArea');
     postArea.append(post);
 
@@ -108,7 +106,7 @@ export const createPosts = (postData, currentUid, name, username) => {
     return postArea;
   }
 
-  post.append(infoUserPost, nodeTobeEdited);
+  post.append(infoUserPost, nodeTobeEdited, like);
   const postArea = document.querySelector('#postsArea');
   postArea.append(post);
 
