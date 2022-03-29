@@ -1,8 +1,19 @@
-/* ------ AQUI VAN ELEMENTOS PARA CREAR POST------ */
-// import { onNavigate } from '../main.js';
+/* export const main = () => {
+    const newsFeedSection = document.createElement('section');
+    newsFeedSection.className = 'screenNews';
+    newsFeedSection.id = 'newsFeedScreen';
+    const newsHeader = document.createElement('header');
+    newsHeader.className = 'header';
+    const userNameSection = document.createElement('div');
+    const userImg = document.createElement('img');
+    const usernameName = document.createElement('p');
+    usernameName.textContent = ;// nombre de usuario
+    const postText = document.createElement('textarea');
+    postText.id = 'postText';
+    const submitPost = document.createElement('button');
+    submitPost.id = 'submitPost';
 
-export const home = () => {
-  const paragraph = document.createElement('p');
-  paragraph.textContent = 'Holi, en contrucción :)';
-  return paragraph;
-};
+    newsFeedSection.append (newsHeader, postText, userNameSection);
+    userNameSection.append(userImg, usernameName);
+    newsHeader.append(userNameSection, postText, submitPost);
+    */
