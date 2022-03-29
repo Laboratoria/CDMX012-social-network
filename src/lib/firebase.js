@@ -7,7 +7,7 @@
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
 import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 import { onNavigate } from '../main.js';
 
 // Your web app's Firebase configuration
@@ -26,10 +26,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
+const auth = getAuth(app);
 // Create new users with email acc
 export const createNewUsers = (username, email, password) => {
-  const auth = getAuth(); // clave para au
+  // clave para au
   createUserWithEmailAndPassword(auth, email, password) // Crea el usuario
     .then((userCredential) => {
       console.log('User created');
@@ -57,7 +57,6 @@ export const createNewUsers = (username, email, password) => {
 
 // login with a registered email
 export const shootIn = (email, password) => {
-  const auth = getAuth();
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -78,10 +77,10 @@ export const shootIn = (email, password) => {
 };
 
 // Google Login
+const providerGoogle = new GoogleAuthProvider();
+
 export const googleSignIn = () => {
-  const auth = getAuth();
-  const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider)
+  signInWithPopup(auth, providerGoogle)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -89,7 +88,7 @@ export const googleSignIn = () => {
       // The signed-in user info.
       const user = result.user;
       // ...
-      onNavigate('/');
+      onNavigate('/home');
     })
     .catch((error) => {
       // Handle Errors here.
@@ -100,6 +99,31 @@ export const googleSignIn = () => {
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
+    });
+};
+
+// Sign up with Facebook
+const providerFb = new FacebookAuthProvider();
+
+export const signUpFacebook = () => {
+  signInWithPopup(auth, providerFb)
+    .then((result) => {
+      // the signed in-user info.
+      const user = result.user;
+      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      const accessToken = credential.accessToken;
+      // ...
+      onNavigate('/home');
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = FacebookAuthProvider.credentialFromError(error);
     });
 };
 

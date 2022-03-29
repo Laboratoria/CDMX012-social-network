@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
-import { createNewUsers, googleSignIn } from '../lib/firebase.js';
+import { createNewUsers, googleSignIn, signUpFacebook } from '../lib/firebase.js';
 // import { createAccount } from '../lib/firebase.js';
 
 export const register = () => {
@@ -39,6 +39,10 @@ export const register = () => {
 
   const iconF = document.createElement('img');
   iconF.setAttribute('src', './assets/facebook.png');
+  iconF.addEventListener('click', (e) => {
+    e.preventDefault();
+    signUpFacebook();
+  });
 
   const infoForm = document.createElement('form');
   infoForm.className = 'formContainer';
