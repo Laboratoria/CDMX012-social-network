@@ -16,23 +16,46 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: solid #951c45;
+    border-width: 3px;
     background-color: white;
     padding: 1rem 1.5rem;
-    width: 24rem;
+    width: 14rem;
+    font-size:smaller;
     border-radius: 0.5rem;
+    text-align: center;
 }
 
 .close-button {
     float: right;
-    width: 1.5rem;
+    width: 2rem;
     line-height: 1.5rem;
     text-align: center;
     cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: lightgray;
+    border-radius: 2.5rem;
+    color:#951c45;
+    font-weight: bold;
+    background-color: lightgrey;
 }
 
 .close-button:hover {
+    background-color: darkgray;
+}
+
+.accept-btn {
+    margin-top: 2rem;
+    width: 4rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    color:#951c45;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: lightgrey;
+}
+
+.accept-btn:hover {
     background-color: darkgray;
 }
 
@@ -41,4 +64,11 @@
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+@media screen and (min-width: 768px) {
+.modal-content {
+    width: 24rem;
+    font-size:larger;
+}
 }

@@ -1,4 +1,5 @@
 @import "slideshow.css";
+@import "deleteModal.css";
 body {
   margin: 0;
 }
@@ -67,6 +68,7 @@ a div {
   position: absolute;
   top: auto;
   right: 0;
+  cursor:pointer;
 }
 
 a {

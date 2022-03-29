@@ -2,6 +2,7 @@ import { toEditable } from './edit-post.js';
 import { genericModal } from './genericModal.js';
 import { like as likeComponent } from './like.js';
 import { currentUser } from '../lib/likes.js';
+import { deletePost } from '../lib/deletePost.js';
 
 export const createPosts = (postData, currentUid, name, username) => {
   const post = document.createElement('article');
@@ -84,16 +85,12 @@ export const createPosts = (postData, currentUid, name, username) => {
 
     options.addEventListener('click', () => {
       dropdownContainer.classList.toggle('show');
+    });
 
-      deleteP.addEventListener('click', (e) => {
-        e.preventDefault();
-        dropdownContainer.classList.toggle('show'); // Agregue nuevamente esta linea aquí para que al dar click en Delete el dropdowm desaparezca
-        /* const result = window.confirm('Are you sure you want to delete this post?');
-        if (result) {
-          deletePost(postData.key);
-        } */
-        genericModal();
-      });
+    deleteP.addEventListener('click', (e) => {
+      e.preventDefault();
+      dropdownContainer.classList.toggle('show'); // Agregue nuevamente esta linea aquí para que al dar click en Delete el dropdowm desaparezca
+      genericModal(deletePost, [postData.key], 'Are you sure you want to delete this post?');
     });
 
     post.append(infoUserPost, nodeTobeEdited, like, dropdownContainer);

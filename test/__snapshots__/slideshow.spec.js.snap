@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests of slideshow container render slideshow 1`] = `"<div class=\\"slideshow-container\\"><div class=\\"slide fade\\" style=\\"display: block;\\"><img src=\\"./assets/book1.png\\" alt=\\"BookOne\\"></div><div class=\\"slide fade\\" style=\\"display: none;\\"><img src=\\"./assets/book2.png\\" alt=\\"BookTwo\\"></div><div class=\\"slide fade\\" style=\\"display: none;\\"><img src=\\"./assets/book3.png\\" alt=\\"BookThree\\"></div><div class=\\"slide fade\\" style=\\"display: none;\\"><img src=\\"./assets/book4.png\\" alt=\\"BookFour\\"></div><a class=\\"btnPrev\\">❮</a><a class=\\"btnNext\\">❯</a></div>"`;
