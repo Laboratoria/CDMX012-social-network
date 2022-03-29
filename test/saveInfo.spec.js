@@ -28,22 +28,21 @@ describe('usernameValidation', () => {
   div.setAttribute('id', 'errorAreaUsername');
   document.body.appendChild(div);
   test('the function should return false if username has white spaces or/and special caracters except "." and "_"', async () => {
-    const password = 'SaraSara?19';
-    const isValid = await usernameValidation(password);
+    const username = 'SaraSara?19';
+    const isValid = await usernameValidation(username);
     expect(isValid).toBe(false);
   });
   test('the function should return true if username has no white spaces or/and special caracters except "." and "_", as well as not existing in the database', async () => {
-    const password = 'SaraSara19';
-    const isValid = await usernameValidation(password);
+    const username = 'SaraSara19';
+    const isValid = await usernameValidation(username);
     expect(isValid).toBe(true);
   });
   test('the function should return false if username exists in the database', async () => {
     getDoc.mockResolvedValue({
       exists: () => true,
     });
-
-    const password = 'SaraSarhhhhhhhha20';
-    const isValid = await usernameValidation(password);
+    const username = 'SaraSara20';
+    const isValid = await usernameValidation(username);
     expect(isValid).toBe(false);
   });
 });
