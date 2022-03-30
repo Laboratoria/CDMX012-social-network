@@ -8,7 +8,7 @@ import {
 import { firebaseConfig } from "./firebase-config.js";
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore();
+export const db = getFirestore();
 
 export let savePost = (post, date) => addDoc(collection(db, "post"),{post,date })
 
