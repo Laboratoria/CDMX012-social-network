@@ -54,7 +54,6 @@ export const login = () => {
   containerInputLogin.appendChild(buttonGmail);
   containerInputLogin.appendChild(imgMaskify);
 
-
   containerLogin.appendChild(logo);
   containerLogin.appendChild(containerInputLogin);
   containerLoginAll.appendChild(containerLogin);
@@ -83,4 +82,3 @@ export const login = () => {
   });
   return containerLogin;
 };
-=======
