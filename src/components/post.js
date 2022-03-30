@@ -35,10 +35,13 @@ export function renderPost(doc) {
   const commentInput = document.createElement('input');
   commentInput.setAttribute('id', 'commentInput');
 
-  templateTop.appendChild(profilePic, profileName, dots);
-  likeComment.appendChild(likeIcon, commentIcon);
-  sectionPost.appendChild(templateTop, pPost, likeComment, commentInput);
+  templateTop.append(profilePic, profileName, dots);
+  likeComment.append(likeIcon, commentIcon);
+  sectionPost.append(templateTop, pPost, likeComment, commentInput);
 
+  const wall = document.getElementById('postFeed');
+  wall.append(sectionPost);
+  // dejamos el return para los tests - no cambia en el html quitarlo o ponerlo
   return sectionPost;
 }
 // export const templatePost = (doc) => {

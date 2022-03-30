@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import { savePost } from './FireStore.js';
+import { readData, savePost } from './FireStore.js';
 
 export const feed = () => {
   const feedView = document.createElement('div');
@@ -35,7 +35,7 @@ export const feed = () => {
   searchFeed.setAttribute('id', 'searchFeed');
   searchFeed.setAttribute('placeholder', 'Buscar...');
 
-  // const readDiv = readData();
+  const readDiv = document.createElement('div');
   const postFeed = document.createElement('div');
   postFeed.setAttribute('id', 'postFeed');
 
@@ -59,7 +59,7 @@ export const feed = () => {
   feedView.appendChild(postFeed);
   feedView.appendChild(footer);
   postFeed.appendChild(writePost);
-  // postFeed.appendChild(readDiv);
+  postFeed.appendChild(readDiv);
   writePost.appendChild(createTop);
   createTop.appendChild(namePost);
   writePost.appendChild(inputPost);
@@ -82,5 +82,6 @@ export const feed = () => {
     console.log(textPost, datePost);
     savePost(textPost, datePost);
   });
+  readData();
   return feedView;
 };

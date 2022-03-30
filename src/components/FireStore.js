@@ -27,7 +27,8 @@ export const savePost = (textPost, datePost) => {
 export async function readData() {
   const querySnapshot = await getDocs(collection(db, 'Newposts'));
   querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
+    // rednerPost es la funcion para darle el estilo al post y asignar los datos obtenidos
+    // del input del post para visualizarlos en el feed
     renderPost(doc);
   });
 }
