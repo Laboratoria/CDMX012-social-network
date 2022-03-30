@@ -120,8 +120,9 @@ export const muro = () => {
   const btnPublicar = document.createElement('button');
   btnPublicar.textContent = 'Publicar';
   btnPublicar.setAttribute('id', 'btnPostear');
-  btnPublicar.addEventListener('click', () => {
+  btnPublicar.addEventListener('click', (e) => {
     // eslint-disable-next-line max-len
+    e.preventDefault();
     guardarReceta(inputReceta.value, inputIngredientes.value, inputProcedimiento.value, selectCategoria.value);
     formPublicacion.style.visibility = 'hidden';
   });
@@ -130,6 +131,7 @@ export const muro = () => {
   cerrarModal.textContent = 'X';
   cerrarModal.addEventListener('click', (e) => {
     e.preventDefault();
+    // comentario para hacer el commit
     formPublicacion.style.visibility = 'hidden';
   });
  /*  const postPublicado = document.createElement('div');
