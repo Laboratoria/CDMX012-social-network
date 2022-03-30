@@ -2,7 +2,7 @@
 
 html {
   background-image: url("../Resourses/background\ Solovino1.jpg");
-  background-size: 100%; */
+  background-size: 100%;
   font-family: "Lato", sans-serif;
   /* background-image: url("../Resourses/Pattern_Mesa de trabajo 1.png");
   background-size: 50%; */
@@ -271,14 +271,12 @@ body {
     text-align: center;
     margin: 5% 15%;
   }
-  
-.footer-login-register {
-  width: 60%;
-  margin: 5% 20% 0%;
-  bottom: 0;
-  background-color: #4cdee2;
-  text-align: center;
-}
 
-
+  .footer-login-register {
+    width: 60%;
+    margin: 5% 20% 0%;
+    bottom: 0;
+    background-color: #4cdee2;
+    text-align: center;
+  }
 }
