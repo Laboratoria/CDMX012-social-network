@@ -205,10 +205,11 @@
       
     }
     #cabeza{
-        position: relative;
+        position: fixed;
         background-color: #EBC920;
         width: 100%;
-        height: 10%;
+        height: 15%;
+        z-index: 1;
     }
     #buscador {
         width: 20%;
@@ -249,6 +250,7 @@
         margin-left: 1%;
     }
     #contenedorPerfil{
+        top:15%;
         width: 25%;
         height: 528px;
         background-color: #F8ECB1;
@@ -295,6 +297,7 @@
         cursor: pointer;
         width: 70%;
         height: 10%;
+        border-radius: 10px;
     }
     #cerrarSesionImg{
         width: 20%;
@@ -304,6 +307,7 @@
     }
 
     #publicar{
+        background-color: white;
         position: absolute;
         left: 7%;
         top: 21%;
@@ -400,10 +404,18 @@
            width: 15%;
            height: 5%;
        }
- 
+       #postPublicado{
+        width: 75%;
+        padding-top: 15%;
+        background-color: white;
+        position: absolute;
+        top: 15%;
+        z-index: -1;
+       
+       }
    .post{
-       background-color: aquamarine;
-       width: 50%;
+       background-color: white;
+       width: 80%;
        padding: 1%;
        border: #EBC920 1.5px solid;
        border-radius: 10px;
@@ -611,18 +623,17 @@ a{
     background-color: white;
     width: 100%;
     height: 100%;
-   
-  
 }
 #cabeza{
-    position: relative;
+    position: absolute;
     background-color: #EBC920;
     width: 100%;
     height: 10%;
+    z-index: 9999;
 }
 #logoMuro{
     width: 25%;
-    position: relative;
+    position: absolute;
     margin: 0.5%;
     margin-left: 1%;
     left: 2%;
@@ -651,36 +662,45 @@ a{
 }
 #filtrador{
     display:none;
-} #contenedorPerfil{
-    width: 25%;
-    height: 528px;
-    background-color: #F8ECB1;
-    position: fixed;
-    left: 75%;
-    display: flex;
-}
+} 
 #publicar {
     display:flex;
-    display:flex;
-    justify-content: space-around;
-    border-radius: 12px;
-    border: none;
-    box-shadow: none;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 10%;
+    background-color: white;
+    border: 1.5px solid #b89a03;
+    margin: 0;
+    width: 100vw;
+    align-items: center;
 }
 #usuarioPublicar{
-    width: 10%;
-    height: auto;
+    width: 13%;
 }
 #btnPublicar{
-    width: 60%;
+    width: 75%;
     background-color: white;
     border: #EBC920 1.5px solid;
     border-radius: 12px;
     color: gray;
     font-weight: bold;
     text-align: left;
+    position: relative;
+    right:1%;
 }
-filCaja, #fotoPortada, #fndotousuuariroo, #nombreUser, #contenedorPerfil{
+
+#contenedorPerfil{
+    width: 25%;
+    height: 528px;
+    position: fixed;
+    left: 75%;
+    display: flex;
+    background-color: transparent;
+    display:flex;
+    align-items: flex-end;
+    z-index: 100;
+}
+#pefilCaja, #fotoPortada, #fotousuario, #nombreUser{
     display:none
 }
 #btnCerrarSesion{
@@ -692,21 +712,17 @@ filCaja, #fotoPortada, #fndotousuuariroo, #nombreUser, #contenedorPerfil{
     font-size: medium;
     font-weight: bold;
     cursor: pointer;
-    width: 70%;
+    width: 80%;
     height: 10%;
+    display: block;
+    z-index: 1;
+    border-radius: 10px;
 }
 #cerrarSesionImg{
     width: 20%;
     position: relative;
     right: 60%;
     bottom: 5%;
-}
-.post{
-    border-bottom:#EBC920 1px solid;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-start;
 }
 
 form{
@@ -781,7 +797,7 @@ form label{
     width: 100%;
     background-color: white;
     position: absolute;
-    top: 15%;
+    top: 20%;
    
    }
    .post{
@@ -803,5 +819,5 @@ form label{
        left: 70%;
        bottom: 60%;
    }
-
+  
 }

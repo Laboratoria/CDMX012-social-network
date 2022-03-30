@@ -1,14 +1,15 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
-import { getFirestore,
-        collection,
-        addDoc,
-        getDocs,
-        getDoc,
-        deleteDoc,
-        onSnapshot,
-        doc,
-        updateDoc,
-    } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  getDoc,
+  deleteDoc,
+  onSnapshot,
+  doc,
+  updateDoc,
+} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { app } from './index.js';
 
 const db = getFirestore();

@@ -1,7 +1,9 @@
 import { onNavigate } from '../main.js';
 import { cerrar, user } from '../lib/index.js';
 
-import GetPost from './post/GetPost.js';
+import { GetPost } from './post/GetPost.js';
+import { guardarReceta } from '../lib/firestore.js';
+// import { deletePost } from './post/DeletePost.js';
 
 export const muro = () => {
   const seccionMuro = document.createElement('section');
@@ -119,6 +121,8 @@ export const muro = () => {
   btnPublicar.textContent = 'Publicar';
   btnPublicar.setAttribute('id', 'btnPostear');
   btnPublicar.addEventListener('click', () => {
+    // eslint-disable-next-line max-len
+    guardarReceta(inputReceta.value, inputIngredientes.value, inputProcedimiento.value, selectCategoria.value);
     formPublicacion.style.visibility = 'hidden';
   });
   const cerrarModal = document.createElement('button');
@@ -128,11 +132,12 @@ export const muro = () => {
     e.preventDefault();
     formPublicacion.style.visibility = 'hidden';
   });
-  const postPublicado = document.createElement('div');
-  postPublicado.setAttribute('id', 'postPublicado');
+ /*  const postPublicado = document.createElement('div');
+  postPublicado.setAttribute('id', 'postPublicado2'); */
 
+  // eslint-disable-next-line max-len
   formPublicacion.append(cerrarModal, labelReceta, inputReceta, labelIngredientes, inputIngredientes, labelProcedimiento, inputProcedimiento, selectCategoria, btnPublicar);
-  seccionMuro.append(cabeza, publicar, contenedorPerfil, formPublicacion, postPublicado, GetPost());
+  seccionMuro.append(cabeza, publicar, contenedorPerfil, formPublicacion, GetPost());
   botonPublicar.addEventListener('click', () => {
     formPublicacion.style.visibility = 'visible';
   });

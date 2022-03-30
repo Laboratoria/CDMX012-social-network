@@ -1,12 +1,12 @@
 import {
   guardarReceta,
- conseguirRecetas,
- alConseguirRecetas,
- borrarReceta,
- conseguirReceta,
- actualizarReceta,
+  conseguirRecetas,
+  alConseguirRecetas,
+  borrarReceta,
+  conseguirReceta,
+  actualizarReceta,
 }
-  from "./lib/firestore.js";
+  from './lib/firestore.js';
 
 const formPublicacion = document.getElementById('formPublicacion');
 const postPublicado = document.getElementById('postPublicado');
@@ -64,7 +64,9 @@ formPublicacion.addEventListener('submit', (e) => {
   if (!editandoReceta) {
     guardarReceta(receta.value, ingredientes.value, procedimiento.value, categoria.value);
   } else {
-    actualizarReceta(id, { receta: receta.value, ingredientes: ingredientes.value, procedimiento: procedimiento.value, categoria: categoria.value});
+    actualizarReceta(id, {
+      receta: receta.value, ingredientes: ingredientes.value, procedimiento: procedimiento.value, categoria: categoria.value,
+    });
   }
 
   formPublicacion.reset();
