@@ -1,24 +1,27 @@
 /* STYLES Timeline */
-
+/* 
 /***********************************************/
-/* .solovino_working_img {
+ /* .solovino_working_img {
   width: 50%;
   margin: 2% 25%;
-}
+  position:absolute;
+  top: 50%;
+} */
 
+/*
 .solovino_working {
   width: 25%;
   margin: 5% 37.5% 0%;
   font-size: medium;
   text-align: center;
-} */
+} */ 
 .content-timeline {
   /* background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg"); */
   /* background-size: 100%; */
   background-color: white;
   font-family: "Lato", sans-serif;
   margin: 0;
-  width: 100%;
+  width: 100vh;
   display: flex;
 }
 
