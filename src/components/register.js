@@ -107,7 +107,7 @@ export const register = () => {
   errorMessage.id = 'pError';
 
   const btnInfoJoinUs = document.createElement('button');
-  btnInfoJoinUs.className = 'btnsSign';
+  btnInfoJoinUs.className = ' btn btnsSign';
   btnInfoJoinUs.id = 'submitInfoJoin';
   btnInfoJoinUs.textContent = 'Join Us';
 
