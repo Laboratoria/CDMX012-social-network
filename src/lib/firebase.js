@@ -6,8 +6,8 @@
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getFirestore, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 import { onNavigate } from '../main.js';
 
 // Your web app's Firebase configuration
@@ -25,8 +25,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app); // Save registerData collection in fireStore
+
 // Create new users with email acc
 export const createNewUsers = (username, email, password) => {
   // clave para au
@@ -127,13 +129,28 @@ export const signUpFacebook = () => {
     });
 };
 
-// save date to firestore
-const db = getFirestore(app); // Save registerData collection in fireStore
+// get user profile
+export const userInfo = (photo, name) => {
+  const user = auth.currentUser;
+  if (user !== null) {
+    const displayName = user.displayName;
+    const photoURL = user.photoURL;
+    photo.setAttribute('src', `${photoURL}`);
+    name.setAttribute('alt', '');
+    // eslint-disable-next-line no-param-reassign
+    name.textContent = `${displayName}`;
+  }
+};
+/*
 
-export const createAccount = (username, email, password) => {
-  addDoc(collection(db, 'users'), {
+export const savePost = (username, post) => {
+  addDoc(collection(db, 'posts'), {
     username,
-    email,
-    password,
+    post,
   });
 };
+
+export const getPost = () => {
+  getDocs(collection(db, 'posts'));
+};
+*/
