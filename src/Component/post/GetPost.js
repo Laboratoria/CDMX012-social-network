@@ -2,7 +2,7 @@ import { alConseguirRecetas, borrarReceta } from '../../lib/firestore.js';
 const formPublicacion = document.getElementById('formPublicacion');
 export const GetPost = () => {
   const divPost = document.createElement('div');
-  divPost.setAttribute('id', 'postPublicado');
+  divPost.setAttribute('id', 'postPublicado'); // SE ENCARGA DE IMPRIMIR LAS RECETAS QUE ENCUENTRE EN LA BASE DE DATOS
   alConseguirRecetas((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       const publicacion = doc.data();
@@ -24,6 +24,7 @@ export const GetPost = () => {
       borrarPostBoton.setAttribute('class', 'borrarPost');
       borrarPostBoton.addEventListener('click', ({ target: { dataset } }) => {
         borrarReceta(dataset.id);
+      // divPost.removeChild(post);
       });
 
       const editarPostBoton = document.createElement('button');

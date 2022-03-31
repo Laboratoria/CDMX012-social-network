@@ -1,53 +1,94 @@
-// Este es el punto de entrada de tu aplicacion
+/*  import {
+  guardarReceta,
+  conseguirRecetas,
+  alConseguirRecetas,
+  borrarReceta,
+  conseguirReceta,
+  actualizarReceta,
+}
+  from './lib/firestore.js';
 
-/* import { myFunction } from './lib/index.js';
+import { GetPost } from './Component/post/GetPost.js'; */
 
-myFunction(); */
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-
-// eslint-disable-next-line import/no-cycle
-import { login } from './Component/login.js';
-import { muro } from './Component/muro.js';
-// eslint-disable-next-line import/no-cycle
-import { registro } from './Component/registro.js';
-
-const rootDiv = document.getElementById('root');
-
-const routes = {
-  '/': login,
-  '/registro': registro,
-  '/muro': muro,
+// GetPost();
+export const publicar = (e) => {
+  e.preventDefault();
+  const formPublicacion = document.getElementById('formPublicacion');
+  const receta = formPublicacion.inputReceta;
+  console.log(receta.value);
+  const ingredientes = formPublicacion.inputIngredientes;
+  const procedimiento = formPublicacion.inputProcedimiento;
+  const categoria = formPublicacion.selectCategoria;
+  // eslint-disable-next-line max-len
+  guardarReceta(receta, ingredientes.value, procedimiento.value, categoria.value);
+  formPublicacion.style.visibility = 'hidden';
+  // formPublicacion.reset();
 };
 
-export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
-  }
+//////////////////////////////////////////////////////////////////////
+/*
+const formPublicacion = document.getElementById('formPublicacion');
+const postPublicado = document.getElementById('postPublicado');
+let editandoReceta = false;
+let id = '';
+ */
 
-  rootDiv.appendChild(routes[pathname]());
-};
-// window.onNavigate = onNavigate;
-window.onpopstate = () => {
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
-  }
-  rootDiv.appendChild(routes[window.location.pathname]());
-};
-
-const component = routes[window.location.pathname];
-
-rootDiv.appendChild(component());
-
-const auth = getAuth();
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    onNavigate('/muro');
-  } else {
-    onNavigate('/');
-  }
+/* window.addEventListener('DOMContentLoaded', async () => {
+  alConseguirRecetas((querySnapshot) => {
+    let html = '';
+    querySnapshot.forEach((doc) => {
+      const publicacion = doc.data();
+      html += `
+      <div class = 'post'>
+        <h3>${publicacion.receta}</h3>
+        <p>${publicacion.ingredientes}</p>
+        <p>${publicacion.procedimiento}</p>
+        <p>${publicacion.categoria}</p>
+        <img src="${publicacion.categoria.src}">
+        <button class = 'borrarPost' data-id= "${doc.id}"> Borrar </button>
+        <button class = 'editarPost' data-id= "${doc.id}"> Editar </button>
+    </div>
+    `;
+    });
+    postPublicado.innerHTML = html;
+    const borrarPost = postPublicado.querySelectorAll('.borrarPost');
+    borrarPost.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        borrarReceta(dataset.id); */
+      /* Las dos lineas de arriba es simplificado de : event.target.dataset.id
+ (obtiene el id del boton desde firestore) A esto se le llama destructuración */
+      /* });
+    });
+    const editarPost = postPublicado.querySelectorAll('.editarPost');
+    editarPost.forEach((btn) => {
+      btn.addEventListener('click', async ({ target: { dataset } }) => {
+        const datosReceta = await conseguirReceta(dataset.id);
+        const recetaEditar = datosReceta.data();
+        formPublicacion.inputReceta.value = recetaEditar.receta;
+        formPublicacion.inputIngredientes.value = recetaEditar.ingredientes;
+        formPublicacion.inputProcedimiento.value = recetaEditar.procedimiento;
+        editandoReceta = true;
+        id = datosReceta.id;
+      });
+    });
+  });
 });
+
+formPublicacion.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const receta = formPublicacion.inputReceta;
+  const ingredientes = formPublicacion.inputIngredientes;
+  const procedimiento = formPublicacion.inputProcedimiento;
+  const categoria = formPublicacion.selectCategoria;
+  console.log(categoria);
+  if (!editandoReceta) {
+    guardarReceta(receta.value, ingredientes.value, procedimiento.value, categoria.value);
+  } else {
+    actualizarReceta(id, {
+      receta: receta.value, ingredientes: ingredientes.value, procedimiento: procedimiento.value, categoria: categoria.value,
+    });
+  }
+
+  formPublicacion.reset();
+});
+ */

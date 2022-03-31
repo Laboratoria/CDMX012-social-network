@@ -80,12 +80,10 @@
        position: relative;
        top: 27%;
        right: 19%;
-       
-     
-   }
+    }
     #iconogoo{
        width: 12%;
-   }
+    }
     #letras1{
         font-size: 11px;
         position: relative;
@@ -97,54 +95,54 @@
        position: relative;
        top: 29%;
        left: 22%;
-   }
+    }
    .invisible{
        font-size: 13px;
        background: none;
        border: none;
        font-weight: bold;
        cursor: pointer;
-   }
+    }
    #registro{
     position: relative;
     top: 27%;
     left: 37%;
     text-decoration-line: underline;
-   }
+    }
    #registrar{
-           background-color: black;
-           color: white;
-           position: relative;
-           top: 15%;
-           left: 27%;
-       }
-       #loginbo:hover{
-          background-color: rgba(34, 33, 33, 0.973);
+        background-color: black;
+        color: white;
+        position: relative;
+        top: 15%;
+        left: 27%;
+    }
+    #loginbo:hover{
+        background-color: rgba(34, 33, 33, 0.973);
           
-      }
-      #botonRegi{
-          position: relative;
-          top: 25%;
-          left:27%;
-          background-color: black;
-          color: white;
-      }
-      #emailRegi{
-          position: relative;
-          top:8%;
-          left: 14%;
-      }
-      #contraseñaRegi{
+    }
+    #botonRegi{
+        position: relative;
+        top: 25%;
+        left: 27%;
+        background-color: black;
+        color: white;
+    }
+    #emailRegi{
+        position: relative;
+        top: 8%;
+        left: 14%;
+    }
+    #contraseñaRegi{
+    position: relative;
+    top: 11%;
+    left: 14%; 
+    }
+    #contraseñaRegidos{
         position:relative;
-        top:11%;
-        left:14%; 
-      }
-      #contraseñaRegidos{
-        position:relative;
-        top:14%;
-        left:14%; 
-      }
-      .modal1{
+        top: 14%;
+        left: 14%; 
+    }
+    .modal1{
         position:absolute;
         width: 20%;
         height: 39%;
@@ -169,12 +167,12 @@
      position: relative;
      width: 30%;
      left: 35%;
-     top:10%;
+     top: 10%;
     }
     .mensajemal{
         text-align: center;
         position: relative;
-        top:5%;
+        top: 5%;
     }
     #botonVolver{
         background-color: black;
@@ -273,10 +271,10 @@
         display: flex;
     }
     #fotousuario{
-         position: absolute;
-         top: 18%;
-         left: 28%;
-         width: 45%;
+        position: absolute;
+        top: 18%;
+        left: 28%;
+        width: 45%;
     }
     #nombreUser{
         width:fit-content;
@@ -399,30 +397,29 @@
         text-align: center;
         cursor: pointer;
         margin-left:55%;
-       }
-       #selectCategoria{
-           width: 15%;
-           height: 5%;
-       }
-       #postPublicado{
+    }
+    #selectCategoria{
+        width: 15%;
+        height: 5%;
+    }
+    #postPublicado{
         width: 75%;
-        padding-top: 15%;
+        padding-top: 9%;
         background-color: white;
         position: absolute;
         top: 15%;
         z-index: -1;
-       
-       }
+    }
    .post{
        background-color: white;
-       width: 80%;
+       width: 79%;
        padding: 1%;
        border: #EBC920 1.5px solid;
        border-radius: 10px;
        margin: 1%;
        position: relative;
        top:50%;
-       left:10%;
+       left:8.3%;
        box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.295);
    }    
    .borrarPost{
@@ -446,378 +443,367 @@
         margin: 0;
         font-family:  'Roboto', sans-serif;
         font-weight: bold;
-       }
-       #logoinicio{
+        }
+        #logoinicio{
            width: 65%;
            position: absolute;
            top: 10%;
            left: 19%;
         
-       }
-       input{
-           width: 66%;
-           height: 3%;
-           border: 1.5px solid #b89a03;
-           border-radius: 5px;
-           padding: 2%;
-       }
-       textarea:focus, input:focus {
-          outline: none; 
-          border: 2.5px solid #b89a03;
         }
-       #email{
+        input{
+            width: 66%;
+            height: 3%;
+            border: 1.5px solid #b89a03;
+            border-radius: 5px;
+            padding: 2%;
+        }
+        textarea:focus, input:focus {
+            outline: none; 
+            border: 2.5px solid #b89a03;
+        }
+        #email{
+            position: absolute;
+            top: 38%;
+            left: 14%;
+        }
+        #contraseña{
+            position: absolute;
+            top: 47%;
+            left: 14%;
+        }
+        .botones{
+            width: 48%;
+            height: 6%;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px 1px rgba(56, 55, 55, 0.527);
+            border: none;
+            font-family:  'Roboto', sans-serif;
+            font-weight: bold;
+        }
+        #loginbo{
+            background-color: black;
+            color: white;
+            position: absolute;
+            top: 57%;
+            left: 26%;
+        }
+        #loginbo:hover{
+            background-color: rgba(34, 33, 33, 0.973);
+        }
+        #google{
+            background-color: white;
+           color: black;
            position: absolute;
-           top: 38%;
-           left: 14%;
-       }
-       #contraseña{
-           position: absolute;
-           top: 47%;
-           left: 14%;
-           
-       }
-       .botones{
-           width: 48%;
-           height: 6%;
-           border-radius: 3px;
-           box-shadow: 1px 1px 1px 1px rgba(56, 55, 55, 0.527);
-           border: none;
-           font-family:  'Roboto', sans-serif;
-           font-weight: bold;
-       }
-       #loginbo{
-           background-color: black;
-           color: white;
-           position: absolute;
-           top: 57%;
+           top: 66%;
            left: 26%;
-       }
-       #loginbo:hover{
-          background-color: rgba(34, 33, 33, 0.973);
-          
-      }
-       #google{
-          background-color: white;
-          color: black;
+        }
+        #iconogoo{
+           width: 12%;
+        }
+        .letras1{
+           font-size: 11px;
+           position: absolute;
+           top: 72%;
+           left: 31%;
+        }
+        .letras2{
+            font-size: 14px;
+            position: absolute;
+            top: 78%;
+            left: 21%;
+        }
+        #registro{
+            font-size: 13px;
+            position: absolute;
+            top: 83%;
+            left: 36%;
+            text-decoration-line: underline;
+            background: none;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #botonRegi{
+            position: absolute;
+            top: 68%;
+            left:26%;
+            background-color: black;
+            color: white;
+        }
+        #emailRegi{
+            position: absolute;
+            top:38%;
+            left: 14%;
+        }
+        #contraseñaRegi{
+            position:absolute;
+            top:47%;
+            left:14%; 
+        }
+        #contraseñaRegidos{
+            position:absolute;
+            top:56%;
+            left:14%; 
+        }
+        .invisible{
+            font-size: 14px;
+            background: none;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #letras1{
+           position: absolute;
+           top: 74%;
+           left: 26%;
+        }
+        .modal1{
+           position:absolute;
+           width: 80%;
+           height: 50%;
+           background-color: white;
+           border-radius: 10px;
+           left: 50%;
+           top:50%;
+           border: 2px solid #FF0606;
+           transform: translate(-50%, -50%);
+        }
+        .contmodal{
+           width: 100%;
+           height: 100%;
+           display: flex;
+           z-index: 9999;
+           visibility: hidden;
+           opacity: 0;
+           transition: all 600ms;
+
+        }
+        #iconomal{
+            position: relative;
+            width: 30%;
+            left: 35%;
+            top:10%;
+        }
+        .mensajemal{
+            text-align: center;
+            position: relative;
+            top:5%;
+        }
+        #botonVolver{
+            background-color: black;
+            color: white;
+            width: 45%;
+            height: 12%;
+            position: relative;
+            left: 27.5%;
+            top: 5%;
+        }
+        a{
+            text-decoration:none ;
+            color: white;
+        }
+        #ojito{
+            background: none;
+            border: none;
+            position: absolute;
+            top: 48.5%;
+            left: 73%;
+            cursor: pointer;
+        }
+        #seccionMuro{
+            background-color: white;
+            width: 100%;
+             height: 100%;
+        }
+        #cabeza{
           position: absolute;
-          top: 66%;
-          left: 26%;
-          
-        
-      }
-       #iconogoo{
-          width: 12%;
-      }
-      .letras1{
-       font-size: 11px;
-       position: absolute;
-       top: 72%;
-       left: 31%;
-   }
-   .letras2{
-      font-size: 14px;
-      position: absolute;
-      top: 78%;
-      left: 21%;
-   }
-   #registro{
-      font-size: 13px;
-      position: absolute;
-      top: 83%;
-      left: 36%;
-      text-decoration-line: underline;
-      background: none;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-   }
-   #botonRegi{
-    position: absolute;
-    top: 68%;
-    left:26%;
-    background-color: black;
-    color: white;
-}
-#emailRegi{
-    position: absolute;
-    top:38%;
-    left: 14%;
-}
-#contraseñaRegi{
-  position:absolute;
-  top:47%;
-  left:14%; 
-}
-#contraseñaRegidos{
-  position:absolute;
-  top:56%;
-  left:14%; 
-}
-.invisible{
-    font-size: 14px;
-    background: none;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-}
-#letras1{
-    position: absolute;
-    top: 74%;
-    left: 26%;
-}
-.modal1{
-    position:absolute;
-    width: 80%;
-    height: 50%;
-    background-color: white;
-    border-radius: 10px;
-    left: 50%;
-    top:50%;
-    border: 2px solid #FF0606;
-    transform: translate(-50%, -50%);
-}
-.contmodal{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    z-index: 9999;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 600ms;
-
-}
-#iconomal{
- position: relative;
- width: 30%;
- left: 35%;
- top:10%;
-}
-.mensajemal{
-    text-align: center;
-    position: relative;
-    top:5%;
-}
-#botonVolver{
-    background-color: black;
-    color: white;
-    width: 45%;
-    height: 12%;
-    position: relative;
-    left: 27.5%;
-    top: 5%;
-}
-a{
-    text-decoration:none ;
-    color: white;
-}
-
-#ojito{
-    background: none;
-    border: none;
-    position: absolute;
-    top: 48.5%;
-    left: 73%;
-    cursor: pointer;
-}
-#seccionMuro{
-    background-color: white;
-    width: 100%;
-    height: 100%;
-}
-#cabeza{
-    position: absolute;
-    background-color: #EBC920;
-    width: 100%;
-    height: 10%;
-    z-index: 9999;
-}
-#logoMuro{
-    width: 25%;
-    position: absolute;
-    margin: 0.5%;
-    margin-left: 1%;
-    left: 2%;
-}
-#buscador {
-    width: 30%;
-    height: 30%;
-    padding: 1%;
-    position: absolute;
-    top: 42%;
-    left: 58%;
-}
-#lupaimg{
-    width:350%;
-}   
-#lupita{
-    width: 4.5%;
-    position: absolute;
-    background-color: #ebc920a1;
-    border: none;
-    top: 45.9%;
-    left: 83.2%;
-    display: flex;
-    justify-content: space-around;
+          background-color: #EBC920;
+          width: 100%;
+          height: 10%;
+          z-index: 9999;
+        }
+        #logoMuro{
+            width: 25%;
+            position: absolute;
+            margin: 0.5%;
+            margin-left: 1%;
+            left: 2%;
+        }
+        #buscador {
+           width: 30%;
+           height: 30%;
+           padding: 1%;
+           position: absolute;
+           top: 42%;
+           left: 58%;
+        }
+        #lupaimg{
+            width:350%;
+        }   
+        #lupita{
+            width: 4.5%;
+            position: absolute;
+            background-color: #ebc920a1;
+            border: none;
+            top: 45.9%;
+            left: 83.2%;
+            display: flex;
+            justify-content: space-around;
+        }
+        #filtrador{
+            display:none;
+        } 
+        #publicar {
+            display:flex;
+            justify-content: space-evenly;
+            position: absolute;
+            top: 10%;
+            background-color: white;
+            border: 1.5px solid #b89a03;
+            margin: 0;
+            width: 100vw;
+            align-items: center;
+        }
+        #usuarioPublicar{
+            width: 13%;
+        }
+        #btnPublicar{
+            width: 75%;
+            background-color: white;
+            border: #EBC920 1.5px solid;
+            border-radius: 12px;
+            color: gray;
+            font-weight: bold;
+            text-align: left;
+            position: relative;
+            right:1%;
+        }
+        #contenedorPerfil{
+            width: 25%;
+            height: 528px;
+            position: fixed;
+            left: 75%;
+            display: flex;
+            background-color: transparent;
+            display:flex;
+            align-items: flex-end;
+            z-index: 100;
+        }
+        #pefilCaja, #fotoPortada, #fotousuario, #nombreUser{
+            display:none
+        }
+        #btnCerrarSesion{
+            background: red;
+            border: none;
+            position: relative;
+            top: 40%;
+            color: black;
+            font-size: medium;
+            font-weight: bold;
+            cursor: pointer;
+            width: 80%;
+            height: 10%;
+            display: block;
+            z-index: 1;
+            border-radius: 10px;
+        }
+        #cerrarSesionImg{
+            width: 20%;
+            position: relative;
+            right: 60%;
+            bottom: 5%;
+        }
+        form{
+            position: absolute;
+            top:10%;
+            left:5%;
+            width: 90%;
+            height: 70%;
+            background-color: white;
+            height: 700px;
+            border: #EBC920 1.5px solid;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content:space-around;
+            visibility: hidden; 
+            transition: 1s;
+            z-index: 1000;
+            transform: TranslateY(0%);
+        }
+        #cerrarModal{
+            width: 10%;
+            margin-left: 85%;
+            text-size-adjust:calc(40px);
+            border: none;
+            border-radius: 60px;
+        }
+        form #inputReceta{
+           width: 80%;
+           height: 2%;
+           margin-left: 10%;
+        }
+        #inputIngredientes{
+           width: 80%;
+           height: 10%;
+           margin-left: 10%;
     
-}
-#filtrador{
-    display:none;
-} 
-#publicar {
-    display:flex;
-    justify-content: space-evenly;
-    position: absolute;
-    top: 10%;
-    background-color: white;
-    border: 1.5px solid #b89a03;
-    margin: 0;
-    width: 100vw;
-    align-items: center;
-}
-#usuarioPublicar{
-    width: 13%;
-}
-#btnPublicar{
-    width: 75%;
-    background-color: white;
-    border: #EBC920 1.5px solid;
-    border-radius: 12px;
-    color: gray;
-    font-weight: bold;
-    text-align: left;
-    position: relative;
-    right:1%;
-}
-
-#contenedorPerfil{
-    width: 25%;
-    height: 528px;
-    position: fixed;
-    left: 75%;
-    display: flex;
-    background-color: transparent;
-    display:flex;
-    align-items: flex-end;
-    z-index: 100;
-}
-#pefilCaja, #fotoPortada, #fotousuario, #nombreUser{
-    display:none
-}
-#btnCerrarSesion{
-    background: red;
-    border: none;
-    position: relative;
-    top: 40%;
-    color: black;
-    font-size: medium;
-    font-weight: bold;
-    cursor: pointer;
-    width: 80%;
-    height: 10%;
-    display: block;
-    z-index: 1;
-    border-radius: 10px;
-}
-#cerrarSesionImg{
-    width: 20%;
-    position: relative;
-    right: 60%;
-    bottom: 5%;
-}
-
-form{
-    position: absolute;
-    top:10%;
-    left:5%;
-    width: 90%;
-    height: 70%;
-    background-color: white;
-    height: 700px;
-    border: #EBC920 1.5px solid;
-    border-radius: 5px;
-    display: flex;
-     flex-wrap: wrap;
-    align-content:space-around;
-    visibility: hidden;
-    transition: 1s;
-    z-index: 1000;
-    transform: TranslateY(0%);
-}
-#cerrarModal{
-    width: 10%;
-    margin-left: 85%;
-    text-size-adjust:calc(40px);
-    border: none;
-    border-radius: 60px;
-}
-form #inputReceta{
-    width: 80%;
-    height: 2%;
-    margin-left: 10%;
-}
-#inputIngredientes{
-    width: 80%;
-    height: 10%;
-    margin-left: 10%;
-    
-}
-#inputProcedimiento{
-    width: 80%;
-    height: 20%;
-    margin-left: 10%;
-}
-form label{
-    width: 100%;
-    height: 5%;
-    margin-left: 10%;
- }
- #selectCategoria{
-    width: 80%;
-    height: 5%;
-    margin-left: 10%;
-}
- #btnPostear{
-    width: 30%;
-    height: 5%;
-    background-color:black;
-    border: #EBC920 1.5px solid;
-    border-radius: 12px;
-    color: white;
-    font-weight: bold;
-    text-align: left;
-    cursor: pointer;
-
-    text-align: center;
-   }
-   #selectCategoria{
-       width: 15%;
-       height: 5%;
-   }
-   #postPublicado{
-    width: 100%;
-    background-color: white;
-    position: absolute;
-    top: 20%;
-   
-   }
-   .post{
-       background-color: white;
-       width: 100%;
-       padding: 1%;
-       border: #EBC920 1.5px solid;
-       position: relative;
-       top:50%;
-
-   }
-   .borrarPost{
-    position: absolute;
-    left: 70%;
-    bottom :80%;
-   }
-   .editarPost{
-       position: absolute;
-       left: 70%;
-       bottom: 60%;
-   }
+        }
+        #inputProcedimiento{
+           width: 80%;
+           height: 20%;
+           margin-left: 10%;
+        }
+        form label{
+           width: 100%;
+           height: 5%;
+           margin-left: 10%;
+        }
+        #selectCategoria{
+           width: 80%;
+           height: 5%;
+           margin-left: 10%;
+        }
+        #btnPostear{
+            width: 30%;
+            height: 5%;
+            background-color:black;
+            border: #EBC920 1.5px solid;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            text-align: left;
+            cursor: pointer;
+            text-align: center;
+        }
+        #selectCategoria{
+            width: 15%;
+            height: 5%;
+        }
+        #postPublicado{
+            width: 100%;
+            background-color: white;
+            position: absolute;
+            top: 20%;
+        }
+        .post{
+           background-color: white;
+           width: 100%;
+           padding: 1%;
+           border: #EBC920 1.5px solid;
+           position: relative;
+           top:50%;
+        }
+        .borrarPost{
+            position: absolute;
+            left: 70%;
+            bottom :80%;
+        }
+        .editarPost{
+            position: absolute;
+            left: 70%;
+            bottom: 60%;
+        }
   
-}
+    }

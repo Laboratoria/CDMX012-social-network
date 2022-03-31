@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
+import { onNavigate } from '../router.js';
 import { iniciarSesion, usuarioExistente, google } from '../lib/index.js';
 import { modal } from '../Component/modal.js';
 
