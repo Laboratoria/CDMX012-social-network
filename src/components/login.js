@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable import/no-cycle */
-import { shootIn, googleSignIn } from '../lib/firebase.js';
+import { shootIn, googleSignIn } from '../lib/firebase-auth.js';
 import { onNavigate } from '../main.js';
 
 export const login = () => {
