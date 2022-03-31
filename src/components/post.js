@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 export function renderPost(doc) {
   const sectionPost = document.createElement('div');
   sectionPost.setAttribute('class', 'sectionPost');
@@ -9,10 +10,12 @@ export function renderPost(doc) {
   profilePic.setAttribute('src', 'img/profilePicture.png');
 
   const profileName = document.createElement('label');
-  profileName.setAttribute('id', 'profileName');
+  profileName.setAttribute('class', 'profileName');
+  profileName.textContent = 'Ana - DevOps';
 
   const dots = document.createElement('img');
   dots.setAttribute('src', 'img/dots.png');
+  dots.setAttribute('id', 'dotsEdit');
 
   const pPost = document.createElement('p');
   pPost.setAttribute('id', 'inputPost');
@@ -24,7 +27,7 @@ export function renderPost(doc) {
 
   const postDate = document.createElement('p');
   postDate.setAttribute('id', 'postDate');
-  postDate.textContent = doc.data().date;
+  postDate.textContent = '11:11 - 01/05/22';
 
   const likeIcon = document.createElement('img');
   likeIcon.setAttribute('src', 'img/like.png');
@@ -36,11 +39,18 @@ export function renderPost(doc) {
   commentInput.setAttribute('id', 'commentInput');
 
   templateTop.append(profilePic, profileName, dots);
-  likeComment.append(likeIcon, commentIcon);
+  likeComment.append(postDate, likeIcon, commentIcon);
   sectionPost.append(templateTop, pPost, likeComment, commentInput);
 
   const wall = document.getElementById('postFeed');
   wall.append(sectionPost);
+
+  // delete data
+  // dots.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   const id = e.target.parentElement.getAttribute('data-id');
+  //   deletePost(id);
+  // });
   // dejamos el return para los tests - no cambia en el html quitarlo o ponerlo
   return sectionPost;
 }

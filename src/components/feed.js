@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import { readData, savePost } from './FireStore.js';
+import { readData } from './FireStore.js';
+import { newPost } from './newPost.js';
 
 export const feed = () => {
   const feedView = document.createElement('div');
@@ -13,29 +14,17 @@ export const feed = () => {
   logoFeed.setAttribute('src', 'img/Icono_.png');
   logoFeed.setAttribute('id', 'logoFeed');
 
-  const writePost = document.createElement('div');
-  writePost.setAttribute('class', 'sectionPost');
-  const createTop = document.createElement('div');
-  createTop.setAttribute('class', 'templateTop');
-
-  const namePost = document.createElement('label');
-  namePost.setAttribute('class', 'profileName');
-  namePost.textContent = 'Ana';
-
-  const inputPost = document.createElement('input');
-  inputPost.setAttribute('id', 'inputPost');
-  inputPost.setAttribute('placeholder', '¿Que estas pensando?');
-
-  const sendPost = document.createElement('button');
-  sendPost.setAttribute('id', 'sendPost');
-  sendPost.textContent = 'Publicar';
-
   const searchFeed = document.createElement('input');
   searchFeed.setAttribute('class', 'register');
   searchFeed.setAttribute('id', 'searchFeed');
   searchFeed.setAttribute('placeholder', 'Buscar...');
 
-  const readDiv = document.createElement('div');
+  const newPostDiv = document.createElement('div');
+  newPostDiv.setAttribute('id', 'newPostDiv');
+
+  const createPost = newPost();
+  createPost.setAttribute('id', 'createPost');
+
   const postFeed = document.createElement('div');
   postFeed.setAttribute('id', 'postFeed');
 
@@ -55,32 +44,14 @@ export const feed = () => {
   profileFeed.setAttribute('id', 'profileFeed');
   profileFeed.setAttribute('src', 'img/Profile.png');
 
-  feedView.appendChild(header);
-  feedView.appendChild(postFeed);
-  feedView.appendChild(footer);
-  postFeed.appendChild(writePost);
-  postFeed.appendChild(readDiv);
-  writePost.appendChild(createTop);
-  createTop.appendChild(namePost);
-  writePost.appendChild(inputPost);
-  writePost.appendChild(sendPost);
-  header.appendChild(logoFeed);
-  header.appendChild(searchFeed);
-  footer.appendChild(logOutFeed);
-  footer.appendChild(writeFeed);
-  footer.appendChild(homeFeed);
-  footer.appendChild(profileFeed);
+  newPostDiv.appendChild(createPost);
+  header.append(logoFeed, searchFeed);
+  footer.append(logOutFeed, writeFeed, homeFeed, profileFeed);
+  feedView.append(header, createPost, postFeed, footer);
 
   logOutFeed.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/');
-  });
-  sendPost.addEventListener('click', (e) => {
-    e.preventDefault();
-    const textPost = document.getElementById('inputPost').value;
-    const datePost = new Date();
-    console.log(textPost, datePost);
-    savePost(textPost, datePost);
   });
   readData();
   return feedView;
