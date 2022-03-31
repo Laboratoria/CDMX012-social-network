@@ -66,6 +66,11 @@
 .to-post {
   margin-left: 92%;
 }
+.post-element {
+  border-style: solid;
+  border-color: #4cdee2;
+  margin: 5%;
+}
 
 #return_index {
   background: pink;

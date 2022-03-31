@@ -12,12 +12,25 @@ export const db = getFirestore();
 
 export let savePost = (post, date) => addDoc(collection(db, "post"),{post,date })
 
-export const dataCall = (callBackFunction) => {
-  getDocs(collection(db, 'newColection')).then((snapshot) => {
-    callBackFunction(snapshot.docs);
-  });
-};
+// export const dataCall = (callBackFunction) => {
+//   getDocs(collection(db, 'newColection')).then((snapshot) => {
+//     callBackFunction(snapshot.docs);
+//   });
+// };
 
+// const querySnapshot = await getDocs(collection(db, "post"));
+// querySnapshot.forEach((doc) => {
+//   console.log(`${doc.id} => ${doc.data()}`);
+// });
+
+// export const getPost= ()=> {
+//   const querySnapshot = await getDocs(collection(db, "post"));
+// querySnapshot.forEach((doc) => {
+//   console.log(`${doc.id} => ${doc.data()}`);
+// });
+// }
+
+// getDocs(collection(bd,"post"))
 
 
 // try {

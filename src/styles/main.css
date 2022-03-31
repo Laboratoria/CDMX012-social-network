@@ -278,5 +278,6 @@ body {
     bottom: 0;
     background-color: #4cdee2;
     text-align: center;
+    position: static;
   }
 }
