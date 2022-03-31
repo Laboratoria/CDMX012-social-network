@@ -1,3 +1,4 @@
+
 /* ------ AQUI VAN ELEMENTOS PARA CREAR POST------ */
 // import { onNavigate } from '../main.js';
 // eslint-disable-next-line import/no-cycle
