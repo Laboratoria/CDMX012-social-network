@@ -120,9 +120,11 @@ export const muro = () => {
   const btnPublicar = document.createElement('button');
   btnPublicar.textContent = 'Publicar';
   btnPublicar.setAttribute('id', 'btnPostear');
-  btnPublicar.addEventListener('click', () => {
+  btnPublicar.addEventListener('click', (e) => {
+    e.preventDefault();
     // eslint-disable-next-line max-len
     guardarReceta(inputReceta.value, inputIngredientes.value, inputProcedimiento.value, selectCategoria.value);
+    console.log(guardarReceta);
     formPublicacion.style.visibility = 'hidden';
   });
   const cerrarModal = document.createElement('button');

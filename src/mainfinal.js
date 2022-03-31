@@ -1,4 +1,4 @@
-import {
+/* import {
   guardarReceta,
   conseguirRecetas,
   alConseguirRecetas,
@@ -12,8 +12,9 @@ const formPublicacion = document.getElementById('formPublicacion');
 const postPublicado = document.getElementById('postPublicado');
 let editandoReceta = false;
 let id = '';
+ */
 
-window.addEventListener('DOMContentLoaded', async () => {
+/* window.addEventListener('DOMContentLoaded', async () => {
   alConseguirRecetas((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc) => {
@@ -34,10 +35,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     const borrarPost = postPublicado.querySelectorAll('.borrarPost');
     borrarPost.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        borrarReceta(dataset.id);
+        borrarReceta(dataset.id); */
       /* Las dos lineas de arriba es simplificado de : event.target.dataset.id
  (obtiene el id del boton desde firestore) A esto se le llama destructuración */
-      });
+      /* });
     });
     const editarPost = postPublicado.querySelectorAll('.editarPost');
     editarPost.forEach((btn) => {
@@ -71,3 +72,4 @@ formPublicacion.addEventListener('submit', (e) => {
 
   formPublicacion.reset();
 });
+ */

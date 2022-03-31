@@ -1,5 +1,5 @@
 import { alConseguirRecetas, borrarReceta } from '../../lib/firestore.js';
-
+const formPublicacion = document.getElementById('formPublicacion');
 export const GetPost = () => {
   const divPost = document.createElement('div');
   divPost.setAttribute('id', 'postPublicado');
