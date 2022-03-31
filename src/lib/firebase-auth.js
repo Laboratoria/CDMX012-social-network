@@ -1,33 +1,14 @@
-/* eslint-disable no-console */
-/* eslint-disable object-curly-newline */
-/* eslint-disable import/no-cycle */
 /* eslint-disable no-unused-vars */
-/* eslint-disable import/no-unresolved */
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
-import { getFirestore, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+/* eslint-disable import/no-cycle */
+import { auth } from './firebase-config.js';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  FacebookAuthProvider,
+} from './firebase-imports.js';
 import { onNavigate } from '../main.js';
-
-// Your web app's Firebase configuration
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: 'AIzaSyD_uPjnOcNCFnIvon8gHMvQKhm0h3DesHc',
-  authDomain: 'meetarcade-d78e8.firebaseapp.com',
-  databaseURL: 'https://meetarcade-d78e8-default-rtdb.firebaseio.com',
-  projectId: 'meetarcade-d78e8',
-  storageBucket: 'meetarcade-d78e8.appspot.com',
-  messagingSenderId: '912563964006',
-  appId: '1:912563964006:web:5466d454f38b635f25c5a7',
-};
-
-// Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app); // Save registerData collection in fireStore
 
 // Create new users with email acc
 export const createNewUsers = (username, email, password) => {
@@ -57,7 +38,6 @@ export const createNewUsers = (username, email, password) => {
     });
 };
 
-// login with a registered email
 export const shootIn = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -128,29 +108,3 @@ export const signUpFacebook = () => {
       const credential = FacebookAuthProvider.credentialFromError(error);
     });
 };
-
-// get user profile
-export const userInfo = (photo, name) => {
-  const user = auth.currentUser;
-  if (user !== null) {
-    const displayName = user.displayName;
-    const photoURL = user.photoURL;
-    photo.setAttribute('src', `${photoURL}`);
-    name.setAttribute('alt', '');
-    // eslint-disable-next-line no-param-reassign
-    name.textContent = `${displayName}`;
-  }
-};
-/*
-
-export const savePost = (username, post) => {
-  addDoc(collection(db, 'posts'), {
-    username,
-    post,
-  });
-};
-
-export const getPost = () => {
-  getDocs(collection(db, 'posts'));
-};
-*/

@@ -2,7 +2,7 @@
 /* ------ AQUI VAN ELEMENTOS PARA CREAR POST------ */
 // import { onNavigate } from '../main.js';
 // eslint-disable-next-line import/no-cycle
-import { userInfo } from '../lib/firebase.js';
+import { userInfo } from '../lib/firebase-users.js';
 
 export const home = () => {
   const newsFeedSection = document.createElement('section');

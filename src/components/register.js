@@ -1,8 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
-import { createNewUsers, googleSignIn, signUpFacebook } from '../lib/firebase.js';
-// import { createAccount } from '../lib/firebase.js';
+import { createNewUsers, googleSignIn, signUpFacebook } from '../lib/firebase-auth.js';
 
 export const register = () => {
   const joinUsSection = document.createElement('section');
