@@ -86,7 +86,7 @@ export const login = () => {
   });
 
   const btnInfoShootIn = document.createElement('button');
-  btnInfoShootIn.className = 'btnsSign';
+  btnInfoShootIn.className = 'btn btnsSign';
   btnInfoShootIn.id = 'submitInfoShoot';
   btnInfoShootIn.textContent = 'Shoot In';
 
