@@ -1,27 +1,90 @@
 import {
-query,
-collection,
-onSnapshot
+  query,
+  collection,
+  orderBy,
+  onSnapshot,
+  limit,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-
-import {db} from '../../lib/firestore.js'
+import {
+  onAuthStateChanged,
+  getAuth,
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+import { db } from "../../lib/firestore.js";
 
 const ReadPost = () => {
-    const divPost = document.createElement('div');
-    // aqui on snapshot
-   const q = query(collection(db, "post"));
-   const posts = [];
-   const unsubscribe = onSnapshot(q, (postes) => {
+  const sectionPost = document.createElement("section");
+  // aqui on snapshot
+  const data = collection(db, "post");
+  const q = query(data, orderBy("date", "desc"), limit(20));
+  const unsubscribe = onSnapshot(q, (postes) => {
+    removeChildNodes(sectionPost);
     postes.forEach((post) => {
-      posts.push(post.data().post);
+      if (post.data().post) {
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+          const uid = user.uid;
+          const displayName = user.displayName;
+          const email = user.email;
+          const photo = user.photoURL;
+
+          const childSection = document.createElement("section");
+          childSection.setAttribute("class", "post-element");
+
+          const imgUser = document.createElement("img");
+          imgUser.setAttribute("class", "user-img");
+          imgUser.setAttribute("src", "./Resourses/iconos/usuario.png");
+
+          const nameDescription = document.createElement("h2");
+          nameDescription.setAttribute("class", "name-user");
+          nameDescription.textContent = displayName || email;
+
+          const postDate = document.createElement("p");
+          postDate.textContent = getDate(post.data().date);
+          postDate.setAttribute("class", "date");
+
+          const postDescription = document.createElement("h2");
+          postDescription.setAttribute("class", "text-post");
+          postDescription.textContent = post.data().post;
+
+          const like = document.createElement("img", "logo-like");
+          like.setAttribute("class", "like");
+          like.setAttribute("src", "./Resourses/iconos/no like.png");
+
+          const likeNumber = document.createElement("p");
+          likeNumber.textContent = 40;
+          likeNumber.setAttribute("class", "like-number");
+
+          const coment = document.createElement("img", "logo-coment");
+          coment.setAttribute("class", "coment");
+          coment.setAttribute("src", "./Resourses/iconos/comentario.png");
+
+          childSection.append(
+            imgUser,
+            nameDescription,
+            postDate,
+            postDescription,
+            like,
+            likeNumber,
+            coment
+          );
+          sectionPost.appendChild(childSection);
+        });
+      }
     });
-    divPost.textContent = posts.join(", ");
   });
-    return divPost;
-  };
-  
+  return sectionPost;
+};
 
+function getDate(date) {
+  return new Date(
+    date.seconds * 1000 + date.nanoseconds / 1000000
+  ).toDateString();
+}
 
-
+function removeChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
 
 export default ReadPost;

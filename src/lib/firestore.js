@@ -3,20 +3,24 @@ import {
   getFirestore,
   collection,
   addDoc,
-  getDocs,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 import { firebaseConfig } from "./firebase-config.js";
+
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
 
-export let savePost = (post, date) => addDoc(collection(db, "post"),{post,date })
+export let savePost = (post, date) =>
+  addDoc(collection(db, "post"), { post, date });
 
-export const dataCall = (callBackFunction) => {
-  getDocs(collection(db, 'newColection')).then((snapshot) => {
-    callBackFunction(snapshot.docs);
-  });
-};
+//photo, personName, post,, like
+// export const dataCall = (callBackFunction) => {
+//   getDocs(collection(db, 'newColection')).then((snapshot) => {
+//     callBackFunction(snapshot.docs);
+//   });
+// };
+
+ const getPosts = () => console.log("hola");
 
 
 
@@ -26,7 +30,7 @@ export const dataCall = (callBackFunction) => {
 //     last: "Lovelace",
 //     born: 1815,
 //   });
-//   console.log("Document written with ID: ", docRef.id);
+//   console.log("Document written with ID: ",  docRef.id);
 // } catch (e) {
 //   console.error("Error adding document: ", e);
 // }
@@ -61,5 +65,3 @@ export const dataCall = (callBackFunction) => {
 // querySnapshot.forEach((doc) => {
 //   console.log(`${doc.id} => ${doc.data()}`);
 // });
-
-
