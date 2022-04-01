@@ -86,6 +86,15 @@ export const loginGoogle = () => {
       // ...
     });
 };
+
+export const signOutSession = () => {
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    onNavigate('/');
+  }).catch((error) => {
+    console.log(error.message);
+  });
+};
 // export const loginGoogle = () => {
 //   const auth = getAuth();
 //   const provider = new GoogleAuthProvider();
