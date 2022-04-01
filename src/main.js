@@ -2,7 +2,7 @@ import { login } from "./components/Login.js";
 import { register } from "./components/Register.js";
 import { timeline } from "./components/Timeline.js";
 import { menu } from "./components/menu.js";
-import{ adoptions } from "./components/Adoptions.js"
+import { adoptions } from "./components/Adoptions.js";
 
 import {
   onAuthStateChanged,

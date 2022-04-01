@@ -57,7 +57,7 @@ html {
   text-align: right;
 }
 
-.menu-nav{
+.menu-nav {
   width: 30px;
   height: 30px;
   position: absolute;
@@ -99,6 +99,7 @@ html {
   width: auto;
   height: 30px;
   margin: 2%;
+  border-radius: 15px;
 }
 .name-user {
   font-size: large;
@@ -107,22 +108,34 @@ html {
   width: 100%;
 }
 
+.interactions {
+  width: 100%;
+  display: flex;
+  text-align: end;
+}
+
+.like {
+  height: min-content;
+  width: 5%;
+  margin: 0% 2% 0 70%;
+}
+.like-number {
+  font-size: x-large;
+  text-align: start;
+  margin: 0;
+}
+
+.delete,
+.edit {
+  height: min-content;
+  width: 5%;
+  margin: 0 1% 0 2%;
+}
+
 #return_index {
   background: pink;
   width: 20%;
   margin: 2% 40% 0%;
-}
-
-.like {
-  height: 1%;
-  width: 5%;
-  margin: 0 2% 0 1%;
-}
-
-.coment {
-  height: 1%;
-  width: 5%;
-  margin: 0 1% 0 2%;
 }
 
 @media (max-width: 450px) {
@@ -184,6 +197,7 @@ html {
     word-wrap: break-word;
     width: 100%;
     font-size: small;
+    margin-left: 3%;
   }
 
   .user-img {
@@ -193,21 +207,37 @@ html {
   }
   .name-user {
     font-size: medium;
+    margin: 3% 0 0 5%;
+    width: 100%;
   }
   .date {
     font-size: small;
     width: 100%;
+    margin: 0 0 0 5%;
+  }
+
+  .interactions {
+    width: 100%;
+    display: flex;
+    text-align: end;
+    margin: 0;
   }
 
   .like {
-    height: 0.5%;
-    width: 10%;
-    margin: 0 2% 0 1%;
+    height: min-content;
+    width: 5%;
+    margin: 0% 2% 0 70%;
+  }
+  .like-number {
+    font-size: small;
+    text-align: start;
+    margin: 0;
   }
 
-  .coment {
-    height: 0.5%;
-    width: 10%;
+  .delete,
+  .edit {
+    height: min-content;
+    width: 5%;
     margin: 0 1% 0 2%;
   }
 
