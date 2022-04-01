@@ -3,15 +3,17 @@ import {
   getFirestore,
   collection,
   addDoc,
-  getDocs,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 import { firebaseConfig } from "./firebase-config.js";
+
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
 
-export let savePost = (post, date) => addDoc(collection(db, "post"),{post,date })
+export let savePost = (post, date) =>
+  addDoc(collection(db, "post"), { post, date });
 
+//photo, personName, post,, like
 // export const dataCall = (callBackFunction) => {
 //   getDocs(collection(db, 'newColection')).then((snapshot) => {
 //     callBackFunction(snapshot.docs);
@@ -31,7 +33,6 @@ export let savePost = (post, date) => addDoc(collection(db, "post"),{post,date }
 // }
 
 // getDocs(collection(bd,"post"))
-
 
 // try {
 //   const docRef = await addDoc(collection(db, "users"), {
@@ -74,5 +75,3 @@ export let savePost = (post, date) => addDoc(collection(db, "post"),{post,date }
 // querySnapshot.forEach((doc) => {
 //   console.log(`${doc.id} => ${doc.data()}`);
 // });
-
-

@@ -33,7 +33,13 @@ onAuthStateChanged(auth, (user) => {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     const uid = user.uid;
+    const displayName = user.displayName;
+    const email = user.email;
+    const photo = user.photoURL;
     // ...
+    console.log(user);
+    console.log(uid);
+    console.log(displayName);
 
     onNavigate("/Timeline");
   } else {
