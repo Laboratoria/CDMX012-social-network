@@ -4,14 +4,32 @@ import {
   collection,
   addDoc,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
+import {
+  getAuth
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { firebaseConfig } from "./firebase-config.js";
 
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
 
-export let savePost = (post, date) =>
-  addDoc(collection(db, "post"), { post, date });
+export let savePost = (post, date) =>{
+  const auth = getAuth();
+  const user = auth.currentUser;
+  
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    // ...
+
+
+    return addDoc(collection(db, "post"), { post, date,  })
+  } else {
+    // No user is signed in.
+  }
+
+  
+};
 
 //photo, personName, post,, like
 // export const dataCall = (callBackFunction) => {

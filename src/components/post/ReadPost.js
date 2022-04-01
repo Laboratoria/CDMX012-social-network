@@ -46,28 +46,34 @@ const ReadPost = () => {
           postDescription.setAttribute("class", "text-post");
           postDescription.textContent = post.data().post;
 
+          const interactions = document.createElement("section");
+          interactions.className = "interactions";
+
           const like = document.createElement("img", "logo-like");
           like.setAttribute("class", "like");
-          like.setAttribute("src", "./Resourses/iconos/no like.png");
+          like.setAttribute("src", "./Resourses/icons/huella_like.png");
 
           const likeNumber = document.createElement("p");
           likeNumber.textContent = 40;
           likeNumber.setAttribute("class", "like-number");
 
-          const coment = document.createElement("img", "logo-coment");
-          coment.setAttribute("class", "coment");
-          coment.setAttribute("src", "./Resourses/iconos/comentario.png");
+          const deleteComent = document.createElement("img", "delet-coment");
+          deleteComent.setAttribute("class", "delete");
+          deleteComent.setAttribute("src", "./Resourses/icons/delete_post.png");
+
+          const edit = document.createElement("img", "edit-coment");
+          edit.setAttribute("class", "edit");
+          edit.setAttribute("src", "./Resourses/icons/edit_post.png");
 
           childSection.append(
             imgUser,
             nameDescription,
             postDate,
             postDescription,
-            like,
-            likeNumber,
-            coment
+            interactions
           );
-          sectionPost.appendChild(childSection);
+          interactions.append(like, likeNumber, deleteComent, edit);
+          sectionPost.append(childSection);
         });
       }
     });
