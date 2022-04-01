@@ -82,8 +82,8 @@ export const muro = () => {
   seccionMuro.append(cabeza, publicar, contenedorPerfil, crearPost(), GetPost());
   botonPublicar.addEventListener('click', (e) => {
     e.preventDefault();
-    const prueb = document.getElementById('formPublicacion');
-    prueb.style.visibility = 'visible';
+    const formPublicacion = document.getElementById('formPublicacion');
+    formPublicacion.style.visibility = 'visible';
   });
   return seccionMuro;
 };

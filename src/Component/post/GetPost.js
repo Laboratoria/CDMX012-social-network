@@ -23,12 +23,15 @@ export const GetPost = () => {
       publicacionCategoriaP.textContent = publicacion.categoria;
       const borrarPostBoton = document.createElement('button');
       borrarPostBoton.textContent = 'Borrar';
-      borrarPostBoton.setAttribute('data-id', doc.id);
+      // borrarPostBoton.setAttribute('data-id', doc.id);
       borrarPostBoton.setAttribute('class', 'borrarPost');
-      borrarPostBoton.addEventListener('click', ({ target: { dataset } }) => {
-        eliminarPost();/* divPost.removeChild(post) */
-        borrarReceta(dataset.id);
-        console.log('deberia abrir un modal');
+      borrarPostBoton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const contmodal = document.getElementById('contmodal');
+        contmodal.style.visibility = 'visible';
+        contmodal.style.opacity = '1';
+        console.log(doc.id);
+        eliminarPost(doc.id);/* divPost.removeChild(post) */
       });
 
       const editarPostBoton = document.createElement('button');

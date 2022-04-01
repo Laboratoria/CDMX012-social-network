@@ -1,8 +1,6 @@
 import { borrarReceta  } from '../../lib/firestore.js';
-import { doc } from  'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 
-export const eliminarPost = () => {
-  console.log('si jala');
+export const eliminarPost = (elbrenditoid) => {
   const contenedorPadre = document.createElement('div');
   contenedorPadre.setAttribute('class', 'contmodal');
   contenedorPadre.setAttribute('id', 'contmodal');
@@ -22,12 +20,13 @@ export const eliminarPost = () => {
   cerrarModal.setAttribute('href', '');
   // HGH
   const confirmar = document.createElement('button');
+  confirmar.setAttribute('data-id', elbrenditoid);
   confirmar.textContent = 'Aceptar';
-  //confirmar.addEventListener('click', ({ target: { dataset } }) => {
-    //console.log('Holi canoli');
-    //console.log(dataset.id);
-    // borrarReceta(dataset.id);
-  // });
+  console.log(elbrenditoid);
+  confirmar.addEventListener('click', (e) => {
+    e.preventDefault();
+    borrarReceta(elbrenditoid);
+  });
   // AQUI VA LA FUNCIÓN DE CONFIRMAR
   contenedorModal.append(mensajeConfirmacion, btnVolver, confirmar);
   const btnMostrarModal = document.createElement('button');
