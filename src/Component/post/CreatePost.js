@@ -47,10 +47,10 @@ export const crearPost = () => {
   btnPublicar.textContent = 'Publicar';
   btnPublicar.setAttribute('id', 'btnPostear');
   btnPublicar.addEventListener('click', (e) => {
-    console.log('si jalo jajajaj');
     e.preventDefault();
     // eslint-disable-next-line max-len
     guardarReceta(inputReceta.value, inputIngredientes.value, inputProcedimiento.value, selectCategoria.value);
+    formPublicacion.style.visibility = 'hidden';
   });
   const cerrarModal = document.createElement('button');
   cerrarModal.setAttribute('id', 'cerrarModal');
