@@ -360,18 +360,19 @@
         border: none;
         border-radius: 60px;
     }
-    form #inputReceta{
+     #inputReceta{
         width: 75%;
         height: 2%;
         margin-left: 12.5%;
     }
-    #inputIngredientes{
+    form #inputIngredientes{
         width: 75%;
         height: 10%;
         margin-left: 12.5%;
+        border: #EBC920 solid;
         
     }
-    #inputProcedimiento{
+    form #inputProcedimiento{
         width: 75%;
         height: 20%;
         margin-left: 12.5%;

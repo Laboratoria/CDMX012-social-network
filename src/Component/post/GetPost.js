@@ -1,4 +1,7 @@
-import { alConseguirRecetas, borrarReceta } from '../../lib/firestore.js';
+import { alConseguirRecetas } from '../../lib/firestore.js';
+import { eliminarPost } from './EliminarPost.js';
+import { borrarReceta } from '../../lib/firestore.js';
+
 const formPublicacion = document.getElementById('formPublicacion');
 export const GetPost = () => {
   const divPost = document.createElement('div');
@@ -23,15 +26,16 @@ export const GetPost = () => {
       borrarPostBoton.setAttribute('data-id', doc.id);
       borrarPostBoton.setAttribute('class', 'borrarPost');
       borrarPostBoton.addEventListener('click', ({ target: { dataset } }) => {
+        eliminarPost();/* divPost.removeChild(post) */
         borrarReceta(dataset.id);
-        divPost.removeChild(post);
+        console.log('deberia abrir un modal');
       });
 
       const editarPostBoton = document.createElement('button');
       editarPostBoton.textContent = 'Editar';
       editarPostBoton.setAttribute('data-id', doc.id);
       editarPostBoton.setAttribute('class', 'editarPost');
-      post.append(h3PublicacionReceta, ingredientesP, publicacionProcedimientosP, publicacionCategoriaP, borrarPostBoton, editarPostBoton);
+      post.append(h3PublicacionReceta, ingredientesP, publicacionProcedimientosP, publicacionCategoriaP, borrarPostBoton, editarPostBoton, eliminarPost());
       postPublicado.appendChild(post);
       divPost.append(post);
     });
