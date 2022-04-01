@@ -45,7 +45,7 @@ rootDiv.appendChild(component());
 
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
-  if (user) {
+  if (user.emailVerified === true) {
     onNavigate('/muro');
   } else {
     onNavigate('/');

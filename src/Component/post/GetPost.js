@@ -24,7 +24,7 @@ export const GetPost = () => {
       borrarPostBoton.setAttribute('class', 'borrarPost');
       borrarPostBoton.addEventListener('click', ({ target: { dataset } }) => {
         borrarReceta(dataset.id);
-      // divPost.removeChild(post);
+        divPost.removeChild(post);
       });
 
       const editarPostBoton = document.createElement('button');
@@ -32,8 +32,8 @@ export const GetPost = () => {
       editarPostBoton.setAttribute('data-id', doc.id);
       editarPostBoton.setAttribute('class', 'editarPost');
       post.append(h3PublicacionReceta, ingredientesP, publicacionProcedimientosP, publicacionCategoriaP, borrarPostBoton, editarPostBoton);
-     // postPublicado.appendChild(post);
-    divPost.append(post);
+      postPublicado.appendChild(post);
+      divPost.append(post);
     });
   });
   return divPost;

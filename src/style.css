@@ -338,7 +338,7 @@
         color: white;
     }
     form{
-        position: absolute;
+        position: fixed;
         top:20%;
         left:20%;
         width: 60%;
@@ -433,6 +433,14 @@
        left: 90%;
        bottom: 60%;
    }
+   pre {
+        overflow-x: auto;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+ }
 }
 
     @media (max-width:500px){
