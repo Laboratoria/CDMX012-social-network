@@ -3,6 +3,7 @@ import { savePost } from './FireStore.js';
 export const newPost = () => {
   const writePost = document.createElement('div');
   writePost.setAttribute('class', 'sectionPost');
+  writePost.setAttribute('id', 'writePost');
 
   const createTop = document.createElement('div');
   createTop.setAttribute('class', 'templateTop');
@@ -20,6 +21,7 @@ export const newPost = () => {
 
   const sendPost = document.createElement('button');
   sendPost.setAttribute('id', 'sendPost');
+  sendPost.setAttribute('class', 'button');
   sendPost.textContent = 'Publicar';
 
   createTop.append(namePost, profilePic);

@@ -35,12 +35,35 @@ export function renderPost(doc) {
   const commentIcon = document.createElement('img');
   commentIcon.setAttribute('src', 'img/comment.png');
 
+  const likes = document.createElement('p');
+  likes.setAttribute('id', 'likes');
+  likes.hidden = true;
+  likes.textContent = '1';
+
   const commentInput = document.createElement('input');
   commentInput.setAttribute('id', 'commentInput');
+  commentInput.setAttribute('placeholder', 'Escribe tu respuesta');
+  commentInput.hidden = true;
 
   templateTop.append(profilePic, profileName, dots);
-  likeComment.append(postDate, likeIcon, commentIcon);
+  likeComment.append(postDate, likes, likeIcon, commentIcon);
   sectionPost.append(templateTop, pPost, likeComment, commentInput);
+
+  commentIcon.addEventListener('click', () => {
+    if (commentInput.style.display === 'none') {
+      commentInput.style.display = 'block';
+    } else {
+      commentInput.style.display = 'none';
+    }
+  });
+
+  likeIcon.addEventListener('click', () => {
+    if (likes.style.display === 'none') {
+      likes.style.display = 'block';
+    } else {
+      likes.style.display = 'none';
+    }
+  });
 
   const wall = document.getElementById('postFeed');
   wall.append(sectionPost);

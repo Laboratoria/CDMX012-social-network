@@ -1,7 +1,9 @@
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
+
 import { readData } from './FireStore.js';
 import { newPost } from './newPost.js';
+// eslint-disable-next-line import/no-cycle
+import { navegations } from './navegation.js';
 
 export const feed = () => {
   const feedView = document.createElement('div');
@@ -31,28 +33,16 @@ export const feed = () => {
   const footer = document.createElement('div');
   footer.setAttribute('id', 'feedFooter');
 
-  const logOutFeed = document.createElement('img');
-  logOutFeed.setAttribute('src', 'img/logOut.png');
-  logOutFeed.setAttribute('id', 'logOutFeed');
-  const writeFeed = document.createElement('img');
-  writeFeed.setAttribute('src', 'img/writePost.png');
-  writeFeed.setAttribute('id', 'writeFeed');
-  const homeFeed = document.createElement('img');
-  homeFeed.setAttribute('src', 'img/Home.png');
-  homeFeed.setAttribute('id', 'homeFeed');
-  const profileFeed = document.createElement('img');
-  profileFeed.setAttribute('id', 'profileFeed');
-  profileFeed.setAttribute('src', 'img/Profile.png');
+  const navDesktop = navegations();
+  navDesktop.setAttribute('id', 'navDesktop');
+  const navMobile = navegations();
+  navMobile.setAttribute('id', 'navMobile');
 
+  footer.append(navMobile);
   newPostDiv.appendChild(createPost);
   header.append(logoFeed, searchFeed);
-  footer.append(logOutFeed, writeFeed, homeFeed, profileFeed);
-  feedView.append(header, createPost, postFeed, footer);
+  feedView.append(header, createPost, navDesktop, postFeed, footer);
 
-  logOutFeed.addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/');
-  });
   readData();
   return feedView;
 };
