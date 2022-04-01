@@ -258,6 +258,51 @@
 #likes{
 font-size:0.8rem;
 }
+    
+/* Aqui inician los estilos del modal */
+#containerModal{
+    position: absolute;
+    left: 15%;
+    top: 40%;
+    width: 70vw;
+    padding-bottom: 40px;    
+    background-color: #9a99d5;
+    border: 1px solid #3734CE;
+    z-index: 100000;
+    text-align: center;
+    border-radius: 15px;
+
+}
+#containerModalB{
+    position: absolute;
+    left: 26%;
+    top: 60%;
+    display: flex;
+    justify-content: space-around;
+    column-gap: 20px;
+}
+#yesSignOut{
+    background-color: #6462D9;
+    color:#ffff;
+    padding: 2px 12px 2px 12px;
+    border: 3px solid #3734CE;
+    font-size: 0.9rem;
+    width: auto;
+    text-align: center;
+    border-radius: 20px;
+}
+#noSignOut{
+    background-color: #6462D9;
+    color:#ffff;
+    padding: 2px 10px 2px 10px;
+    border: 3px solid #3734CE;
+    font-size: 0.9rem;
+    width: auto;
+    text-align: center;
+    border-radius: 20px;
+}    
+    
+    
 /* #commentInput{
     display: flex;
     flex-direction:column;
