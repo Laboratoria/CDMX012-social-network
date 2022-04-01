@@ -1,7 +1,11 @@
 /* eslint-disable import/no-cycle */
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
+import { createNewUsers, googleSignIn, signUpFacebook } from '../lib/firebase-auth.js';
 
 export const register = () => {
   const joinUsSection = document.createElement('section');
@@ -28,11 +32,23 @@ export const register = () => {
   // containerIcons es contenedor del icono de Google
   const containerIcons = document.createElement('div');
   containerIcons.className = 'container';
+
   const iconG = document.createElement('img');
   iconG.setAttribute('src', './assets/google.png');
+  iconG.addEventListener('click', (e) => {
+    e.preventDefault();
+    googleSignIn();
+  });
 
   const iconF = document.createElement('img');
   iconF.setAttribute('src', './assets/facebook.png');
+<<<<<<< HEAD
+=======
+  iconF.addEventListener('click', (e) => {
+    e.preventDefault();
+    signUpFacebook();
+  });
+>>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
 
   const infoForm = document.createElement('form');
   infoForm.className = 'formContainer';
@@ -53,6 +69,10 @@ export const register = () => {
   const inputEmail = document.createElement('input');
   inputEmail.setAttribute('type', 'email');
   inputEmail.setAttribute('placeholder', 'Example@gmail.com');
+<<<<<<< HEAD
+=======
+  inputEmail.setAttribute('autocomplete', 'off');
+>>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
   inputEmail.className = 'inputs';
   inputEmail.required = 'true';
   inputEmail.id = 'email';
@@ -63,9 +83,41 @@ export const register = () => {
   const inputPassword = document.createElement('input');
   inputPassword.setAttribute('type', 'password');
   inputPassword.setAttribute('placeholder', 'More than 6 characters');
+<<<<<<< HEAD
+=======
+  inputPassword.setAttribute('autocomplete', 'off');
+>>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
   inputPassword.className = 'inputs';
   inputPassword.required = 'true';
   inputPassword.id = 'password';
+  const maskifyOff = document.createElement('img');
+  maskifyOff.setAttribute('src', './assets/eye.png');
+  maskifyOff.id = 'maskifyOff';
+  maskifyOff.className = 'eye';
+  const maskifyOn = document.createElement('img');
+  maskifyOn.setAttribute('src', './assets/eye_off.png');
+  maskifyOn.setAttribute('hidden', 'true');
+  maskifyOn.id = 'maskifyOn';
+  maskifyOn.className = 'eye';
+  maskifyOff.addEventListener('click', () => {
+    if (inputPassword.type === 'password') {
+      inputPassword.type = 'text';
+      maskifyOff.setAttribute('hidden', 'true');
+      maskifyOn.removeAttribute('hidden');
+    }
+  });
+
+  maskifyOn.addEventListener('click', () => {
+    if (inputPassword.type === 'text') {
+      inputPassword.type = 'password';
+      maskifyOn.setAttribute('hidden', 'true');
+      maskifyOff.removeAttribute('hidden');
+    }
+  });
+
+  const errorMessage = document.createElement('p');
+  errorMessage.className = 'messages';
+  errorMessage.id = 'pError';
 
   // const eyeIconSpan = document.createElement('span');
   // eyeIconSpan.className = 'eye';
@@ -80,13 +132,44 @@ export const register = () => {
   errorMessage.id = 'pError';
 
   const btnInfoJoinUs = document.createElement('button');
-  btnInfoJoinUs.className = 'btnsSign';
+  btnInfoJoinUs.className = ' btn btnsSign';
   btnInfoJoinUs.id = 'submitInfoJoin';
   btnInfoJoinUs.textContent = 'Join Us';
 
+  const divFooter = document.createElement('div');
+  divFooter.className = 'containerFooter';
+
+  const labelHaveAcc = document.createElement('footer');
+  labelHaveAcc.className = 'sign';
+  labelHaveAcc.textContent = 'Have an account?';
+
+  const btnRefLogin = document.createElement('button');
+  btnRefLogin.className = 'btnRefLogin';
+  btnRefLogin.id = 'refLogin';
+  btnRefLogin.textContent = 'Shoot in';
+
+  btnRefLogin.addEventListener('click', () => {
+    onNavigate('/login');
+  });
+
+  btnInfoJoinUs.addEventListener('click', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    createNewUsers(username, email, password);
+  });
+
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
+<<<<<<< HEAD
   infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, btnInfoJoinUs, errorMessage);
   joinUsSection.append(header, signInWith, containerIcons, infoForm);
+=======
+  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage);
+  divFooter.append(labelHaveAcc, btnRefLogin);
+  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs, divFooter);
+>>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
   return joinUsSection;
 };
