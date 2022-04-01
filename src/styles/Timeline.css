@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,700;1,900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100&display=swap");
-
 /* STYLES Timeline */
 /* 
 /***********************************************/
@@ -58,6 +57,13 @@ html {
   text-align: right;
 }
 
+.menu-nav{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 3%;
+  left: 6%;
+}
 #postContent {
   background-color: #f3f3f3;
   width: 50%;

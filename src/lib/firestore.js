@@ -20,19 +20,9 @@ export let savePost = (post, date) =>
 //   });
 // };
 
-// const querySnapshot = await getDocs(collection(db, "post"));
-// querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${doc.data()}`);
-// });
+ const getPosts = () => console.log("hola");
 
-// export const getPost= ()=> {
-//   const querySnapshot = await getDocs(collection(db, "post"));
-// querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${doc.data()}`);
-// });
-// }
 
-// getDocs(collection(bd,"post"))
 
 // try {
 //   const docRef = await addDoc(collection(db, "users"), {
@@ -40,7 +30,7 @@ export let savePost = (post, date) =>
 //     last: "Lovelace",
 //     born: 1815,
 //   });
-//   console.log("Document written with ID: ", docRef.id);
+//   console.log("Document written with ID: ",  docRef.id);
 // } catch (e) {
 //   console.error("Error adding document: ", e);
 // }
