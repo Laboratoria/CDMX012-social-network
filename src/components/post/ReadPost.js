@@ -5,10 +5,6 @@ import {
   onSnapshot,
   limit,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-import {
-  onAuthStateChanged,
-  getAuth,
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { db } from "../../lib/firestore.js";
 
 const ReadPost = () => {
@@ -19,63 +15,57 @@ const ReadPost = () => {
   const unsubscribe = onSnapshot(q, (postes) => {
     removeChildNodes(sectionPost);
     postes.forEach((post) => {
-      if (post.data().post) {
-        const auth = getAuth();
-        onAuthStateChanged(auth, (user) => {
-          const uid = user.uid;
-          const displayName = user.displayName;
-          const email = user.email;
-          const photo = user.photoURL;
+      // if (post.data().post) {
+      const childSection = document.createElement("section");
+      childSection.setAttribute("class", "post-element");
 
-          const childSection = document.createElement("section");
-          childSection.setAttribute("class", "post-element");
+      const imgUser = document.createElement("img");
+      imgUser.setAttribute("class", "user-img");
+      imgUser.setAttribute(
+        "src",
+        post.data().photo || "https://random.imagecdn.app/300/300"
+      );
 
-          const imgUser = document.createElement("img");
-          imgUser.setAttribute("class", "user-img");
-          imgUser.setAttribute("src", "./Resourses/iconos/usuario.png");
+      const headerPost = document.createElement("section");
+      headerPost.setAttribute("class", "header-post");
 
-          const nameDescription = document.createElement("h2");
-          nameDescription.setAttribute("class", "name-user");
-          nameDescription.textContent = displayName || email;
+      const nameDescription = document.createElement("h2");
+      nameDescription.setAttribute("class", "name-user");
+      nameDescription.textContent =
+        post.data().displayName || post.data().email;
 
-          const postDate = document.createElement("p");
-          postDate.textContent = getDate(post.data().date);
-          postDate.setAttribute("class", "date");
+      const postDate = document.createElement("p");
+      postDate.textContent = getDate(post.data().date);
+      postDate.setAttribute("class", "date");
 
-          const postDescription = document.createElement("h2");
-          postDescription.setAttribute("class", "text-post");
-          postDescription.textContent = post.data().post;
+      const postDescription = document.createElement("h2");
+      postDescription.setAttribute("class", "text-post");
+      postDescription.textContent = post.data().post;
 
-          const interactions = document.createElement("section");
-          interactions.className = "interactions";
+      const interactions = document.createElement("section");
+      interactions.className = "interactions";
 
-          const like = document.createElement("img", "logo-like");
-          like.setAttribute("class", "like");
-          like.setAttribute("src", "./Resourses/icons/huella_like.png");
+      const like = document.createElement("img", "logo-like");
+      like.setAttribute("class", "like");
+      like.setAttribute("src", "./Resourses/icons/huella_like.png");
 
-          const likeNumber = document.createElement("p");
-          likeNumber.textContent = 40;
-          likeNumber.setAttribute("class", "like-number");
+      const likeNumber = document.createElement("p");
+      likeNumber.textContent = 40;
+      likeNumber.setAttribute("class", "like-number");
 
-          const deleteComent = document.createElement("img", "delet-coment");
-          deleteComent.setAttribute("class", "delete");
-          deleteComent.setAttribute("src", "./Resourses/icons/delete_post.png");
+      const deleteComent = document.createElement("img", "delet-coment");
+      deleteComent.setAttribute("class", "delete");
+      deleteComent.setAttribute("src", "./Resourses/icons/delete_post.png");
 
-          const edit = document.createElement("img", "edit-coment");
-          edit.setAttribute("class", "edit");
-          edit.setAttribute("src", "./Resourses/icons/edit_post.png");
+      const edit = document.createElement("img", "edit-coment");
+      edit.setAttribute("class", "edit");
+      edit.setAttribute("src", "./Resourses/icons/edit_post.png");
 
-          childSection.append(
-            imgUser,
-            nameDescription,
-            postDate,
-            postDescription,
-            interactions
-          );
-          interactions.append(like, likeNumber, deleteComent, edit);
-          sectionPost.append(childSection);
-        });
-      }
+      childSection.append(imgUser, headerPost, postDescription, interactions);
+      headerPost.append(nameDescription, postDate);
+      interactions.append(like, likeNumber, deleteComent, edit);
+      sectionPost.append(childSection);
+      // }
     });
   });
   return sectionPost;

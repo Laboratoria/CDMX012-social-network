@@ -99,6 +99,7 @@ html {
   width: auto;
   height: 30px;
   margin: 2%;
+  border-radius: 15px;
 }
 .name-user {
   font-size: large;
@@ -196,6 +197,7 @@ html {
     word-wrap: break-word;
     width: 100%;
     font-size: small;
+    margin-left: 3%;
   }
 
   .user-img {
@@ -205,16 +207,20 @@ html {
   }
   .name-user {
     font-size: medium;
+    margin: 3% 0 0 5%;
+    width: 100%;
   }
   .date {
     font-size: small;
     width: 100%;
+    margin: 0 0 0 5%;
   }
 
   .interactions {
     width: 100%;
     display: flex;
     text-align: end;
+    margin: 0;
   }
 
   .like {
