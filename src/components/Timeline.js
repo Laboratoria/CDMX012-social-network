@@ -67,6 +67,7 @@ export const timeline = () => {
     limpiar();
   });
 
+
   const getPosts = document.createElement("div");
   getPosts.appendChild(ReadPost());
 
