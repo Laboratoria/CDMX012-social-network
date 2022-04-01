@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,700;1,900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100&display=swap");
+
 /* STYLES Timeline */
 /* 
 /***********************************************/
@@ -15,6 +17,10 @@
   font-size: medium;
   text-align: center;
 } */
+
+html {
+  background-color: white;
+}
 
 .content-timeline {
   /* background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg"); */
@@ -45,9 +51,11 @@
 }
 
 .sing-out {
-  margin: 0 0 0 92.3%;
+  width: 15%;
+  margin: 0 0 0 85%;
   background-color: #4cdee2;
   color: black;
+  text-align: right;
 }
 
 #postContent {
@@ -57,25 +65,58 @@
   padding: 3%;
   justify-content: center;
 }
-
 .post {
   width: 100%;
-  height: 0.5%;
+}
+.to-post {
+  margin-left: 88%;
 }
 
-.to-post {
-  margin-left: 92%;
-}
 .post-element {
   border-style: solid;
   border-color: #4cdee2;
-  margin: 5%;
+  background-color: #f3f3f3;
+  padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  width: 70%;
+  margin: 5% 15%;
+  /* justify-content: space-between; */
+}
+.text-post {
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.user-img {
+  width: auto;
+  height: 30px;
+  margin: 2%;
+}
+.name-user {
+  font-size: large;
+}
+.date {
+  width: 100%;
 }
 
 #return_index {
   background: pink;
   width: 20%;
   margin: 2% 40% 0%;
+}
+
+.like {
+  height: 1%;
+  width: 5%;
+  margin: 0 2% 0 1%;
+}
+
+.coment {
+  height: 1%;
+  width: 5%;
+  margin: 0 1% 0 2%;
 }
 
 @media (max-width: 450px) {
@@ -110,18 +151,58 @@
 
   #postContent {
     background-color: #f3f3f3;
-    width: 90%;
-    margin: 5% 2% 5% 2%;
-    padding: 3%;
-    display: inline-block;
+    width: 80%;
+    margin: 2% 8% 2%;
+    padding: 2%;
+    justify-content: center;
+    word-wrap: break-word;
   }
   .post {
-    width: 100%;
+    width: 98%;
     height: 0.5%;
   }
 
   .to-post {
-    margin-left: 84%;
+    margin-left: 80%;
+  }
+
+  .post-element {
+    border-style: solid;
+    border-color: #4cdee2;
+    margin: 5% 4%;
+    background-color: #f3f3f3;
+    padding: 1%;
+    width: 90%;
+  }
+  .text-post {
+    word-wrap: break-word;
+    width: 100%;
+    font-size: small;
+  }
+
+  .user-img {
+    width: auto;
+    height: 30px;
+    margin: 2%;
+  }
+  .name-user {
+    font-size: medium;
+  }
+  .date {
+    font-size: small;
+    width: 100%;
+  }
+
+  .like {
+    height: 0.5%;
+    width: 10%;
+    margin: 0 2% 0 1%;
+  }
+
+  .coment {
+    height: 0.5%;
+    width: 10%;
+    margin: 0 1% 0 2%;
   }
 
   #return_index {

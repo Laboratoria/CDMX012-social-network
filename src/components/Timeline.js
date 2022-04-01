@@ -50,6 +50,7 @@ export const timeline = () => {
     const date = new Date();
     savePost(contentPost, date);
   });
+ 
   const getPosts = document.createElement("div");
   getPosts.appendChild(ReadPost());
 
