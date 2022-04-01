@@ -1,7 +1,10 @@
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
+// // import { onNavigate } from '../main.js';
+// import { modal } from './modal.js';
+// // eslint-disable-next-line import/no-cycle
+// import { signOutSession } from '../lib/firebase.js';
 
-export const navegations = () => {
+export const navegations = (singOutFunction) => {
   const navegation = document.createElement('div');
   navegation.setAttribute('id', 'navegation');
 
@@ -19,9 +22,11 @@ export const navegations = () => {
   profileFeed.setAttribute('src', 'img/Profile.png');
 
   navegation.append(logOutFeed, writeFeed, homeFeed, profileFeed);
+
   logOutFeed.addEventListener('click', (e) => {
     e.preventDefault();
-    onNavigate('/');
+    singOutFunction();
   });
+
   return navegation;
 };

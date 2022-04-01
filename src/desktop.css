@@ -59,6 +59,9 @@
         caret-color: #3734CE;
         padding: 0px 5px 0px 5px;
     }
+    .invalidInput{
+        border-color: rgb(231, 130, 48);
+    }
     .register:focus{
         outline: none;
         border: 3px solid #3734CE;
@@ -165,13 +168,15 @@
     background-color: #A653BB;
     width: 100%;
     height: 10%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items:center;
     z-index: 101;
+    padding-left: 10%;
 
 }
 #navDesktop{
-    position: absolute;
+    display:none;
+    /* position: absolute;
     left: 0px;
     display: flex;
     background-color: #A653BB;
@@ -181,7 +186,7 @@
     flex-direction: column;
     align-items:center;
     justify-content:center;
-    z-index: 100;
+    z-index: 100; */
 }
 
 #searchFeed{

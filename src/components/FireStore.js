@@ -5,7 +5,6 @@ import {
   addDoc,
   getDocs,
   onSnapshot,
-  deleteDoc,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { renderPost } from './post.js';

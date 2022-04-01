@@ -18,6 +18,7 @@ export const newPost = () => {
   const inputPost = document.createElement('input');
   inputPost.setAttribute('id', 'inputPost');
   inputPost.setAttribute('placeholder', '¿Que estas pensando?');
+  inputPost.setAttribute('autocomplete', 'off');
 
   const sendPost = document.createElement('button');
   sendPost.setAttribute('id', 'sendPost');
@@ -31,8 +32,12 @@ export const newPost = () => {
     e.preventDefault();
     const textPost = document.getElementById('inputPost').value;
     const datePost = new Date();
-    console.log(textPost, datePost);
-    savePost(textPost, datePost);
+    if (textPost !== '') {
+      savePost(textPost, datePost);
+      console.log(textPost, datePost);
+    } else {
+      alert('Tu post esta vacío!');
+    }
   });
   return writePost;
 };
