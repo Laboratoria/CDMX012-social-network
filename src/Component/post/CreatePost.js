@@ -13,12 +13,12 @@ export const crearPost = () => {
   const labelIngredientes = document.createElement('label');
   labelIngredientes.setAttribute('id', 'labelIngredientes');
   labelIngredientes.textContent = 'Lista de ingredientes';
-  const inputIngredientes = document.createElement('input');
+  const inputIngredientes = document.createElement('textarea');
   inputIngredientes.setAttribute('id', 'inputIngredientes');
   inputIngredientes.setAttribute('placeholder', 'Lista de ingredientes');
   const labelProcedimiento = document.createElement('label');
   labelProcedimiento.textContent = 'Procedimiento de la receta';
-  const inputProcedimiento = document.createElement('input');
+  const inputProcedimiento = document.createElement('textarea');
   inputProcedimiento.setAttribute('id', 'inputProcedimiento');
   inputProcedimiento.setAttribute('placeholder', 'Procedimiento');
   inputProcedimiento.setAttribute('type', 'text');

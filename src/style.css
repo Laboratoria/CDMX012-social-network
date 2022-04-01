@@ -421,6 +421,7 @@
        top:50%;
        left:8.3%;
        box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.295);
+      
    }    
    .borrarPost{
     position: absolute;
@@ -794,6 +795,7 @@
            border: #EBC920 1.5px solid;
            position: relative;
            top:50%;
+         
         }
         .borrarPost{
             position: absolute;

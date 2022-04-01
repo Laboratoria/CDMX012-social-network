@@ -11,9 +11,9 @@ export const GetPost = () => {
       post.setAttribute('id', 'post');
       const h3PublicacionReceta = document.createElement('h3');
       h3PublicacionReceta.textContent = publicacion.receta;
-      const ingredientesP = document.createElement('p');
+      const ingredientesP = document.createElement('pre');
       ingredientesP.textContent = publicacion.ingredientes;
-      const publicacionProcedimientosP = document.createElement('p');
+      const publicacionProcedimientosP = document.createElement('pre');
       publicacionProcedimientosP.textContent = publicacion.procedimiento;
 
       const publicacionCategoriaP = document.createElement('p');
