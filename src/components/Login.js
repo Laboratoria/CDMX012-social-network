@@ -2,84 +2,107 @@ import { onNavigate } from "../main.js";
 import { isLogin, loginWithGoogle } from "../lib/auth.js";
 
 export const login = () => {
-  const contentSectionLogin = document.createElement("section");
-  contentSectionLogin.setAttribute("class", "father");
+  const contentSectionLogin = document.createElement("aside");
+  contentSectionLogin.setAttribute("class", "background_Content");
 
-  const loginSesion = document.createElement("section");
-  loginSesion.setAttribute("class", "son");
+  ////////DATA SECTION
+
+  const loginSection = document.createElement("section");
+  loginSection.setAttribute("class", "account_section");
+
+ ////////////////// logoy slogan
 
   const imgLogo = document.createElement("img");
   imgLogo.setAttribute("src", "./Resourses/Solovino_Black.png");
-  imgLogo.setAttribute("class", "solovino_logo");
+  imgLogo.setAttribute("class", "solovino_logo_logIn");
 
-  const loginFacebook = document.createElement("button");
-  loginFacebook.textContent = "Inicie sesión con Facebook";
-  loginFacebook.setAttribute("id", "facebook");
-  loginFacebook.setAttribute("class", "button");
-  loginFacebook.setAttribute("type", "button");
+  const sloganText = document.createElement("div");
+  sloganText.setAttribute("class", "slogan_text");
+  sloganText.textContent = "El amor no se busca, solo llega...";
 
-  const loginGoogle = document.createElement("button");
-  loginGoogle.textContent = "Inicie sesión con Google";
-  loginGoogle.addEventListener("click", () => {
-    loginWithGoogle();
-  });
-  loginGoogle.setAttribute("id", "google");
-  loginGoogle.setAttribute("class", "button");
-  loginGoogle.setAttribute("type", "button");
+  ////////////////// inputs inicio sesion
+
+  const logInInputSection = document.createElement("section");
+  logInInputSection.setAttribute("class", "input_section");
 
   const inputMail = document.createElement("input");
   inputMail.setAttribute("type", "email");
   inputMail.setAttribute("id", "email");
-  inputMail.setAttribute("class", "button");
+  inputMail.setAttribute("class", "input_account");
   inputMail.setAttribute("placeholder", "Correo electrónico");
 
   const inputPasword = document.createElement("input");
   inputPasword.setAttribute("type", "password");
   inputPasword.setAttribute("id", "pasword");
-  inputPasword.setAttribute("class", "button");
+  inputPasword.setAttribute("class", "input_account");
   inputPasword.setAttribute("placeholder", "Contraseña");
 
-  const logIn = document.createElement("button");
-  logIn.textContent = "Iniciar sesión";
-  logIn.addEventListener("click", () => {
-    let userMail = document.getElementById("email").value;
+  const buttonlogIn = document.createElement("button");
+  buttonlogIn.setAttribute("class", "button_account");
+  buttonlogIn.setAttribute("id", "button_log_In_id");
+  buttonlogIn.textContent = "Iniciar sesión";
+  buttonlogIn.addEventListener("click", () => {
 
+    let userMail = document.getElementById("email").value;
     let userPass = document.getElementById("pasword").value;
 
     isLogin(userMail, userPass);
   });
-  // logIn.addEventListener("click", () => {
-  //   authenticationObserver();
-  // });
-  logIn.setAttribute("class", "log-In");
 
-  const text = document.createElement("h2");
-  text.setAttribute("class", "new-User");
-  text.textContent = "¿No tienes una cuenta? ";
+  logInInputSection.append(inputMail, inputPasword, buttonlogIn);
 
-  const singIn = document.createElement("button");
-  singIn.textContent = "Registrarse";
-  singIn.addEventListener("click", () => {
+  //////iconos redes sociales
+  const loginIconContent = document.createElement("section");
+  loginIconContent.setAttribute("class", "login_icon_content");
+
+  const loginTwitter = document.createElement("img");
+  loginTwitter.setAttribute("src", "../Resourses/icons/Twitter.png");
+  loginTwitter.setAttribute("class", "log_in_icon");
+
+  const loginGoogle = document.createElement("img");
+  loginGoogle.setAttribute("src", "../Resourses/icons/google.png");
+  loginGoogle.setAttribute("class", "log_in_icon");
+  loginGoogle.addEventListener("click", () => {
+    loginWithGoogle();
+  });
+
+  loginIconContent.append(loginTwitter, loginGoogle);
+
+  ////////////////////registro
+
+  const logInRegisterSection = document.createElement("section");
+  logInRegisterSection.setAttribute("class", "login_register_section");
+
+
+  const newAccountText = document.createElement("h2");
+  newAccountText.setAttribute("class", "account_text");
+  newAccountText.setAttribute("id", "account_text_id");
+  newAccountText.textContent = "¿No tienes una cuenta? ";
+
+  const buttonNewRegister = document.createElement("button");
+  buttonNewRegister.setAttribute("id", "sing_In");
+  buttonNewRegister.setAttribute("class", "button_account");
+  buttonNewRegister.textContent = "Registrarse";
+  buttonNewRegister.addEventListener("click", () => {
     onNavigate("/Register");
   });
-  singIn.setAttribute("class", "sing-In");
-  singIn.setAttribute("id", "sing-In");
+  logInRegisterSection.append(newAccountText, buttonNewRegister);
 
-  const footerPage = document.createElement("footer");
-  footerPage.setAttribute("class", "footer-login-register");
+
+  //////fotter
+  const footerPage = document.createElement("div");
+  footerPage.setAttribute("class", "footer_login");
   footerPage.textContent = "Derechos Reservados 2022 ©️";
 
-  contentSectionLogin.appendChild(loginSesion);
-  loginSesion.append(
+  loginSection.append(sloganText,
     imgLogo,
-    loginFacebook,
-    loginGoogle,
-    inputMail,
-    inputPasword,
-    logIn,
-    text,
-    singIn,
-    footerPage
+    logInInputSection,
+    loginIconContent,
+    logInRegisterSection,
+    footerPage 
   );
+
+  contentSectionLogin.appendChild(loginSection);
+
   return contentSectionLogin;
 };

@@ -1,0 +1,214 @@
+.solovino_logo_logIn {
+  position: absolute;
+  width: 40%;
+  left: -53%;
+  top: 20%;
+}
+
+.background_Content {
+  background-image: url("../Resourses/pattern_paws.png"),
+    linear-gradient(to right, #f352a0, #c471ed, #00f7ff);
+    background-size: cover;
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.account_section {
+  position: absolute;
+  width: 55%;
+  height: 80%;
+  right: 5%;
+  top: 10%;
+  background-color: rgba(255, 255, 255, .2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .3);
+  border-radius: 30px;
+}
+
+.slogan_text {
+  font-family: 'Baloo 2', cursive;
+  font-size: 2.5rem;
+  margin: 2rem 1rem;
+  text-align: center;
+}
+
+.input_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input_account {
+  width: 40%;
+  height: 3rem;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: rgba(255, 255, 255, .2);
+  border-bottom: 3px solid #00f7ff;
+}
+
+.button_account {
+  width: 40%;
+  height: 3rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  border-radius: 1.5rem;
+  font-size: 1.25rem;
+  margin: 1rem;
+  border: none;
+}
+
+#button_log_In_id {
+  background-color: #5a0b95;
+}
+
+.login_icon_content {
+  display: flex;
+  justify-content: center;
+}
+
+.log_in_icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.login_register_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#account_text_id {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.account_text {
+  width: 60%;
+  height: 1.75rem;
+  font-size: 1.25rem;
+  margin: 5% 1rem 1rem 1rem;
+  text-align: center;
+}
+
+#sing_In {
+  background-color: #ca0866;
+}
+
+.footer_login {
+  width: 90%;
+  margin: 1rem;
+  font-weight: 400;
+  text-align: center;
+  position: absolute;
+  bottom: -10%;
+  left: -29%;
+}
+
+/* 
+* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 920px) {
+
+  .solovino_logo_logIn {
+    width: 25%;
+    top: 2%;
+    left: 37.5%;
+  }
+
+  .slogan_text {
+    font-size: 2.5rem;
+    margin: 35% 1rem 2rem 1rem;
+  }
+
+  .account_section {
+    width: 90%;
+    height: 90%;
+    top: 5%;
+  }
+
+  .input_account {
+    width: 60%;
+    height: 3rem;
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
+
+  .button_account {
+    width: 60%;
+    height: 3rem;
+  }
+
+  .log_in_icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem;
+  }
+
+  .account_text {
+    width: 60%;
+    height: 1.75rem;
+    font-size: 1.25rem;
+    margin: 5% 1rem 1rem 1rem;
+  }
+
+  .footer_login {
+    bottom: -5%;
+    left: 2%;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .solovino_logo_logIn {
+    position: absolute;
+    width: 40%;
+    left: 30%;
+  }
+
+  .slogan_text {
+    font-size: 1.2rem;
+    margin: 55% 1rem 1rem 1rem;
+  }
+
+  .input_account {
+    width: 80%;
+    height: 2.5rem;
+    font-size: 1rem;
+    margin: .3rem;
+  }
+
+  .button_account {
+    width: 80%;
+    height: 2.5rem;
+  }
+
+  .log_in_icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: .5rem;
+  }
+
+  .account_text {
+    width: 60%;
+    height: 1.75rem;
+    font-size: 1rem;
+    margin: 5% 0 0;
+  }
+
+  .footer_login {
+    bottom: -7%;
+    left: 3%;
+  }
+}

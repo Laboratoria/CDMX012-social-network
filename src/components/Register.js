@@ -1,68 +1,85 @@
-// import { onNavigate } from "../main.js";
+import { onNavigate } from "../main.js";
 
 import { registeNewUsers } from "../lib/auth.js";
 
 export const register = () => {
-  const contentSection = document.createElement("section");
-  contentSection.setAttribute("class", "father_register");
+  const contentSectionRegister = document.createElement("section");
+  contentSectionRegister.setAttribute("class", "background_Content");
 
+  ////////DATA SECTION
   const registerSection = document.createElement("section");
-  registerSection.setAttribute("class", "son_register");
+  registerSection.setAttribute("class", "account_section");
+
+  ////////////////// logoy anuncio
+
+  const registerClose = document.createElement("img");
+  registerClose.setAttribute("src", "../Resourses/icons/flecha.png");
+  registerClose.setAttribute("class", "register_close");
+  registerClose.addEventListener("click", () => {
+    onNavigate("/");
+  });
+
+
 
   const imgLogo = document.createElement("img");
   imgLogo.setAttribute("src", "./Resourses/Solovino_Black.png");
-  imgLogo.setAttribute("class", "solovino_logo_register");
+  imgLogo.setAttribute("class", "solovino_logo_logIn");
 
   const textCreate = document.createElement("h2");
-  textCreate.setAttribute("class", "new_User_register");
+  textCreate.setAttribute("class", "text_create_register");
   textCreate.textContent = "Crear una cuenta";
 
-  const inputMail = document.createElement("input");
-  inputMail.setAttribute("type", "email");
-  let emailRegister = "email_register";
-  inputMail.setAttribute("id", emailRegister);
-  inputMail.setAttribute("class", "button_register");
-  inputMail.setAttribute("placeholder", "Correo electrónico");
+  ////////////////// inputs registro
+
+  const RegisterInputSection = document.createElement("section");
+  RegisterInputSection.setAttribute("class", "input_section");
+
+  const inputMailRegister = document.createElement("input");
+  inputMailRegister.setAttribute("type", "email");
+  inputMailRegister.setAttribute("id", "email_register");
+  inputMailRegister.setAttribute("class", "input_account");
+  inputMailRegister.setAttribute("placeholder", "Correo electrónico");
 
   const inputPasword = document.createElement("input");
   inputPasword.setAttribute("type", "password");
-  let paswordRegister = "pasword_register";
-  inputPasword.setAttribute("id", paswordRegister);
-  inputPasword.setAttribute("class", "button_register");
+  inputPasword.setAttribute("id", "pasword_register");
+  inputPasword.setAttribute("class", "input_account");
   inputPasword.setAttribute("placeholder", "Contraseña");
 
-  const textCondicions = document.createElement("h4");
-  textCondicions.setAttribute("class", "condicions_register");
-  textCondicions.textContent =
+  RegisterInputSection.append(inputMailRegister, inputPasword);
+
+
+
+  const RegisterNewAccount = document.createElement("section");
+  RegisterNewAccount.setAttribute("class", "new_account");
+
+  const textConditions = document.createElement("h4");
+  textConditions.setAttribute("class", "condicions_register");
+  textConditions.textContent =
     "Para completar tu registro, aceptas que has leído los términos y condiciones de uso y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad.";
 
-  const logIn = document.createElement("button");
-  logIn.textContent = "Continuar";
-  logIn.addEventListener("click", () => {
+  const buttonRegister = document.createElement("button");
+  buttonRegister.setAttribute("id", "create_account");
+  buttonRegister.setAttribute("class", "button_account");
+  buttonRegister.textContent = "Registrarse";
+  buttonRegister.addEventListener("click", () => {
     let userMail = document.getElementById("email_register").value;
-
     let userPass = document.getElementById("pasword_register").value;
 
     registeNewUsers(userMail, userPass);
   });
 
-  const footerPage = document.createElement("footer");
-  
-  footerPage.textContent = "Derechos Reservados 2022 ©️";
+  RegisterNewAccount.append(textConditions,buttonRegister );
 
-  logIn.setAttribute("class", "logIn_register");
-  footerPage.setAttribute("class", "footer-login-register");
-  logIn.setAttribute("id", "create_account");
 
-  contentSection.append(registerSection, footerPage);
-  registerSection.append(
+  registerSection.append(registerClose,
     imgLogo,
     textCreate,
-    inputMail,
-    inputPasword,
-    textCondicions,
-    logIn
+    RegisterInputSection,
+    RegisterNewAccount
   );
 
-  return contentSection;
+  contentSectionRegister.append(registerSection, );
+
+  return contentSectionRegister;
 };
