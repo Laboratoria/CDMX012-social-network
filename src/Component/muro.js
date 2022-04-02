@@ -1,12 +1,22 @@
 import { onNavigate } from '../router.js';
-import { cerrar, user } from '../lib/index.js';
-
+import { cerrar } from '../lib/index.js';
+import { datos } from '../../lib/index.js';
 import { GetPost } from './post/GetPost.js';
 // import{ publicar } from '../main.js';
 import { crearPost } from './post/CreatePost.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 // import { deletePost } from './post/DeletePost.js';
 
 export const muro = () => {
+  const pruebuski = datos();
+// const pruebuski2 = pruebuski.map(function (x) {
+  //    return x.displayName;
+//  console.log(x.displayName);
+ // });
+  // console.log(datosUsuario);
+  console.log(pruebuski);
+
+ //  const auth = getA-uth();
   const seccionMuro = document.createElement('section');
   seccionMuro.setAttribute('id', 'seccionMuro');
   // Head
@@ -44,11 +54,11 @@ export const muro = () => {
   const cajaFoto = document.createElement('div');
   cajaFoto.setAttribute('id', 'cajaFoto');
   const usuarioImg = document.createElement('IMG');
-  usuarioImg.src = '../images/fotoperfil.png';
+  usuarioImg.src = pruebuski[1] ? pruebuski[1] : '../images/fotoperfil.png';
   usuarioImg.setAttribute('id', 'fotousuario');
   const nombreUser = document.createElement('h1');
   nombreUser.setAttribute('id', 'nombreUser');
-  nombreUser.textContent = user;
+  nombreUser.textContent = pruebuski[0];
   const cerrarSesionImg = document.createElement('IMG');
   cerrarSesionImg.src = '../images/puerta.png';
   cerrarSesionImg.setAttribute('id', 'cerrarSesionImg');

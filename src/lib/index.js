@@ -158,20 +158,19 @@ export function google() {
       // ...
     });
 }
-//export function datos() {
-  export const auth = getAuth();
-  export const user = auth.currentUser;
-  //if (user !== null) {
+export function datos() {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  let datosUsuario = [''];
+  if (user !== null) {
+    datosUsuario = [user.displayName, user.photoURL, user.emailVerified, user.uid];
     // The user object has basic properties such as display name, email, etc.
-    //const displayName = user.displayName;
-    //const email = user.email;
-    //const photoURL = user.photoURL;
-    //const emailVerified = user.emailVerified;
-  
-    // The user's ID, unique to the Firebase project. Do NOT use
-    // this value to authenticate with your backend server, if
-    // you have one. Use User.getToken() instead.
-    //const uid = user.uid;
-//}
-  //return { user };
-//}
+     
+     /*  email: user.email,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+      uid: user.uid, */
+    
+  }
+  return datosUsuario;
+}

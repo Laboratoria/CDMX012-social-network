@@ -275,6 +275,7 @@
         top: 18%;
         left: 28%;
         width: 45%;
+        border-radius: 50%;
     }
     #nombreUser{
         width:fit-content;
