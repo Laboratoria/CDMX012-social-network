@@ -1,4 +1,8 @@
-@media screen and (max-width: 844px){
+@media screen and (max-width: 480px){
+    #root{
+        display:flex;
+        flex-wrap: wrap;
+    }
     body {
         display: flex;
         justify-content: center;
@@ -35,13 +39,13 @@
  background-color: #6462D9;
  color:#ffff;
  border: 3px solid #3734CE;
- font-size: 1.2rem;
+ font-size: 1rem;
  width: auto;
  min-width: 10rem;
- padding: 15px 30px 15px 30px;
  text-align: center;
- border-radius: 35px;
+ border-radius: 25px;
  text-decoration: none;
+ padding: 10px 15px 10px 15px;
 }
 .githubGoogleButtons{
     display: flex;
@@ -51,10 +55,13 @@
 .register{
     border-radius: 6px;
     width: 300px;
-    height:40px;
+    height:35px;
     text-align: center;
     border: 3px solid #a4a3dd;
     font-size: 1.2rem;
+}
+.invalidInput{
+    border-color: rgb(231, 130, 48);
 }
 .registerText{
     text-align: center; 
@@ -105,19 +112,57 @@
     row-gap: 5px;
     align-items: center;
 }
-#containerFeed{
-    background-color: yellow;
-    width: 380px;
+/*FEED */
+/*Vista feed */
+#navDesktop{
+    display:none;
 }
+#feedView{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    background-color: white;
+    
+}
+#postFeed{
+    margin-top:5%;
+    width: 95vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.sectionPost{
+    background-color:white;
+    border: 3px solid #a4a3dd;
+    border-radius:10px;
+}
+#createPost{
+    display: flex;
+    flex-direction:column;
+    margin-top:5%;
+   width: 95vw; 
+   row-gap: 10px;
+   padding-bottom: 1%;
+}
+#sendPost{
+    width: 10%;
+    height: 10%;
+    text-align: center;
+    font-size: 10px;
+}
+
 #feedHeader{
+    position: sticky;
+    top: 0px;
     display: flex;
     background-color: #A653BB;
     width: 100%;
-    height: 20%;
+    height: 10%;
     justify-content: flex-end;
     align-items:center;
-    position: sticky;
-    top: 0px;
+    z-index: 101;
 
 }
 #feedFooter{
@@ -126,20 +171,27 @@
     display: flex;
     background-color: #A653BB;
     width: 100%;
-    height: 55px;
+    height: 20%;
     column-gap: 60px;
     flex-direction: row;
     align-items:center;
     justify-content:center;
+    z-index: 100;
 }
-#postFeed{
+#navMobile{
     display: flex;
-    background-color: green;
+    background-color: #A653BB;
     width: 100%;
-    height:80%;
+    height: 100%;
+    column-gap: 60px;
+    flex-direction: row;
+    align-items:center;
+    justify-content:center;
+    z-index: 100;
+
 }
 #searchFeed{
-    width:280px;
+    width:100%;
     margin-right: 10px;
 }
 #logoFeed{
@@ -149,18 +201,115 @@
     margin-top:10px;
 }
 
-#logOutFeed{
+
+/* POST TEMPLATE */
+/* 
+#divPost{
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   width: 90%;
+   row-gap: auto;
+   border: 3px solid #9531AE;
+} */
+.templateTop{
     display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 5%;
+    margin-top: 3%;
+    margin-left:5%
 }
-#homeFeed{
+.profileName{
+    background-color:#1F1BC8;
+    opacity: 0.8;
+    color:white;
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    text-align: left;
+    padding-top:2%;
+    padding-left: 4%;
+   
+}
+#dotsEdit{
+    position: relative;
+    left: 35px;
+}
+#inputPost{
+    width: 80%;
+    margin-left: 5%;
+    height: auto;
+    word-wrap: break-word;
+
+}
+#likeComment{
+    width: 90%;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    column-gap: 10%;
+    align-items: center;
+    margin-bottom:5%;
 }
-#profileFeed{
+#postDate{
+    font-size:0.5rem;
+    font-weight: bold;
+}
+#likes{
+font-size:0.8rem;
+}
+    
+/* Aqui inician los estilos del modal */
+#containerModal{
+    position: absolute;
+    left: 15%;
+    top: 40%;
+    width: 70vw;
+    padding-bottom: 40px;    
+    background-color: #9a99d5;
+    border: 1px solid #3734CE;
+    z-index: 100000;
+    text-align: center;
+    border-radius: 15px;
+
+}
+#containerModalB{
+    position: absolute;
+    left: 26%;
+    top: 60%;
     display: flex;
+    justify-content: space-around;
+    column-gap: 20px;
 }
-#writeFeed{
+#yesSignOut{
+    background-color: #6462D9;
+    color:#ffff;
+    padding: 2px 12px 2px 12px;
+    border: 3px solid #3734CE;
+    font-size: 0.9rem;
+    width: auto;
+    text-align: center;
+    border-radius: 20px;
+}
+#noSignOut{
+    background-color: #6462D9;
+    color:#ffff;
+    padding: 2px 10px 2px 10px;
+    border: 3px solid #3734CE;
+    font-size: 0.9rem;
+    width: auto;
+    text-align: center;
+    border-radius: 20px;
+}    
+    
+/* #commentInput{
     display: flex;
-}
+    flex-direction:column;
+    justify-content: flex-end;
+} */
 
 }
 
