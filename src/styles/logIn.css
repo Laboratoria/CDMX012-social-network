@@ -8,7 +8,7 @@
 .background_Content {
   background-image: url("../Resourses/pattern_paws.png"),
     linear-gradient(to right, #f352a0, #c471ed, #00f7ff);
-    background-size: cover;
+  background-size: cover;
   position: fixed;
   margin: 0;
   width: 100%;
