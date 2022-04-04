@@ -16,7 +16,7 @@ export const muro = () => {
   // console.log(datosUsuario);
   console.log(pruebuski);
 
- //  const auth = getA-uth();
+//  const auth = getA-uth();
   const seccionMuro = document.createElement('section');
   seccionMuro.setAttribute('id', 'seccionMuro');
   // Head
@@ -75,7 +75,7 @@ export const muro = () => {
   const publicar = document.createElement('fieldset');
   publicar.setAttribute('id', 'publicar');
   const fotoUsuarioP = document.createElement('IMG');
-  fotoUsuarioP.src = '../images/fotoperfil.png';
+  fotoUsuarioP.src = pruebuski[1] ? pruebuski[1] : '../images/fotoperfil.png';
   fotoUsuarioP.setAttribute('id', 'usuarioPublicar');
   const botonPublicar = document.createElement('button');
   botonPublicar.setAttribute('id', 'btnPublicar');

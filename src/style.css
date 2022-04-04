@@ -132,6 +132,11 @@
         background-color: black;
         color: white;
     }
+    #nombreRegistro{
+        position: relative;
+        top: 7%;
+        left: 14%;
+    }
     #emailRegi{
         position: relative;
         top: 8%;
@@ -197,6 +202,22 @@
         border: none;
         position: absolute;
         top: 44%;
+        left: 71%;
+        cursor: pointer;
+    }
+    #ojitoRegistro{
+        background: none;
+        border: none;
+        position: absolute;
+        top: 45%;
+        left: 71%;
+        cursor: pointer;
+    }
+    #ojitoRegistro2{
+        background: none;
+        border: none;
+        position: absolute;
+        top: 55%;
         left: 71%;
         cursor: pointer;
     }
@@ -325,12 +346,14 @@
         border: #EBC920 1px solid;
         box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.096);
     }
+
     #usuarioPublicar{
         width: 8.5%;
         position:absolute;
         top:13%;
         left: 5%;
-    }
+        border-radius: 50%;
+     }
     #btnPublicar{
         position: absolute;
         left: 15%;
@@ -685,6 +708,22 @@
             left: 73%;
             cursor: pointer;
         }
+        #ojitoRegistro{
+            background: none;
+            border: none;
+            position: absolute;
+            top: 45%;
+            left: 71%;
+            cursor: pointer;
+        }
+        #ojitoRegistro2{
+            background: none;
+            border: none;
+            position: absolute;
+            top: 55%;
+            left: 71%;
+            cursor: pointer;
+        }
         #seccionMuro{
             background-color: white;
             width: 100%;
@@ -738,6 +777,7 @@
             border: none;
         }
         #usuarioPublicar{
+
             width: 11%;
             position: relative;
             left: 3%;

@@ -2,7 +2,6 @@ import { alConseguirRecetas } from '../../lib/firestore.js';
 import { eliminarPost } from './EliminarPost.js';
 import { borrarReceta } from '../../lib/firestore.js';
 
-
 const formPublicacion = document.getElementById('formPublicacion');
 export const GetPost = () => {
   const divPost = document.createElement('div');
@@ -10,6 +9,7 @@ export const GetPost = () => {
   alConseguirRecetas((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       const publicacion = doc.data();
+      (console.log(publicacion));
       const post = document.createElement('div');
       post.setAttribute('class', 'post');
       post.setAttribute('id', 'post');
