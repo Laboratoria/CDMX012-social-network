@@ -1,0 +1,12 @@
+.working-adoptions {
+  background-color: aqua;
+  display: none;
+}
+
+@media (max-width: 400px) {
+  .working-adoptions {
+    position: absolute;
+    width: 100%;
+    display: block;
+  }
+}
