@@ -7,11 +7,12 @@ export function renderPost(doc) {
   templateTop.setAttribute('class', 'templateTop');
 
   const profilePic = document.createElement('img');
-  profilePic.setAttribute('src', 'img/profilePicture.png');
+  profilePic.setAttribute('id', 'profilePic');
+  profilePic.setAttribute('src', doc.data().pp || 'img/pp.jpeg');
 
   const profileName = document.createElement('label');
   profileName.setAttribute('class', 'profileName');
-  profileName.textContent = 'Ana - DevOps';
+  profileName.textContent = doc.data().Name || 'Usuaria';
 
   const dots = document.createElement('img');
   dots.setAttribute('src', 'img/dots.png');
@@ -27,7 +28,7 @@ export function renderPost(doc) {
 
   const postDate = document.createElement('p');
   postDate.setAttribute('id', 'postDate');
-  postDate.textContent = '11:11 - 01/05/22';
+  postDate.textContent = doc.data().date;
 
   const likeIcon = document.createElement('img');
   likeIcon.setAttribute('src', 'img/like.png');
