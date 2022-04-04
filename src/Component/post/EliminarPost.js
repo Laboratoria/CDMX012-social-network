@@ -28,7 +28,7 @@ export const eliminarPost = (elbrenditoid) => {
     borrarReceta(elbrenditoid);
   });
   // AQUI VA LA FUNCIÓN DE CONFIRMAR
-  contenedorModal.append(mensajeConfirmacion, btnVolver, confirmar);
+/*  contenedorModal.append(mensajeConfirmacion, btnVolver, confirmar);
   const btnMostrarModal = document.createElement('button');
   const mostrarModal = document.createElement('a');
   mostrarModal.textContent = 'Ver';
@@ -37,5 +37,5 @@ export const eliminarPost = (elbrenditoid) => {
   btnMostrarModal.appendChild(mostrarModal);
   contenedorModal.append(mensajeConfirmacion, btnVolver, confirmar);
   contenedorPadre.appendChild(contenedorModal);
-  return contenedorPadre;
+  return contenedorPadre; */
 };

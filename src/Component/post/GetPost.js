@@ -1,6 +1,5 @@
-import { alConseguirRecetas } from '../../lib/firestore.js';
+import { alConseguirRecetas, borrarReceta } from '../../lib/firestore.js';
 import { eliminarPost } from './EliminarPost.js';
-import { borrarReceta } from '../../lib/firestore.js';
 
 const formPublicacion = document.getElementById('formPublicacion');
 export const GetPost = () => {
@@ -28,11 +27,27 @@ export const GetPost = () => {
       borrarPostBoton.setAttribute('class', 'borrarPost');
       borrarPostBoton.addEventListener('click', (e) => {
         e.preventDefault();
-        const contmodal = document.getElementById('contmodal');
+     /*    const contmodal = document.getElementById('contmodal');
         contmodal.style.visibility = 'visible';
-        contmodal.style.opacity = '1';
-        console.log(doc.id);
-        eliminarPost(doc.id);/* divPost.removeChild(post) */
+        contmodal.style.opacity = '1'; */
+        //console.log(doc.id);
+        Swal.fire({
+          title: '¿Estas segur@?',
+          text: 'Esta acción no se puede deshacer',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si,borrar!',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            borrarReceta(doc.id);
+            Swal.fire(
+              '¡Borrado!',
+              'Tu receta ha sido borrada con éxito.',
+            );
+          }
+        });
       });
 
       const editarPostBoton = document.createElement('button');

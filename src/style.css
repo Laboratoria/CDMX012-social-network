@@ -134,31 +134,48 @@
     }
     #nombreRegistro{
         position: relative;
-        top: 7%;
+        top: 9%;
         left: 14%;
     }
     #emailRegi{
         position: relative;
-        top: 8%;
+        top: 12%;
         left: 14%;
     }
     #contraseñaRegi{
     position: relative;
-    top: 11%;
+    top: 15%;
     left: 14%; 
     }
+   #ojitoRegistro{
+    background: none;
+    border: none;
+    position: absolute;
+    bottom: 41%;
+    left: 71%;
+    cursor: pointer;
+}
+  
     #contraseñaRegidos{
         position:relative;
-        top: 14%;
+        top: 18%;
         left: 14%; 
+    }
+    #ojitoRegistro2{
+        background: none;
+        border: none;
+        position: absolute;
+       bottom: 30%;
+        left: 71%;
+        cursor: pointer;
     }
     .modal1{
         position:absolute;
-        width: 20%;
+        width: 50%;
         height: 39%;
         background-color: white;
         border-radius: 10px;
-        left: 85%;
+        left: 50%;
         top:50%;
         border: 2px solid #FF0606;
         transform: translate(-50%, -50%);
@@ -202,22 +219,6 @@
         border: none;
         position: absolute;
         top: 44%;
-        left: 71%;
-        cursor: pointer;
-    }
-    #ojitoRegistro{
-        background: none;
-        border: none;
-        position: absolute;
-        top: 45%;
-        left: 71%;
-        cursor: pointer;
-    }
-    #ojitoRegistro2{
-        background: none;
-        border: none;
-        position: absolute;
-        top: 55%;
         left: 71%;
         cursor: pointer;
     }
@@ -348,9 +349,9 @@
     }
 
     #usuarioPublicar{
-        width: 8.5%;
+        width: 7%;
         position:absolute;
-        top:13%;
+        top:16%;
         left: 5%;
         border-radius: 50%;
      }
@@ -621,27 +622,48 @@
             font-weight: bold;
             cursor: pointer;
         }
-        #botonRegi{
+        #nombreRegistro{
             position: absolute;
-            top: 68%;
-            left:26%;
-            background-color: black;
-            color: white;
+            top: 38%;
+            left: 14%;
         }
         #emailRegi{
             position: absolute;
-            top:38%;
+            top:47%;
             left: 14%;
         }
         #contraseñaRegi{
             position:absolute;
-            top:47%;
+            top:56%;
             left:14%; 
+        }
+        #ojitoRegistro{
+            background: none;
+            border: none;
+            position: absolute;
+            bottom: 39.5%;
+            left: 74%;
+            cursor: pointer;
         }
         #contraseñaRegidos{
             position:absolute;
-            top:56%;
+            top:65%;
             left:14%; 
+        }
+        #ojitoRegistro2{
+            background: none;
+            border: none;
+            position: absolute;
+            bottom: 30.5%;
+            left: 74%;
+            cursor: pointer;
+        }
+        #botonRegi{
+            position: absolute;
+            top: 77%;
+            left:26%;
+            background-color: black;
+            color: white;
         }
         .invisible{
             font-size: 14px;
@@ -708,29 +730,13 @@
             left: 73%;
             cursor: pointer;
         }
-        #ojitoRegistro{
-            background: none;
-            border: none;
-            position: absolute;
-            top: 45%;
-            left: 71%;
-            cursor: pointer;
-        }
-        #ojitoRegistro2{
-            background: none;
-            border: none;
-            position: absolute;
-            top: 55%;
-            left: 71%;
-            cursor: pointer;
-        }
         #seccionMuro{
             background-color: white;
             width: 100%;
              height: 100%;
         }
         #cabeza{
-          position: absolute;
+          position: fixed;
           background-color: #EBC920;
           width: 100%;
           height: 10%;
@@ -755,11 +761,11 @@
             width:350%;
         }   
         #lupita{
-            width: 4.5%;
+            width: 4.7%;
             position: absolute;
             background-color: #ebc920a1;
             border: none;
-            top: 45.9%;
+            top: 44%;
             left: 83.2%;
             display: flex;
             justify-content: space-around;
@@ -772,16 +778,17 @@
             top: 10%;
             background-color: white;
             margin: 0;
-            width: 100vw;
+            width: 93.5%;
             height: 10%;
             border: none;
         }
         #usuarioPublicar{
 
-            width: 11%;
+            width: 10.5%;
             position: relative;
             left: 3%;
-            top:28%;
+            top:27%;
+            border-radius: 50%;
         }
         #btnPublicar{
             position: absolute;
@@ -940,7 +947,7 @@
             border:none;
          }
             #postPublicado{
-            width: 107%;
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             background:white;
@@ -949,14 +956,14 @@
         }
         .post{
         background-color: white;
-        width: 100vw;
+        width: 92%;
         padding: 1%;
         border: #EBC920 1.5px solid;
         border-radius: 5px;
         margin: 1.5%;
         position: relative;
         top:50%;
-        left:.3%;
+        left:.9%;
         box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.212);
        
     }    
@@ -970,5 +977,13 @@
             left: 70%;
             bottom: 60%;
         }
+        pre {
+            overflow-x: auto;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+     }
   
     }

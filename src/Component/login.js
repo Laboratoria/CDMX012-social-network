@@ -117,8 +117,7 @@ export const login = () => {
   // btnMostrarModal.appendChild(mostrarModal);
   // contenedorPadre.append(contenedorModal, iconomal, mensajemal, btnVolver);
   // eslint-disable-next-line max-len
-  seccionLogin.append(logoYummi, inputEmailLogin, inputContraseñaLogin, botonLogin, botonGoogle, botonContraseña, parrafo, botonRegistrate, /*contenedorPadre,*/ btnmostrarcontraseña);
-  const modalqueque = modal();
-  seccionGeneral.appendChild(modalqueque);
+  seccionLogin.append(logoYummi, inputEmailLogin, inputContraseñaLogin, botonLogin, botonGoogle, botonContraseña, parrafo, botonRegistrate, /*contenedorPadre,*/ btnmostrarcontraseña, modal());
+
   return seccionGeneral;
 };

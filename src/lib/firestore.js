@@ -16,7 +16,7 @@ const db = getFirestore();
 
 export const guardarReceta = (receta, ingredientes, procedimiento, categoria) => {
   if (receta === '' || ingredientes === '' || procedimiento === '') {
-    console.log('a ok');
+   // console.log('a ok');
   } else {
     addDoc(collection(db, 'recetas'), {
       receta, ingredientes, procedimiento, categoria,

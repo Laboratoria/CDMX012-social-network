@@ -43,16 +43,16 @@ export function iniciarSesion() {
     // https://firebase.google.com/docs/reference/js/firebase.User
       const email = user.email;
       const emailVerificado = user.emailVerified;
-        if (emailVerificado === false) {
-          document.getElementById('contmodal').style.opacity = '1';
-          document.getElementById('contmodal').style.visibility = 'visible';
-          document.getElementById('mensajemal').textContent = 'Email no verificado';
+      if (emailVerificado === false) {
+        document.getElementById('contmodal').style.opacity = '1';
+        document.getElementById('contmodal').style.visibility = 'visible';
+        document.getElementById('mensajemal').textContent = 'Email no verificado';
       } else {
         console.log(user);
         onNavigate('/muro');
         // eslint-disable-next-line prefer-template
         document.getElementById('mensajeLogin').textContent = ' Estas Logueado ' + email;
-  }
+      }
     }
   });
 }
@@ -97,11 +97,12 @@ sendPasswordResetEmail(auth, email)
     // ..
     });
 } */
-/* function nombreUsuario() {
+/* export function nombreUsuario(userCredential, nombreRegistro) {
   const auth = getAuth();
   updateProfile(auth.currentUser)({
-    displayName:
+    displayName:nombreRegistro,
   });
+  console.log(nombreRegistro);
 } */
 export function registrar() {
   //const nombreRegistro = document.getElementById('nombreRegistro').value;
@@ -113,23 +114,34 @@ export function registrar() {
     createUserWithEmailAndPassword(auth, email, contraseña)
       // eslint-disable-next-line no-unused-vars
       .then((userCredential) => {
-        // Signed in
+        verificarCorreo();
+        // alert('Registrado exitosamente,Porfavor verifica tu correo');
+        document.getElementById('contmodal').style.opacity = '1';
+        document.getElementById('contmodal').style.visibility = 'visible';
+        document.getElementById('iconomal').src = '../images/palomita.png';
+        document.getElementById('mensajemal').textContent = 'Registrado exitosamente, verifica tu correo';
       })
       .catch((error) => {
-        const errorCode = error.code;
+        // const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage + errorCode);
+        document.getElementById('contmodal').style.opacity = '1';
+        document.getElementById('contmodal').style.visibility = 'visible';
+        document.getElementById('mensajemal').textContent = errorMessage;
+        // alert(errorMessage + errorCode);
         // ..
-      })
-      .then(() => {
+      });
+    /* .then(() => {
         verificarCorreo();
         alert('Registrado exitosamente,Porfavor verifica tu correo');
         document.getElementById('contmodal').style.opacity = '1';
         document.getElementById('contmodal').style.visibility = 'visible';
         document.getElementById('mensajemal').textContent = 'Registrado exitosamente';
-      }); onNavigate('/');
+      }); onNavigate('/'); */
   } else {
-    alert('Las contraseñas no coinciden');
+    // alert('Las contraseñas no coinciden');
+    document.getElementById('contmodal').style.opacity = '1';
+    document.getElementById('contmodal').style.visibility = 'visible';
+    document.getElementById('mensajemal').textContent = 'Las contraseñas no coinciden';
   }
 }
 
@@ -137,7 +149,10 @@ export function cerrar() {
   getAuth().signOut()
     .then(
       () => {
-        alert('Cerraste sesión');
+        // alert('Cerraste sesión');
+        document.getElementById('contmodal').style.opacity = '1';
+        document.getElementById('contmodal').style.visibility = 'visible';
+        document.getElementById('mensajemal').textContent = 'Cerraste sesión';
       },
     )
     // eslint-disable-next-line no-unused-vars
@@ -170,9 +185,14 @@ export function google() {
 export function datos() {
   const auth = getAuth();
   const user = auth.currentUser;
-  let datosUsuario = [''];
+  let datosUsuario = {};
   if (user !== null) {
-    datosUsuario = [user.displayName, user.photoURL, user.emailVerified, user.uid];
+    datosUsuario = {
+      nombre: user.displayName,
+      fotoUsuario: user.photoURL,
+      verificado: user.emailVerified,
+      uidUsuario: user.uid,
+    };
     // The user object has basic properties such as display name, email, etc.
      
      /*  email: user.email,
