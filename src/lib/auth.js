@@ -87,7 +87,6 @@ export const singOut = () => {
   signOut(auth)
     .then(() => {
       // Sign-out successful.
-      console.log("funciona");
       onNavigate("/");
     })
     .catch((error) => {
