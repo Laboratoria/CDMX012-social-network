@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  FacebookAuthProvider,
+  FacebookAuthProvider, signOut,
 } from './firebase-imports.js';
 import { onNavigate } from '../main.js';
 
@@ -25,15 +25,15 @@ export const createNewUsers = (username, email, password) => {
 
       if (errorCode === 'auth/invalid-email') {
         authError.textContent = 'Write a valid mail example@gmail.com';
-        alert('write a valid mail example@gmail.com');
+        // alert('write a valid mail example@gmail.com');
       }
       if (errorCode === 'auth/weak-password') {
         authError.textContent = 'Your Password must have 6 characters at least';
-        alert('Your Password must have 6 characters at least');
+        // alert('Your Password must have 6 characters at least');
       }
       if (errorCode === 'auth/email-already-in-use') {
         authError.textContent = 'This email is in use, try another or logIn';
-        alert('This email is in use, try another or logIn.');
+        // alert('This email is in use, try another or logIn.');
       }
     });
 };
@@ -43,17 +43,17 @@ export const shootIn = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      alert('You are In!');
+      //  alert('You are In!');
       onNavigate('/home');
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password, try again.');
+        // alert('Wrong password, try again.');
       }
       if (errorCode === 'auth/invalid-email') {
-        alert('write a valid email');
+        // alert('write a valid email');
       }
     });
 };
@@ -107,4 +107,14 @@ export const signUpFacebook = () => {
       // The AuthCredential type that was used.
       const credential = FacebookAuthProvider.credentialFromError(error);
     });
+};
+
+// Logout
+export const logOut = async () => {
+  try {
+    signOut(auth);
+  } catch (error) {
+    console.log(error);
+  // eslint-disable-next-line no-empty
+  }
 };

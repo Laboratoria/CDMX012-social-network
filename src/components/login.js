@@ -1,9 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable import/no-cycle */
-<<<<<<< HEAD
-=======
 import { shootIn, googleSignIn } from '../lib/firebase-auth.js';
->>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
 import { onNavigate } from '../main.js';
 
 export const login = () => {
@@ -64,8 +61,6 @@ export const login = () => {
   inputPassword.setAttribute('autocomplete', 'off');
   inputPassword.className = 'inputs';
   inputPassword.id = 'password';
-<<<<<<< HEAD
-=======
   const maskifyOff = document.createElement('img');
   maskifyOff.setAttribute('src', './assets/eye.png');
   maskifyOff.id = 'maskifyOff';
@@ -89,15 +84,12 @@ export const login = () => {
       maskifyOff.removeAttribute('hidden');
     }
   });
->>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
 
   const btnInfoShootIn = document.createElement('button');
   btnInfoShootIn.className = 'btn btnsSign';
   btnInfoShootIn.id = 'submitInfoShoot';
   btnInfoShootIn.textContent = 'Shoot In';
 
-<<<<<<< HEAD
-=======
   btnInfoShootIn.addEventListener('click', (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
@@ -106,17 +98,10 @@ export const login = () => {
     shootIn(email, password);
   });
 
->>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
   const errorMessage = document.createElement('p');
   errorMessage.className = 'messages';
   errorMessage.id = 'pError';
 
-<<<<<<< HEAD
-  header.append(imgArrowBack, titles);
-  containerIcons.appendChild(iconG);
-  infoForm.append(labelMail, inputEmail, labelPassword, inputPassword, errorMessage, btnInfoShootIn);
-  shootInSection.append(header, logInWith, containerIcons, infoForm);
-=======
   const divFooter = document.createElement('div');
   divFooter.className = 'containerFooter';
 
@@ -138,6 +123,5 @@ export const login = () => {
   infoForm.append(labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage);
   divFooter.append(labelHaveAcc, btnRefJoinUs);
   shootInSection.append(header, logInWith, containerIcons, infoForm, btnInfoShootIn, divFooter);
->>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
   return shootInSection;
 };

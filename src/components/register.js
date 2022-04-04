@@ -1,11 +1,8 @@
 /* eslint-disable import/no-cycle */
-<<<<<<< HEAD
-
-=======
->>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
 import { createNewUsers, googleSignIn, signUpFacebook } from '../lib/firebase-auth.js';
+// import { async } from 'regenerator-runtime';
 
 export const register = () => {
   const joinUsSection = document.createElement('section');
@@ -42,17 +39,17 @@ export const register = () => {
 
   const iconF = document.createElement('img');
   iconF.setAttribute('src', './assets/facebook.png');
-<<<<<<< HEAD
-=======
   iconF.addEventListener('click', (e) => {
     e.preventDefault();
     signUpFacebook();
   });
->>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
 
+  // window.addEventListener('DOMContentLoaded', () => {
+  //   console.log('works');
+  // });
   const infoForm = document.createElement('form');
   infoForm.className = 'formContainer';
-  infoForm.id = 'registerForm';
+  infoForm.id = 'formContainerInfo';
   const labelUser = document.createElement('label');
   labelUser.className = 'text';
   labelUser.textContent = 'Username:';
@@ -69,10 +66,7 @@ export const register = () => {
   const inputEmail = document.createElement('input');
   inputEmail.setAttribute('type', 'email');
   inputEmail.setAttribute('placeholder', 'Example@gmail.com');
-<<<<<<< HEAD
-=======
   inputEmail.setAttribute('autocomplete', 'off');
->>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
   inputEmail.className = 'inputs';
   inputEmail.required = 'true';
   inputEmail.id = 'email';
@@ -83,10 +77,7 @@ export const register = () => {
   const inputPassword = document.createElement('input');
   inputPassword.setAttribute('type', 'password');
   inputPassword.setAttribute('placeholder', 'More than 6 characters');
-<<<<<<< HEAD
-=======
   inputPassword.setAttribute('autocomplete', 'off');
->>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
   inputPassword.className = 'inputs';
   inputPassword.required = 'true';
   inputPassword.id = 'password';
@@ -114,18 +105,6 @@ export const register = () => {
       maskifyOff.removeAttribute('hidden');
     }
   });
-
-  const errorMessage = document.createElement('p');
-  errorMessage.className = 'messages';
-  errorMessage.id = 'pError';
-
-  // const eyeIconSpan = document.createElement('span');
-  // eyeIconSpan.className = 'eye';
-  // const eyeIconReg = document.createElement('i');
-  // eyeIconReg.id = 'eyeImg';
-  // eyeIconReg.setAttribute('class', 'fa-solid fa-eye');
-  // inputPassword.append(eyeIconSpan);
-  // eyeIconSpan.append(eyeIconReg);
 
   const errorMessage = document.createElement('p');
   errorMessage.className = 'messages';
@@ -163,13 +142,8 @@ export const register = () => {
 
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
-<<<<<<< HEAD
-  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, btnInfoJoinUs, errorMessage);
-  joinUsSection.append(header, signInWith, containerIcons, infoForm);
-=======
-  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage);
+  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage, btnInfoJoinUs);
   divFooter.append(labelHaveAcc, btnRefLogin);
-  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs, divFooter);
->>>>>>> ea2c9b9bc4987d72b1f8654e745a37b9a8094fc5
+  joinUsSection.append(header, signInWith, containerIcons, infoForm, divFooter);
   return joinUsSection;
 };

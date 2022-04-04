@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+    width: 360px;
+    height: 640px;
+  }
+  @font-face {
+    font-family: 'arcade';
+    src: url(./assets/ka1.ttf);
+  }
+  
+  body {
+    background: linear-gradient(to bottom, #010409, #5b1e87);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+  }
+
+/* .screenNews{
+    display: grid;
+    width: 100%;
+    height: 100%;
+} */
+
+.usernameHeader {
+    position: absolute;
+    width: 22.5rem;
+    height: 5rem;
+    left: 0px;
+    top: 0px;
+    background: #632195;
+    border: 1px solid #E587ED;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(229, 135, 237, 0.75);
+  }
+
+.userImg {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    left: 6.67%;
+    right: 78.61%;
+    top: 14.46%;
+    bottom: 21.69%;
+    border: 2px solid rgba(229, 135, 237, 0.75);
+    box-sizing: border-box;
+    border-radius: 100%;
+    box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75)
+  }
+  
+
+.username {
+    /* position: absolute;
+    left: 26.39%;
+    right: 31.94%;
+    top: 27.71%;
+    bottom: 51.81%;
+    font-family: arcade, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #28CEF2;
+    text-shadow: 0px 0px 5px #E587ED; */
+    position: absolute;
+    font-family: 'arcade', Arial, Helvetica, sans-serif;
+    line-height: 18px;
+    font-size: 16px;
+    margin-left: 30px;
+    color: #28cef2;
+    text-shadow: 0px 0px 5px #E587ED;
+    height: 50px;
+    padding-top: 8px;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 100px;
+    margin-top: 3px;
+  }
+
+.main{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.activity{
+    height: fit-content;
+    width: fit-content;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+.sectionContainerPost{
+    position: relative;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: auto auto auto;
+    /* grid-auto-rows: 42px; */
+    margin-top: 20px;
+    width: 298px;
+    height: 84px;
+    background: rgba(73, 25, 110, 0.24);
+    border: 1px solid #E587ED;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 8px #E587ED;
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-left: 20px;
+}
+
+.sectionContainerPost > img {
+    width: 3.5rem;
+    height: 3.5rem;
+    /* left: 6.67%;
+    right: 78.61%;
+    top: 14.46%;
+    bottom: 21.69%; */
+    border: 2px solid rgba(229, 135, 237, 0.75);
+    /* box-sizing: border-box; */
+    border-radius: 100%;
+    box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75);
+    grid-row: 1/4;
+    grid-column: 1/2;
+    align-items: center;
+    justify-items: center;
+    position: absolute;
+    margin-left: 10px;
+  }
+
+  .sectionContainerPost > button{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    justify-self: end;
+    margin-right: 10px;
+    cursor: pointer;
+   }
+  
+.usernamePost{
+    color: transparent;
+    font-size: 0;
+    height: fit-content;
+    width: 200px;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    text-align:start;
+    padding-left: 10px;
+}
+
+#postText{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: end;
+    margin-right: 10px;
+    width: 192px;
+    height: 35px;
+    color: #e587ed;
+    background: #3F2959;
+    border-radius: 10px;
+    /* margin-left: 20px;
+    padding-left: 20px; */
+    font-size: 18px;
+    resize: none;
+    /* margin-top: 20px; */
+}
+
+#postText::placeholder {
+    font-size: 15px;
+    color: rgba(243, 243, 243, 0.23);
+    padding-left: 20px;
+  }
+
+.submitPost{
+width: 76px;
+height: 25px;
+font-size: 14px;
+line-height: 16px;
+color: #10EBC1;
+text-shadow: 0px 0px 5px #10EBC1;
+border: 1px solid #10EBC1;
+box-shadow: 0px 0px 5px 1px rgba(16, 235, 193, 0.75);
+border-radius: 10px;
+background-color: transparent;
+cursor: pointer;
+}
+
+.footer{
+    width: 100%;
+    height: 50px;
+    background: #632195;
+border: 1px solid #E587ED;
+box-sizing: border-box;
+box-shadow: 0px 0px 8px #E587ED;
+display: flex;
+justify-content: flex-end;
+}
+
+.footer button{
+   align-self: center;
+margin-right: 10px;
+}
+
+
