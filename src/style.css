@@ -2,16 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px solid red;*/
+ /* outline: 1px solid red;*/
   width: 360px;
   height: 640px;
 }
-
 @font-face {
-  font-family: arcade;
+  font-family: 'arcade';
   src: url(./assets/ka1.ttf);
 }
-
 @font-face {
   font-family: neon;
   src: url(./assets/NEON____.TTF);
@@ -40,7 +38,6 @@ body {
   height: 260px;
   /* justify-self: center; */
 }
-
 .divContainer {
   display: flex;
   justify-content: space-around;
@@ -69,7 +66,6 @@ body {
   display: flex;
   flex-flow: wrap column;
 }
-
 .header {
   width: 100%;
   height: 50px;
@@ -79,9 +75,8 @@ body {
   margin-top: 20px;
   align-items: center;
 }
-
 .titles {
-  font-family: arcade, sans-serif;
+  font-family: 'arcade', Arial, Helvetica, sans-serif;
   line-height: 28px;
   font-size: 24px;
   justify-content: center;
@@ -117,14 +112,11 @@ body {
   height: 60px;
   margin-bottom: 50px;
 }
-
 .container img {
   width: 90px;
   height: 60px;
   margin-left: 20px;
-  cursor: pointer;
 }
-
 .formContainer {
   width: auto;
   height: auto;
@@ -132,9 +124,8 @@ body {
   flex-direction: column;
   align-items: center;
   margin-left: -15px;
-
+  
 }
-
 .text {
   font-size: 18px;
   color: #ffffff;
@@ -142,7 +133,6 @@ body {
   height: fit-content;
   width: fit-content;
 }
-
 .inputs {
   color: #e587ed;
   width: 240px;
@@ -174,7 +164,6 @@ body {
   color: #f2a928;
   font-size: 14px;
 }
-
 .btnsSign {
   width: 119px;
   height: 46px;
@@ -189,11 +178,6 @@ body {
   margin-top: 50px;
   text-align: center;
   cursor: pointer;
-}
-
-.btn:hover {
-  color: #3c155c;
-  background-color: #e587ed;
 }
 
 .btnShootIn {
@@ -233,66 +217,6 @@ body {
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
-}
-
-.usernameHeader {
-  position: absolute;
-  width: 22.5rem;
-  height: 5rem;
-  left: 0px;
-  top: 0px;
-  background: #632195;
-  border: 1px solid #E587ED;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 8px rgba(229, 135, 237, 0.75);
-}
-
-#postText {
-  width: 16rem;
-  height: 3rem;
-  resize: none;
-}
-
-#submitPost {
-  width: 132px;
-  height: 52px;
-  font-weight: bolder;
-  color: #10EBC1;
-  background-color: #c4c4c400;
-  border: 3px solid #10EBC1;
-  box-shadow: 0px 0px 5px 3px #10EBC1;
-  border-radius: 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.userImg {
-  position: absolute;
-  width: 3rem;
-  height: 3rem;
-  left: 6.67%;
-  right: 78.61%;
-  top: 14.46%;
-  bottom: 21.69%;
-  border: 2px solid rgba(229, 135, 237, 0.75);
-  box-sizing: border-box;
-  border-radius: 100%;
-  box-shadow: 0px 0px 5px 3px rgba(229, 135, 237, 0.75)
-}
-
-.username {
-  position: absolute;
-  left: 26.39%;
-  right: 31.94%;
-  top: 27.71%;
-  bottom: 51.81%;
-  font-family: arcade, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
-  color: #28CEF2;
-  text-shadow: 0px 0px 5px #E587ED;
 }
 
 /* .sign a{

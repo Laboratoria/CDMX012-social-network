@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
 import { createNewUsers, googleSignIn, signUpFacebook } from '../lib/firebase-auth.js';
+// import { async } from 'regenerator-runtime';
 
 export const register = () => {
   const joinUsSection = document.createElement('section');
@@ -43,11 +44,15 @@ export const register = () => {
     signUpFacebook();
   });
 
+  // window.addEventListener('DOMContentLoaded', () => {
+  //   console.log('works');
+  // });
   const infoForm = document.createElement('form');
   infoForm.className = 'formContainer';
+  infoForm.id = 'formContainerInfo';
   const labelUser = document.createElement('label');
   labelUser.className = 'text';
-  labelUser.textContent = 'User name:';
+  labelUser.textContent = 'Username:';
 
   const inputUserName = document.createElement('input');
   inputUserName.setAttribute('type', 'text');
@@ -137,8 +142,8 @@ export const register = () => {
 
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
-  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage);
+  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage, btnInfoJoinUs);
   divFooter.append(labelHaveAcc, btnRefLogin);
-  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs, divFooter);
+  joinUsSection.append(header, signInWith, containerIcons, infoForm, divFooter);
   return joinUsSection;
 };
