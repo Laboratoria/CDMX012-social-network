@@ -1,6 +1,7 @@
 // import { onNavigate } from "../main.js";
 
 import { registeNewUsers } from "../lib/auth.js";
+import { saveUserData } from "../lib/firestore.js";
 
 export const register = () => {
   const contentSection = document.createElement("section");
@@ -16,6 +17,13 @@ export const register = () => {
   const textCreate = document.createElement("h2");
   textCreate.setAttribute("class", "new_User_register");
   textCreate.textContent = "Crear una cuenta";
+
+  const inputName = document.createElement("input");
+  inputName.setAttribute("type", "text");
+  let nameUser = "name-user";
+  inputName.setAttribute("id", nameUser);
+  inputName.setAttribute("class", "button_register");
+  inputName.setAttribute("placeholder", "Nombre completo del Usuario");
 
   const inputMail = document.createElement("input");
   inputMail.setAttribute("type", "email");
@@ -34,20 +42,26 @@ export const register = () => {
   const textCondicions = document.createElement("h4");
   textCondicions.setAttribute("class", "condicions_register");
   textCondicions.textContent =
-    "Para completar tu registro, aceptas que has leído los términos y condiciones de uso y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad.";
+    "Completa tu registro, al hacer click en el botón " +
+    "continuar" +
+    " aceptas que has leído los términos y condiciones de uso y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad.";
 
   const logIn = document.createElement("button");
   logIn.textContent = "Continuar";
   logIn.addEventListener("click", () => {
     let userMail = document.getElementById("email_register").value;
-
     let userPass = document.getElementById("pasword_register").value;
 
     registeNewUsers(userMail, userPass);
   });
+  logIn.addEventListener("click", () => {
+    let userName = document.getElementById("name-user").value;
+    saveUserData(userName);
+    console.log(userName);
+  });
 
   const footerPage = document.createElement("footer");
-  
+
   footerPage.textContent = "Derechos Reservados 2022 ©️";
 
   logIn.setAttribute("class", "logIn_register");
@@ -58,6 +72,7 @@ export const register = () => {
   registerSection.append(
     imgLogo,
     textCreate,
+    inputName,
     inputMail,
     inputPasword,
     textCondicions,
