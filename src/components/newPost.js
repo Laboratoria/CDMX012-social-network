@@ -32,9 +32,13 @@ export const newPost = () => {
     e.preventDefault();
     const textPost = document.getElementById('inputPost').value;
     const datePost = new Date();
+    const currentDayOfMonth = datePost.getDate();
+    const currentMonth = datePost.getMonth(); // Be careful! January is 0, not 1
+    const currentYear = datePost.getFullYear();
+    const dateString = currentDayOfMonth + '-' + (currentMonth + 1) + '-' + currentYear;
     if (textPost !== '') {
-      savePost(textPost, datePost);
-      console.log(textPost, datePost);
+      savePost(textPost, dateString);
+      console.log(textPost, dateString);
     } else {
       alert('Tu post esta vacío!');
     }

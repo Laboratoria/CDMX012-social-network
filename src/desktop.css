@@ -258,5 +258,9 @@
     font-size:0.5rem;
     font-weight: bold;
 }
+#profilePic{
+max-width: 50px;
+border-radius: 50px;
+}
 
 }
