@@ -13,7 +13,7 @@ export const login = () => {
  ////////////////// logoy slogan
 
   const imgLogo = document.createElement("img");
-  imgLogo.setAttribute("src", "./Resourses/Solovino_Black.png");
+  imgLogo.setAttribute("src", "../Resourses/Logos/Solovino_Black.png");
   imgLogo.setAttribute("class", "solovino_logo_logIn");
 
   const sloganText = document.createElement("div");

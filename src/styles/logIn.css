@@ -6,7 +6,7 @@
 }
 
 .background_Content {
-  background-image: url("../Resourses/pattern_paws.png"),
+  background-image: url("../Resourses/Logos/pattern_paws.png"),
     linear-gradient(to right, #f352a0, #c471ed, #00f7ff);
   background-size: cover;
   position: fixed;
@@ -30,7 +30,7 @@
 .slogan_text {
   font-family: 'Baloo 2', cursive;
   font-size: 2.5rem;
-  margin: 2rem 1rem;
+  margin: 1rem 1rem;
   text-align: center;
 }
 
@@ -99,7 +99,7 @@
   width: 60%;
   height: 1.75rem;
   font-size: 1.25rem;
-  margin: 5% 1rem 1rem 1rem;
+  margin: 2% 1rem 1rem 1rem;
   text-align: center;
 }
 

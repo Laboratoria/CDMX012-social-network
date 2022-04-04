@@ -20,28 +20,33 @@ export const register = () => {
     onNavigate("/");
   });
 
-
-
   const imgLogo = document.createElement("img");
-  imgLogo.setAttribute("src", "./Resourses/Solovino_Black.png");
+  imgLogo.setAttribute("src", "../Resourses/Logos/Solovino_Black.png");
   imgLogo.setAttribute("class", "solovino_logo_logIn");
 
   const textCreate = document.createElement("h2");
   textCreate.setAttribute("class", "text_create_register");
   textCreate.textContent = "Crear una cuenta";
 
+  //////////////// info usuario
+
+  
+  const registerInputSection = document.createElement("section");
+  registerInputSection.setAttribute("class", "input_section");
+
+  
   const inputName = document.createElement("input");
   inputName.setAttribute("type", "text");
   let nameUser = "name-user";
   inputName.setAttribute("id", nameUser);
-  inputName.setAttribute("class", "button_register");
+  inputName.setAttribute("class", "input_account");
   inputName.setAttribute("placeholder", "Nombre completo del Usuario");
 
   const inputMail = document.createElement("input");
   inputMail.setAttribute("type", "email");
   let emailRegister = "email_register";
   inputMail.setAttribute("id", emailRegister);
-  inputMail.setAttribute("class", "button_register");
+  inputMail.setAttribute("class", "input_account");
   inputMail.setAttribute("placeholder", "Correo electrónico");
 
   const inputPasword = document.createElement("input");
@@ -53,9 +58,7 @@ export const register = () => {
   const textCondicions = document.createElement("h4");
   textCondicions.setAttribute("class", "condicions_register");
   textCondicions.textContent =
-    "Completa tu registro, al hacer click en el botón " +
-    "continuar" +
-    " aceptas que has leído los términos y condiciones de uso y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad.";
+    "Completa tu registro, al hacer click en el botón continuar aceptas que has leído los términos y condiciones de uso y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad.";
 
   const buttonRegister = document.createElement("button");
   buttonRegister.setAttribute("id", "create_account");
@@ -67,11 +70,19 @@ export const register = () => {
 
     registeNewUsers(userMail, userPass);
   });
-  logIn.addEventListener("click", () => {
+  buttonRegister.addEventListener("click", () => {
     let userName = document.getElementById("name-user").value;
     saveUserData(userName);
     console.log(userName);
   });
+
+  registerInputSection.append(
+    inputName,
+    inputMail,
+    inputPasword,
+    textCondicions,
+    buttonRegister);
+
 
   const footerPage = document.createElement("footer");
 
@@ -81,11 +92,7 @@ export const register = () => {
   registerSection.append(registerClose,
     imgLogo,
     textCreate,
-    inputName,
-    inputMail,
-    inputPasword,
-    textCondicions,
-    logIn
+    registerInputSection
   );
 
   contentSectionRegister.append(registerSection, );

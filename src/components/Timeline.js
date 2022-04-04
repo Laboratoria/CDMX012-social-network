@@ -18,7 +18,7 @@ export const timeline = () => {
   TimelineHeader.setAttribute("class", "timeline-header");
   const headerLogo = document.createElement("img");
   headerLogo.setAttribute("class", "solovino-logo-timeline");
-  headerLogo.setAttribute("src", "./Resourses/solovino movil_Mesa de trabajo 1.png");
+  headerLogo.setAttribute("src", "../Resourses/Logos/solovino black movil.png");
 
   const menuNav = document.createElement("img"); 
   menuNav.setAttribute("class","menu-nav")
