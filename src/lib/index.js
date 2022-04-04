@@ -10,6 +10,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  updateProfile,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   sendEmailVerification,
@@ -96,7 +97,14 @@ sendPasswordResetEmail(auth, email)
     // ..
     });
 } */
+/* function nombreUsuario() {
+  const auth = getAuth();
+  updateProfile(auth.currentUser)({
+    displayName:
+  });
+} */
 export function registrar() {
+  //const nombreRegistro = document.getElementById('nombreRegistro').value;
   const email = document.getElementById('emailRegi').value;
   const contraseña = document.getElementById('contraseñaRegi').value;
   const contraseñaConfirmar = document.getElementById('contraseñaRegidos').value;
@@ -105,7 +113,7 @@ export function registrar() {
     createUserWithEmailAndPassword(auth, email, contraseña)
       // eslint-disable-next-line no-unused-vars
       .then((userCredential) => {
-      // Signed in
+        // Signed in
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -124,6 +132,7 @@ export function registrar() {
     alert('Las contraseñas no coinciden');
   }
 }
+
 export function cerrar() {
   getAuth().signOut()
     .then(

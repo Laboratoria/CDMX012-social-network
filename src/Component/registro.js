@@ -18,6 +18,11 @@ export const registro = () => {
   logoYummi.src = './images/logo.png';
   logoYummi.setAttribute('id', 'logoinicio');
   logoYummi.setAttribute('alt', 'Yummy, bienvenido a tu mundo de cocina');
+  
+  const inputNombreRegistro = document.createElement('input');
+  inputNombreRegistro.setAttribute('type', 'text');
+  inputNombreRegistro.setAttribute('id', 'nombreRegistro');
+  inputNombreRegistro.setAttribute('placeholder', 'Nombre');
 
   const inputEmailRegistro = document.createElement('input');
   inputEmailRegistro.setAttribute('type', 'email');
@@ -34,6 +39,30 @@ export const registro = () => {
   inputContraseñaConfirmar.setAttribute('id', 'contraseñaRegidos');
   inputContraseñaConfirmar.setAttribute('placeholder', 'Confirmar Contraseña');
 
+  const btnmostrarcontraseña = document.createElement('button');
+  btnmostrarcontraseña.setAttribute('id', 'ojitoRegistro');
+  const ojo = document.createElement('IMG');
+  ojo.src = './images/ojitobueno.png';
+  btnmostrarcontraseña.appendChild(ojo);
+  btnmostrarcontraseña.addEventListener('click', () => {
+    if (inputContraseñaRegistro.type === 'password') {
+      inputContraseñaRegistro.type = 'text';
+    } else {
+      inputContraseñaRegistro.type = 'password';
+    }
+  });
+  const btnmostrarcontraseña2 = document.createElement('button');
+  btnmostrarcontraseña2.setAttribute('id', 'ojitoRegistro2');
+  const ojo2 = document.createElement('IMG');
+  ojo2.src = './images/ojitobueno.png';
+  btnmostrarcontraseña2.appendChild(ojo2);
+  btnmostrarcontraseña2.addEventListener('click', () => {
+    if (inputContraseñaConfirmar.type === 'password') {
+      inputContraseñaConfirmar.type = 'text';
+    } else {
+      inputContraseñaConfirmar.type = 'password';
+    }
+  });
   const botonRegistro = document.createElement('button');
   botonRegistro.setAttribute('id', 'botonRegi');
   botonRegistro.setAttribute('class', 'botones');
@@ -44,7 +73,7 @@ export const registro = () => {
   });
   seccionGeneral.append(tabla, seccionRegistro);
   // eslint-disable-next-line max-len
-  seccionRegistro.append(logoYummi, inputEmailRegistro, inputContraseñaRegistro, inputContraseñaConfirmar, botonRegistro);
+  seccionRegistro.append(logoYummi, inputNombreRegistro, inputEmailRegistro, inputContraseñaRegistro, inputContraseñaConfirmar, btnmostrarcontraseña, btnmostrarcontraseña2, botonRegistro);
 
   return seccionGeneral;
 };
