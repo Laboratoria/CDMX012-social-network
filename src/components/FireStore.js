@@ -4,6 +4,7 @@ import {
   collection,
   addDoc,
   getDocs,
+  onSnapshot,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { renderPost } from './post.js';
@@ -32,3 +33,15 @@ export async function readData() {
     renderPost(doc);
   });
 }
+
+// export function deletePost(id) {
+//   deleteDoc(collection(db, 'Newposts').doc(id));
+// }
+// real time
+export function update() {
+  const unsub = onSnapshot(collection(db, 'Newposts'), (doc) => {
+    console.log(doc.data);
+  });
+  return unsub;
+}
+update();

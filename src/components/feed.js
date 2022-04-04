@@ -1,6 +1,10 @@
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
-import { readData, savePost } from './FireStore.js';
+import { readData } from './FireStore.js';
+import { newPost } from './newPost.js';
+// eslint-disable-next-line import/no-cycle
+import { navegations } from './navegation.js';
+// eslint-disable-next-line import/no-cycle
+import { signOutSession } from '../lib/firebase.js';
 
 export const feed = () => {
   const feedView = document.createElement('div');
@@ -13,75 +17,37 @@ export const feed = () => {
   logoFeed.setAttribute('src', 'img/Icono_.png');
   logoFeed.setAttribute('id', 'logoFeed');
 
-  const writePost = document.createElement('div');
-  writePost.setAttribute('class', 'sectionPost');
-  const createTop = document.createElement('div');
-  createTop.setAttribute('class', 'templateTop');
-
-  const namePost = document.createElement('label');
-  namePost.setAttribute('class', 'profileName');
-  namePost.textContent = 'Ana';
-
-  const inputPost = document.createElement('input');
-  inputPost.setAttribute('id', 'inputPost');
-  inputPost.setAttribute('placeholder', '¿Que estas pensando?');
-
-  const sendPost = document.createElement('button');
-  sendPost.setAttribute('id', 'sendPost');
-  sendPost.textContent = 'Publicar';
-
   const searchFeed = document.createElement('input');
   searchFeed.setAttribute('class', 'register');
   searchFeed.setAttribute('id', 'searchFeed');
   searchFeed.setAttribute('placeholder', 'Buscar...');
 
-  const readDiv = document.createElement('div');
+  const newPostDiv = document.createElement('div');
+  newPostDiv.setAttribute('id', 'newPostDiv');
+
+  const createPost = newPost();
+  createPost.setAttribute('id', 'createPost');
+
   const postFeed = document.createElement('div');
   postFeed.setAttribute('id', 'postFeed');
 
   const footer = document.createElement('div');
   footer.setAttribute('id', 'feedFooter');
+  // este contenedor va a recibir el componente del modal que esta en el archivo
+  // de modal.js
 
-  const logOutFeed = document.createElement('img');
-  logOutFeed.setAttribute('src', 'img/logOut.png');
-  logOutFeed.setAttribute('id', 'logOutFeed');
-  const writeFeed = document.createElement('img');
-  writeFeed.setAttribute('src', 'img/writePost.png');
-  writeFeed.setAttribute('id', 'writeFeed');
-  const homeFeed = document.createElement('img');
-  homeFeed.setAttribute('src', 'img/Home.png');
-  homeFeed.setAttribute('id', 'homeFeed');
-  const profileFeed = document.createElement('img');
-  profileFeed.setAttribute('id', 'profileFeed');
-  profileFeed.setAttribute('src', 'img/Profile.png');
+  const navDesktop = navegations(signOutSession);
+  navDesktop.setAttribute('id', 'navDesktop');
+  const navMobile = navegations(signOutSession);
+  navMobile.setAttribute('id', 'navMobile');
 
-  feedView.appendChild(header);
-  feedView.appendChild(postFeed);
-  feedView.appendChild(footer);
-  postFeed.appendChild(writePost);
-  postFeed.appendChild(readDiv);
-  writePost.appendChild(createTop);
-  createTop.appendChild(namePost);
-  writePost.appendChild(inputPost);
-  writePost.appendChild(sendPost);
-  header.appendChild(logoFeed);
-  header.appendChild(searchFeed);
-  footer.appendChild(logOutFeed);
-  footer.appendChild(writeFeed);
-  footer.appendChild(homeFeed);
-  footer.appendChild(profileFeed);
+  footer.append(navMobile);
+  newPostDiv.appendChild(createPost);
+  header.append(logoFeed, searchFeed);
+  feedView.append(header, createPost, navDesktop, postFeed, footer);
 
-  logOutFeed.addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/');
-  });
-  sendPost.addEventListener('click', (e) => {
-    e.preventDefault();
-    const textPost = document.getElementById('inputPost').value;
-    const datePost = new Date();
-    console.log(textPost, datePost);
-    savePost(textPost, datePost);
-  });
+  // esta función permite que el usuario salga de sesión
+
   readData();
   return feedView;
 };

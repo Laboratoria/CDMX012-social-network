@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 export function renderPost(doc) {
   const sectionPost = document.createElement('div');
   sectionPost.setAttribute('class', 'sectionPost');
@@ -9,10 +10,12 @@ export function renderPost(doc) {
   profilePic.setAttribute('src', 'img/profilePicture.png');
 
   const profileName = document.createElement('label');
-  profileName.setAttribute('id', 'profileName');
+  profileName.setAttribute('class', 'profileName');
+  profileName.textContent = 'Ana - DevOps';
 
   const dots = document.createElement('img');
   dots.setAttribute('src', 'img/dots.png');
+  dots.setAttribute('id', 'dotsEdit');
 
   const pPost = document.createElement('p');
   pPost.setAttribute('id', 'inputPost');
@@ -24,7 +27,7 @@ export function renderPost(doc) {
 
   const postDate = document.createElement('p');
   postDate.setAttribute('id', 'postDate');
-  postDate.textContent = doc.data().date;
+  postDate.textContent = '11:11 - 01/05/22';
 
   const likeIcon = document.createElement('img');
   likeIcon.setAttribute('src', 'img/like.png');
@@ -32,15 +35,45 @@ export function renderPost(doc) {
   const commentIcon = document.createElement('img');
   commentIcon.setAttribute('src', 'img/comment.png');
 
+  const likes = document.createElement('p');
+  likes.setAttribute('id', 'likes');
+  likes.hidden = true;
+  likes.textContent = '1';
+
   const commentInput = document.createElement('input');
   commentInput.setAttribute('id', 'commentInput');
+  commentInput.setAttribute('placeholder', 'Escribe tu respuesta');
+  commentInput.hidden = true;
 
   templateTop.append(profilePic, profileName, dots);
-  likeComment.append(likeIcon, commentIcon);
+  likeComment.append(postDate, likes, likeIcon, commentIcon);
   sectionPost.append(templateTop, pPost, likeComment, commentInput);
+
+  commentIcon.addEventListener('click', () => {
+    if (commentInput.style.display === 'none') {
+      commentInput.style.display = 'block';
+    } else {
+      commentInput.style.display = 'none';
+    }
+  });
+
+  likeIcon.addEventListener('click', () => {
+    if (likes.style.display === 'none') {
+      likes.style.display = 'block';
+    } else {
+      likes.style.display = 'none';
+    }
+  });
 
   const wall = document.getElementById('postFeed');
   wall.append(sectionPost);
+
+  // delete data
+  // dots.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   const id = e.target.parentElement.getAttribute('data-id');
+  //   deletePost(id);
+  // });
   // dejamos el return para los tests - no cambia en el html quitarlo o ponerlo
   return sectionPost;
 }

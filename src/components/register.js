@@ -81,8 +81,19 @@ export const register = () => {
     const userPassword = document.getElementById('password').value;
     const userArea = document.getElementById('area').value;
     console.log(userMail, userName, userPassword, userArea, user);
-    createUserRed(userMail, userPassword);
-    saveForm(userName, userArea, userMail);
+    if (userMail !== '' && userName !== '' && userPassword !== '' && userArea !== '') {
+      createUserRed(userMail, userPassword);
+      saveForm(userName, userArea, userMail);
+    } else {
+      if (userMail === '') document.getElementById('mail').classList.add('invalidInput');
+      else { document.getElementById('mail').classList.remove('invalidInput'); }
+      if (userName === '') document.getElementById('user').classList.add('invalidInput');
+      else { document.getElementById('user').classList.remove('invalidInput'); }
+      if (userPassword === '') document.getElementById('password').classList.add('invalidInput');
+      else { document.getElementById('password').classList.remove('invalidInput'); }
+      if (userArea === '') document.getElementById('area').classList.add('invalidInput');
+      else { document.getElementById('area').classList.remove('invalidInput'); }
+    }
   });
   return containerAllRegister;
 };

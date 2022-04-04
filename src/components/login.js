@@ -65,8 +65,16 @@ export const login = () => {
     const loginMail = document.getElementById('loginEmail').value;
     const loginPassword = document.getElementById('loginPass').value;
     console.log(loginEmail, loginPass);
-    signIn(loginMail, loginPassword);
+    if (loginMail !== '' && loginPassword !== '') {
+      signIn(loginMail, loginPassword);
+    } else {
+      if (loginMail === '') document.getElementById('loginEmail').classList.add('invalidInput');
+      else { document.getElementById('loginEmail').classList.remove('invalidInput'); }
+      if (loginPassword === '') document.getElementById('loginPass').classList.add('invalidInput');
+      else { document.getElementById('loginPass').classList.remove('invalidInput'); }
+    }
   });
+
   buttonGmail.addEventListener('click', (e) => {
     e.preventDefault();
     loginGoogle();
