@@ -164,6 +164,12 @@ body {
   color: #f2a928;
   font-size: 14px;
 }
+
+.btn:hover {
+  color: #3c155c;
+  background-color: #e587ed;
+}
+
 .btnsSign {
   width: 119px;
   height: 46px;
