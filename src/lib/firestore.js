@@ -36,10 +36,10 @@ export let savePost = (post, date) => {
   }
 };
 
-export let saveUserData = (userName) => {
+export let saveUserData = (name) => {
   console.log("Guardando datos");
-  return addDoc(collection(db, "nameUSer"), {
-    userName,
+  return addDoc(collection(db, "user"), {
+    name,
   });
 };
 //photo, personName, post,, like
