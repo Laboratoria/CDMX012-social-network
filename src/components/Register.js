@@ -1,6 +1,7 @@
 import { onNavigate } from "../main.js";
 
 import { registeNewUsers } from "../lib/auth.js";
+import { saveUserData } from "../lib/firestore.js";
 
 export const register = () => {
   const contentSectionRegister = document.createElement("section");
@@ -29,16 +30,19 @@ export const register = () => {
   textCreate.setAttribute("class", "text_create_register");
   textCreate.textContent = "Crear una cuenta";
 
-  ////////////////// inputs registro
+  const inputName = document.createElement("input");
+  inputName.setAttribute("type", "text");
+  let nameUser = "name-user";
+  inputName.setAttribute("id", nameUser);
+  inputName.setAttribute("class", "button_register");
+  inputName.setAttribute("placeholder", "Nombre completo del Usuario");
 
-  const RegisterInputSection = document.createElement("section");
-  RegisterInputSection.setAttribute("class", "input_section");
-
-  const inputMailRegister = document.createElement("input");
-  inputMailRegister.setAttribute("type", "email");
-  inputMailRegister.setAttribute("id", "email_register");
-  inputMailRegister.setAttribute("class", "input_account");
-  inputMailRegister.setAttribute("placeholder", "Correo electrónico");
+  const inputMail = document.createElement("input");
+  inputMail.setAttribute("type", "email");
+  let emailRegister = "email_register";
+  inputMail.setAttribute("id", emailRegister);
+  inputMail.setAttribute("class", "button_register");
+  inputMail.setAttribute("placeholder", "Correo electrónico");
 
   const inputPasword = document.createElement("input");
   inputPasword.setAttribute("type", "password");
@@ -46,17 +50,12 @@ export const register = () => {
   inputPasword.setAttribute("class", "input_account");
   inputPasword.setAttribute("placeholder", "Contraseña");
 
-  RegisterInputSection.append(inputMailRegister, inputPasword);
-
-
-
-  const RegisterNewAccount = document.createElement("section");
-  RegisterNewAccount.setAttribute("class", "new_account");
-
-  const textConditions = document.createElement("h4");
-  textConditions.setAttribute("class", "condicions_register");
-  textConditions.textContent =
-    "Para completar tu registro, aceptas que has leído los términos y condiciones de uso y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad.";
+  const textCondicions = document.createElement("h4");
+  textCondicions.setAttribute("class", "condicions_register");
+  textCondicions.textContent =
+    "Completa tu registro, al hacer click en el botón " +
+    "continuar" +
+    " aceptas que has leído los términos y condiciones de uso y el tratamiento y transferencia de tus datos conforme a los dispuesto en las políticas de privacidad.";
 
   const buttonRegister = document.createElement("button");
   buttonRegister.setAttribute("id", "create_account");
@@ -68,15 +67,25 @@ export const register = () => {
 
     registeNewUsers(userMail, userPass);
   });
+  logIn.addEventListener("click", () => {
+    let userName = document.getElementById("name-user").value;
+    saveUserData(userName);
+    console.log(userName);
+  });
 
-  RegisterNewAccount.append(textConditions,buttonRegister );
+  const footerPage = document.createElement("footer");
+
+  footerPage.textContent = "Derechos Reservados 2022 ©️";
 
 
   registerSection.append(registerClose,
     imgLogo,
     textCreate,
-    RegisterInputSection,
-    RegisterNewAccount
+    inputName,
+    inputMail,
+    inputPasword,
+    textCondicions,
+    logIn
   );
 
   contentSectionRegister.append(registerSection, );

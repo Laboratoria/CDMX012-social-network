@@ -36,6 +36,12 @@ export let savePost = (post, date) => {
   }
 };
 
+export let saveUserData = (name) => {
+  console.log("Guardando datos");
+  return addDoc(collection(db, "user"), {
+    name,
+  });
+};
 //photo, personName, post,, like
 // export const dataCall = (callBackFunction) => {
 //   getDocs(collection(db, 'newColection')).then((snapshot) => {

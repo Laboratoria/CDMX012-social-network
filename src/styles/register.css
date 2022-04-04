@@ -46,7 +46,7 @@
   }
 
   .condicions_register {
-    width: 80%;
+    width: 0%;
     height: 10%;
     font-size: 1.5rem;
     margin: 10% 1rem 1rem 1rem;
@@ -71,3 +71,4 @@
       margin: 8% 1rem .5rem 1rem;
     }
   }
+}
