@@ -5,23 +5,27 @@ export const crearPost = () => {
   formPublicacion.setAttribute('id', 'formPublicacion');
   const labelReceta = document.createElement('label');
   labelReceta.setAttribute('id', 'labelReceta');
-  labelReceta.textContent = 'Nombre Receta';
+  labelReceta.textContent = 'Receta:';
   const inputReceta = document.createElement('input');
   inputReceta.setAttribute('id', 'inputReceta');
   inputReceta.setAttribute('type', 'text');
-  inputReceta.setAttribute('placeholder', 'Nombre de receta');
+  inputReceta.setAttribute('placeholder', 'Aquí va el nombre de tu receta');
   const labelIngredientes = document.createElement('label');
   labelIngredientes.setAttribute('id', 'labelIngredientes');
-  labelIngredientes.textContent = 'Lista de ingredientes';
+  labelIngredientes.textContent = 'Ingredientes:';
   const inputIngredientes = document.createElement('textarea');
   inputIngredientes.setAttribute('id', 'inputIngredientes');
-  inputIngredientes.setAttribute('placeholder', 'Lista de ingredientes');
+  inputIngredientes.setAttribute('placeholder', 'Aquí la lista de ingredientes');
   const labelProcedimiento = document.createElement('label');
-  labelProcedimiento.textContent = 'Procedimiento de la receta';
+  labelProcedimiento.setAttribute('id', 'labelProcedimiento');
+  labelProcedimiento.textContent = 'Procedimiento:';
   const inputProcedimiento = document.createElement('textarea');
   inputProcedimiento.setAttribute('id', 'inputProcedimiento');
-  inputProcedimiento.setAttribute('placeholder', 'Procedimiento');
+  inputProcedimiento.setAttribute('placeholder', 'Aquí el procedimiento');
   inputProcedimiento.setAttribute('type', 'text');
+  const labelCategoria = document.createElement('label');
+  labelCategoria.setAttribute('id', 'labelCategoria');
+  labelCategoria.textContent = 'Elige una categoria';
   const selectCategoria = document.createElement('select');
   selectCategoria.setAttribute('id', 'selectCategoria');
   const catSalado = document.createElement('option');
@@ -54,13 +58,15 @@ export const crearPost = () => {
   });
   const cerrarModal = document.createElement('button');
   cerrarModal.setAttribute('id', 'cerrarModal');
-  cerrarModal.textContent = 'X';
+  const Xmodal = document.createElement('IMG');
+  Xmodal.src = './images/CerrarModal.png';
+  cerrarModal.appendChild(Xmodal);
   cerrarModal.addEventListener('click', (e) => {
     e.preventDefault();
     formPublicacion.style.visibility = 'hidden';
   });
 
   // eslint-disable-next-line max-len
-  formPublicacion.append(cerrarModal, labelReceta, inputReceta, labelIngredientes, inputIngredientes, labelProcedimiento, inputProcedimiento, selectCategoria, btnPublicar);
+  formPublicacion.append(cerrarModal, labelReceta, inputReceta, labelIngredientes, inputIngredientes, labelProcedimiento, inputProcedimiento, labelCategoria, selectCategoria, btnPublicar);
   return formPublicacion;
 };
