@@ -79,10 +79,15 @@
        color: black;
        position: relative;
        top: 27%;
-       right: 19%;
+       right: 18%;
+       text-align: right;
+       padding-right: 3.5%;
     }
     #iconogoo{
        width: 12%;
+       position: absolute;
+       top: 23%;
+       right: 82%;
     }
     #letras1{
         font-size: 11px;
@@ -104,10 +109,10 @@
        cursor: pointer;
     }
    #registro{
-    position: relative;
-    top: 27%;
-    left: 37%;
-    text-decoration-line: underline;
+       position: relative;
+       top: 27%;
+       left: 35%;
+       text-decoration-line: underline;
     }
    #registrar{
         background-color: black;
@@ -191,7 +196,7 @@
         background: none;
         border: none;
         position: absolute;
-        top: 45.3%;
+        top: 44%;
         left: 71%;
         cursor: pointer;
     }
@@ -214,8 +219,8 @@
         height: 1.5%;
         padding: 1%;
         position: absolute;
-        top: 42%;
-        left: 58%;
+        top: 43.5%;
+        left: 48%;
     }
     #lupaimg{
         width:100%;
@@ -223,8 +228,8 @@
     #lupita{
         width: 2.6%;
         position: absolute;
-        top: 42.5%;
-        left: 75.3%;
+        top: 44.2%;
+        left: 65.5%;
         background-color: #ebc920a1;
         border: none;
         cursor: pointer;
@@ -235,7 +240,7 @@
         height: 33%;
         top: 42%;
         font-size:medium;
-        left: 90%;
+        left: 84%;
         border-radius: 5px;
         border: none;
         background-color: #EBC920;
@@ -244,6 +249,7 @@
     #logoMuro{
         width: 11%;
         position: relative;
+        left: 3%;
         margin: 0.5%;
         margin-left: 1%;
     }
@@ -311,102 +317,154 @@
         left: 7%;
         top: 21%;
         width: 59%;
+        height: 11%;
         margin: 0%;
         display: flex;
         align-items: center;
-        border-radius: 12px;
+        border-radius: 6px;
         border: #EBC920 1px solid;
-        box-shadow: 1px 1px 1px 1px rgba(173, 147, 13, 0.527);
+        box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.096);
     }
-    #publicar img{
-        width: 8%;
+    #usuarioPublicar{
+        width: 8.5%;
+        position:absolute;
+        top:13%;
+        left: 5%;
     }
     #btnPublicar{
         position: absolute;
-        left: 11%;
-        width: 70%;
+        left: 15%;
+        top: 26%;
+        width: 80%;
         height: 50%;
         background-color: white;
         border: #EBC920 1.5px solid;
-        border-radius: 12px;
+        border-radius: 8px;
         color: gray;
         font-weight: bold;
         text-align: left;
         cursor: pointer;
     }
     #btnPublicar:hover{
-        background-color: #EBC920;
-        color: white;
+        background-color: #ebc92010;
+        border: #EBC920 2px solid;
     }
     form{
         position: fixed;
-        top:20%;
-        left:20%;
-        width: 60%;
-        height: 78%;
+        top:21%;
+        left:4.5%;
+        width: 62%;
         background-color: white;
         height: 700px;
-        border: #EBC920 1.5px solid;
+        border: #EBC920 2px solid;
         border-radius: 5px;
-        display: flex;
-        flex-wrap: wrap;
         z-index:1000;
-        align-content:space-around;
         visibility: hidden;
+        padding: 2%;
+        box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.527);
+
+    }
+    label{
+        font-size: 12px;
     }
     #cerrarModal{
-        width: 10%;
-        margin-left: 85%;
-        text-size-adjust:calc(40px);
-        border: none;
-        border-radius: 60px;
-    }
-     #inputReceta{
-        width: 75%;
-        height: 2%;
-        margin-left: 12.5%;
-    }
-    form #inputIngredientes{
-        width: 75%;
-        height: 10%;
-        margin-left: 12.5%;
-        border: #EBC920 solid;
-        
-    }
-    form #inputProcedimiento{
-        width: 75%;
-        height: 20%;
-        margin-left: 12.5%;
-    }
-    form label{
-        width: 100%;
+        width: 5%;
         height: 5%;
-        margin-left: 12.5%;
-     }
-     #selectCategoria{
-        width: 10%;
-        height: 5%;
-        margin-left: 5%;
+        padding: 1%;
+        background: none;
+        border:none;
+        position: absolute;
+        top: 1%;
+        left: 95%;
+        cursor: pointer;
+       
     }
+    #labelReceta{
+        position: absolute;
+        top:7%;
+        left: 11%;
+
+    }
+    #inputReceta{
+        width: 45%;
+        height: 1%;
+        position:absolute;
+        top:10%;
+        left: 10%;
+    }
+    #labelIngredientes{
+        position: absolute;
+        top:18%;
+        left: 11%;
+    }
+    #inputIngredientes{
+       width: 79%;
+       height: 5%;
+       position: absolute;
+       top:21%;
+       left: 10%;
+       border: 1.5px solid #EBC920;
+       border-radius: 5px;
+       padding: 2%;
+      
+    
+    }
+    #labelProcedimiento{
+        position: absolute;
+        top:34%;
+        left: 11%;
+    }
+    #inputProcedimiento{
+        width: 79%;
+        height: 15%;
+        position: absolute;
+        top:37%;
+        left: 10%;
+        border: 1.5px solid #EBC920;
+       border-radius: 5px;
+       padding: 2%;
+    }
+    #labelCategoria{
+        position:absolute;
+        top:7%;
+        left: 66%;
+    }
+    #selectCategoria{
+        width: 15%;
+        height: 6%;
+        position:absolute;
+        top:10%;
+        left: 65%;
+        border: 1.5px solid #EBC920;
+        border-radius: 5px;
+    
+    }
+    textarea:focus, select:focus {
+        outline: none; 
+        border: 3px solid #EBC920;
+      }
      #btnPostear{
-        width: 20%;
-        height: 5%;
+        width: 12%;
+        height: 4%;
         background-color:black;
-        border: #EBC920 1.5px solid;
-        border-radius: 12px;
+        border-radius: 3px;
+        box-shadow: 1px 1px 1px 1px rgba(56, 55, 55, 0.527);
         color: white;
         font-weight: bold;
         text-align: center;
         cursor: pointer;
-        margin-left:55%;
-    }
-    #selectCategoria{
-        width: 15%;
-        height: 5%;
+        position: absolute;
+        top:60%;
+        left: 80%;
+        border:none;
+     }
+     #btnPostear:hover{
+        background-color: rgba(34, 33, 33, 0.973);
+        
     }
     #postPublicado{
         width: 75%;
-        padding-top: 9%;
+        padding-top: 9.7%;
         background-color: white;
         position: absolute;
         top: 15%;
@@ -417,12 +475,12 @@
        width: 79%;
        padding: 1%;
        border: #EBC920 1.5px solid;
-       border-radius: 10px;
+       border-radius: 5px;
        margin: 1%;
        position: relative;
        top:50%;
        left:8.3%;
-       box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.295);
+       box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.096);
       
    }    
    .borrarPost{
@@ -503,14 +561,19 @@
             background-color: rgba(34, 33, 33, 0.973);
         }
         #google{
-            background-color: white;
+           background-color: white;
            color: black;
            position: absolute;
            top: 66%;
            left: 26%;
+           text-align: right;
+           padding-right: 5%;
         }
         #iconogoo{
            width: 12%;
+           position: absolute;
+           top: 23%;
+           right: 78%;
         }
         .letras1{
            font-size: 11px;
@@ -666,29 +729,32 @@
             display:none;
         } 
         #publicar {
-            display:flex;
-            justify-content: space-evenly;
             position: absolute;
             top: 10%;
             background-color: white;
-            border: 1.5px solid #b89a03;
             margin: 0;
             width: 100vw;
-            align-items: center;
+            height: 10%;
+            border: none;
         }
         #usuarioPublicar{
-            width: 13%;
+            width: 11%;
+            position: relative;
+            left: 3%;
+            top:28%;
         }
         #btnPublicar{
+            position: absolute;
+            left: 18%;
+            top: 26%;
             width: 75%;
+            height: 50%;
             background-color: white;
             border: #EBC920 1.5px solid;
-            border-radius: 12px;
+            border-radius: 8px;
             color: gray;
             font-weight: bold;
             text-align: left;
-            position: relative;
-            right:1%;
         }
         #contenedorPerfil{
             width: 25%;
@@ -726,87 +792,134 @@
             bottom: 5%;
         }
         form{
-            position: absolute;
-            top:10%;
-            left:5%;
-            width: 90%;
-            height: 70%;
+            position: fixed;
+            top:3.6%;
+            left:0%;
+            width: 25%;
+            height: 500px;
             background-color: white;
-            height: 700px;
-            border: #EBC920 1.5px solid;
-            border-radius: 5px;
-            display: flex;
-            flex-wrap: wrap;
-            align-content:space-around;
-            visibility: hidden; 
-            transition: 1s;
-            z-index: 1000;
-            transform: TranslateY(0%);
-        }
-        #cerrarModal{
-            width: 10%;
-            margin-left: 85%;
-            text-size-adjust:calc(40px);
-            border: none;
-            border-radius: 60px;
-        }
-        form #inputReceta{
-           width: 80%;
-           height: 2%;
-           margin-left: 10%;
-        }
-        #inputIngredientes{
-           width: 80%;
-           height: 10%;
-           margin-left: 10%;
+            border: #EBC920 1px solid;
+            border-radius: 10px;
+            z-index:1000;
+            visibility: hidden;
+            padding: 2%;
     
         }
-        #inputProcedimiento{
-           width: 80%;
-           height: 20%;
-           margin-left: 10%;
+        label{
+            font-size: 12px;
         }
-        form label{
-           width: 100%;
-           height: 5%;
-           margin-left: 10%;
-        }
-        #selectCategoria{
-           width: 80%;
-           height: 5%;
-           margin-left: 10%;
-        }
-        #btnPostear{
-            width: 30%;
+        #cerrarModal{
+            width: 5%;
             height: 5%;
-            background-color:black;
-            border: #EBC920 1.5px solid;
-            border-radius: 12px;
-            color: white;
-            font-weight: bold;
-            text-align: left;
+            padding: 1%;
+            background: none;
+            border:none;
+            position: absolute;
+            top: 1%;
+            left: 92%;
             cursor: pointer;
-            text-align: center;
+           
+        }
+        #labelReceta{
+            position: absolute;
+            top:7%;
+            left: 11%;
+    
+        }
+        #inputReceta{
+            width: 45%;
+            height: 1%;
+            position:absolute;
+            top:10%;
+            left: 10%;
+        }
+        #labelIngredientes{
+            position: absolute;
+            top:18%;
+            left: 11%;
+        }
+        #inputIngredientes{
+           width: 79%;
+           height: 5%;
+           position: absolute;
+           top:21%;
+           left: 10%;
+           border: 1.5px solid #EBC920;
+           border-radius: 5px;
+           padding: 2%;
+          
+        
+        }
+        #labelProcedimiento{
+            position: absolute;
+            top:34%;
+            left: 11%;
+        }
+        #inputProcedimiento{
+            width: 79%;
+            height: 15%;
+            position: absolute;
+            top:37%;
+            left: 10%;
+            border: 1.5px solid #EBC920;
+           border-radius: 5px;
+           padding: 2%;
+        }
+        #labelCategoria{
+            position:absolute;
+            top:7%;
+            left: 66%;
         }
         #selectCategoria{
             width: 15%;
-            height: 5%;
+            height: 6%;
+            position:absolute;
+            top:10%;
+            left: 65%;
+            border: 1.5px solid #EBC920;
+            border-radius: 5px;
+        
         }
-        #postPublicado{
-            width: 100%;
-            background-color: white;
+        textarea:focus, select:focus {
+            outline: none; 
+            border: 3px solid #EBC920;
+          }
+         #btnPostear{
+            width: 12%;
+            height: 4%;
+            background-color:black;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px 1px rgba(56, 55, 55, 0.527);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
             position: absolute;
-            top: 20%;
+            top:60%;
+            left: 80%;
+            border:none;
+         }
+            #postPublicado{
+            width: 107%;
+            display: flex;
+            flex-wrap: wrap;
+            background:white;
+            position: absolute;
+            top: 22.5%;
         }
         .post{
-           background-color: white;
-           width: 100%;
-           padding: 1%;
-           border: #EBC920 1.5px solid;
-           position: relative;
-           top:50%;
-         
-        }
+        background-color: white;
+        width: 100vw;
+        padding: 1%;
+        border: #EBC920 1.5px solid;
+        border-radius: 5px;
+        margin: 1.5%;
+        position: relative;
+        top:50%;
+        left:.3%;
+        box-shadow: 2px 2px 2px 2px rgba(56, 55, 55, 0.212);
+       
+    }    
         .borrarPost{
             position: absolute;
             left: 70%;
