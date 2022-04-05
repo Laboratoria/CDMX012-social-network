@@ -1,7 +1,6 @@
 import { onNavigate } from "../main.js";
 
-import { registeNewUsers } from "../lib/auth.js";
-import { saveUserData } from "../lib/firestore.js";
+import { registerNewUsers } from "../lib/auth.js";
 
 export const register = () => {
   const contentSectionRegister = document.createElement("section");
@@ -30,11 +29,9 @@ export const register = () => {
 
   //////////////// info usuario
 
-  
   const registerInputSection = document.createElement("section");
   registerInputSection.setAttribute("class", "input_section");
 
-  
   const inputName = document.createElement("input");
   inputName.setAttribute("type", "text");
   let nameUser = "name-user";
@@ -67,13 +64,9 @@ export const register = () => {
   buttonRegister.addEventListener("click", () => {
     let userMail = document.getElementById("email_register").value;
     let userPass = document.getElementById("pasword_register").value;
-
-    registeNewUsers(userMail, userPass);
-  });
-  buttonRegister.addEventListener("click", () => {
     let userName = document.getElementById("name-user").value;
-    saveUserData(userName);
-    console.log(userName);
+
+    registerNewUsers(userMail, userPass, userName);
   });
 
   registerInputSection.append(
@@ -81,21 +74,21 @@ export const register = () => {
     inputMail,
     inputPasword,
     textCondicions,
-    buttonRegister);
-
+    buttonRegister
+  );
 
   const footerPage = document.createElement("footer");
 
   footerPage.textContent = "Derechos Reservados 2022 ©️";
 
-
-  registerSection.append(registerClose,
+  registerSection.append(
+    registerClose,
     imgLogo,
     textCreate,
     registerInputSection
   );
 
-  contentSectionRegister.append(registerSection, );
+  contentSectionRegister.append(registerSection);
 
   return contentSectionRegister;
 };

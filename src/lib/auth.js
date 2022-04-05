@@ -14,18 +14,25 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
+  updateProfile,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { onNavigate } from "../main.js";
 import { firebaseConfig } from "./firebase-config.js";
 
 export const auth = getAuth(app);
 
-export function registeNewUsers(emailRegister, paswordRegister) {
+export function registerNewUsers(emailRegister, paswordRegister, displayName) {
   // let usuarioVerificado = {};
 
   createUserWithEmailAndPassword(auth, emailRegister, paswordRegister)
     .then((userCredential) => {
-      onNavigate("/Timeline");
+      updateProfile(auth.currentUser, {
+        displayName,
+        photoURL: "https://random.imagecdn.app/300/300",
+        //"https://firebasestorage.googleapis.com/v0/b/socialnetwork-12be0.appspot.com/o/users%2FprofilePictures%2FElNelsonRifa%2F6381522.png?alt=media&token=c39a9f25-2b29-4975-ace7-7cd08aefdcc3",
+      }).then(() => {
+        onNavigate("/Timeline");
+      });
     })
     .catch((error) => {
       const errorCode = error.code;
