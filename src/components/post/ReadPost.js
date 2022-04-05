@@ -22,26 +22,11 @@ const ReadPost = () => {
 
         const imgUser = document.createElement("img");
         imgUser.setAttribute("class", "user-img");
-        imgUser.setAttribute(
-          "src",
-          post.data().photo
-        );
+        imgUser.setAttribute("src", post.data().photo);
 
         const headerPost = document.createElement("section");
         headerPost.setAttribute("class", "header-post");
 
-        // const n = query(collection(db, "nameUser"));
-        // const names = onSnapshot(n, (names) => {
-        //   names.forEach((user) => {
-        //     if (names.data().userName) {
-        //       // doc.data() is never undefined for query doc snapshots
-        //       console.log(user.id, " => ", user.data());
-        //       let nikName = user.data().userName;
-        //       console.log(nikName);
-        //       return nikName;
-        //     }
-        //   });
-        // });
         const nameDescription = document.createElement("h2");
         nameDescription.setAttribute("class", "name-user");
         nameDescription.textContent =
