@@ -62,6 +62,20 @@
     .invalidInput{
         border-color: rgb(231, 130, 48);
     }
+    .invalidMessage{
+        color: red;
+        font-size: 11px;
+        margin-right: auto;
+    }
+    .displayNone{
+        display: none;
+    }
+    .containerPassCSS{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
     .register:focus{
         outline: none;
         border: 3px solid #3734CE;
@@ -96,9 +110,8 @@
         font-family: 'Roboto', sans-serif;   
     }
     #maskify{
-    position: relative;
-    left:120px;
-    top: -160px;
+        position: absolute;
+        right: 8px;
     }
     #imgMaskify{
     position: relative;
