@@ -63,6 +63,20 @@
 .invalidInput{
     border-color: rgb(231, 130, 48);
 }
+.invalidMessage{
+    color: red;
+    font-size: 11px;
+    margin-right: auto;
+}
+.displayNone{
+    display: none;
+}
+.containerPassCSS{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .registerText{
     text-align: center; 
 }
@@ -86,10 +100,9 @@
 }
 
 #maskify{
-    position: relative;
-    left:120px;
-    top: -142px;
-    }
+    position: absolute;
+    right: 8px;
+}
 #imgMaskify{
     position: relative;
     top: -153px;
