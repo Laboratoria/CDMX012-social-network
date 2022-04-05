@@ -1,10 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* ------ AQUI VAN ELEMENTOS PARA CREAR POST------ */
-// import { onNavigate } from '../main.js';
-// eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
 import { userInfo } from '../lib/firebase-users.js';
-// import { savePost } from '../lib/firebase-posts.js';
+import { savePost, getPost } from '../lib/firebase-posts.js';
 import { logOut } from '../lib/firebase-auth.js';
 
 export const home = () => {
@@ -43,14 +40,12 @@ export const home = () => {
   const submitPost = document.createElement('button');
   submitPost.id = 'submitPost';
   submitPost.className = 'submitPost';
-
-  // submitPost.addEventListener ('submit', () => {
-
-  //   savePost (username.value , post.value )});
-  // st';
-  //   submitPost.textContent = 'Post';
-
-  // list of posts
+  submitPost.textContent = 'Post';
+  submitPost.addEventListener('click', () => {
+    const post = document.getElementById('postText').value;
+    savePost(post);
+    getPost();
+  });
 
   // Footer
   const footerMeet = document.createElement('footer');
@@ -59,9 +54,7 @@ export const home = () => {
   signOutButton.className = 'submitPost';
   signOutButton.textContent = 'Sign Out';
   signOutButton.addEventListener('click', () => {
-    logOut().then(() => {
-      onNavigate('/');
-    });
+    logOut();
   });
 
   // appends
