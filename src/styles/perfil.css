@@ -1,0 +1,12 @@
+.upload_image_section{
+background-color: violet ;
+width: 5rem;
+height: 5rem;
+border-radius: 20px;
+}
+
+input[type="file"]{
+position: absolute;
+top: -9999px;
+left: -9999px;
+}

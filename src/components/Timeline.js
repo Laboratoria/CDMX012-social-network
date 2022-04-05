@@ -1,5 +1,5 @@
 // import { createPost } from "../lib/firestore.js";
-import { singOut } from "../lib/auth.js";
+// import { singOut } from "../lib/auth.js";
 import { onNavigate } from "../main.js";
 import { savePost } from "../lib/firestore.js";
 import ReadPost from "./post/ReadPost.js";
@@ -31,15 +31,15 @@ export const timeline = () => {
   });
 
 
-  const headerSingOut = document.createElement("p");
-  headerSingOut.setAttribute("type", "text");
-  headerSingOut.setAttribute("class", "sing-out");
-  headerSingOut.textContent = "Cerrar Sesión";
-  headerSingOut.addEventListener("click", () => {
-    singOut();
-  });
+  // const headerSingOut = document.createElement("p");
+  // headerSingOut.setAttribute("type", "text");
+  // headerSingOut.setAttribute("class", "sing-out");
+  // headerSingOut.textContent = "Cerrar Sesión";
+  // headerSingOut.addEventListener("click", () => {
+  //   singOut();
+  // });
 
-  TimelineHeader.append(headerLogo,menuNav, headerSingOut,); ////////
+  TimelineHeader.append(headerLogo,menuNav,); ////////
 
   const postContent = document.createElement("section");
   postContent.setAttribute("id", "postContent");
@@ -75,14 +75,14 @@ export const timeline = () => {
 
   postContent.append(post, buttonToPost);
 
-  const returnIndex = document.createElement("button");
-  returnIndex.textContent = "Regresa al inicio";
-  returnIndex.setAttribute("id", "return_index");
-  returnIndex.addEventListener("click", () => onNavigate("/"));
-  returnIndex.setAttribute("class", "button");
-  returnIndex.setAttribute("type", "button");
+  // const returnIndex = document.createElement("button");
+  // returnIndex.textContent = "Regresa al inicio";
+  // returnIndex.setAttribute("id", "return_index");
+  // returnIndex.addEventListener("click", () => onNavigate("/"));
+  // returnIndex.setAttribute("class", "button");
+  // returnIndex.setAttribute("type", "button");
 
   content.appendChild(contentTimeline);
-  contentTimeline.append(TimelineHeader, postContent, getPosts, returnIndex);
+  contentTimeline.append(TimelineHeader, postContent, getPosts, );
   return content;
 };

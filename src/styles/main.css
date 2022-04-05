@@ -12,3 +12,4 @@ body {
   justify-content: center; 
 }
 
+::placeholder { color: rgb(66, 66, 66); }

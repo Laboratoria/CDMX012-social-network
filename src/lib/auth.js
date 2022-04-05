@@ -25,7 +25,7 @@ export function registeNewUsers(emailRegister, paswordRegister) {
 
   createUserWithEmailAndPassword(auth, emailRegister, paswordRegister)
     .then((userCredential) => {
-      onNavigate("/Timeline");
+      onNavigate("/Profile");
     })
     .catch((error) => {
       const errorCode = error.code;

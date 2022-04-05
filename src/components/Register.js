@@ -73,15 +73,29 @@ export const register = () => {
   buttonRegister.addEventListener("click", () => {
     let userName = document.getElementById("name-user").value;
     saveUserData(userName);
-    console.log(userName);
+
   });
+
+
+
+      const profileRedirect = document.createElement("img");
+      profileRedirect.setAttribute("src", "../Resourses/icons/huella_like.png");
+      profileRedirect.setAttribute("class", "register_redirect");
+      profileRedirect.addEventListener("click", () => {
+        onNavigate("/Profile");
+      });
+
+
 
   registerInputSection.append(
     inputName,
     inputMail,
     inputPasword,
     textCondicions,
-    buttonRegister);
+    buttonRegister,
+    
+    profileRedirect
+    );
 
 
   const footerPage = document.createElement("footer");
