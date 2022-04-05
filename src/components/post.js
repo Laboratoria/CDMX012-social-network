@@ -38,7 +38,7 @@ export function renderPost(doc) {
 
   const likes = document.createElement('p');
   likes.setAttribute('id', 'likes');
-  // likes.textContent = doc.data().likes;
+  likes.textContent = doc.data().likes;
   likes.hidden = true;
 
   const commentInput = document.createElement('input');

@@ -122,7 +122,7 @@ export const register = () => {
     }
 
     if (userMail !== '' && userName !== '' && userPassword !== '' && userArea !== '') {
-      createUserRed(userMail, userPassword);
+      createUserRed(userMail, userPassword, userName);
       saveForm(userName, userArea, userMail);
     } else {
       if (userMail === '') document.getElementById('mail').classList.add('invalidInput');
