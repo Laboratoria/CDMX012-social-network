@@ -325,6 +325,9 @@ font-size:0.8rem;
 max-width: 50px;
 border-radius: 50px;
 }
+.hideDots {
+    display: none;
+}
     
 /* #commentInput{
     display: flex;
