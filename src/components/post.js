@@ -1,4 +1,6 @@
 // eslint-disable-next-line import/no-cycle
+import { deletePost } from './FireStore.js';
+
 export function renderPost(doc) {
   const sectionPost = document.createElement('div');
   sectionPost.setAttribute('class', 'sectionPost');
@@ -66,6 +68,13 @@ export function renderPost(doc) {
     } else {
       likes.style.display = 'none';
     }
+  });
+  const idPost = doc.id;
+  const userVerify = doc.data().UserUID;
+  // console.log(userVerify);
+
+  dots.addEventListener('click', () => {
+    deletePost(idPost, userVerify);
   });
 
   const wall = document.getElementById('postFeed');

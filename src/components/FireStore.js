@@ -5,6 +5,8 @@ import {
   addDoc,
   getDocs,
   onSnapshot,
+  doc,
+  deleteDoc,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { renderPost } from './post.js';
@@ -52,7 +54,18 @@ export async function readData() {
     console.log(doc.data());
   });
 }
-
+export const deletePost = (idPost, userVerify) => {
+  const auth = getAuth();
+  const users = auth.currentUser;
+  const docRef = doc(db, 'Newposts', idPost);
+  if (users) {
+    const UID = users.uid;
+    if (UID === userVerify) {
+      deleteDoc(docRef);
+      console.log('Si se borro');
+    }
+  }
+};
 // export async function readUser() {
 //   const querySnapshot = await getDocs(collection(db, 'userData'));
 //   querySnapshot.forEach((doc) => {
