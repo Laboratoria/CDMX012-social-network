@@ -6,8 +6,7 @@ import {
   limit,
   getDocs,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-import { db } from "../../lib/firestore.js";
-
+import { db, deletePost } from "../../lib/firestore.js";
 const ReadPost = () => {
   const sectionPost = document.createElement("section");
   // aqui on snapshot
@@ -25,7 +24,7 @@ const ReadPost = () => {
         imgUser.setAttribute("class", "user-img");
         imgUser.setAttribute(
           "src",
-          post.data().photo || "https://random.imagecdn.app/300/300"
+          post.data().photo
         );
 
         const headerPost = document.createElement("section");
@@ -70,6 +69,11 @@ const ReadPost = () => {
         const deleteComent = document.createElement("img", "delet-coment");
         deleteComent.setAttribute("class", "delete");
         deleteComent.setAttribute("src", "./Resourses/icons/delete_post.png");
+        deleteComent.setAttribute("data-id", post.id);
+        deleteComent.addEventListener("click", ({ target: { dataset } }) => {
+          console.log("se borra el post");
+          deletePost(dataset.id);
+        });
 
         const edit = document.createElement("img", "edit-coment");
         edit.setAttribute("class", "edit");
