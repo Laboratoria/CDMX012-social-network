@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { deletePost, editDoc } from './FireStore.js';
+import { countLikes, deletePost, editDoc } from './FireStore.js';
 import { getAuth } from '../lib/firebaseFunctions.js';
 
 export function renderPost(doc) {
@@ -52,7 +52,6 @@ export function renderPost(doc) {
   const likes = document.createElement('p');
   likes.setAttribute('id', 'likes');
   likes.textContent = doc.data().likes;
-  likes.hidden = true;
 
   const commentInput = document.createElement('input');
   commentInput.setAttribute('id', 'commentInput');
@@ -71,16 +70,13 @@ export function renderPost(doc) {
       commentInput.style.display = 'none';
     }
   });
-
-  likeIcon.addEventListener('click', () => {
-    if (likes.style.display === 'none') {
-      likes.style.display = 'block';
-      // cuentaLikes(auth)
-    } else {
-      likes.style.display = 'none';
-    }
-  });
+  let totalLikes = 0;
   const idPost = doc.id;
+  likeIcon.addEventListener('click', () => {
+    // porque suma 1, max 2 y luego regresa a 1
+    totalLikes += 1;
+    countLikes(totalLikes, idPost);
+  });
   // console.log(userVerify);
 
   deletePostButton.addEventListener('click', () => {

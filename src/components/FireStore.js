@@ -79,24 +79,9 @@ export const editDoc = (editedInput, idPost) => {
     post: editedInput,
   });
 };
-// export async function readUser() {
-//   const querySnapshot = await getDocs(collection(db, 'userData'));
-//   querySnapshot.forEach((doc) => {
-//     // rednerPost es la funcion para darle el estilo al post y asignar los datos obtenidos
-//     // del input del post para visualizarlos en el feed
-//     renderPost(doc);
-//     console.log(doc.data().Name);
-//   });
-// }
-// readUser();
-// export function deletePost(id) {
-//   deleteDoc(collection(db, 'Newposts').doc(id));
-// }
-// real time
-// export function update() {
-//   const unsub = onSnapshot(collection(db, 'Newposts'), (doc) => {
-//     console.log(doc.data);
-//   });
-//   return unsub;
-// }
-// update();
+export const countLikes = (addLike, idPost) => {
+  const docRef = doc(db, 'Newposts', idPost);
+  updateDoc(docRef, {
+    likes: addLike,
+  });
+};

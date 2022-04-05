@@ -38,7 +38,7 @@ export const newPost = () => {
     const currentHour = datePost.getHours();
     const currentMin = datePost.getMinutes();
     const dateString = currentHour + ':' + currentMin + '-' + currentDayOfMonth + '-' + (currentMonth + 1) + '-' + currentYear;
-    const likeCount = 0;
+    const likeCount = [];
     if (textPost !== '') {
       savePost(textPost, dateString, likeCount);
       document.getElementById('inputPost').value = '';
