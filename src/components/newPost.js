@@ -36,9 +36,10 @@ export const newPost = () => {
     const currentMonth = datePost.getMonth(); // Be careful! January is 0, not 1
     const currentYear = datePost.getFullYear();
     const dateString = currentDayOfMonth + '-' + (currentMonth + 1) + '-' + currentYear;
+    const likeCount = 0;
     if (textPost !== '') {
-      savePost(textPost, dateString);
-      console.log(textPost, dateString);
+      savePost(textPost, dateString, likeCount);
+      console.log(textPost, dateString, likeCount);
     } else {
       alert('Tu post esta vacío!');
     }

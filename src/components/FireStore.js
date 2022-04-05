@@ -19,7 +19,7 @@ export const saveForm = (userName, area, userMail) => {
 
   });
 };
-export const savePost = (textPost, datePost) => {
+export const savePost = (textPost, datePost, likeCount) => {
   const auth = getAuth();
   const users = auth.currentUser;
   if (users) {
@@ -36,6 +36,7 @@ export const savePost = (textPost, datePost) => {
       Email: email,
       UserUID: UID,
       pp: picture,
+      likes: likeCount,
       // comment,
     });
   }
@@ -52,6 +53,16 @@ export async function readData() {
   });
 }
 
+// export async function readUser() {
+//   const querySnapshot = await getDocs(collection(db, 'userData'));
+//   querySnapshot.forEach((doc) => {
+//     // rednerPost es la funcion para darle el estilo al post y asignar los datos obtenidos
+//     // del input del post para visualizarlos en el feed
+//     renderPost(doc);
+//     console.log(doc.data().Name);
+//   });
+// }
+// readUser();
 // export function deletePost(id) {
 //   deleteDoc(collection(db, 'Newposts').doc(id));
 // }
