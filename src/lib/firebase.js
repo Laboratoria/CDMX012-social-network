@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  updateProfile,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 // viene desde una CDN y no de lib
@@ -15,7 +16,7 @@ import {
 import { onNavigate } from '../main.js';
 
 // Funcion para crear usuario con correo electronico
-export const createUserRed = (email, password) => {
+export const createUserRed = (email, password, name) => {
   const auth = getAuth(); // clave para au
   createUserWithEmailAndPassword(auth, email, password) // Crea el usuario
     .then((userCredential) => {
@@ -24,6 +25,11 @@ export const createUserRed = (email, password) => {
       console.log('¡Registro Exitoso!');
       alert('registrado');
       onNavigate('/login');
+    })
+    .then((user) => {
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
     })
     .catch((error) => {
       const errorCode = error.code;

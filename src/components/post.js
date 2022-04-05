@@ -1,4 +1,6 @@
 // eslint-disable-next-line import/no-cycle
+import { deletePost } from './FireStore.js';
+
 export function renderPost(doc) {
   const sectionPost = document.createElement('div');
   sectionPost.setAttribute('class', 'sectionPost');
@@ -12,7 +14,7 @@ export function renderPost(doc) {
 
   const profileName = document.createElement('label');
   profileName.setAttribute('class', 'profileName');
-  profileName.textContent = doc.data().Name || 'Usuaria';
+  profileName.textContent = doc.data().Name || doc.data().Name;
 
   const dots = document.createElement('img');
   dots.setAttribute('src', 'img/dots.png');
@@ -38,8 +40,8 @@ export function renderPost(doc) {
 
   const likes = document.createElement('p');
   likes.setAttribute('id', 'likes');
+  likes.textContent = doc.data().likes;
   likes.hidden = true;
-  likes.textContent = '1';
 
   const commentInput = document.createElement('input');
   commentInput.setAttribute('id', 'commentInput');
@@ -53,6 +55,7 @@ export function renderPost(doc) {
   commentIcon.addEventListener('click', () => {
     if (commentInput.style.display === 'none') {
       commentInput.style.display = 'block';
+      // llamar a la función que ejecuta los likes (editando el documento)
     } else {
       commentInput.style.display = 'none';
     }
@@ -61,9 +64,17 @@ export function renderPost(doc) {
   likeIcon.addEventListener('click', () => {
     if (likes.style.display === 'none') {
       likes.style.display = 'block';
+      // cuentaLikes(auth)
     } else {
       likes.style.display = 'none';
     }
+  });
+  const idPost = doc.id;
+  const userVerify = doc.data().UserUID;
+  // console.log(userVerify);
+
+  dots.addEventListener('click', () => {
+    deletePost(idPost, userVerify);
   });
 
   const wall = document.getElementById('postFeed');
