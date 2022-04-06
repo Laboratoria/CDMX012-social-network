@@ -24,7 +24,7 @@ const ReadPost = () => {
         imgUser.setAttribute("class", "user-img");
         imgUser.setAttribute(
           "src",
-          post.data().photo || "https://random.imagecdn.app/300/300"
+          post.data().photo
         );
 
         const headerPost = document.createElement("section");

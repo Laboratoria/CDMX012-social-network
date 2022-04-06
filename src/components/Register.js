@@ -1,7 +1,6 @@
 import { onNavigate } from "../main.js";
 import { registerNewUsers } from "../lib/auth.js";
 
-
 export const register = () => {
   const contentSectionRegister = document.createElement("section");
   contentSectionRegister.setAttribute("class", "background_Content");
@@ -67,6 +66,7 @@ export const register = () => {
     let userName = document.getElementById("name-user").value;
 
     registerNewUsers(userMail, userPass, userName);
+
   });
 
   const profileRedirect = document.createElement("img");
@@ -82,7 +82,6 @@ export const register = () => {
     inputPasword,
     textCondicions,
     buttonRegister,
-
     profileRedirect
   );
 
