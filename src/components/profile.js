@@ -58,5 +58,10 @@ export const profile = () => {
 
   profileContainer.append(prifileSection);
 
+
+
+
+  profileContainer.append(prifileSection);
+
   return profileContainer;
 };

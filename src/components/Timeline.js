@@ -69,7 +69,14 @@ export const timeline = () => {
 
 
   const getPosts = document.createElement("div");
+  getPosts.setAttribute("id", "posts_container");
   getPosts.appendChild(ReadPost());
+ 
+
+
+
+
+
 
   buttonToPost.setAttribute("class", "to-post");
 

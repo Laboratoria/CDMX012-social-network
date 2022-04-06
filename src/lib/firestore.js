@@ -3,8 +3,14 @@ import {
   getFirestore,
   collection,
   addDoc,
+  doc,
+  deleteDoc,
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+import {
+  getAuth,
+  updateProfile,
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { firebaseConfig } from "./firebase-config.js";
 
 const app = initializeApp(firebaseConfig);
@@ -36,59 +42,27 @@ export let savePost = (post, date) => {
   }
 };
 
-export let saveUserData = (name) => {
-  console.log("Guardando datos");
-  return addDoc(collection(db, "user"), {
-    name,
-  });
-};
-//photo, personName, post,, like
-// export const dataCall = (callBackFunction) => {
-//   getDocs(collection(db, 'newColection')).then((snapshot) => {
-//     callBackFunction(snapshot.docs);
-//   });
-// };
+// const doUser = db.collection('user').doc(user.uid);
 
-const getPosts = () => console.log("hola");
-
-// try {
-//   const docRef = await addDoc(collection(db, "users"), {
-//     first: "Ada",
-//     last: "Lovelace",
-//     born: 1815,
-//   });
-//   console.log("Document written with ID: ",  docRef.id);
-// } catch (e) {
-//   console.error("Error adding document: ", e);
-// }
-
-// try {
-//   const docRef = await addDoc(collection(db, "users"), {
-//     first: "Alan",
-//     middle: "Mathison",
-//     last: "Turing",
-//     born: 1912,
-//   });
-
-//   console.log("Document written with ID: ", docRef.id);
-// } catch (e) {
-//   console.error("Error adding document: ", e);
-// }
-
-// try {
-//   const docRef = await addDoc(collection(db, "users"), {
-//     first: "Alan",
-//     middle: "Mathison",
-//     last: "Turing",
-//     born: 1912,
-//   });
-
-//   console.log("Document written with ID: ", docRef.id);
-// } catch (e) {
-//   console.error("Error adding document: ", e);
-// }
-
-// const querySnapshot = await getDocs(collection(db, "users"));
-// querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${doc.data()}`);
+// updateProfile(auth.currentUser, {
+//   displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+// }).then(() => {
+//   // Profile updated!
+//   // ...
+// }).catch((error) => {
+//   // An error occurred
+//   // ...
 // });
+
+export const deletePost = (id) => {
+  alert("Este post será eliminado");
+  deleteDoc(doc(db, "post", id));
+};
+
+export const updatePost = (id, updatedPost) =>
+ updateDoc(doc(db, 'posts', id), updatedPost)
+ 
+
+ export async function getPost(id) {
+  return getDoc(doc(db, 'posts', id));
+}
