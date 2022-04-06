@@ -1,144 +1,164 @@
-@media screen and (min-width: 844px){
+@media screen and (min-width: 844px) {
     body {
         display: flex;
         justify-content: center;
     }
-    .containerStart{
-        display:flex;
+
+    .containerStart {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        border:3px solid #6462D9;
+        border: 3px solid #6462D9;
         width: 300px;
         padding: 10px;
-        border-radius:20px;
+        border-radius: 20px;
         row-gap: 5px;
         margin-top: 30%;
-       
+
     }
-    .welcomeText{
+
+    .welcomeText {
         text-align: center;
-        }
-    .logo{
+    }
+
+    .logo {
         max-width: 50%;
     }
-    
-    .containerButtons{
-        Display:flex;
+
+    .containerButtons {
+        Display: flex;
         flex-direction: column;
         row-gap: 10px;
         align-items: center;
         top: 15rem;
 
     }
-    
+
     .button {
-     /* display:flex; */
-     background-color: #6462D9;
-     color:#ffff;
-     border: 3px solid #3734CE;
-     font-size: 1rem;
-     width: auto;
-     min-width: 6rem;
-     padding:10px 25px 10px 25px;
-     text-align: center;
-     border-radius: 35px;
-     text-decoration: none;
+        /* display:flex; */
+        background-color: #6462D9;
+        color: #ffff;
+        border: 3px solid #3734CE;
+        font-size: 1rem;
+        width: auto;
+        min-width: 6rem;
+        padding: 10px 25px 10px 25px;
+        text-align: center;
+        border-radius: 35px;
+        text-decoration: none;
     }
-    .githubGoogleButtons{
+
+    .githubGoogleButtons {
         display: flex;
         row-gap: 6px;
         flex-direction: column;
         min-width: 6rem;
     }
-    .register{
+
+    .register {
         border-radius: 6px;
         width: 280px;
-        height:35px;
+        height: 35px;
         border: 2px solid #a4a3dd;
         font-size: .8rem;
         caret-color: #3734CE;
         padding: 0px 5px 0px 5px;
     }
-    .invalidInput{
+
+    .invalidInput {
         border-color: rgb(231, 130, 48);
     }
-    .invalidMessage{
+
+    .invalidMessage {
         color: red;
         font-size: 11px;
         margin-right: auto;
     }
-    .displayNone{
+
+    .displayNone {
         display: none;
     }
-    .containerPassCSS{
+
+    .containerPassCSS {
         position: relative;
         display: flex;
         flex-direction: row;
         align-items: center;
     }
-    .register:focus{
+
+    .register:focus {
         outline: none;
         border: 3px solid #3734CE;
     }
-    .register:focus-visible{
+
+    .register:focus-visible {
         outline-offset: 0px;
     }
-    .registerText{
-        text-align: center; 
+
+    .registerText {
+        text-align: center;
     }
-    .registerButton{
+
+    .registerButton {
         background-color: #AE69BF;
-        color:#ffff;
+        color: #ffff;
         font-size: .8rem;
-         width: 135px;
+        width: 135px;
         padding: 10px 15px 10px 15px;
         text-align: center;
         border-radius: 35px;
         text-decoration: none;
     }
-    .containerRegister{
+
+    .containerRegister {
         margin-top: 10%;
-        display:flex;
+        display: flex;
         flex-direction: column;
         align-items: center;
         padding: 10px;
-        border-radius:10px;
+        border-radius: 10px;
         row-gap: 3px;
-        border:3px solid #6462D9;
+        border: 3px solid #6462D9;
         width: 400px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.199), 0 8px 16px rgba(0, 0, 0, 0.342);
-        font-family: 'Roboto', sans-serif;   
+        font-family: 'Roboto', sans-serif;
     }
-    #maskify{
+
+    #maskify {
         position: absolute;
         right: 8px;
     }
-    #imgMaskify{
-    position: relative;
-    top: -163px;
-    left: 125px;
+
+    #imgMaskify {
+        position: relative;
+        top: -163px;
+        left: 125px;
     }
-    .containerLogin{
+
+    .containerLogin {
         margin-top: 25%;
-        display:flex;
+        display: flex;
         flex-direction: column;
         align-items: center;
         padding: 10px;
-        border-radius:20px;
+        border-radius: 20px;
         row-gap: 5px;
-        border:3px solid #6462D9;
+        border: 3px solid #6462D9;
         width: 300px;
     }
-    .containerInputR{
+
+    .containerInputR {
         display: flex;
         flex-direction: column;
         row-gap: 16px;
         align-items: center;
     }
-    .arrowBack{
-        display:none;
+
+    .arrowBack {
+        display: none;
     }
    
+
 /*FEED */
 /*Vista feed */
     #navMobile{
@@ -249,8 +269,33 @@
     text-align: center;
 }
 
-/* POST TEMPLATE */
-/* 
+   #createPost {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5%;
+        width: 40vw;
+        row-gap: 10px;
+        padding-bottom: 1%;
+    }
+    #createPostModal {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5%;
+        width: 40vw;
+        row-gap: 10px;
+        padding-bottom: 1%;
+    }
+
+    #logoFeed {
+        height: 60px;
+        width: 60px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+
+
+    /* POST TEMPLATE */
+    /* 
 #divPost{
    display: flex;
    flex-direction: column;
@@ -333,6 +378,55 @@
         padding-left: 4%;
        
     }
+  
+    #inputPostModal {
+        width: 80%;
+        margin-left: 5%;
+        height: auto;
+        word-wrap: break-word;
+    
+    }
+    
+   
+    /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 }
 
 

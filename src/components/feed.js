@@ -3,6 +3,7 @@ import { readData } from './FireStore.js';
 import { newPost } from './newPost.js';
 // eslint-disable-next-line import/no-cycle
 import { navegations } from './navegation.js';
+// import { navegations, postModal } from './navegation.js';
 // eslint-disable-next-line import/no-cycle
 import { signOutSession } from '../lib/firebase.js';
 
