@@ -4,13 +4,15 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 import { userInfo } from '../lib/firebase-users.js';
-// import { savePost } from '../lib/firebase-posts.js';
+// import { orderBy, query, onSnapshot } from '../lib/firebase-imports.js';
 import { logOut } from '../lib/firebase-auth.js';
+import { savePost, getPost } from '../lib/firebase-posts.js';
 
 export const home = () => {
   window.addEventListener('DOMContentLoaded', () => {
     console.log('works');
   });
+
   // Header section
   const newsFeedSection = document.createElement('section');
   newsFeedSection.className = 'screenNews';
@@ -43,14 +45,20 @@ export const home = () => {
   const submitPost = document.createElement('button');
   submitPost.id = 'submitPost';
   submitPost.className = 'submitPost';
-
-  // submitPost.addEventListener ('submit', () => {
-
-  //   savePost (username.value , post.value )});
-  // st';
-  //   submitPost.textContent = 'Post';
+  submitPost.textContent = 'Post';
+  submitPost.addEventListener('click', () => {
+    const post = document.getElementById('postText').value;
+    const datePost = new Date();
+    savePost(post, datePost).then(() => {
+      getPost(post).then(() => {
+        postText.value = '';
+      });
+    });
+  });
 
   // list of posts
+  const postNews = document.createElement('section');
+  postNews.id = 'sectionContainerPost';
 
   // Footer
   const footerMeet = document.createElement('footer');

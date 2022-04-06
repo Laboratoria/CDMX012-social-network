@@ -42,7 +42,3 @@ window.onpopstate = () => {
 const component = routes[window.location.pathname];
 
 rootDiv.appendChild(component());
-
-// window.addEventListener('DOMContentLoaded', () => {
-
-// });

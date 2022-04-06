@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 /* eslint-disable no-console */
 /* eslint-disable object-curly-newline */
 /* eslint-disable import/no-cycle */
@@ -5,7 +6,13 @@
 /* eslint-disable import/no-unresolved */
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import { initializeApp, getAuth } from './firebase-imports.js';
+import { initializeApp,
+  getAuth,
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+} from './firebase-imports.js';
 
 // Your web app's Firebase configuration
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,5 +29,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const db = getFirestore(app);
