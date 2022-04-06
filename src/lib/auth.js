@@ -87,7 +87,7 @@ export const loginWithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
       console.log("no esta ingresando gmail");
-      alert(errorCode || errorMessage || email|| credential);
+      alert(errorCode || errorMessage || email || credential);
     });
 };
 

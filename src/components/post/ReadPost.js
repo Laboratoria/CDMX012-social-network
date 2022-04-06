@@ -29,8 +29,7 @@ const ReadPost = () => {
 
         const nameDescription = document.createElement("h2");
         nameDescription.setAttribute("class", "name-user");
-        nameDescription.textContent =
-          post.data().displayName || post.data().userName;
+        nameDescription.textContent = post.data().displayName;
 
         const postDate = document.createElement("p");
         postDate.textContent = getDate(post.data().date);
