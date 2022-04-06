@@ -3,9 +3,10 @@ import {
   getFirestore,
   collection,
   addDoc,
+  setDoc,
   doc,
   deleteDoc,
-  updateDoc
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 import {
   getAuth,
@@ -59,10 +60,10 @@ export const deletePost = (id) => {
   deleteDoc(doc(db, "post", id));
 };
 
-export const updatePost = (id, updatedPost) =>
- updateDoc(doc(db, 'posts', id), updatedPost)
- 
-
- export async function getPost(id) {
-  return getDoc(doc(db, 'posts', id));
+export async function editPost(id, editImput, date) {
+  const postRef = doc(db, "post", id);
+  await updateDoc(postRef, {
+    post: editImput,
+    date: new Date(),
+  });
 }

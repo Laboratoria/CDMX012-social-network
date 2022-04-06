@@ -4,11 +4,8 @@ import {
   orderBy,
   onSnapshot,
   limit,
-  getDocs,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-import { db, deletePost } from "../../lib/firestore.js";
-
-// updatePost, getPost
+import { db, deletePost , editPost } from "../../lib/firestore.js";
 
 const ReadPost = () => {
   const sectionPost = document.createElement("section");
@@ -138,6 +135,11 @@ const BuildEditModal = (post) => {
   const btnSaveChanges = document.createElement("button");
   btnSaveChanges.setAttribute("class", "btn_saveChanges");
   btnSaveChanges.textContent = "Guardar cambios";
+  btnSaveChanges.addEventListener("click", ()  => {
+    editPost(postId, editImput.value, post.data().date);
+
+  });
+
 
   editModal.append(editModalClose, prfileImageEdit, editImput, btnSaveChanges);
   editModalContainer.append(editModal);
