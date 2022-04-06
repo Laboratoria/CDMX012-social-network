@@ -1,4 +1,5 @@
-import { guardarReceta } from '../../lib/firestore.js';
+// eslint-disable-next-line import/no-cycle
+import { guardarReceta, conseguirReceta, actualizarReceta} from '../../lib/firestore.js';
 
 export const crearPost = () => {
   const formPublicacion = document.createElement('form');
@@ -50,11 +51,11 @@ export const crearPost = () => {
   const btnPublicar = document.createElement('button');
   btnPublicar.textContent = 'Publicar';
   btnPublicar.setAttribute('id', 'btnPostear');
+  
   btnPublicar.addEventListener('click', (e) => {
     e.preventDefault();
-    // eslint-disable-next-line max-len
+    console.log('estoy vivo');
     guardarReceta(inputReceta.value, inputIngredientes.value, inputProcedimiento.value, selectCategoria.value);
-    formPublicacion.style.visibility = 'hidden';
   });
   const cerrarModal = document.createElement('button');
   cerrarModal.setAttribute('id', 'cerrarModal');

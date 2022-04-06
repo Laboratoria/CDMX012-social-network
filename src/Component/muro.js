@@ -8,15 +8,8 @@ import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.
 // import { deletePost } from './post/DeletePost.js';
 
 export const muro = () => {
-  const pruebuski = datos();
-// const pruebuski2 = pruebuski.map(function (x) {
-  //    return x.displayName;
-//  console.log(x.displayName);
- // });
-  // console.log(datosUsuario);
-  console.log(pruebuski);
+  const datosUsuario = datos();
 
-//  const auth = getA-uth();
   const seccionMuro = document.createElement('section');
   seccionMuro.setAttribute('id', 'seccionMuro');
   // Head
@@ -54,11 +47,11 @@ export const muro = () => {
   const cajaFoto = document.createElement('div');
   cajaFoto.setAttribute('id', 'cajaFoto');
   const usuarioImg = document.createElement('IMG');
-  usuarioImg.src = pruebuski.fotoUsuario ? pruebuski.fotoUsuario : '../images/fotoperfil.png';
+  usuarioImg.src = datosUsuario.fotoUsuario ? datosUsuario.fotoUsuario : '../images/fotoperfil.png';
   usuarioImg.setAttribute('id', 'fotousuario');
   const nombreUser = document.createElement('h1');
   nombreUser.setAttribute('id', 'nombreUser');
-  nombreUser.textContent = pruebuski.nombre ? pruebuski.nombre : 'Yummy User';
+  nombreUser.textContent = datosUsuario.nombre ? datosUsuario.nombre : 'Yummy User';
   const cerrarSesionImg = document.createElement('IMG');
   cerrarSesionImg.src = '../images/puerta.png';
   cerrarSesionImg.setAttribute('id', 'cerrarSesionImg');
@@ -75,7 +68,7 @@ export const muro = () => {
   const publicar = document.createElement('fieldset');
   publicar.setAttribute('id', 'publicar');
   const fotoUsuarioP = document.createElement('IMG');
-  fotoUsuarioP.src = pruebuski.fotoUsuario ? pruebuski.fotoUsuario : '../images/fotoperfil.png';
+  fotoUsuarioP.src = datosUsuario.fotoUsuario ? datosUsuario.fotoUsuario : '../images/fotoperfil.png';
   fotoUsuarioP.setAttribute('id', 'usuarioPublicar');
   const botonPublicar = document.createElement('button');
   botonPublicar.setAttribute('id', 'btnPublicar');

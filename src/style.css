@@ -314,20 +314,21 @@
         font-weight: bold;
     }
     #btnCerrarSesion{
-        background: red;
+        background: black;
         border: none;
         position: relative;
         top: 40%;
-        color: black;
+        color: white;
         font-size: medium;
         font-weight: bold;
         cursor: pointer;
-        width: 70%;
+        width: 80%;
+        left: 10%;
         height: 10%;
         border-radius: 10px;
     }
     #cerrarSesionImg{
-        width: 20%;
+        width: 10%;
         position: relative;
         right: 60%;
         bottom: 5%;
@@ -840,10 +841,10 @@
         }
         form{
             position: fixed;
-            top:3.6%;
-            left:0%;
-            width: 25%;
-            height: 500px;
+            top:20%;
+            left:2.5%;
+            width: 90%;
+            height:60%;
             background-color: white;
             border: #EBC920 1px solid;
             border-radius: 10px;
@@ -932,7 +933,7 @@
             border: 3px solid #EBC920;
           }
          #btnPostear{
-            width: 12%;
+            width: fit-content;
             height: 4%;
             background-color:black;
             border-radius: 3px;
@@ -985,5 +986,5 @@
             white-space: -o-pre-wrap;
             word-wrap: break-word;
      }
-  
+     
     }

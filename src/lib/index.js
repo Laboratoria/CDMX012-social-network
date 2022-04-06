@@ -5,7 +5,6 @@ export const myFunction = () => {
   console.log('Hola mundo!');
 }; */
 // Import the functions you need from the SDKs you need
-import { onNavigate } from '../router.js';
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 import {
   getAuth,
@@ -17,6 +16,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+import { onNavigate } from '../router.js';
 // import { modal } from '../Component/modal.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -105,7 +105,7 @@ sendPasswordResetEmail(auth, email)
   console.log(nombreRegistro);
 } */
 export function registrar() {
-  //const nombreRegistro = document.getElementById('nombreRegistro').value;
+  // const nombreRegistro = document.getElementById('nombreRegistro').value;
   const email = document.getElementById('emailRegi').value;
   const contraseña = document.getElementById('contraseñaRegi').value;
   const contraseñaConfirmar = document.getElementById('contraseñaRegidos').value;
@@ -193,13 +193,15 @@ export function datos() {
       verificado: user.emailVerified,
       uidUsuario: user.uid,
     };
-    // The user object has basic properties such as display name, email, etc.
-     
-     /*  email: user.email,
+    localStorage.setItem('uid', user.uid);
+  }
+
+  // The user object has basic properties such as display name, email, etc.
+
+  /*  email: user.email,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
       uid: user.uid, */
-    
-  }
+
   return datosUsuario;
 }
