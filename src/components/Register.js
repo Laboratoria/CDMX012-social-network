@@ -1,5 +1,4 @@
 import { onNavigate } from "../main.js";
-
 import { registerNewUsers } from "../lib/auth.js";
 
 export const register = () => {
@@ -67,6 +66,14 @@ export const register = () => {
     let userName = document.getElementById("name-user").value;
 
     registerNewUsers(userMail, userPass, userName);
+
+  });
+
+  const profileRedirect = document.createElement("img");
+  profileRedirect.setAttribute("src", "../Resourses/icons/huella_like.png");
+  profileRedirect.setAttribute("class", "register_redirect");
+  profileRedirect.addEventListener("click", () => {
+    onNavigate("/Profile");
   });
 
   registerInputSection.append(
@@ -74,7 +81,8 @@ export const register = () => {
     inputMail,
     inputPasword,
     textCondicions,
-    buttonRegister
+    buttonRegister,
+    profileRedirect
   );
 
   const footerPage = document.createElement("footer");

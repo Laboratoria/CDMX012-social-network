@@ -1,5 +1,6 @@
 import { login } from "./components/Login.js";
 import { register } from "./components/Register.js";
+import { profile } from "./components/profile.js";
 import { timeline } from "./components/Timeline.js";
 import { menu } from "./components/menu.js";
 import { adoptions } from "./components/Adoptions.js";
@@ -14,6 +15,7 @@ const rootContent = document.getElementById("root");
 const routes = {
   "/": login,
   "/Register": register,
+  "/Profile": profile,
   "/Timeline": timeline,
   "/menu": menu,
   "/Adoptions": adoptions,

@@ -72,3 +72,15 @@
     }
   }
 }
+
+
+.register_redirect{
+
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  
+}

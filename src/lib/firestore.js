@@ -3,8 +3,10 @@ import {
   getFirestore,
   collection,
   addDoc,
+  setDoc,
   doc,
   deleteDoc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 import {
   getAuth,
@@ -57,3 +59,11 @@ export const deletePost = (id) => {
   alert("Este post será eliminado");
   deleteDoc(doc(db, "post", id));
 };
+
+export async function editPost(id, editImput, date) {
+  const postRef = doc(db, "post", id);
+  await updateDoc(postRef, {
+    post: editImput,
+    date: new Date(),
+  });
+}

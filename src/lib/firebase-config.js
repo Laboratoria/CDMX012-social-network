@@ -7,7 +7,10 @@ export const firebaseConfig = {
   storageBucket: "respaldo-solovino.appspot.com",
   messagingSenderId: "812043284969",
   appId: "1:812043284969:web:e5702c72fd947c62529b78",
+  databaseURL:"gs://respaldo-solovino.appspot.com/"
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+
+// const storage = getStorage(firebaseApp);

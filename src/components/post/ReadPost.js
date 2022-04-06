@@ -4,9 +4,9 @@ import {
   orderBy,
   onSnapshot,
   limit,
-  getDocs,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-import { db, deletePost } from "../../lib/firestore.js";
+import { db, deletePost , editPost } from "../../lib/firestore.js";
+
 const ReadPost = () => {
   const sectionPost = document.createElement("section");
   // aqui on snapshot
@@ -30,18 +30,6 @@ const ReadPost = () => {
         const headerPost = document.createElement("section");
         headerPost.setAttribute("class", "header-post");
 
-        // const n = query(collection(db, "nameUser"));
-        // const names = onSnapshot(n, (names) => {
-        //   names.forEach((user) => {
-        //     if (names.data().userName) {
-        //       // doc.data() is never undefined for query doc snapshots
-        //       console.log(user.id, " => ", user.data());
-        //       let nikName = user.data().userName;
-        //       console.log(nikName);
-        //       return nikName;
-        //     }
-        //   });
-        // });
         const nameDescription = document.createElement("h2");
         nameDescription.setAttribute("class", "name-user");
         nameDescription.textContent =
@@ -75,14 +63,22 @@ const ReadPost = () => {
           deletePost(dataset.id);
         });
 
-        const edit = document.createElement("img", "edit-coment");
-        edit.setAttribute("class", "edit");
-        edit.setAttribute("src", "./Resourses/icons/edit_post.png");
+        const btnEditPost = document.createElement("img", "edit-coment");
+        btnEditPost.setAttribute("class", "edit");
+        btnEditPost.setAttribute("src", "./Resourses/icons/edit_post.png");
+        btnEditPost.setAttribute("data-id", post.id);
+
+        let editModalSection = document.createElement("div");
+        editModalSection.setAttribute("id", "mc-" + post.id);
+
+        btnEditPost.addEventListener("click", () => {
+          editModalSection.appendChild(BuildEditModal(post));
+        });
 
         childSection.append(imgUser, headerPost, postDescription, interactions);
         headerPost.append(nameDescription, postDate);
-        interactions.append(like, likeNumber, deleteComent, edit);
-        sectionPost.append(childSection);
+        interactions.append(like, likeNumber, deleteComent, btnEditPost);
+        sectionPost.append(childSection, editModalSection);
       }
     });
   });
@@ -100,5 +96,55 @@ function removeChildNodes(parent) {
     parent.removeChild(parent.firstChild);
   }
 }
+////////////////////////////////MODAL EDIT POST
+
+const BuildEditModal = (post) => {
+  let postId = post.id;
+  let postContent = post.data().post;
+
+  const editModalContainer = document.createElement("div");
+  editModalContainer.setAttribute("class", "modal_edit_background");
+
+  editModalContainer.setAttribute("id", postId);
+
+  const editModal = document.createElement("div");
+  editModal.setAttribute("class", "modal_edit_container");
+
+  const editModalClose = document.createElement("img");
+  editModalClose.setAttribute("src", "../Resourses/icons/close.png");
+  editModalClose.setAttribute("class", "modal_close");
+  editModalClose.addEventListener("click", () => {
+    let editModalContainer = document.getElementById(postId);
+    let modalContainer = document.getElementById("mc-" + postId);
+    modalContainer.removeChild(editModalContainer);
+  });
+
+  const prfileImageEdit = document.createElement("img");
+  prfileImageEdit.setAttribute("class", "profile_user_edit");
+  prfileImageEdit.setAttribute(
+    "src",
+    post.data().photo || "https://random.imagecdn.app/300/300"
+  );
+
+  const editImput = document.createElement("input");
+  editImput.setAttribute("type", "text");
+  editImput.setAttribute("id", "input_editPost");
+  editImput.setAttribute("class", "input_edit_Post");
+  editImput.value = postContent;
+
+  const btnSaveChanges = document.createElement("button");
+  btnSaveChanges.setAttribute("class", "btn_saveChanges");
+  btnSaveChanges.textContent = "Guardar cambios";
+  btnSaveChanges.addEventListener("click", ()  => {
+    editPost(postId, editImput.value, post.data().date);
+
+  });
+
+
+  editModal.append(editModalClose, prfileImageEdit, editImput, btnSaveChanges);
+  editModalContainer.append(editModal);
+
+  return editModalContainer;
+};
 
 export default ReadPost;
