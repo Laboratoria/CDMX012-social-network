@@ -137,7 +137,6 @@ const BuildEditModal = (post) => {
   btnSaveChanges.textContent = "Guardar cambios";
   btnSaveChanges.addEventListener("click", ()  => {
     editPost(postId, editImput.value, post.data().date);
-
   });
 
 

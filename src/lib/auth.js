@@ -14,6 +14,7 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { onNavigate } from "../main.js";
 import { firebaseConfig } from "./firebase-config.js";
