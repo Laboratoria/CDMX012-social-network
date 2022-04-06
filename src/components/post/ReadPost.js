@@ -22,18 +22,14 @@ const ReadPost = () => {
 
         const imgUser = document.createElement("img");
         imgUser.setAttribute("class", "user-img");
-        imgUser.setAttribute(
-          "src",
-          post.data().photo
-        );
+        imgUser.setAttribute("src", post.data().photo);
 
         const headerPost = document.createElement("section");
         headerPost.setAttribute("class", "header-post");
 
         const nameDescription = document.createElement("h2");
         nameDescription.setAttribute("class", "name-user");
-        nameDescription.textContent =
-          post.data().displayName || post.data().userName;
+        nameDescription.textContent = post.data().displayName;
 
         const postDate = document.createElement("p");
         postDate.textContent = getDate(post.data().date);
