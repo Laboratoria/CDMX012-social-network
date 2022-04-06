@@ -88,7 +88,7 @@ export const login = () => {
   const btnInfoShootIn = document.createElement('button');
   btnInfoShootIn.className = 'btn btnsSign';
   btnInfoShootIn.id = 'submitInfoShoot';
-  btnInfoShootIn.textContent = 'Shoot In';
+  btnInfoShootIn.textContent = 'Log In';
 
   btnInfoShootIn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -112,7 +112,7 @@ export const login = () => {
   const btnRefJoinUs = document.createElement('button');
   btnRefJoinUs.className = 'btnRefLogin';
   btnRefJoinUs.id = 'refJoinUs';
-  btnRefJoinUs.textContent = 'Join us';
+  btnRefJoinUs.textContent = 'Register';
 
   btnRefJoinUs.addEventListener('click', () => {
     onNavigate('/register');
