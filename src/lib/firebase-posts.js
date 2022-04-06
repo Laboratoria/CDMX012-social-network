@@ -3,6 +3,7 @@ import {
   collection,
   addDoc,
   getDocs,
+  Timestamp,
 } from './firebase-imports.js';
 import { auth, db } from './firebase-config.js';
 

@@ -4,7 +4,7 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 import { userInfo } from '../lib/firebase-users.js';
-// import { savePost } from '../lib/firebase-posts.js';
+// import { orderBy, query, onSnapshot } from '../lib/firebase-imports.js';
 import { logOut } from '../lib/firebase-auth.js';
 import { savePost, getPost } from '../lib/firebase-posts.js';
 
@@ -50,7 +50,9 @@ export const home = () => {
     const post = document.getElementById('postText').value;
     const datePost = new Date();
     savePost(post, datePost).then(() => {
-      getPost();
+      getPost(post).then(() => {
+        postText.value = '';
+      });
     });
   });
 
