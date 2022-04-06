@@ -70,7 +70,8 @@ export function renderPost(doc) {
       commentInput.style.display = 'none';
     }
   });
-  let totalLikes = 0;
+
+  let totalLikes = parseInt(likes.textContent, 10);
   const idPost = doc.id;
   likeIcon.addEventListener('click', () => {
     // porque suma 1, max 2 y luego regresa a 1
