@@ -141,77 +141,76 @@
    
 /*FEED */
 /*Vista feed */
-#navMobile{
+    #navMobile{
     display:none;
-}
-#feedView{
+    }
+    #feedView{
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items:center;
     background-color: white;
     
-}
-#postFeed{
+    }
+    #postFeed{
     margin-top:5%;
-    width: 45vw;
+    width:35vw;
     background-color: white;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-}
-.sectionPost{
+    }
+    .sectionPost{
     background-color:white;
     border: 3px solid #a4a3dd;
     border-radius:10px;
-}
-#createPost{
+    }
+    #createPost{
     display: flex;
     flex-direction:column;
     margin-top:5%;
-   width: 40vw; 
-   row-gap: 10px;
-   padding-bottom: 1%;
-}
+    width: 35vw; 
+    height: 10vw;
+    row-gap: 10px;
+    padding-bottom: 1%;
+    }
 
-#feedHeader{
+    #feedHeader{
     position: sticky;
     top: 0px;
     display: flex;
     background-color: #A653BB;
     width: 100%;
     height: 10%;
-    justify-content: flex-start;
     align-items:center;
     z-index: 101;
     padding-left: 10%;
 
-}
-#navDesktop{
-    display:none;
-    /* position: absolute;
-    left: 0px;
+    }
+    #navDesktop{
+    position: absolute;
+    left: 90vw;
     display: flex;
     background-color: #A653BB;
     width: 10%;
     height: 100%;
-    row-gap: 60px;
-    flex-direction: column;
+    column-gap: 35px;
+    flex-direction: row;
     align-items:center;
     justify-content:center;
-    z-index: 100; */
-}
+    z-index: 100;
+} 
 
-#searchFeed{
+    #searchFeed{
     width:30%;
     margin-right: 10px;
-}
-#logoFeed{
+    }  
+    #logoFeed{
     height: 60px;
     width: 60px;
-    margin-right: 10px;
+    margin-right: 40px;
     margin-top:10px;
-}
+    }
 
 
 /* POST TEMPLATE */
@@ -224,7 +223,7 @@
    row-gap: auto;
    border: 3px solid #9531AE;
 } */
-.templateTop{
+    .templateTop{
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -233,59 +232,71 @@
     column-gap: 5%;
     margin-top: 3%;
     margin-left:5%
-}
-.profileName{
-    background-color:#1F1BC8;
-    opacity: 0.8;
-    color:white;
-    width: 100%;
-    height: 30px;
-    border-radius: 15px;
-    text-align: left;
-    padding-top:2%;
-    padding-left: 4%;
-   
-}
-
-#buttonDelete{
+    }
+    
+    #buttonDelete{
     position: relative;
     left: 35px;
     max-width: 18px;
     max-height: 18px;
-}
-#buttonEdit{
+    }
+    #buttonEdit{
     position: relative;
     left: 30px;
     max-width: 20px;
     max-height: 20px;
-}
-}
-#inputPost{
-    width: 80%;
-    margin-left: 5%;
-    height: auto;
-    word-wrap: break-word;
+    }
+    #inputPost{
+        margin-top:5%;
+        width: 80%;
+        margin-left: 5%;
+        height: 40px;
+        word-wrap: break-word;
+    
+    }
+    #likeComment{
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        column-gap: 10%;
+        align-items: center;
+        margin-bottom:5%;
+    }
+    #postDate{
+        font-size:0.5rem;
+        font-weight: bold;
+    }
+    
+    #profilePic{
+        max-width: 50px;
+        border-radius: 50px;
+    }
 
-}
-#likeComment{
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    column-gap: 10%;
-    align-items: center;
-    margin-bottom:5%;
-}
-#postDate{
-    font-size:0.5rem;
-    font-weight: bold;
-}
-#profilePic{
-max-width: 50px;
-border-radius: 50px;
-}
-.hideDots {
-    display: none;
+    #sendPost.button{
+        margin-left: 190px;
+        padding-top: 3px;
+        width: 5px;
+        height: 25px;
+        text-align: center;
+        font-size: 10px;
+        align-items: center;
+        justify-items: center;
+    }
+    .profileName{
+        background-color: white;
+        border: 2px solid #3734CE; 
+        opacity: 0.8;
+        color:black;
+        width: 100%;
+        height: 30px;
+        border-radius: 15px;
+        text-align: left;
+        justify-content: center;
+        padding-top:2%;
+        padding-left: 4%;
+       
+    }
 }
 
-}
+
