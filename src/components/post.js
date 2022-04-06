@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
-import { deletePost } from './FireStore.js';
+import { countLikes, deletePost, editDoc } from './FireStore.js';
+import { getAuth } from '../lib/firebaseFunctions.js';
 
 export function renderPost(doc) {
   const sectionPost = document.createElement('div');
@@ -15,15 +16,25 @@ export function renderPost(doc) {
   const profileName = document.createElement('label');
   profileName.setAttribute('class', 'profileName');
   profileName.textContent = doc.data().Name || doc.data().Name;
+  const deletePostButton = document.createElement('img');
+  const edit = document.createElement('img');
 
-  const dots = document.createElement('img');
-  dots.setAttribute('src', 'img/dots.png');
-  dots.setAttribute('id', 'dotsEdit');
-
+  const auth = getAuth();
+  const users = auth.currentUser;
+  const UID = users.uid;
+  const userVerify = doc.data().UserUID;
+  // texto del post
   const pPost = document.createElement('p');
   pPost.setAttribute('id', 'inputPost');
   pPost.setAttribute('data-id', doc.id);
   pPost.textContent = doc.data().post;
+
+  if (UID === userVerify) {
+    deletePostButton.setAttribute('src', 'img/delete.png');
+    deletePostButton.setAttribute('id', 'buttonDelete');
+    edit.setAttribute('src', 'img/edit.png');
+    edit.setAttribute('id', 'buttonEdit');
+  }
 
   const likeComment = document.createElement('div');
   likeComment.setAttribute('id', 'likeComment');
@@ -41,14 +52,13 @@ export function renderPost(doc) {
   const likes = document.createElement('p');
   likes.setAttribute('id', 'likes');
   likes.textContent = doc.data().likes;
-  likes.hidden = true;
 
   const commentInput = document.createElement('input');
   commentInput.setAttribute('id', 'commentInput');
   commentInput.setAttribute('placeholder', 'Escribe tu respuesta');
   commentInput.hidden = true;
 
-  templateTop.append(profilePic, profileName, dots);
+  templateTop.append(profilePic, profileName, deletePostButton, edit);
   likeComment.append(postDate, likes, likeIcon, commentIcon);
   sectionPost.append(templateTop, pPost, likeComment, commentInput);
 
@@ -60,21 +70,30 @@ export function renderPost(doc) {
       commentInput.style.display = 'none';
     }
   });
-
-  likeIcon.addEventListener('click', () => {
-    if (likes.style.display === 'none') {
-      likes.style.display = 'block';
-      // cuentaLikes(auth)
-    } else {
-      likes.style.display = 'none';
-    }
-  });
+  let totalLikes = 0;
   const idPost = doc.id;
-  const userVerify = doc.data().UserUID;
+  likeIcon.addEventListener('click', () => {
+    // porque suma 1, max 2 y luego regresa a 1
+    totalLikes += 1;
+    countLikes(totalLikes, idPost);
+  });
   // console.log(userVerify);
 
-  dots.addEventListener('click', () => {
+  deletePostButton.addEventListener('click', () => {
     deletePost(idPost, userVerify);
+  });
+  edit.addEventListener('click', () => {
+    pPost.contentEditable = 'true';
+    const editPostButton = document.createElement('button');
+    editPostButton.setAttribute('class', 'button');
+    editPostButton.textContent = 'enviar';
+    templateTop.append(editPostButton);
+    editPostButton.addEventListener('click', () => {
+      const editedInput = pPost.innerText;
+      // toma el nuevo texto para enviarlo - console.log(editedInput);
+      editDoc(editedInput, idPost);
+      // ejecuta la función con los parametros correctos - console.log('si se edito');
+    });
   });
 
   const wall = document.getElementById('postFeed');

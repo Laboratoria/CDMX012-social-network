@@ -35,10 +35,13 @@ export const newPost = () => {
     const currentDayOfMonth = datePost.getDate();
     const currentMonth = datePost.getMonth(); // Be careful! January is 0, not 1
     const currentYear = datePost.getFullYear();
-    const dateString = currentDayOfMonth + '-' + (currentMonth + 1) + '-' + currentYear;
-    const likeCount = 0;
+    const currentHour = datePost.getHours();
+    const currentMin = datePost.getMinutes();
+    const dateString = currentHour + ':' + currentMin + '-' + currentDayOfMonth + '-' + (currentMonth + 1) + '-' + currentYear;
+    const likeCount = [];
     if (textPost !== '') {
       savePost(textPost, dateString, likeCount);
+      document.getElementById('inputPost').value = '';
       console.log(textPost, dateString, likeCount);
     } else {
       alert('Tu post esta vacío!');
