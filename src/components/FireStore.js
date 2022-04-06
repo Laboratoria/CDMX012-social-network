@@ -9,6 +9,7 @@ import {
   doc,
   deleteDoc,
   updateDoc,
+  orderBy,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { renderPost } from './post.js';
@@ -48,7 +49,7 @@ export const savePost = (textPost, datePost, likeCount) => {
 console.log(savePost());
 // funcion para leer datos
 export function readData() {
-  const q = query(collection(db, 'Newposts'));
+  const q = query(collection(db, 'Newposts'), orderBy('date', 'desc'));
   onSnapshot(q, (querySnapshot) => {
     const wall = document.getElementById('postFeed');
     while (wall.firstChild) {
