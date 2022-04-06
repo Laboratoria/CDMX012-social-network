@@ -78,9 +78,41 @@ export function renderPost(doc) {
     countLikes(totalLikes, idPost);
   });
   // console.log(userVerify);
+  const modal = () => {
+    const containerModal = document.createElement('section');
+    containerModal.setAttribute('id', 'containerModal');
+    containerModal.setAttribute('class', 'modalContainer');
+    const containerModalB = document.createElement('section');
+    containerModalB.setAttribute('id', 'containerModalB');
+    containerModalB.setAttribute('class', 'modalContainerB');
+    const textSignOut = document.createElement('p');
+    textSignOut.setAttribute('id', 'textSignOut');
+    textSignOut.setAttribute('class', 'signOutText');
+    textSignOut.textContent = 'Si se elimina esta publicación no podrá recuperar su contenido';
+    const yesSignOut = document.createElement('p');
+    yesSignOut.setAttribute('id', 'yesSignOut');
+    yesSignOut.setAttribute('class', 'signOutYes');
+    yesSignOut.textContent = 'Eliminar';
+    const noSignOut = document.createElement('p');
+    noSignOut.setAttribute('id', 'noSignOut');
+    noSignOut.setAttribute('class', 'signOutNo');
+    noSignOut.textContent = 'Cancelar';
+    containerModalB.append(yesSignOut, noSignOut);
+    containerModal.append(textSignOut, containerModalB);
+
+    yesSignOut.addEventListener('click', (e) => {
+      e.preventDefault();
+      deletePost(idPost, userVerify);
+    });
+
+    noSignOut.addEventListener('click', () => {
+      sectionPost.removeChild(containerModal);
+    });
+    return containerModal;
+  };
 
   deletePostButton.addEventListener('click', () => {
-    deletePost(idPost, userVerify);
+    sectionPost.append(modal());
   });
   edit.addEventListener('click', () => {
     pPost.contentEditable = 'true';

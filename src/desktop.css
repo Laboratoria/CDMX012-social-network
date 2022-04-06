@@ -211,7 +211,43 @@
     margin-right: 40px;
     margin-top:10px;
     }
+/* Aqui inician los estilos del modal */
+#containerModal{
+    position: fixed;
+    left: 30%;
+    top: 65%;
+    width: 30vw;
+    padding-bottom: 40px;    
+    background-color: #AE69BF;
+    border: 1px solid #3734CE;
+    color:#ffff;
+    z-index: 100000;
+    text-align: center;
+    border-radius: 15px;
 
+}
+#containerModalB{
+    position: absolute;
+    left: 20%;
+    top: 60%;
+    display: flex;
+    justify-content: space-around;
+    column-gap: 20px;
+}
+#yesSignOut{
+    padding: 2px 12px 2px 12px;
+    background-color: #AE69BF;
+    font-size: 0.9rem;
+    width: auto;
+    text-align: center;
+}
+#noSignOut{
+    padding: 2px 10px 2px 10px;
+    background-color: #AE69BF;
+    font-size: 0.9rem;
+    width: auto;
+    text-align: center;
+}
 
 /* POST TEMPLATE */
 /* 
