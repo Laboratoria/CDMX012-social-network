@@ -8,4 +8,4 @@ export const FacebookAuthProvider = () => Promise.resolve({});
 export const getFirestore = () => Promise.resolve({});
 export const collection = () => Promise.resolve({});
 export const addDoc = () => Promise.resolve({});
-export const getDoc = () => Promise.resolve({});
+export const getDocs = () => Promise.resolve({});
