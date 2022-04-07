@@ -1,5 +1,10 @@
 // eslint-disable-next-line import/no-cycle
-import { countLikes, deletePost, editDoc } from './FireStore.js';
+import {
+  countLikes,
+  deletePost,
+  editDoc,
+  addComment,
+} from './FireStore.js';
 import { getAuth } from '../lib/firebaseFunctions.js';
 
 export function renderPost(doc) {
@@ -15,7 +20,7 @@ export function renderPost(doc) {
 
   const profileName = document.createElement('label');
   profileName.setAttribute('class', 'profileName');
-  profileName.textContent = doc.data().Name || doc.data().Name;
+  profileName.textContent = doc.data().Name;
   const deletePostButton = document.createElement('img');
   const edit = document.createElement('img');
 
@@ -51,32 +56,36 @@ export function renderPost(doc) {
 
   const likes = document.createElement('p');
   likes.setAttribute('id', 'likes');
-  likes.textContent = doc.data().likes;
+  const likesArray = doc.data().likes;
+  const likeData = doc.data().likes.length;
+  likes.textContent = likeData;
 
   const commentInput = document.createElement('input');
+  const sendComment = document.createElement('button');
   commentInput.setAttribute('id', 'commentInput');
   commentInput.setAttribute('placeholder', 'Escribe tu respuesta');
-  commentInput.hidden = true;
+  sendComment.textContent = 'Enviar';
+  sendComment.setAttribute('class', 'button');
 
   templateTop.append(profilePic, profileName, deletePostButton, edit);
   likeComment.append(postDate, likes, likeIcon, commentIcon);
-  sectionPost.append(templateTop, pPost, likeComment, commentInput);
+  sectionPost.append(templateTop, pPost, likeComment);
 
-  commentIcon.addEventListener('click', () => {
-    if (commentInput.style.display === 'none') {
-      commentInput.style.display = 'block';
-      // llamar a la función que ejecuta los likes (editando el documento)
-    } else {
-      commentInput.style.display = 'none';
-    }
+  commentIcon.addEventListener('click', (e) => {
+    e.preventDefault();
+    sectionPost.append(commentInput, sendComment);
+    // addComment()
+    // llamar a la función que ejecuta los likes (editando el documento)
+  });
+  const idPost = doc.id;
+  sendComment.addEventListener('click', () => {
+    const textComment = document.getElementById('commentInput').value;
+    addComment(textComment, idPost);
   });
 
-  let totalLikes = parseInt(likes.textContent, 10);
-  const idPost = doc.id;
   likeIcon.addEventListener('click', () => {
-    // porque suma 1, max 2 y luego regresa a 1
-    totalLikes += 1;
-    countLikes(totalLikes, idPost);
+    // console.log(likesArray); - Arreglo que contiene los UID de quienes le da like
+    countLikes(idPost, UID, users, likesArray);
   });
   // console.log(userVerify);
   const modal = () => {

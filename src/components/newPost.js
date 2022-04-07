@@ -38,11 +38,11 @@ export const newPost = () => {
     const currentHour = datePost.getHours();
     const currentMin = datePost.getMinutes();
     const dateString = currentHour + ':' + currentMin + '-' + currentDayOfMonth + '-' + (currentMonth + 1) + '-' + currentYear;
-    const likeCount = [];
+    // const likeCount = [];
     if (textPost !== '') {
-      savePost(textPost, dateString, likeCount);
+      savePost(textPost, dateString);
       document.getElementById('inputPost').value = '';
-      console.log(textPost, dateString, likeCount);
+      console.log(textPost, dateString);
     } else {
       alert('Tu post esta vacío!');
     }
