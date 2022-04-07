@@ -3,6 +3,7 @@ import { readData } from './FireStore.js';
 import { newPost } from './newPost.js';
 // eslint-disable-next-line import/no-cycle
 import { navegations } from './navegation.js';
+// import { navegations, postModal } from './navegation.js';
 // eslint-disable-next-line import/no-cycle
 import { signOutSession } from '../lib/firebase.js';
 
@@ -43,8 +44,8 @@ export const feed = () => {
 
   footer.append(navMobile);
   newPostDiv.appendChild(createPost);
-  header.append(logoFeed, searchFeed);
-  feedView.append(header, createPost, navDesktop, postFeed, footer);
+  header.append(logoFeed, searchFeed, navDesktop);
+  feedView.append(header, createPost, postFeed, footer);
 
   // esta función permite que el usuario salga de sesión
 

@@ -8,16 +8,16 @@ export const newPost = () => {
   const createTop = document.createElement('div');
   createTop.setAttribute('class', 'templateTop');
 
-  const profilePic = document.createElement('img');
-  profilePic.setAttribute('src', 'img/profilePicture.png');
+  // const profilePic = document.createElement('img');
+  // profilePic.setAttribute('src', 'img/profilePicture.png');
 
-  const namePost = document.createElement('label');
-  namePost.setAttribute('class', 'profileName');
-  namePost.textContent = 'Ana';
+  // const namePost = document.createElement('label');
+  // namePost.setAttribute('class', 'profileName');
+  // namePost.textContent = 'Ana';
 
   const inputPost = document.createElement('input');
   inputPost.setAttribute('id', 'inputPost');
-  inputPost.setAttribute('placeholder', '¿Que estas pensando?');
+  inputPost.setAttribute('placeholder', '¿Que estas pensando?...');
   inputPost.setAttribute('autocomplete', 'off');
 
   const sendPost = document.createElement('button');
@@ -25,8 +25,8 @@ export const newPost = () => {
   sendPost.setAttribute('class', 'button');
   sendPost.textContent = 'Publicar';
 
-  createTop.append(namePost, profilePic);
-  writePost.append(createTop, inputPost, sendPost);
+  // createTop.append(namePost, profilePic);
+  writePost.append(inputPost, sendPost);
 
   sendPost.addEventListener('click', (e) => {
     e.preventDefault();
