@@ -113,7 +113,7 @@ export const register = () => {
   const btnInfoJoinUs = document.createElement('button');
   btnInfoJoinUs.className = ' btn btnsSign';
   btnInfoJoinUs.id = 'submitInfoJoin';
-  btnInfoJoinUs.textContent = 'Join Us';
+  btnInfoJoinUs.textContent = 'Register';
 
   const divFooter = document.createElement('div');
   divFooter.className = 'containerFooter';
@@ -125,7 +125,7 @@ export const register = () => {
   const btnRefLogin = document.createElement('button');
   btnRefLogin.className = 'btnRefLogin';
   btnRefLogin.id = 'refLogin';
-  btnRefLogin.textContent = 'Shoot in';
+  btnRefLogin.textContent = 'Log in';
 
   btnRefLogin.addEventListener('click', () => {
     onNavigate('/login');
@@ -142,8 +142,8 @@ export const register = () => {
 
   header.append(imgArrowBack, titles);
   containerIcons.append(iconG, iconF);
-  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage, btnInfoJoinUs);
+  infoForm.append(labelUser, inputUserName, labelMail, inputEmail, labelPassword, inputPassword, maskifyOff, maskifyOn, errorMessage);
   divFooter.append(labelHaveAcc, btnRefLogin);
-  joinUsSection.append(header, signInWith, containerIcons, infoForm, divFooter);
+  joinUsSection.append(header, signInWith, containerIcons, infoForm, btnInfoJoinUs, divFooter);
   return joinUsSection;
 };

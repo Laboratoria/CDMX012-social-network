@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 export const home = () => {
+  
   // Header section
   const newsFeedSection = document.createElement('main');
   newsFeedSection.className = 'screenNews';

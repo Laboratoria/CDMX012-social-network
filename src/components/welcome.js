@@ -12,14 +12,14 @@ export const welcome = () => {
   const btnJoinUs = document.createElement('button');
   btnJoinUs.className = 'btn log';
   btnJoinUs.id = 'joinUs';
-  btnJoinUs.textContent = 'Join Us';
+  btnJoinUs.textContent = 'Register';
   btnJoinUs.addEventListener('click', () => {
     onNavigate('/register');
   });
   const btnShoot = document.createElement('button');
   btnShoot.className = 'btn log';
   btnShoot.id = 'ShootIn';
-  btnShoot.textContent = 'Shoot In';
+  btnShoot.textContent = 'Log In';
   btnShoot.addEventListener('click', () => {
     onNavigate('/login');
   });
