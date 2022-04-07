@@ -53,6 +53,7 @@ export const home = () => {
   const postFeed = document.createElement('section');
   postFeed.id = 'postFeed';
   showPosts();
+
   // Footer
   const footerMeet = document.createElement('footer');
   footerMeet.className = 'footer';

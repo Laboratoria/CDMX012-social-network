@@ -1,7 +1,6 @@
 import {
   collection,
   addDoc,
-  getDocs,
   query,
   orderBy,
   onSnapshot,
@@ -37,7 +36,6 @@ const renderPost = (data) => {
 };
 
 export async function showPosts() {
-  // const querySnapshot = getDocs(collection(db, 'posts'));
   const q = await query(collection(db, 'posts'), orderBy('date', 'desc'));
   onSnapshot(q, (querySnapshot) => {
     querySnapshot.forEach((post) => {
