@@ -4,7 +4,6 @@ import {
   getFirestore,
   collection,
   addDoc,
-  getDocs,
   onSnapshot,
   doc,
   deleteDoc,
@@ -12,10 +11,11 @@ import {
   orderBy,
   arrayRemove,
   arrayUnion,
+  getAuth,
 // eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
+} from '../lib/firebaseFunctions.js';
+// eslint-disable-next-line import/no-cycle
 import { renderPost } from './post.js';
-import { getAuth } from '../lib/firebaseFunctions.js';
 
 const db = getFirestore();
 export const saveForm = (userName, area, userMail) => {
@@ -100,7 +100,6 @@ export const countLikes = (idPost, UID, users, likesArray) => {
 export const addComment = (textComment, idPost) => {
   const auth = getAuth();
   const users = auth.currentUser;
-  const UID = users.uid;
   const name = users.displayName;
   const docRef = doc(db, 'Newposts', idPost);
   updateDoc(docRef, {
