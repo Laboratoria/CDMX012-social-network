@@ -81,6 +81,8 @@ export function renderPost(doc) {
   sendComment.addEventListener('click', () => {
     const textComment = document.getElementById('commentInput').value;
     addComment(textComment, idPost);
+    // para poder acceder a los valores del objeto de los comentarios
+    console.log(doc.data().comment.text, doc.data().comment.user);
   });
 
   likeIcon.addEventListener('click', () => {
@@ -88,39 +90,6 @@ export function renderPost(doc) {
     countLikes(idPost, UID, users, likesArray);
   });
   // console.log(userVerify);
-  const modal = () => {
-    const containerModal = document.createElement('section');
-    containerModal.setAttribute('id', 'containerModal');
-    containerModal.setAttribute('class', 'modalContainer');
-    const containerModalB = document.createElement('section');
-    containerModalB.setAttribute('id', 'containerModalB');
-    containerModalB.setAttribute('class', 'modalContainerB');
-    const textSignOut = document.createElement('p');
-    textSignOut.setAttribute('id', 'textSignOut');
-    textSignOut.setAttribute('class', 'signOutText');
-    textSignOut.textContent = 'Si se elimina esta publicación no podrá recuperar su contenido';
-    const yesSignOut = document.createElement('p');
-    yesSignOut.setAttribute('id', 'yesSignOut');
-    yesSignOut.setAttribute('class', 'signOutYes');
-    yesSignOut.textContent = 'Eliminar';
-    const noSignOut = document.createElement('p');
-    noSignOut.setAttribute('id', 'noSignOut');
-    noSignOut.setAttribute('class', 'signOutNo');
-    noSignOut.textContent = 'Cancelar';
-    containerModalB.append(yesSignOut, noSignOut);
-    containerModal.append(textSignOut, containerModalB);
-
-    yesSignOut.addEventListener('click', (e) => {
-      e.preventDefault();
-      deletePost(idPost, userVerify);
-    });
-
-    noSignOut.addEventListener('click', () => {
-      sectionPost.removeChild(containerModal);
-    });
-    return containerModal;
-  };
-
   const modal = () => {
     const containerModal = document.createElement('section');
     containerModal.setAttribute('id', 'containerModal');

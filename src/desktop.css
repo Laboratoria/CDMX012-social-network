@@ -326,11 +326,6 @@
     left: 30px;
     max-width: 20px;
     max-height: 20px;
-<<<<<<< HEAD
-}
-
-#inputPost{
-=======
     }
     #inputPost{
         margin-top:5%;
@@ -414,7 +409,6 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
->>>>>>> 26eb5f9e4ddfff6a2cec837af6f8218ae8fd179a
     width: 80%;
   }
   
@@ -435,45 +429,3 @@
 
 }
 
-<<<<<<< HEAD
-/* Aqui inician los estilos del modal */
-#containerModal{
-    position: fixed;
-    left: 22%;
-    top: 40%;
-    width: 55vw;
-    padding-bottom: 90px;
-    font-size: 1.2rem;
-    background-color: #AE69BF;
-    border: 1px solid #3734CE;
-    color:#ffff;
-    z-index: 100000;
-    text-align: center;
-    border-radius: 15px;
-
-}
-#containerModalB{
-    position: absolute;
-    left: 33%;
-    top: 50%;
-    display: flex;
-    justify-content: space-around;
-    column-gap: 40px;
-}
-#yesSignOut{
-    padding: 2px 12px 2px 12px;
-    background-color: #AE69BF;
-    width: auto;
-    text-align: center;
-}
-#noSignOut{
-    padding: 2px 10px 2px 10px;
-    background-color: #AE69BF;
-    width: auto;
-    text-align: center;
-}    
-
-}
-=======
-
->>>>>>> 26eb5f9e4ddfff6a2cec837af6f8218ae8fd179a
