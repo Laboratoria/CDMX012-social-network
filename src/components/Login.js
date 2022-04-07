@@ -1,5 +1,5 @@
 import { onNavigate } from "../main.js";
-import { isLogin, loginWithGoogle } from "../lib/auth.js";
+import { isLogin, loginWithGoogle, loginWithFacebook } from "../lib/auth.js";
 
 export const login = () => {
   const contentSectionLogin = document.createElement("aside");
@@ -10,7 +10,7 @@ export const login = () => {
   const loginSection = document.createElement("section");
   loginSection.setAttribute("class", "account_section");
 
- ////////////////// logoy slogan
+  ////////////////// logoy slogan
 
   const imgLogo = document.createElement("img");
   imgLogo.setAttribute("src", "../Resourses/Logos/Solovino_Black.png");
@@ -42,7 +42,6 @@ export const login = () => {
   buttonlogIn.setAttribute("id", "button_log_In_id");
   buttonlogIn.textContent = "Iniciar sesión";
   buttonlogIn.addEventListener("click", () => {
-
     let userMail = document.getElementById("email").value;
     let userPass = document.getElementById("pasword").value;
 
@@ -55,6 +54,13 @@ export const login = () => {
   const loginIconContent = document.createElement("section");
   loginIconContent.setAttribute("class", "login_icon_content");
 
+  const loginFacebook = document.createElement("img");
+  loginFacebook.setAttribute("src", "../Resourses/icons/Facebook.png");
+  loginFacebook.setAttribute("class", "log_in_icon");
+  loginFacebook.setAttribute("click", () => {
+    loginWithFacebook();
+  });
+
   const loginTwitter = document.createElement("img");
   loginTwitter.setAttribute("src", "../Resourses/icons/Twitter.png");
   loginTwitter.setAttribute("class", "log_in_icon");
@@ -66,13 +72,12 @@ export const login = () => {
     loginWithGoogle();
   });
 
-  loginIconContent.append(loginTwitter, loginGoogle);
+  loginIconContent.append(loginFacebook, loginTwitter, loginGoogle);
 
   ////////////////////registro
 
   const logInRegisterSection = document.createElement("section");
   logInRegisterSection.setAttribute("class", "login_register_section");
-
 
   const newAccountText = document.createElement("h2");
   newAccountText.setAttribute("class", "account_text");
@@ -88,18 +93,18 @@ export const login = () => {
   });
   logInRegisterSection.append(newAccountText, buttonNewRegister);
 
-
   //////fotter
   const footerPage = document.createElement("div");
   footerPage.setAttribute("class", "footer_login");
   footerPage.textContent = "Derechos Reservados 2022 ©️";
 
-  loginSection.append(sloganText,
+  loginSection.append(
+    sloganText,
     imgLogo,
     logInInputSection,
     loginIconContent,
     logInRegisterSection,
-    footerPage 
+    footerPage
   );
 
   contentSectionLogin.appendChild(loginSection);

@@ -19,17 +19,17 @@ body {
 /* 
 /////////////////modalEdit */
 
-.modal_edit_background{
+.modal_edit_background {
   position: fixed;
   width: 90%;
   height: 40%;
   right: 5%;
   top: 15%;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .3);
-  background-color: rgba(255, 255, 255, .2);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 30px;
- display: block;
+  display: block;
 }
 
 .modal_edit_container {
@@ -54,7 +54,7 @@ body {
 }
 
 .profile_user_edit {
-  position:absolute;
+  position: absolute;
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 50%;
@@ -71,6 +71,7 @@ body {
   margin: 1rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   border: none;
   background-color: rgba(65, 213, 218, 0.253);
   border-bottom: 3px solid #00f7ff;
@@ -84,7 +85,7 @@ body {
   color: black;
   border-radius: 1.5rem;
   font-size: 1.25rem;
-  margin: .5rem;
+  margin: 0.5rem;
   border: none;
-top: 95%
+  top: 95%;
 }
