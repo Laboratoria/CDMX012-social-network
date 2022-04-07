@@ -51,7 +51,9 @@ export function renderPost(doc) {
 
   const likes = document.createElement('p');
   likes.setAttribute('id', 'likes');
-  likes.textContent = doc.data().likes;
+  const likesArray = doc.data().likes;
+  const likeData = doc.data().likes.length;
+  likes.textContent = likeData;
 
   const commentInput = document.createElement('input');
   commentInput.setAttribute('id', 'commentInput');
@@ -71,12 +73,13 @@ export function renderPost(doc) {
     }
   });
 
-  let totalLikes = parseInt(likes.textContent, 10);
+  // let totalLikes = parseInt(likeData., 10);
   const idPost = doc.id;
   likeIcon.addEventListener('click', () => {
+    console.log(likesArray);
     // porque suma 1, max 2 y luego regresa a 1
-    totalLikes += 1;
-    countLikes(totalLikes, idPost);
+    // totalLikes += 1;
+    countLikes(idPost, UID, users, likesArray);
   });
   // console.log(userVerify);
   const modal = () => {

@@ -10,6 +10,8 @@ import {
   deleteDoc,
   updateDoc,
   orderBy,
+  arrayRemove,
+  arrayUnion,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
 import { renderPost } from './post.js';
@@ -24,7 +26,7 @@ export const saveForm = (userName, area, userMail) => {
 
   });
 };
-export const savePost = (textPost, datePost, likeCount) => {
+export const savePost = (textPost, datePost) => {
   const auth = getAuth();
   const users = auth.currentUser;
   if (users) {
@@ -41,7 +43,7 @@ export const savePost = (textPost, datePost, likeCount) => {
       Email: email,
       UserUID: UID,
       pp: picture,
-      likes: likeCount,
+      likes: [],
       // comment,
     });
   }
@@ -80,9 +82,22 @@ export const editDoc = (editedInput, idPost) => {
     post: editedInput,
   });
 };
-export const countLikes = (addLike, idPost) => {
+export const countLikes = (idPost, UID, users, likesArray) => {
   const docRef = doc(db, 'Newposts', idPost);
-  updateDoc(docRef, {
-    likes: addLike,
-  });
+  if (users) {
+    if (likesArray.includes(UID)) {
+      updateDoc(docRef, {
+        likes: arrayRemove(UID),
+      });
+    } else {
+      updateDoc(docRef, {
+        likes: arrayUnion(UID),
+      });
+    }
+  // } else {
+  //   updateDoc(docRef, {
+  //     likes: arrayRemove(UID),
+  //   });
+  // }
+  }
 };
