@@ -44,6 +44,7 @@ export const savePost = (textPost, datePost) => {
       UserUID: UID,
       pp: picture,
       likes: [],
+      comment: { text: [], user: [] },
       // comment,
     });
   }
@@ -94,10 +95,16 @@ export const countLikes = (idPost, UID, users, likesArray) => {
         likes: arrayUnion(UID),
       });
     }
-  // } else {
-  //   updateDoc(docRef, {
-  //     likes: arrayRemove(UID),
-  //   });
-  // }
   }
+};
+export const addComment = (textComment, idPost) => {
+  const auth = getAuth();
+  const users = auth.currentUser;
+  const UID = users.uid;
+  const name = users.displayName;
+  const docRef = doc(db, 'Newposts', idPost);
+  updateDoc(docRef, {
+    'comment.text': arrayUnion(textComment),
+    'comment.user': arrayUnion(name),
+  });
 };
