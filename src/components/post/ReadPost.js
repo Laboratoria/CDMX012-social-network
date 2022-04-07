@@ -5,7 +5,7 @@ import {
   onSnapshot,
   limit,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-import { db, deletePost , editPost } from "../../lib/firestore.js";
+import { db, deletePost, editPost } from "../../lib/firestore.js";
 
 const ReadPost = () => {
   const sectionPost = document.createElement("section");
@@ -53,10 +53,12 @@ const ReadPost = () => {
         const deleteComent = document.createElement("img", "delet-coment");
         deleteComent.setAttribute("class", "delete");
         deleteComent.setAttribute("src", "./Resourses/icons/delete_post.png");
-        deleteComent.setAttribute("data-id", post.id);
-        deleteComent.addEventListener("click", ({ target: { dataset } }) => {
-          console.log("se borra el post");
-          deletePost(dataset.id);
+
+        let deleteModalSection = document.createElement("div");
+        deleteModalSection.setAttribute("id", "mcd-" + post.id);
+
+        deleteComent.addEventListener("click", () => {
+          deleteModalSection.appendChild(BuildDeleteModal(post));
         });
 
         const btnEditPost = document.createElement("img", "edit-coment");
@@ -74,7 +76,7 @@ const ReadPost = () => {
         childSection.append(imgUser, headerPost, postDescription, interactions);
         headerPost.append(nameDescription, postDate);
         interactions.append(like, likeNumber, deleteComent, btnEditPost);
-        sectionPost.append(childSection, editModalSection);
+        sectionPost.append(childSection, editModalSection, deleteModalSection);
       }
     });
   });
@@ -131,16 +133,70 @@ const BuildEditModal = (post) => {
   const btnSaveChanges = document.createElement("button");
   btnSaveChanges.setAttribute("class", "btn_saveChanges");
   btnSaveChanges.textContent = "Guardar cambios";
-  btnSaveChanges.addEventListener("click", ()  => {
+  btnSaveChanges.addEventListener("click", () => {
     editPost(postId, editImput.value, post.data().date);
-
   });
-
 
   editModal.append(editModalClose, prfileImageEdit, editImput, btnSaveChanges);
   editModalContainer.append(editModal);
 
   return editModalContainer;
+};
+
+////////////////////////////////MODAL DELETE POST
+const BuildDeleteModal = (post) => {
+  let postId = post.id;
+  let postContent = post.data().post;
+
+  const deleteModalContainer = document.createElement("section");
+  deleteModalContainer.setAttribute("class", "modal_edit_background");
+
+  deleteModalContainer.setAttribute("id", postId);
+
+  const editModal = document.createElement("section");
+  editModal.setAttribute("class", "modal_edit_container");
+
+  const editModalClose = document.createElement("img");
+  editModalClose.setAttribute("src", "../Resourses/icons/close.png");
+  editModalClose.setAttribute("class", "modal_close");
+  editModalClose.addEventListener("click", () => {
+    let deleteModalContainer = document.getElementById(postId);
+    let modalContainer = document.getElementById("mcd-" + postId);
+    modalContainer.removeChild(deleteModalContainer);
+  });
+
+  const prfileImageEdit = document.createElement("img");
+  prfileImageEdit.setAttribute("class", "profile_user_edit");
+  prfileImageEdit.setAttribute(
+    "src",
+    post.data().photo || "https://random.imagecdn.app/300/300"
+  );
+
+  const editImput = document.createElement("h1");
+  editImput.setAttribute("type", "text");
+  editImput.setAttribute("id", "input_editPost");
+  editImput.setAttribute("class", "input_edit_Post");
+  editImput.textContent = "Este post será eliminado";
+
+  // const btnSaveChanges = document.createElement("button");
+  // btnSaveChanges.setAttribute("class", "btn_saveChanges");
+  // btnSaveChanges.textContent = "Cancelar";
+  // btnSaveChanges.addEventListener("click", () => {
+  //   editPost(postId, editImput.value, post.data().date);
+  // });
+  const btnDelete = document.createElement("button");
+  btnDelete.setAttribute("class", "btn_saveChanges");
+  btnDelete.textContent = "Confirmar";
+  btnDelete.setAttribute("data-id", post.id);
+  btnDelete.addEventListener("click", ({ target: { dataset } }) => {
+    console.log("se borra el post");
+    deletePost(dataset.id);
+  });
+
+  editModal.append(editModalClose, prfileImageEdit, editImput, btnDelete);
+  deleteModalContainer.appendChild(editModal);
+
+  return deleteModalContainer;
 };
 
 export default ReadPost;
