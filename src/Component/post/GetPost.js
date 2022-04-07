@@ -11,6 +11,7 @@ export const GetPost = () => {
   alConseguirRecetas((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       const publicacion = doc.data();
+      console.log(publicacion);
       // (console.log(publicacion));
       const post = document.createElement('div');
       post.setAttribute('class', 'post');
@@ -71,14 +72,12 @@ export const GetPost = () => {
         // btn.addEventListener('click', async ({ target: { dataset } }) => {
         const datosReceta = await conseguirReceta(dataset.id);
         const recetaEditar = datosReceta.data();
-        console.log(recetaEditar);
         formPublicacion.inputReceta.value = recetaEditar.receta;
         formPublicacion.inputIngredientes.value = recetaEditar.ingredientes;
         formPublicacion.inputProcedimiento.value = recetaEditar.procedimiento;
         editandoReceta = true;
         id = datosReceta.id;
-        console.log(id);
-        const btnPublicar = document.getElementById('btnPostear');
+        const btnPublicar = document.getElementById('btnActualizar');
         btnPublicar.addEventListener('click', (e) => {
           e.preventDefault();
           const receta = formPublicacion.inputReceta;
@@ -86,10 +85,9 @@ export const GetPost = () => {
           const procedimiento = formPublicacion.inputProcedimiento;
           const categoria = formPublicacion.selectCategoria;
           console.log('holiwi');
-          editandoReceta = false;
           // eslint-disable-next-line max-len
           // guardarReceta(inputReceta.value, inputIngredientes.value, inputProcedimiento.value, selectCategoria.value);
-          if (editandoReceta === false) {
+          if (editandoReceta === true) {
             console.log('Estoy actualizando');
             actualizarReceta(id, {
               receta: receta.value, ingredientes: ingredientes.value, procedimiento: procedimiento.value, categoria: categoria.value,
@@ -104,7 +102,8 @@ export const GetPost = () => {
       });
       post.append(h3PublicacionReceta, ingredientesP, publicacionProcedimientosP, publicacionCategoriaP, borrarPostBoton, editarPostBoton);
       // postPublicado.appendChild(post);
-      divPost.append(post);
+       divPost.append(post);
+     // console.log(divPost);
     });
     // });
     // });

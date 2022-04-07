@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { guardarReceta, conseguirReceta, actualizarReceta} from '../../lib/firestore.js';
+import { guardarReceta } from '../../lib/firestore.js';
 
 export const crearPost = () => {
   const formPublicacion = document.createElement('form');
@@ -48,13 +48,15 @@ export const crearPost = () => {
   const catVeganoImg = document.createElement('IMG');
   catVeganoImg.src = '../images/PolloVegano.png';
   selectCategoria.append(catSalado, catDulce, catVegano);
+  const btnActualizar = document.createElement('button');
+  btnActualizar.textContent = 'Actualizar';
+  btnActualizar.setAttribute('id', 'btnActualizar');
   const btnPublicar = document.createElement('button');
   btnPublicar.textContent = 'Publicar';
   btnPublicar.setAttribute('id', 'btnPostear');
-  
   btnPublicar.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('estoy vivo');
+    console.log('click en prueba');
     guardarReceta(inputReceta.value, inputIngredientes.value, inputProcedimiento.value, selectCategoria.value);
   });
   const cerrarModal = document.createElement('button');
@@ -68,6 +70,6 @@ export const crearPost = () => {
   });
 
   // eslint-disable-next-line max-len
-  formPublicacion.append(cerrarModal, labelReceta, inputReceta, labelIngredientes, inputIngredientes, labelProcedimiento, inputProcedimiento, labelCategoria, selectCategoria, btnPublicar);
+  formPublicacion.append(cerrarModal, labelReceta, inputReceta, labelIngredientes, inputIngredientes, labelProcedimiento, inputProcedimiento, labelCategoria, selectCategoria, btnActualizar, btnPublicar);
   return formPublicacion;
 };
