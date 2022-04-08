@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,700;1,900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100&display=swap");
+/* STYLES Timeline */
+/* 
+/***********************************************/
+/* .solovino_working_img {
+  width: 50%;
+  margin: 2% 25%;
+  position:absolute;
+  top: 50%;
+} */
+
+/*
+.solovino_working {
+  width: 25%;
+  margin: 5% 37.5% 0%;
+  font-size: medium;
+  text-align: center;
+} */
+
+html {
+  background-color: white;
+}
+
+.content-timeline {
+  /* background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg"); */
+  /* background-size: 100%; */
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  width: 100%;
+  display: flex;
+}
+
+.content-all-timeline {
+  margin: 0;
+  width: 100%;
+}
+
+.timeline-header {
+  background-color: #4cdee2;
+  margin: 0;
+  width: 100%;
+  /* margin-top: 0; */
+}
+
+.solovino-logo-timeline {
+  width: 25%;
+  margin: 0 37.5% 0;
+  top: 0;
+}
+
+.sing-out {
+  width: 15%;
+  margin: 0 0 0 85%;
+  background-color: #4cdee2;
+  color: black;
+  text-align: right;
+}
+
+.menu-nav {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 3%;
+  left: 6%;
+  cursor: pointer;
+}
+#postContent {
+  background-color: #f3f3f3;
+  width: 50%;
+  margin: 2% 25% 2%;
+  padding: 3%;
+  justify-content: center;
+}
+.post {
+  width: 100%;
+  cursor: pointer;
+}
+.to-post {
+  margin-left: 88%;
+  cursor: pointer;
+}
+
+.post-element {
+  border-style: solid;
+  border-color: #4cdee2;
+  background-color: #f3f3f3;
+  padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  width: 70%;
+  margin: 5% 15%;
+  /* justify-content: space-between; */
+}
+.text-post {
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.user-img {
+  width: auto;
+  height: 30px;
+  margin: 2%;
+  border-radius: 15px;
+}
+.name-user {
+  font-size: large;
+}
+.date {
+  width: 100%;
+}
+
+.interactions {
+  width: 100%;
+  display: flex;
+  text-align: end;
+}
+
+.like {
+  height: min-content;
+  width: 5%;
+  margin: 0% 2% 0 70%;
+  cursor: pointer;
+}
+.like-number {
+  font-size: x-large;
+  text-align: start;
+  margin: 0;
+}
+
+.delete,
+.edit {
+  height: min-content;
+  width: 5%;
+  margin: 0 1% 0 2%;
+  cursor: pointer;
+}
+
+#return_index {
+  background: pink;
+  width: 20%;
+  margin: 2% 40% 0%;
+}
+
+@media (max-width: 450px) {
+  .content-timeline {
+    /* background-image: url("../Resourses/fondo\ crear\ cuenta_Mesa\ de\ trabajo\ 1.jpg"); */
+    /* background-size: 100%; */
+    background-color: white;
+    font-family: "Lato", sans-serif;
+    margin: 0;
+  }
+
+  .content-all-timeline {
+    margin: 0;
+  }
+
+  .timeline-header {
+    background-color: #4cdee2;
+  }
+
+  .solovino-logo-timeline {
+    width: 60%;
+    top: 0;
+    margin: 0 20% 0;
+  }
+
+  .sing-out {
+    margin: 0 0 0 75%;
+    background-color: #4cdee2;
+    color: black;
+    width: 25%;
+  }
+
+  #postContent {
+    background-color: #f3f3f3;
+    width: 80%;
+    margin: 2% 8% 2%;
+    padding: 2%;
+    justify-content: center;
+    word-wrap: break-word;
+  }
+  .post {
+    width: 98%;
+    height: 0.5%;
+  }
+
+  .to-post {
+    margin-left: 80%;
+    cursor: pointer;
+  }
+
+  .post-element {
+    border-style: solid;
+    border-color: #4cdee2;
+    margin: 5% 4%;
+    background-color: #f3f3f3;
+    padding: 1%;
+    width: 90%;
+  }
+  .text-post {
+    word-wrap: break-word;
+    width: 100%;
+    font-size: small;
+    margin-left: 3%;
+  }
+
+  .user-img {
+    width: auto;
+    height: 30px;
+    margin: 2%;
+  }
+  .name-user {
+    font-size: medium;
+    margin: 3% 0 0 5%;
+    width: 100%;
+  }
+  .date {
+    font-size: small;
+    width: 100%;
+    margin: 0 0 0 5%;
+  }
+
+  .interactions {
+    width: 100%;
+    display: flex;
+    text-align: end;
+    margin: 0;
+  }
+
+  .like {
+    height: min-content;
+    width: 5%;
+    margin: 0% 2% 0 70%;
+  }
+  .like-number {
+    font-size: small;
+    text-align: start;
+    margin: 0;
+  }
+
+  .delete,
+  .edit {
+    height: min-content;
+    width: 5%;
+    margin: 0 1% 0 2%;
+  }
+
+  #return_index {
+    background: pink;
+    width: 50%;
+    margin: 2% 25% 0%;
+  }
+}

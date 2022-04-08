@@ -1,0 +1,85 @@
+.register_close {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 5%;
+  left: 92%;
+  cursor: pointer;
+}
+
+.text_create_register {
+  font-size: 2.5rem;
+  margin: 0rem 1rem;
+  text-align: center;
+}
+
+.new_account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.condicions_register {
+  width: 60%;
+  height: 10%;
+  font-weight: 200;
+  font-size: 1.25rem;
+  margin: 5% 1rem 1rem 1rem;
+  text-align: center;
+}
+
+#create_account {
+  background-color: #00f7ff;
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 920px) {
+  .register_close {
+    top: 3%;
+    left: 92%;
+    cursor: pointer;
+  }
+
+  .text_create_register {
+    font-size: 2.5rem;
+    margin: 40% 1rem 2rem 1rem;
+  }
+
+  .condicions_register {
+    width: 0%;
+    height: 10%;
+    font-size: 1.5rem;
+    margin: 10% 1rem 1rem 1rem;
+  }
+
+  @media (max-width: 500px) {
+    .register_close {
+      top: 3%;
+      left: 88%;
+      cursor: pointer;
+    }
+
+    .text_create_register {
+      font-size: 1.5rem;
+      margin: 45% 1rem 1rem 1rem;
+    }
+
+    .condicions_register {
+      width: 80%;
+      height: auto;
+      font-size: 1rem;
+      margin: 8% 1rem 0.5rem 1rem;
+    }
+  }
+}
+
+.register_redirect {
+  width: 4rem;
+  height: 4rem;
+  margin: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
