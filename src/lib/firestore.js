@@ -9,8 +9,7 @@ import {
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 import {
-  getAuth,
-  updateProfile,
+  getAuth
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { firebaseConfig } from "./firebase-config.js";
 
