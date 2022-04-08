@@ -1,12 +1,3 @@
-// Your web app's Firebase configuration
-// import {
-//   getDatabase,
-//   set,
-//   ref,
-//   update,
-// } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
-//"https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js"
-import { app } from "./firebase-config.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -16,9 +7,9 @@ import {
   GoogleAuthProvider,
   updateProfile,
   FacebookAuthProvider,
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+} from "./firebase-imports.js";
 import { onNavigate } from "../main.js";
-import { firebaseConfig } from "./firebase-config.js";
+import { app } from "./firebase-config.js";
 
 export const auth = getAuth(app);
 

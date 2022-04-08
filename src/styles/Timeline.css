@@ -106,6 +106,7 @@ html {
 }
 .name-user {
   font-size: large;
+  text-transform: capitalize;
 }
 .date {
   width: 100%;

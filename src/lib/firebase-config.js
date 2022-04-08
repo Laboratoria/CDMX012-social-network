@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+import { initializeApp } from "./firebase-imports.js";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDj6jmIpNX5TMlIb0byHuxe6DgFWSZOC-4",
@@ -7,7 +7,7 @@ export const firebaseConfig = {
   storageBucket: "respaldo-solovino.appspot.com",
   messagingSenderId: "812043284969",
   appId: "1:812043284969:web:e5702c72fd947c62529b78",
-  databaseURL:"gs://respaldo-solovino.appspot.com/"
+  databaseURL: "gs://respaldo-solovino.appspot.com/",
 };
 
 // Initialize Firebase
