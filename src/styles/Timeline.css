@@ -63,6 +63,7 @@ html {
   position: absolute;
   top: 3%;
   left: 6%;
+  cursor: pointer;
 }
 #postContent {
   background-color: #f3f3f3;
@@ -73,9 +74,11 @@ html {
 }
 .post {
   width: 100%;
+  cursor: pointer;
 }
 .to-post {
   margin-left: 88%;
+  cursor: pointer;
 }
 
 .post-element {
@@ -118,6 +121,7 @@ html {
   height: min-content;
   width: 5%;
   margin: 0% 2% 0 70%;
+  cursor: pointer;
 }
 .like-number {
   font-size: x-large;
@@ -130,6 +134,7 @@ html {
   height: min-content;
   width: 5%;
   margin: 0 1% 0 2%;
+  cursor: pointer;
 }
 
 #return_index {
@@ -183,6 +188,7 @@ html {
 
   .to-post {
     margin-left: 80%;
+    cursor: pointer;
   }
 
   .post-element {

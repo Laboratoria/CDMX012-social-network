@@ -5,7 +5,7 @@ import {
   onSnapshot,
   limit,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-import { db, deletePost, editPost } from "../../lib/firestore.js";
+import { db, deletePost, editPost, likePost } from "../../lib/firestore.js";
 
 const ReadPost = () => {
   const sectionPost = document.createElement("section");
@@ -44,10 +44,13 @@ const ReadPost = () => {
 
         const like = document.createElement("img", "logo-like");
         like.setAttribute("class", "like");
-        like.setAttribute("src", "./Resourses/icons/huella_like.png");
+        like.setAttribute("src", "./Resourses/icons/like.png");
+        like.addEventListener("click", () => {
+          likePost(post);
+        });
 
         const likeNumber = document.createElement("p");
-        likeNumber.textContent = 40;
+        likeNumber.textContent = post.data().likes.length;
         likeNumber.setAttribute("class", "like-number");
 
         const deleteComent = document.createElement("img", "delet-coment");

@@ -7,6 +7,8 @@ import {
   doc,
   deleteDoc,
   updateDoc,
+  arrayUnion,
+  arrayRemove,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 import {
   getAuth,
@@ -37,26 +39,17 @@ export let savePost = (post, date) => {
       displayName,
       email,
       photo,
+      likes: [],
     });
   } else {
     // No user is signed in.
   }
 };
 
-// const doUser = db.collection('user').doc(user.uid);
-
-// updateProfile(auth.currentUser, {
-//   displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
-// }).then(() => {
-//   // Profile updated!
-//   // ...
-// }).catch((error) => {
-//   // An error occurred
-//   // ...
-// });
+//const doUser = db.collection("user").doc(user.uid);
 
 export const deletePost = (id) => {
-  alert("Este post será eliminado");
+  //alert("Este post será eliminado");
   deleteDoc(doc(db, "post", id));
 };
 
@@ -66,4 +59,27 @@ export async function editPost(id, editImput, date) {
     post: editImput,
     date: new Date(),
   });
+}
+
+export async function likePost(post) {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  const likes = post.data().likes;
+  const doILikeIt = likes.find((like) => like.email === user.email);
+
+  if (doILikeIt) {
+    // Lo quito
+    const postRef = doc(db, "post", post.id);
+    console.log(auth.currentUser);
+    await updateDoc(postRef, {
+      likes: arrayRemove({ email: user.email }),
+    });
+  } else {
+    const postRef = doc(db, "post", post.id);
+    console.log(auth.currentUser);
+    await updateDoc(postRef, {
+      likes: arrayUnion({ email: user.email }),
+    });
+  }
 }

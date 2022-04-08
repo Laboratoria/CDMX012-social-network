@@ -30,6 +30,7 @@ body {
   backdrop-filter: blur(10px);
   border-radius: 30px;
   display: block;
+  z-index: 99999999;
 }
 
 .modal_edit_container {
@@ -51,6 +52,7 @@ body {
   height: 2rem;
   top: -15%;
   left: 42%;
+  cursor: pointer;
 }
 
 .profile_user_edit {
@@ -75,6 +77,7 @@ body {
   border: none;
   background-color: rgba(65, 213, 218, 0.253);
   border-bottom: 3px solid #00f7ff;
+  cursor: pointer;
 }
 
 .btn_saveChanges {
@@ -88,4 +91,5 @@ body {
   margin: 0.5rem;
   border: none;
   top: 95%;
+  cursor: pointer;
 }
