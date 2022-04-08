@@ -4,8 +4,14 @@ import { onNavigate } from "../main.js";
 import { savePost } from "../lib/firestore.js";
 import ReadPost from "./post/ReadPost.js";
 // import { menu } from "./menu.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+
 
 export const timeline = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  
+ 
   const content = document.createElement("section");
   content.setAttribute("class", "content-timeline");
 
@@ -16,6 +22,7 @@ export const timeline = () => {
 
   const TimelineHeader = document.createElement("header");
   TimelineHeader.setAttribute("class", "timeline-header");
+
   const headerLogo = document.createElement("img");
   headerLogo.setAttribute("class", "solovino-logo-timeline");
   headerLogo.setAttribute("src", "../Resourses/Logos/solovino black movil.png");
@@ -30,19 +37,17 @@ export const timeline = () => {
     // menu();
   });
 
-
-  // const headerSingOut = document.createElement("p");
-  // headerSingOut.setAttribute("type", "text");
-  // headerSingOut.setAttribute("class", "sing-out");
-  // headerSingOut.textContent = "Cerrar Sesión";
-  // headerSingOut.addEventListener("click", () => {
-  //   singOut();
-  // });
-
   TimelineHeader.append(headerLogo,menuNav,); ////////
 
   const postContent = document.createElement("section");
   postContent.setAttribute("id", "postContent");
+
+  const PostedImgUser = document.createElement("img");
+  PostedImgUser.setAttribute("class", "Post_ImgUser");
+  PostedImgUser.setAttribute("src", user.photoURL);
+
+
+
   const post = document.createElement("textarea");
   post.setAttribute("placeholder", "Escribe algo...");
   post.setAttribute("id", "post");
@@ -51,7 +56,6 @@ export const timeline = () => {
 
   const buttonToPost = document.createElement("button");
   buttonToPost.textContent = "Publicar";
-  buttonToPost.setAttribute("type", "submit");
   buttonToPost.setAttribute("id", "toPost");
   buttonToPost.addEventListener("click", () => {
     //   createPost();
@@ -73,14 +77,9 @@ export const timeline = () => {
   getPosts.appendChild(ReadPost());
  
 
-
-
-
-
-
   buttonToPost.setAttribute("class", "to-post");
 
-  postContent.append(post, buttonToPost);
+  postContent.append(PostedImgUser, post, buttonToPost);
 
   // const returnIndex = document.createElement("button");
   // returnIndex.textContent = "Regresa al inicio";

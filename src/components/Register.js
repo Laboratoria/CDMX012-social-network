@@ -33,15 +33,13 @@ export const register = () => {
 
   const inputName = document.createElement("input");
   inputName.setAttribute("type", "text");
-  let nameUser = "name-user";
-  inputName.setAttribute("id", nameUser);
+  inputName.setAttribute("id", "name-user");
   inputName.setAttribute("class", "input_account");
   inputName.setAttribute("placeholder", "Nombre completo del Usuario");
 
   const inputMail = document.createElement("input");
   inputMail.setAttribute("type", "email");
-  let emailRegister = "email_register";
-  inputMail.setAttribute("id", emailRegister);
+  inputMail.setAttribute("id", "email_register");
   inputMail.setAttribute("class", "input_account");
   inputMail.setAttribute("placeholder", "Correo electrónico");
 
