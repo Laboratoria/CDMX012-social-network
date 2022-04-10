@@ -1,3 +1,5 @@
+//en este archivo se va a replicar la interfaz de exportacion del archivo original
+//estas son funciones de firebase/firestore y todas devuelven una promesa
 //este archivo no hace "nada" unicamente replica los archivos del export original pero son mocks que aun no hacen nada.
 
 export const getAuth = () => Promise.resolve({});

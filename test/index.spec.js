@@ -1,8 +1,10 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+import { registerNewUsers } from "../src/lib/auth.js";
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+jest.mock("../src/lib/firebase-imports.js");
+
+describe("myFunction", () => {
+  it("should be a function", () => {
+    expect(typeof registerNewUsers).toBe("function");
   });
 });
