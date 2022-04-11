@@ -10,6 +10,8 @@ import { getAuth } from '../lib/firebaseFunctions.js';
 export function renderPost(doc) {
   const sectionPost = document.createElement('div');
   sectionPost.setAttribute('class', 'sectionPost');
+  const showModal = document.createElement('div');
+  showModal.setAttribute('class', 'showModal');
 
   const templateTop = document.createElement('div');
   templateTop.setAttribute('class', 'templateTop');
@@ -69,7 +71,7 @@ export function renderPost(doc) {
 
   templateTop.append(profilePic, profileName, deletePostButton, edit);
   likeComment.append(postDate, likes, likeIcon, commentIcon);
-  sectionPost.append(templateTop, pPost, likeComment);
+  sectionPost.append(templateTop, pPost, likeComment,showModal);
 
   commentIcon.addEventListener('click', (e) => {
     e.preventDefault();
@@ -81,6 +83,8 @@ export function renderPost(doc) {
   sendComment.addEventListener('click', () => {
     const textComment = document.getElementById('commentInput').value;
     addComment(textComment, idPost);
+    // para poder acceder a los valores del objeto de los comentarios
+    console.log(doc.data().comment.text, doc.data().comment.user);
   });
 
   likeIcon.addEventListener('click', () => {
@@ -116,13 +120,16 @@ export function renderPost(doc) {
     });
 
     noSignOut.addEventListener('click', () => {
-      sectionPost.removeChild(containerModal);
+      showModal.removeChild(containerModal);
     });
     return containerModal;
   };
 
   deletePostButton.addEventListener('click', () => {
-    sectionPost.append(modal());
+    while (showModal.firstChild) {
+      showModal.removeChild(showModal.firstChild);
+    }
+    showModal.append(modal());
   });
   edit.addEventListener('click', () => {
     pPost.contentEditable = 'true';
@@ -142,29 +149,5 @@ export function renderPost(doc) {
   const wall = document.getElementById('postFeed');
   wall.append(sectionPost);
 
-  // delete data
-  // dots.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   const id = e.target.parentElement.getAttribute('data-id');
-  //   deletePost(id);
-  // });
-  // dejamos el return para los tests - no cambia en el html quitarlo o ponerlo
   return sectionPost;
 }
-// export const templatePost = (doc) => {
-//   const templateHola = `
-//   <div class="templateTop">
-//     <img id="profilePicture" src="img/profilePicture.png"></img>
-//     <label class="profileName"></label>
-//     <img id="dots" src="img/dots.png"></img>
-//   </div>
-//   <p id="inputPost">${Object.values(doc.post).join(' ')}</p>
-// <div id="likeComment">
-// <p> ${Object.values(doc.date).join(' ')} </p>
-//   <img id="likePost" src="img/like.png"></img>
-//   <img id="commentPost" src="img/comment.png">${Object.values(doc.Data().comment)}</img>
-// </div>
-// `;
-//   sectionPost.innerHTML = templateHola;
-//   return sectionPost;
-// };

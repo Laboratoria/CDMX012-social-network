@@ -222,8 +222,8 @@
 /* Aqui inician los estilos del modal */
 #containerModal{
     position: fixed;
-    left: 30%;
-    top: 65%;
+    left: 34%;
+    top: 40%;
     width: 30vw;
     padding-bottom: 40px;    
     background-color: #AE69BF;
@@ -432,5 +432,4 @@
     right: 50px;
 }
 }
-
 
