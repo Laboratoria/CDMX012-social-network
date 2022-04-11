@@ -8,12 +8,12 @@ export const newPostModal = () => {
   const createTop = document.createElement('div');
   createTop.setAttribute('class', 'templateTop');
 
-  const profilePic = document.createElement('img');
-  profilePic.setAttribute('src', 'img/profilePicture.png');
+  // const profilePic = document.createElement('img');
+  // profilePic.setAttribute('src', 'img/profilePicture.png');
 
-  const namePost = document.createElement('label');
-  namePost.setAttribute('class', 'profileName');
-  namePost.textContent = 'Ana';
+  // const namePost = document.createElement('label');
+  // namePost.setAttribute('class', 'profileName');
+  // namePost.textContent = 'Ana';
 
   const inputPostModal = document.createElement('input');
   inputPostModal.setAttribute('id', 'inputPostModal');
@@ -25,8 +25,8 @@ export const newPostModal = () => {
   sendPostModal.setAttribute('class', 'button');
   sendPostModal.textContent = 'Publicar';
 
-  createTop.append(namePost, profilePic);
-  writePostModal.append(createTop, inputPostModal, sendPostModal);
+  // createTop.append(namePost, profilePic);
+  writePostModal.append(inputPostModal, sendPostModal);
 
   sendPostModal.addEventListener('click', (e) => {
     e.preventDefault();
@@ -39,11 +39,11 @@ export const newPostModal = () => {
     const currentMin = datePost.getMinutes();
     // eslint-disable-next-line prefer-template
     const dateString = currentHour + ':' + currentMin + '-' + currentDayOfMonth + '-' + (currentMonth + 1) + '-' + currentYear;
-    const likeCount = [];
+    // const likeCount = [];
     if (textPost !== '') {
-      savePost(textPost, dateString, likeCount);
+      savePost(textPost, dateString);
       document.getElementById('inputPostModal').value = '';
-      console.log(textPost, dateString, likeCount);
+      console.log(textPost, dateString);
     } else {
       alert('Tu post esta vacío!');
     }
