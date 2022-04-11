@@ -185,15 +185,6 @@
     border: 3px solid #a4a3dd;
     border-radius:10px;
     }
-    #createPost{
-    display: flex;
-    flex-direction:column;
-    margin-top:5%;
-    width: 35vw; 
-    height: 10vw;
-    row-gap: 10px;
-    padding-bottom: 1%;
-    }
 
     #feedHeader{
     position: sticky;
@@ -225,12 +216,7 @@
     width:30%;
     margin-right: 10px;
     }  
-    #logoFeed{
-    height: 60px;
-    width: 60px;
-    margin-right: 40px;
-    margin-top:10px;
-    }
+ 
 /* Aqui inician los estilos del modal */
 #containerModal{
     position: fixed;
@@ -285,25 +271,17 @@
         row-gap: 10px;
         padding-bottom: 1%;
     }
-
+  
     #logoFeed {
         height: 60px;
         width: 60px;
         margin-right: 10px;
         margin-top: 10px;
     }
-
+    
 
     /* POST TEMPLATE */
-    /* 
-#divPost{
-   display: flex;
-   flex-direction: column;
-   background-color: white;
-   width: 90%;
-   row-gap: auto;
-   border: 3px solid #9531AE;
-} */
+  
     .templateTop{
     display: flex;
     flex-direction: row;

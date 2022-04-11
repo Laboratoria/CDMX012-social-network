@@ -13,7 +13,7 @@ const routes = {
   '/feed': feed,
 };
 
-const rootDiv = document.getElementById('root');
+let rootDiv;
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
@@ -34,5 +34,9 @@ window.onpopstate = () => {
   }
   rootDiv.appendChild(routes[window.location.pathname]());
 };
-const components = routes[window.location.pathname];
-rootDiv.appendChild(components());
+
+window.onload = () => {
+  rootDiv = document.getElementById('root');
+  const components = routes[window.location.pathname];
+  rootDiv.appendChild(components());
+};

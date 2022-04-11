@@ -9,7 +9,7 @@ import {
   signOut,
   updateProfile,
 // eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+} from './firebaseFunctions.js';
 // viene desde una CDN y no de lib
 
 // eslint-disable-next-line import/no-cycle

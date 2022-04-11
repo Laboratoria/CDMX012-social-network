@@ -110,9 +110,6 @@
         outline-offset: 0px;
     }
 
-    .registerText {
-        text-align: center;
-    }
 
     #maskify {
         position: absolute;
@@ -172,7 +169,6 @@
         border: 3px solid #a4a3dd;
         border-radius: 10px;
     }
-
     #createPost {
         display: flex;
         flex-direction: column;
@@ -181,6 +177,7 @@
         row-gap: 10px;
         padding-bottom: 1%;
     }
+    
     #createPostModal {
         display: flex;
         flex-direction: column;
@@ -356,15 +353,9 @@ font-size:0.8rem;
     font-size: 0.9rem;
     width: auto;
     text-align: center;
-<<<<<<< HEAD
-}    
-=======
+
 }
->>>>>>> 26eb5f9e4ddfff6a2cec837af6f8218ae8fd179a
-#postDate{
-    font-size:0.5rem;
-    font-weight: bold;
-}
+
 #profilePic{
 max-width: 50px;
 border-radius: 50px;

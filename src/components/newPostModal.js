@@ -37,6 +37,7 @@ export const newPostModal = () => {
     const currentYear = datePost.getFullYear();
     const currentHour = datePost.getHours();
     const currentMin = datePost.getMinutes();
+    // eslint-disable-next-line prefer-template
     const dateString = currentHour + ':' + currentMin + '-' + currentDayOfMonth + '-' + (currentMonth + 1) + '-' + currentYear;
     const likeCount = [];
     if (textPost !== '') {
