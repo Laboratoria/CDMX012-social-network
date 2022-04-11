@@ -10,6 +10,8 @@ import { getAuth } from '../lib/firebaseFunctions.js';
 export function renderPost(doc) {
   const sectionPost = document.createElement('div');
   sectionPost.setAttribute('class', 'sectionPost');
+  const showModal = document.createElement('div');
+  showModal.setAttribute('class', 'showModal');
 
   const templateTop = document.createElement('div');
   templateTop.setAttribute('class', 'templateTop');
@@ -69,7 +71,7 @@ export function renderPost(doc) {
 
   templateTop.append(profilePic, profileName, deletePostButton, edit);
   likeComment.append(postDate, likes, likeIcon, commentIcon);
-  sectionPost.append(templateTop, pPost, likeComment);
+  sectionPost.append(templateTop, pPost, likeComment,showModal);
 
   commentIcon.addEventListener('click', (e) => {
     e.preventDefault();
@@ -118,13 +120,16 @@ export function renderPost(doc) {
     });
 
     noSignOut.addEventListener('click', () => {
-      sectionPost.removeChild(containerModal);
+      showModal.removeChild(containerModal);
     });
     return containerModal;
   };
 
   deletePostButton.addEventListener('click', () => {
-    sectionPost.append(modal());
+    while (showModal.firstChild) {
+      showModal.removeChild(showModal.firstChild);
+    }
+    showModal.append(modal());
   });
   edit.addEventListener('click', () => {
     pPost.contentEditable = 'true';
