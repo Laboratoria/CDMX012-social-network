@@ -123,7 +123,9 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.199), 0 8px 16px rgba(0, 0, 0, 0.342);
         font-family: 'Roboto', sans-serif;
     }
-
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
     #maskify {
         position: absolute;
         right: 8px;
@@ -266,7 +268,7 @@
     #createPostModal {
         display: flex;
         flex-direction: column;
-        margin-top: 5%;
+        margin: 0px auto;
         width: 40vw;
         row-gap: 10px;
         padding-bottom: 1%;
@@ -342,6 +344,26 @@
         align-items: center;
         justify-items: center;
     }
+    #sendPost.button{
+        margin-left: 190px;
+        padding-top: 3px;
+        width: 5px;
+        height: 25px;
+        text-align: center;
+        font-size: 10px;
+        align-items: center;
+        justify-items: center;
+    }
+    #sendPostModal.button{
+        margin-left: 190px;
+        padding-top: 3px;
+        width: 5px;
+        height: 25px;
+        text-align: center;
+        font-size: 10px;
+        align-items: center;
+        justify-items: center;
+    }
     .profileName{
         background-color: white;
         border: 2px solid #3734CE; 
@@ -358,9 +380,10 @@
     }
   
     #inputPostModal {
+        margin-top:5%;
         width: 80%;
         margin-left: 5%;
-        height: auto;
+        height: 40px;
         word-wrap: break-word;
     
     }
@@ -387,7 +410,7 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 42%;
   }
   
   /* The Close Button */
@@ -404,6 +427,9 @@
     text-decoration: none;
     cursor: pointer;
   }
-
+#editPostButton{
+    position: absolute;
+    right: 50px;
+}
 }
 
