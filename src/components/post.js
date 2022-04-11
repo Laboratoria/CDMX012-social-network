@@ -128,6 +128,7 @@ export function renderPost(doc) {
     pPost.contentEditable = 'true';
     const editPostButton = document.createElement('button');
     editPostButton.setAttribute('class', 'button');
+    editPostButton.setAttribute('id', 'editPostButton');
     editPostButton.textContent = 'enviar';
     templateTop.append(editPostButton);
     editPostButton.addEventListener('click', () => {

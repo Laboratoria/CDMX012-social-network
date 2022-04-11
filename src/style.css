@@ -424,4 +424,8 @@ border-radius: 50px;
         text-decoration: none;
         cursor: pointer;
     }
+    #editPostButton{
+        position: absolute;
+        right: 50px;
+    }
 }
