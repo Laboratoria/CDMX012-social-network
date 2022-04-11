@@ -181,10 +181,14 @@
     #createPostModal {
         display: flex;
         flex-direction: column;
-        margin-top: 5%;
-        width: 95vw;
+        margin: 0px auto;
+        width: 100%;
         row-gap: 10px;
         padding-bottom: 1%;
+    }
+
+    * {
+        font-family: 'Roboto', sans-serif;
     }
 
     #sendPost {
@@ -368,11 +372,21 @@ border-radius: 50px;
     align-items: center;
     justify-items: center;
 }
+#sendPostModal.button{
+    margin-left: 110px;
+    padding-top: 3px;
+    height: 25px;
+    text-align: center;
+    font-size: 12px;
+    align-items: center;
+    justify-items: center;
+}
 
     #inputPostModal {
+        margin-top:5%;
         width: 80%;
         margin-left: 5%;
-        height: auto;
+        height: 40px;
         word-wrap: break-word;
 
     }
