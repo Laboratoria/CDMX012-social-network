@@ -8,7 +8,7 @@ import { adoptions } from "./components/Adoptions.js";
 import {
   onAuthStateChanged,
   getAuth,
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+} from './lib/firebase-imports.js';
 
 const rootContent = document.getElementById("root");
 

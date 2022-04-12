@@ -4,7 +4,7 @@ import {
   orderBy,
   onSnapshot,
   limit,
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
+} from "../../lib/firebase-imports.js";
 import { db, deletePost, editPost, likePost } from "../../lib/firestore.js";
 
 const ReadPost = () => {
