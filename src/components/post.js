@@ -69,9 +69,11 @@ export function renderPost(doc) {
   sendComment.textContent = 'Enviar';
   sendComment.setAttribute('class', 'button');
 
+  const sendButtonBox = document.createElement('div');
+
   templateTop.append(profilePic, profileName, deletePostButton, edit);
-  likeComment.append(postDate, likes, likeIcon, commentIcon);
-  sectionPost.append(templateTop, pPost, likeComment,showModal);
+  likeComment.append(sendButtonBox, postDate, likes, likeIcon, commentIcon);
+  sectionPost.append(templateTop, pPost, likeComment, showModal);
 
   commentIcon.addEventListener('click', (e) => {
     e.preventDefault();
@@ -137,7 +139,10 @@ export function renderPost(doc) {
     editPostButton.setAttribute('class', 'button');
     editPostButton.setAttribute('id', 'editPostButton');
     editPostButton.textContent = 'enviar';
-    templateTop.append(editPostButton);
+    while (sendButtonBox.firstChild) {
+      sendButtonBox.removeChild(sendButtonBox.firstChild);
+    }
+    sendButtonBox.append(editPostButton);
     editPostButton.addEventListener('click', () => {
       const editedInput = pPost.innerText;
       // toma el nuevo texto para enviarlo - console.log(editedInput);
