@@ -43,8 +43,6 @@ onAuthStateChanged(auth, (user) => {
     const displayName = user.displayName;
     const email = user.email;
     const photo = user.photoURL;
-    // ...
-    console.log(user);
 
     onNavigate("/Timeline");
   } else {

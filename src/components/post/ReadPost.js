@@ -6,43 +6,54 @@ import {
   limit,
 } from "../../lib/firebase-imports.js";
 import { db, deletePost, editPost, likePost } from "../../lib/firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 
+ 
 const ReadPost = () => {
-  const sectionPost = document.createElement("section");
+  
+  const ContentPost = document.createElement("section");
+  ContentPost.setAttribute("class", "content_post");
   // aqui on snapshot
   const data = collection(db, "post");
 
   const q = query(data, orderBy("date", "desc"), limit(20));
-  const unsubscribe = onSnapshot(q, (postes) => {
-    removeChildNodes(sectionPost);
-    postes.forEach((post) => {
+  const unsubscribe = onSnapshot(q, (postList) => {
+    removeChildNodes(ContentPost);
+    postList.forEach((post) => {
       if (post.data().post) {
-        const childSection = document.createElement("section");
-        childSection.setAttribute("class", "post-element");
 
-        const imgUser = document.createElement("img");
-        imgUser.setAttribute("class", "user-img");
-        imgUser.setAttribute("src", post.data().photo);
+        const PostUserData = document.createElement("section");
+        PostUserData.setAttribute("class", "Post_user_data");
+
+        const PostImgUser = document.createElement("img");
+        PostImgUser.setAttribute("class", "Post_ImgUser");
+        PostImgUser.setAttribute("src", post.data().photo);
 
         const headerPost = document.createElement("section");
-        headerPost.setAttribute("class", "header-post");
+        headerPost.setAttribute("class", "header_post");
 
-        const nameDescription = document.createElement("h2");
-        nameDescription.setAttribute("class", "name-user");
-        nameDescription.textContent = post.data().displayName;
+        const PostDisplayName = document.createElement("h2");
+        PostDisplayName.setAttribute("class", "Post_displayName");
+        PostDisplayName.textContent = post.data().displayName;
 
         const postDate = document.createElement("p");
         postDate.textContent = getDate(post.data().date);
-        postDate.setAttribute("class", "date");
+        postDate.setAttribute("class", "post_date");
 
-        const postDescription = document.createElement("h2");
-        postDescription.setAttribute("class", "text-post");
-        postDescription.textContent = post.data().post;
+        headerPost.append(PostDisplayName, postDate);
+        PostUserData.append(PostImgUser,headerPost);
 
-        const interactions = document.createElement("section");
-        interactions.className = "interactions";
+        const postText = document.createElement("h2");
+        postText.setAttribute("class", "text_post");
+        postText.textContent = post.data().post;
 
-        const like = document.createElement("img", "logo-like");
+        const updateWrapper = document.createElement("section");
+        updateWrapper.className = "update_wrapper";
+       
+        const postInteractions = document.createElement("section");
+        postInteractions.className = "post_interactions";
+
+        const like = document.createElement("img");
         like.setAttribute("class", "like");
         like.setAttribute("src", "./Resourses/icons/like.png");
         like.addEventListener("click", () => {
@@ -50,40 +61,48 @@ const ReadPost = () => {
         });
 
         const likeNumber = document.createElement("p");
+
         likeNumber.textContent = post.data().likes.length;
         likeNumber.setAttribute("class", "like-number");
 
-        const deleteComent = document.createElement("img", "delet-coment");
-        deleteComent.setAttribute("class", "delete");
-        deleteComent.setAttribute("src", "./Resourses/icons/delete_post.png");
 
-        let deleteModalSection = document.createElement("div");
-        deleteModalSection.setAttribute("id", "mcd-" + post.id);
+        postInteractions.append(like, likeNumber);
 
-        deleteComent.addEventListener("click", () => {
+        const updatePost = document.createElement("section");
+        updatePost.setAttribute("id", "update_show_post");
+        updatePost.setAttribute("class", "update_post");
+        // updatePost.appendChild(updatePosteSection(post));
+
+        const deletePost = document.createElement("img");
+        deletePost.setAttribute("class", "delete_post");
+        deletePost.setAttribute("src", "./Resourses/icons/delete_post.png");
+        deletePost.addEventListener("click", () => {
           deleteModalSection.appendChild(BuildDeleteModal(post));
         });
 
         const btnEditPost = document.createElement("img", "edit-coment");
-        btnEditPost.setAttribute("class", "edit");
+        btnEditPost.setAttribute("class", "edit_post");
         btnEditPost.setAttribute("src", "./Resourses/icons/edit_post.png");
         btnEditPost.setAttribute("data-id", post.id);
-
-        let editModalSection = document.createElement("div");
-        editModalSection.setAttribute("id", "mc-" + post.id);
-
         btnEditPost.addEventListener("click", () => {
           editModalSection.appendChild(BuildEditModal(post));
         });
 
-        childSection.append(imgUser, headerPost, postDescription, interactions);
-        headerPost.append(nameDescription, postDate);
-        interactions.append(like, likeNumber, deleteComent, btnEditPost);
-        sectionPost.append(childSection, editModalSection, deleteModalSection);
+        updatePost.append(deletePost,btnEditPost );
+
+        updateWrapper.append(postInteractions, updatePost);
+
+        const deleteModalSection = document.createElement("div");
+        deleteModalSection.setAttribute("id", "mcd-" + post.id);
+
+        const editModalSection = document.createElement("div");
+        editModalSection.setAttribute("id", "mc-" + post.id);
+
+        ContentPost.append(PostUserData, postText, updateWrapper, deleteModalSection, editModalSection );
       }
     });
   });
-  return sectionPost;
+  return ContentPost;
 };
 
 function getDate(date) {
@@ -181,12 +200,6 @@ const BuildDeleteModal = (post) => {
   editImput.setAttribute("class", "input_edit_Post");
   editImput.textContent = "Este post será eliminado";
 
-  // const btnSaveChanges = document.createElement("button");
-  // btnSaveChanges.setAttribute("class", "btn_saveChanges");
-  // btnSaveChanges.textContent = "Cancelar";
-  // btnSaveChanges.addEventListener("click", () => {
-  //   editPost(postId, editImput.value, post.data().date);
-  // });
   const btnDelete = document.createElement("button");
   btnDelete.setAttribute("class", "btn_saveChanges");
   btnDelete.textContent = "Confirmar";
@@ -201,5 +214,18 @@ const BuildDeleteModal = (post) => {
 
   return deleteModalContainer;
 };
+
+// const updatePosteSection  = (post) => {
+//   const auth = getAuth();
+//   const user = auth.currentUser;
+
+//   if ( user.email == post.data().email){
+
+//     const updatePost = document.getElementById ("update_show_post");
+//     updatePost.classList.remove('update_post');
+//     updatePost.classList.add('show_update_wrapper');
+//   };
+// };
+
 
 export default ReadPost;
